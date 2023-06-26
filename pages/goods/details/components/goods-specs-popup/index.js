@@ -106,7 +106,6 @@ Component({
     },
 
     checkSkuStockQuantity(specValueId, skuList) {
-      let hasStock = false;
       const array = [];
       skuList.forEach((item) => {
         (item.specInfo || []).forEach((subItem) => {
@@ -116,12 +115,10 @@ Component({
               subArray.push(specItem.specValueId);
             });
             array.push(subArray);
-            hasStock = true;
           }
         });
       });
       return {
-        hasStock,
         specsArray: array,
       };
     },
@@ -243,17 +240,6 @@ Component({
       if (!isStock) return;
       const { id } = e.currentTarget.dataset;
       const specId = e.currentTarget.dataset.specid;
-      const hasStock = e.currentTarget.dataset.hasstock;
-      if (!hasStock) {
-        Toast({
-          context: this,
-          selector: '#t-toast',
-          message: '该规格已售罄',
-          icon: '',
-          duration: 1000,
-        });
-        return;
-      }
 
       let { selectedSku } = this;
       const { specList } = this.properties;

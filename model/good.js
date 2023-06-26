@@ -5,7 +5,7 @@ const defaultDesc = [`${imgPrefix}/goods/details-1.png`];
 
 const allGoods = [
   {
-    saasId: '88888888',
+
     storeId: '1000',
     spuId: '0',
     title: '白色短袖连衣裙荷叶边裙摆宽松韩版休闲纯白清爽优雅连衣裙',
@@ -15,14 +15,12 @@ const allGoods = [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09b.png',
     ],
     video: null,
-    available: 1,
     minSalePrice: 29800,
-    minLinePrice: 29800,
     maxSalePrice: 29800,
     maxLinePrice: 40000,
     spuStockQuantity: 510,
     soldNum: 1020,
-    isPutOnSale: 1,
+
     categoryIds: [
       '127880527393854975',
       '127880527393854976',
@@ -36,7 +34,7 @@ const allGoods = [
           {
             specValueId: '10012',
             specId: null,
-            saasId: null,
+
             specValue: '米色荷叶边',
             image: null,
           },
@@ -49,21 +47,21 @@ const allGoods = [
           {
             specValueId: '11014',
             specId: null,
-            saasId: null,
+
             specValue: 'S',
             image: null,
           },
           {
             specValueId: '10014',
             specId: null,
-            saasId: null,
+
             specValue: 'M',
             image: null,
           },
           {
             specValueId: '11013',
             specId: null,
-            saasId: null,
+
             specValue: 'L',
             image: null,
           },
@@ -77,13 +75,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '10011',
-            specTitle: null,
+
             specValueId: '10012',
             specValue: null,
           },
           {
             specId: '10013',
-            specTitle: null,
+
             specValueId: '11014',
             specValue: null,
           },
@@ -97,9 +95,6 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: { value: null, unit: 'KG' },
-        volume: null,
-        profitPrice: null,
       },
       {
         skuId: '135676632',
@@ -107,13 +102,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '10011',
-            specTitle: null,
+
             specValueId: '10012',
             specValue: null,
           },
           {
             specId: '10013',
-            specTitle: null,
+
             specValueId: '11013',
             specValue: null,
           },
@@ -127,9 +122,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: { value: null, unit: 'KG' },
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135681631',
@@ -137,13 +132,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '10011',
-            specTitle: null,
+
             specValueId: '10012',
             specValue: null,
           },
           {
             specId: '10013',
-            specTitle: null,
+
             specValueId: '10014',
             specValue: null,
           },
@@ -157,9 +152,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: { value: null, unit: 'KG' },
-        volume: null,
-        profitPrice: null,
+
+
+
       },
     ],
     spuTagList: [{ id: '13001', title: '限时抢购', image: null }],
@@ -172,25 +167,21 @@ const allGoods = [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09c.png',
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09d.png',
     ],
-    etitle: '',
   },
   {
-    saasId: '88888888',
+
     storeId: '1000',
     spuId: '135686633',
     title: '纯色纯棉休闲圆领短袖T恤纯白亲肤厚柔软细腻面料纯白短袖套头T恤',
     primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
     minSalePrice: '25900',
-    minLinePrice: '31900',
     maxSalePrice: '26900',
     maxLinePrice: '31900',
-    isSoldOut: false,
     images: [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08a.png',
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08a1.png',
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
     ],
-    groupIdList: ['15029', '14023'],
     spuTagList: [
       {
         id: null,
@@ -205,13 +196,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '10000',
-            specTitle: null,
+
             specValueId: '10001',
             specValue: '白色',
           },
           {
             specId: '10002',
-            specTitle: null,
+
             specValueId: '10003',
             specValue: 'M',
           },
@@ -233,9 +224,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135691631',
@@ -243,13 +234,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '10000',
-            specTitle: null,
+
             specValueId: '10001',
             specValue: '白色',
           },
           {
             specId: '10002',
-            specTitle: null,
+
             specValueId: '11003',
             specValue: 'S',
           },
@@ -271,9 +262,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135691632',
@@ -281,13 +272,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '10000',
-            specTitle: null,
+
             specValueId: '10001',
             specValue: '白色',
           },
           {
             specId: '10002',
-            specTitle: null,
+
             specValueId: '11002',
             specValue: 'L',
           },
@@ -309,15 +300,15 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
     ],
-    isAvailable: 1,
+
     spuStockQuantity: 371,
     soldNum: 1032,
-    isPutOnSale: 1,
+
     specList: [
       {
         specId: '10000',
@@ -326,7 +317,7 @@ const allGoods = [
           {
             specValueId: '10001',
             specId: '10000',
-            saasId: '88888888',
+
             specValue: '白色',
             image: '',
           },
@@ -339,37 +330,35 @@ const allGoods = [
           {
             specValueId: '11003',
             specId: '10002',
-            saasId: '88888888',
+
             specValue: 'S',
             image: '',
           },
           {
             specValueId: '10003',
             specId: '10002',
-            saasId: '88888888',
+
             specValue: 'M',
             image: '',
           },
           {
             specValueId: '11002',
             specId: '10002',
-            saasId: '88888888',
+
             specValue: 'L',
             image: '',
           },
         ],
       },
     ],
-    promotionList: null,
-    minProfitPrice: null,
-    etitle: '',
+
     desc: [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08c.png',
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08d.png',
     ],
   },
   {
-    saasId: '88888888',
+
     storeId: '1000',
     spuId: '135691628',
     title: '运动连帽拉链卫衣休闲开衫长袖多色运动细绒面料运动上衣',
@@ -381,11 +370,8 @@ const allGoods = [
     ],
     primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17a.png',
     minSalePrice: '25900',
-    minLinePrice: '39900',
     maxSalePrice: '25900',
     maxLinePrice: '39900',
-    isSoldOut: true,
-    groupIdList: ['15029', '14023'],
     spuTagList: [
       {
         id: null,
@@ -400,13 +386,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '127904180600844800',
-            specTitle: null,
+
             specValueId: '127904180768617216',
             specValue: '军绿色',
           },
           {
             specId: '127904861604820480',
-            specTitle: null,
+
             specValueId: '127904862494014208',
             specValue: 'XS',
           },
@@ -428,9 +414,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135686632',
@@ -438,13 +424,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '127904180600844800',
-            specTitle: null,
+
             specValueId: '127904180768617216',
             specValue: '军绿色',
           },
           {
             specId: '127904861604820480',
-            specTitle: null,
+
             specValueId: '127904862007474176',
             specValue: 'M',
           },
@@ -466,9 +452,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135691629',
@@ -476,13 +462,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '127904180600844800',
-            specTitle: null,
+
             specValueId: '127904180768617216',
             specValue: '军绿色',
           },
           {
             specId: '127904861604820480',
-            specTitle: null,
+
             specValueId: '127904862175246592',
             specValue: 'S',
           },
@@ -504,9 +490,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135691630',
@@ -514,13 +500,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '127904180600844800',
-            specTitle: null,
+
             specValueId: '127904180768617216',
             specValue: '军绿色',
           },
           {
             specId: '127904861604820480',
-            specTitle: null,
+
             specValueId: '127904861755815680',
             specValue: 'L',
           },
@@ -542,15 +528,15 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
     ],
-    isAvailable: 1,
+
     spuStockQuantity: 0,
     soldNum: 1022,
-    isPutOnSale: 1,
+
     specList: [
       {
         specId: '127904180600844800',
@@ -559,7 +545,7 @@ const allGoods = [
           {
             specValueId: '127904180768617216',
             specId: '127904180600844800',
-            saasId: '88888888',
+
             specValue: '军绿色',
             image: '',
           },
@@ -572,44 +558,43 @@ const allGoods = [
           {
             specValueId: '127904862494014208',
             specId: '127904861604820480',
-            saasId: '88888888',
+
             specValue: 'XS',
             image: '',
           },
           {
             specValueId: '127904862175246592',
             specId: '127904861604820480',
-            saasId: '88888888',
+
             specValue: 'S',
             image: '',
           },
           {
             specValueId: '127904862007474176',
             specId: '127904861604820480',
-            saasId: '88888888',
+
             specValue: 'M',
             image: '',
           },
           {
             specValueId: '127904861755815680',
             specId: '127904861604820480',
-            saasId: '88888888',
+
             specValue: 'L',
             image: '',
           },
         ],
       },
     ],
-    promotionList: null,
-    minProfitPrice: null,
-    etitle: '',
+
+
     desc: [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17c.png',
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17d.png',
     ],
   },
   {
-    saasId: '88888888',
+
     storeId: '1000',
     spuId: '135686623',
     title: '腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率',
@@ -619,24 +604,8 @@ const allGoods = [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3b.png',
     ],
     minSalePrice: '9900',
-    minLinePrice: '16900',
     maxSalePrice: '10900',
     maxLinePrice: '16900',
-    isSoldOut: false,
-    groupIdList: [
-      '15029',
-      '15030',
-      '14023',
-      '127886731843219200',
-      '127886732665303040',
-      '127886733101511680',
-      '127886733923595520',
-      '14025',
-      '127886726071855616',
-      '14026',
-      '127886727481142784',
-      '127886731440566784',
-    ],
     spuTagList: [
       {
         id: null,
@@ -651,13 +620,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '10000',
-            specTitle: null,
+
             specValueId: '10001',
             specValue: '经典白',
           },
           {
             specId: '10002',
-            specTitle: null,
+
             specValueId: '10003',
             specValue: '节能套装',
           },
@@ -679,9 +648,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135686625',
@@ -689,13 +658,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '10000',
-            specTitle: null,
+
             specValueId: '11000',
             specValue: '贵族青',
           },
           {
             specId: '10002',
-            specTitle: null,
+
             specValueId: '11003',
             specValue: '经典套装',
           },
@@ -717,9 +686,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135686626',
@@ -727,13 +696,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '10000',
-            specTitle: null,
+
             specValueId: '11000',
             specValue: '经典白',
           },
           {
             specId: '10002',
-            specTitle: null,
+
             specValueId: '11002',
             specValue: '尊享礼盒装',
           },
@@ -755,9 +724,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135691622',
@@ -765,13 +734,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '10000',
-            specTitle: null,
+
             specValueId: '10001',
             specValue: '经典白',
           },
           {
             specId: '10002',
-            specTitle: null,
+
             specValueId: '11003',
             specValue: 'S',
           },
@@ -793,9 +762,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135691623',
@@ -803,13 +772,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '10000',
-            specTitle: null,
+
             specValueId: '10001',
             specValue: '经典白',
           },
           {
             specId: '10002',
-            specTitle: null,
+
             specValueId: '11002',
             specValue: '尊享礼盒装',
           },
@@ -831,9 +800,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135691624',
@@ -841,13 +810,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '10000',
-            specTitle: null,
+
             specValueId: '11000',
             specValue: '贵族青',
           },
           {
             specId: '10002',
-            specTitle: null,
+
             specValueId: '10003',
             specValue: '节能套装',
           },
@@ -869,15 +838,15 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
     ],
-    isAvailable: 1,
+
     spuStockQuantity: 598,
     soldNum: 102,
-    isPutOnSale: 1,
+
     desc: [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3c.png',
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3d.png',
@@ -890,14 +859,14 @@ const allGoods = [
           {
             specValueId: '10001',
             specId: '10000',
-            saasId: '88888888',
+
             specValue: '经典白',
             image: '',
           },
           {
             specValueId: '11000',
             specId: '10000',
-            saasId: '88888888',
+
             specValue: '贵族青',
             image: '',
           },
@@ -910,33 +879,32 @@ const allGoods = [
           {
             specValueId: '11003',
             specId: '10002',
-            saasId: '88888888',
+
             specValue: '经典套装',
             image: '',
           },
           {
             specValueId: '10003',
             specId: '10002',
-            saasId: '88888888',
+
             specValue: '节能套装',
             image: '',
           },
           {
             specValueId: '11002',
             specId: '10002',
-            saasId: '88888888',
+
             specValue: '尊享礼盒装',
             image: '',
           },
         ],
       },
     ],
-    promotionList: null,
-    minProfitPrice: null,
-    etitle: '',
+
+
   },
   {
-    saasId: '88888888',
+
     storeId: '1000',
     spuId: '135681628',
     title: '带帽午休毯虎年款多功能加厚加大加绒简约多功能午休毯连帽披肩',
@@ -947,28 +915,8 @@ const allGoods = [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3b.png',
     ],
     minSalePrice: '29900',
-    minLinePrice: '39900',
     maxSalePrice: '39900',
     maxLinePrice: '39900',
-    isSoldOut: false,
-    groupIdList: [
-      '14023',
-      '127886732245873408',
-      '127886733487386880',
-      '14025',
-      '127886726071855616',
-      '14026',
-      '127886728420666112',
-      '127886728957538048',
-      '127886729779621888',
-      '127886730165497088',
-      '127886730652037376',
-      '127886731037912576',
-      '127886731440566784',
-      '127886729360190464',
-      '15029',
-      '15030',
-    ],
     spuTagList: [
       {
         id: null,
@@ -983,13 +931,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '127904180600844800',
-            specTitle: null,
+
             specValueId: '127904181322265856',
             specValue: '浅灰色',
           },
           {
             specId: '127904861604820480',
-            specTitle: null,
+
             specValueId: '127904862175246592',
             specValue: 'S',
           },
@@ -1011,9 +959,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135676630',
@@ -1021,13 +969,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '127904180600844800',
-            specTitle: null,
+
             specValueId: '127904181322265856',
             specValue: '浅灰色',
           },
           {
             specId: '127904861604820480',
-            specTitle: null,
+
             specValueId: '127904861755815680',
             specValue: 'L',
           },
@@ -1049,9 +997,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135681629',
@@ -1059,13 +1007,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '127904180600844800',
-            specTitle: null,
+
             specValueId: '127904181322265856',
             specValue: '浅灰色',
           },
           {
             specId: '127904861604820480',
-            specTitle: null,
+
             specValueId: '127904862007474176',
             specValue: 'M',
           },
@@ -1087,19 +1035,19 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
     ],
     desc: [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3c.png',
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3d.png',
     ],
-    isAvailable: 1,
+
     spuStockQuantity: 321,
     soldNum: 102,
-    isPutOnSale: 1,
+
     specList: [
       {
         specId: '127904180600844800',
@@ -1108,7 +1056,7 @@ const allGoods = [
           {
             specValueId: '127904181322265856',
             specId: '127904180600844800',
-            saasId: '88888888',
+
             specValue: '浅灰色',
             image: '',
           },
@@ -1121,33 +1069,32 @@ const allGoods = [
           {
             specValueId: '127904862175246592',
             specId: '127904861604820480',
-            saasId: '88888888',
+
             specValue: 'S',
             image: '',
           },
           {
             specValueId: '127904862007474176',
             specId: '127904861604820480',
-            saasId: '88888888',
+
             specValue: 'M',
             image: '',
           },
           {
             specValueId: '127904861755815680',
             specId: '127904861604820480',
-            saasId: '88888888',
+
             specValue: 'L',
             image: '',
           },
         ],
       },
     ],
-    promotionList: null,
-    minProfitPrice: null,
-    etitle: '',
+
+
   },
   {
-    saasId: '88888888',
+
     storeId: '1000',
     spuId: '135681626',
     title: '迷你便携高颜值蓝牙无线耳机立体声只能触控式操作简约立体声耳机',
@@ -1158,24 +1105,8 @@ const allGoods = [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2b.png',
     ],
     minSalePrice: '29000',
-    minLinePrice: '40000',
     maxSalePrice: '39000',
     maxLinePrice: '40000',
-    isSoldOut: false,
-    groupIdList: [
-      '15029',
-      '15030',
-      '14023',
-      '127886732245873408',
-      '127886733487386880',
-      '14025',
-      '127886726071855616',
-      '14026',
-      '127886728420666112',
-      '127886728957538048',
-      '127886730652037376',
-      '127886731037912576',
-    ],
     spuTagList: [
       {
         id: null,
@@ -1190,13 +1121,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '10006',
-            specTitle: null,
+
             specValueId: '10007',
             specValue: '黑色',
           },
           {
             specId: '11007',
-            specTitle: null,
+
             specValueId: '10009',
             specValue: '简约款',
           },
@@ -1218,9 +1149,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135676628',
@@ -1228,13 +1159,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '10006',
-            specTitle: null,
+
             specValueId: '10007',
             specValue: '黑色',
           },
           {
             specId: '11007',
-            specTitle: null,
+
             specValueId: '10008',
             specValue: '礼盒装',
           },
@@ -1256,9 +1187,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135681627',
@@ -1266,13 +1197,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '10006',
-            specTitle: null,
+
             specValueId: '10007',
             specValue: '黑色',
           },
           {
             specId: '11007',
-            specTitle: null,
+
             specValueId: '11008',
             specValue: '带充电线简约款',
           },
@@ -1294,19 +1225,19 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
     ],
     desc: [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2c.png',
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2d.png',
     ],
-    isAvailable: 1,
+
     spuStockQuantity: 366,
     soldNum: 102,
-    isPutOnSale: 1,
+
     specList: [
       {
         specId: '10006',
@@ -1315,7 +1246,7 @@ const allGoods = [
           {
             specValueId: '10007',
             specId: '10006',
-            saasId: '88888888',
+
             specValue: '黑色',
             image: '',
           },
@@ -1328,33 +1259,32 @@ const allGoods = [
           {
             specValueId: '10009',
             specId: '11007',
-            saasId: '88888888',
+
             specValue: '简约款',
             image: '',
           },
           {
             specValueId: '11008',
             specId: '11007',
-            saasId: '88888888',
+
             specValue: '带充电线简约款',
             image: '',
           },
           {
             specValueId: '10008',
             specId: '11007',
-            saasId: '88888888',
+
             specValue: '礼盒款',
             image: '',
           },
         ],
       },
     ],
-    promotionList: null,
-    minProfitPrice: null,
-    etitle: '',
+
+
   },
   {
-    saasId: '88888888',
+
     storeId: '1000',
     spuId: '135681622',
     title: '简约餐盘耐热家用盘子菜盘套装多颜色简约餐盘耐热家用盘子',
@@ -1365,31 +1295,11 @@ const allGoods = [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-1b.png',
     ],
     minSalePrice: '129900',
-    minLinePrice: '218000',
     maxSalePrice: '139900',
     maxLinePrice: '218000',
-    isSoldOut: false,
     desc: [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-1c.png',
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-1d.png',
-    ],
-    groupIdList: [
-      '14023',
-      '127886732665303040',
-      '127886733101511680',
-      '127886733923595520',
-      '14025',
-      '127886726071855616',
-      '14026',
-      '127886728957538048',
-      '127886727481142784',
-      '127886729779621888',
-      '127886730165497088',
-      '127886730652037376',
-      '127886731440566784',
-      '127886729360190464',
-      '15029',
-      '15030',
     ],
     spuTagList: [
       {
@@ -1405,13 +1315,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '127904180600844800',
-            specTitle: null,
+
             specValueId: '127904181506815488',
             specValue: '奶黄色',
           },
           {
             specId: '127904861604820480',
-            specTitle: null,
+
             specValueId: '127904862175246592',
             specValue: '单盘',
           },
@@ -1433,9 +1343,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135676624',
@@ -1443,13 +1353,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '127904180600844800',
-            specTitle: null,
+
             specValueId: '127904181506815488',
             specValue: '奶黄色',
           },
           {
             specId: '127904861604820480',
-            specTitle: null,
+
             specValueId: '127904861755815680',
             specValue: '盘+碗',
           },
@@ -1471,9 +1381,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135681623',
@@ -1481,13 +1391,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '127904180600844800',
-            specTitle: null,
+
             specValueId: '127904181506815488',
             specValue: '奶黄色',
           },
           {
             specId: '127904861604820480',
-            specTitle: null,
+
             specValueId: '127904862007474176',
             specValue: '单盘',
           },
@@ -1509,15 +1419,15 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: null,
-        volume: null,
-        profitPrice: null,
+
+
+
       },
     ],
-    isAvailable: 1,
+
     spuStockQuantity: 357,
     soldNum: 23102,
-    isPutOnSale: 1,
+
     specList: [
       {
         specId: '127904180600844800',
@@ -1526,7 +1436,7 @@ const allGoods = [
           {
             specValueId: '127904181506815488',
             specId: '127904180600844800',
-            saasId: '88888888',
+
             specValue: '奶黄色',
             image: '',
           },
@@ -1539,33 +1449,32 @@ const allGoods = [
           {
             specValueId: '127904862175246592',
             specId: '127904861604820480',
-            saasId: '88888888',
+
             specValue: '单盘',
             image: '',
           },
           {
             specValueId: '127904862007474176',
             specId: '127904861604820480',
-            saasId: '88888888',
+
             specValue: '单碗',
             image: '',
           },
           {
             specValueId: '127904861755815680',
             specId: '127904861604820480',
-            saasId: '88888888',
+
             specValue: '盘+碗',
             image: '',
           },
         ],
       },
     ],
-    promotionList: null,
-    minProfitPrice: null,
-    etitle: '',
+
+
   },
   {
-    saasId: '88888888',
+
     storeId: '1000',
     spuId: '135681624',
     title: '不锈钢刀叉勺套装家用西餐餐具ins简约耐用不锈钢金色银色可选',
@@ -1576,14 +1485,12 @@ const allGoods = [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2b.png',
     ],
     video: null,
-    available: 1,
     minSalePrice: '19900',
-    minLinePrice: '19900',
     maxSalePrice: '29900',
     maxLinePrice: '29900',
     spuStockQuantity: 0,
     soldNum: 102,
-    isPutOnSale: 1,
+
     categoryIds: [
       '127880527393854975',
       '127880527393854977',
@@ -1597,7 +1504,7 @@ const allGoods = [
           {
             specValueId: '127904180768617216',
             specId: null,
-            saasId: null,
+
             specValue: '奶黄色',
             image: null,
           },
@@ -1610,21 +1517,21 @@ const allGoods = [
           {
             specValueId: '127904862175246592',
             specId: null,
-            saasId: null,
+
             specValue: '三件套',
             image: null,
           },
           {
             specValueId: '127904862007474176',
             specId: null,
-            saasId: null,
+
             specValue: '六件套',
             image: null,
           },
           {
             specValueId: '127904861755815680',
             specId: null,
-            saasId: null,
+
             specValue: '八件套',
             image: null,
           },
@@ -1638,13 +1545,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '127904180600844800',
-            specTitle: null,
+
             specValueId: '127904180768617216',
             specValue: null,
           },
           {
             specId: '127904861604820480',
-            specTitle: null,
+
             specValueId: '127904862175246592',
             specValue: null,
           },
@@ -1658,9 +1565,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: { value: null, unit: 'KG' },
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135676626',
@@ -1668,13 +1575,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '127904180600844800',
-            specTitle: null,
+
             specValueId: '127904180768617216',
             specValue: null,
           },
           {
             specId: '127904861604820480',
-            specTitle: null,
+
             specValueId: '127904861755815680',
             specValue: null,
           },
@@ -1688,9 +1595,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: { value: null, unit: 'KG' },
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135681625',
@@ -1698,13 +1605,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '127904180600844800',
-            specTitle: null,
+
             specValueId: '127904180768617216',
             specValue: null,
           },
           {
             specId: '127904861604820480',
-            specTitle: null,
+
             specValueId: '127904862007474176',
             specValue: null,
           },
@@ -1718,9 +1625,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: { value: null, unit: 'KG' },
-        volume: null,
-        profitPrice: null,
+
+
+
       },
     ],
     spuTagList: [{ id: '19011', title: '2020秋季新款', image: null }],
@@ -1729,24 +1636,21 @@ const allGoods = [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2c.png',
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2d.png',
     ],
-    etitle: '',
   },
   {
-    saasId: '88888888',
+
     storeId: '1000',
     spuId: '135681628',
     title: '带帽午休毯虎年款多功能加厚加大加绒简约多功能午休毯连帽披肩',
     primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png',
     images: ['https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png'],
     video: null,
-    available: 1,
     minSalePrice: '29900',
-    minLinePrice: '29900',
     maxSalePrice: '39900',
     maxLinePrice: '39900',
     spuStockQuantity: 321,
     soldNum: 103,
-    isPutOnSale: 1,
+
     categoryIds: [
       '127880527393854975',
       '127880527393854977',
@@ -1760,7 +1664,7 @@ const allGoods = [
           {
             specValueId: '127904181322265856',
             specId: null,
-            saasId: null,
+
             specValue: '浅灰色',
             image: null,
           },
@@ -1773,21 +1677,21 @@ const allGoods = [
           {
             specValueId: '127904862175246592',
             specId: null,
-            saasId: null,
+
             specValue: 'S',
             image: null,
           },
           {
             specValueId: '127904862007474176',
             specId: null,
-            saasId: null,
+
             specValue: 'M',
             image: null,
           },
           {
             specValueId: '127904861755815680',
             specId: null,
-            saasId: null,
+
             specValue: 'L',
             image: null,
           },
@@ -1801,13 +1705,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '127904180600844800',
-            specTitle: null,
+
             specValueId: '127904181322265856',
             specValue: null,
           },
           {
             specId: '127904861604820480',
-            specTitle: null,
+
             specValueId: '127904862175246592',
             specValue: null,
           },
@@ -1821,9 +1725,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: { value: null, unit: 'KG' },
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135676630',
@@ -1831,13 +1735,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '127904180600844800',
-            specTitle: null,
+
             specValueId: '127904181322265856',
             specValue: null,
           },
           {
             specId: '127904861604820480',
-            specTitle: null,
+
             specValueId: '127904861755815680',
             specValue: null,
           },
@@ -1851,9 +1755,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: { value: null, unit: 'KG' },
-        volume: null,
-        profitPrice: null,
+
+
+
       },
       {
         skuId: '135681629',
@@ -1861,13 +1765,13 @@ const allGoods = [
         specInfo: [
           {
             specId: '127904180600844800',
-            specTitle: null,
+
             specValueId: '127904181322265856',
             specValue: null,
           },
           {
             specId: '127904861604820480',
-            specTitle: null,
+
             specValueId: '127904862007474176',
             specValue: null,
           },
@@ -1881,9 +1785,9 @@ const allGoods = [
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
-        weight: { value: null, unit: 'KG' },
-        volume: null,
-        profitPrice: null,
+
+
+
       },
     ],
     spuTagList: [{ id: '13001', title: '限时抢购', image: null }],
@@ -1892,15 +1796,13 @@ const allGoods = [
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3c.png',
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3d.png',
     ],
-    etitle: '',
   },
 ];
 
 /**
  * @param {string} id
- * @param {number} [available] 库存, 默认1
  */
-export function genGood(id, available = 1) {
+export function genGood(id) {
   const specID = ['135681624', '135681628'];
   if (specID.indexOf(id) > -1) {
     return allGoods.filter((good) => good.spuId === id)[0];
@@ -1909,7 +1811,6 @@ export function genGood(id, available = 1) {
   return {
     ...item,
     spuId: `${id}`,
-    available: available,
     desc: item?.desc || defaultDesc,
     images: item?.images || [item?.primaryImage],
   };

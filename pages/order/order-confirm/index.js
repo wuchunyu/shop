@@ -110,7 +110,7 @@ Page({
       userAddressReq,
       couponList,
     };
-    
+
     postUrl('/fetchSettleDetail').then(
       (res) => {
         this.setData({
@@ -189,8 +189,6 @@ Page({
       reminderStock,
       quantity,
       storeId,
-      uid,
-      saasId,
       spuId,
       goodsName,
       skuId,
@@ -201,8 +199,6 @@ Page({
     return {
       quantity: resQuantity,
       storeId,
-      uid,
-      saasId,
       spuId,
       goodsName,
       skuId,
@@ -234,7 +230,6 @@ Page({
             specs: item.skuSpecLst.map((s) => s.specValue), // 规格列表 string[]
             price: item.tagPrice || item.settlePrice || '0', // 优先取限时活动价
             settlePrice: item.settlePrice,
-            titlePrefixTags: item.tagText ? [{ text: item.tagText }] : [],
             num: item.quantity,
             skuId: item.skuId,
             spuId: item.spuId,
@@ -267,7 +262,7 @@ Page({
           userAddressReq: { ...address, checked: true },
         });
       })
-      .catch(() => {});
+      .catch(() => { });
 
     const { userAddressReq } = this; // 收货地址
 

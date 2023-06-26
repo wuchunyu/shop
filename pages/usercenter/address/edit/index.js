@@ -23,17 +23,13 @@ Page({
       labelIndex: null,
       addressId: '',
       addressTag: '',
-      cityCode: '',
       cityName: '',
-      countryCode: '',
       countryName: '',
       detailAddress: '',
-      districtCode: '',
       districtName: '',
       isDefault: false,
       name: '',
       phone: '',
-      provinceCode: '',
       provinceName: '',
       isEdit: false,
       isOrderDetail: false,
@@ -70,15 +66,15 @@ Page({
   },
   getAddressDetail(id) {
     getUrl('/fetchDeliveryAddress').
-    then((data) => {
-      this.setData({ locationState: data.data }, () => {
-        const { isLegal, tips } = this.onVerifyInputLegal();
-        this.setData({
-          submitActive: isLegal,
+      then((data) => {
+        this.setData({ locationState: data.data }, () => {
+          const { isLegal, tips } = this.onVerifyInputLegal();
+          this.setData({
+            submitActive: isLegal,
+          });
+          this.privateData.verifyTips = tips;
         });
-        this.privateData.verifyTips = tips;
       });
-    });
   },
   onInputValue(e) {
     const { item } = e.currentTarget.dataset;
@@ -86,11 +82,8 @@ Page({
       const { selectedOptions = [] } = e.detail;
       this.setData(
         {
-          'locationState.provinceCode': selectedOptions[0].value,
           'locationState.provinceName': selectedOptions[0].label,
           'locationState.cityName': selectedOptions[1].label,
-          'locationState.cityCode': selectedOptions[1].value,
-          'locationState.districtCode': selectedOptions[2].value,
           'locationState.districtName': selectedOptions[2].label,
           areaPickerVisible: false,
         },
@@ -270,8 +263,6 @@ Page({
             this.triggerEvent('addressParse', {
               address: res.address,
               name: res.name,
-              latitude: res.latitude,
-              longitude: res.longitude,
             });
           } else {
             Toast({
@@ -315,26 +306,17 @@ Page({
     this.hasSava = true;
 
     resolveAddress({
-      saasId: '88888888',
-      uid: `88888888205500`,
-      authToken: null,
       id: locationState.addressId,
       addressId: locationState.addressId,
       phone: locationState.phone,
       name: locationState.name,
       countryName: locationState.countryName,
-      countryCode: locationState.countryCode,
       provinceName: locationState.provinceName,
-      provinceCode: locationState.provinceCode,
       cityName: locationState.cityName,
-      cityCode: locationState.cityCode,
       districtName: locationState.districtName,
-      districtCode: locationState.districtCode,
       detailAddress: locationState.detailAddress,
       isDefault: locationState.isDefault === 1 ? 1 : 0,
       addressTag: locationState.addressTag,
-      latitude: locationState.latitude,
-      longitude: locationState.longitude,
       storeId: null,
     });
 

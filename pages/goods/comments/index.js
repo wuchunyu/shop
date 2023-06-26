@@ -29,8 +29,7 @@ Page({
       commentCount: '0',
       goodCount: '0',
       middleCount: '0',
-      hasImageCount: '0',
-      uidCount: '0',
+      hasImageCount: '0'
     },
   },
   onLoad(options) {
@@ -62,7 +61,7 @@ Page({
       //     title: '查询失败，请稍候重试',
       //   });
       // }
-    } catch (error) {}
+    } catch (error) { }
   },
   generalQueryData(reset) {
     const {
@@ -154,7 +153,7 @@ Page({
           title: '查询失败，请稍候重试',
         });
       }
-    } catch (error) {}
+    } catch (error) { }
     this.setData({
       hasLoaded: true,
     });

@@ -6,7 +6,7 @@ Page({
       avatarUrl: '',
       nickName: '',
       gender: 0,
-      phoneNumber: '',
+      phone: '',
     },
     showUnbindConfirm: false,
     pickerOptions: [

@@ -13,7 +13,7 @@ import {
 
 export function getSearchResult() {
   return {
-    saasId: null,
+
     storeId: null,
     pageNum: 1,
     pageSize: 30,

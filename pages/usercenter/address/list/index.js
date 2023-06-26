@@ -84,7 +84,7 @@ Page({
         this.setData({
           [`addressList[${len}]`]: {
             name: res.userName,
-            phoneNumber: res.telNumber,
+            phone: res.telNumber,
             address: `${res.provinceName}${res.cityName}${res.countryName}${res.detailInfo}`,
             isDefault: 0,
             tag: '微信地址',

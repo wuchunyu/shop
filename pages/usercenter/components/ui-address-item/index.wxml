@@ -1,5 +1,5 @@
 <wxs module="phoneReg">
-  var toHide = function(array) { var mphone = array.substring(0, 3) + '****' + array.substring(7); return mphone; }
+  var toHide = function (array) { var mphone = array.substring(0, 3) + '****' + array.substring(7); return mphone; }
   module.exports.toHide = toHide;
 </wxs>
 <view class="address-item-wrapper item-wrapper-class">
@@ -11,7 +11,7 @@
       <view class="address-content">
         <view class="title title-class">
           <text class="text-style">{{address.name}}</text>
-          <text>{{phoneReg.toHide(address.phoneNumber || '')}}</text>
+          <text>{{phoneReg.toHide(address.phone || '')}}</text>
         </view>
         <view class="label-adds">
           <text class="adds address-info-class">

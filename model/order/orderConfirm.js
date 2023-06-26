@@ -19,12 +19,10 @@ export const transformGoodsDataToConfirmData = (goodsDataList) => {
       settlePrice: goodsData.price,
       oriPrice: goodsData.originPrice,
       tagPrice: null,
-      tagText: null,
+
       skuSpecLst: goodsData.specInfo,
       promotionIds: null,
-      weight: 0.0,
       unit: 'KG',
-      volume: null,
       masterGoodsType: 0,
       viceGoodsType: 0,
       roomId: goodsData.roomId,
@@ -121,15 +119,15 @@ export function genSettleDetail(params) {
   const totalDiscountPrice =
     discountPrice.length > 0
       ? discountPrice.reduce((pre, cur) => {
-          if (cur.type === 1) {
-            return pre + cur.value;
-          }
-          if (cur.type === 2) {
-            return pre + (Number(totalPrice) * cur.value) / 10;
-          }
+        if (cur.type === 1) {
+          return pre + cur.value;
+        }
+        if (cur.type === 2) {
+          return pre + (Number(totalPrice) * cur.value) / 10;
+        }
 
-          return pre + cur;
-        }, 0)
+        return pre + cur;
+      }, 0)
       : 0;
 
   resp.data.totalSalePrice = totalPrice;

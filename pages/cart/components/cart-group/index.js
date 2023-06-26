@@ -1,8 +1,5 @@
 import Toast from 'tdesign-miniprogram/toast/index';
 
-const shortageImg =
-  'https://cdn-we-retail.ym.tencent.com/miniapp/cart/shortage.png';
-
 Component({
   isSpecsTap: false, // 标记本次点击事件是否因为点击specs触发（由于底层goods-card组件没有catch specs点击事件，只能在此处加状态来避免点击specs时触发跳转商品详情）
   externalClasses: ['wr-class'],
@@ -10,6 +7,7 @@ Component({
     storeGoods: {
       type: Array,
       observer(storeGoods) {
+        // console.log(activity.goodsPromotionList);
         for (const store of storeGoods) {
           for (const activity of store.promotionGoodsList) {
             for (const goods of activity.goodsPromotionList) {
@@ -29,7 +27,6 @@ Component({
   },
 
   data: {
-    shortageImg,
     isShowSpecs: false,
     currentGoods: {},
     isShowToggle: false,
@@ -90,31 +87,6 @@ Component({
         context: this,
         selector: '#t-toast',
         message: text,
-      });
-    },
-
-    // 去凑单/再逛逛
-    gotoBuyMore(e) {
-      const { promotion, storeId = '' } = e.currentTarget.dataset;
-      this.triggerEvent('gocollect', { promotion, storeId });
-    },
-
-    // 选中门店
-    selectStore(e) {
-      const { storeIndex } = e.currentTarget.dataset;
-      const store = this.data.storeGoods[storeIndex];
-      const isSelected = !store.isSelected;
-      if (store.storeStockShortage && isSelected) {
-        Toast({
-          context: this,
-          selector: '#t-toast',
-          message: '部分商品库存不足',
-        });
-        return;
-      }
-      this.triggerEvent('selectstore', {
-        store,
-        isSelected,
       });
     },
 

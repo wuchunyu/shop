@@ -3,10 +3,9 @@ import { mockIp, mockReqId } from '../../utils/mock';
 const orderResps = [
   {
     data: {
-      saasId: '88888888',
+
       storeId: '1000',
       storeName: '云Mall深圳旗舰店',
-      uid: '88888888205468',
       parentOrderNo: '354021731671873099',
       orderId: '354021735982432279',
       orderNo: '354021731671873099',
@@ -42,8 +41,7 @@ const orderResps = [
           goodsName:
             '腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率',
           specifications: [
-            { specTitle: '颜色', specValue: '贵族青' },
-            { specTitle: '类型', specValue: '尊享礼盒装' },
+            { specValue: '贵族青' }
           ],
           goodsPictureUrl:
             'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3b.png',
@@ -55,7 +53,7 @@ const orderResps = [
           itemPaymentAmount: '10',
           goodsPaymentPrice: '10',
           tagPrice: null,
-          tagText: null,
+
           outCode: null,
           labelVOs: null,
           buttonVOs: [{ primary: false }],
@@ -68,9 +66,9 @@ const orderResps = [
         logisticsCompanyCode: '',
         logisticsCompanyName: '',
         receiverAddressId: '14',
-        provinceCode: '440000',
-        cityCode: '440300',
-        countryCode: '440306',
+
+
+
         receiverProvince: '广东省',
         receiverCity: '深圳市',
         receiverCountry: '宝安区',
@@ -124,11 +122,9 @@ const orderResps = [
   },
   {
     data: {
-      saasId: '88888888',
+
       storeId: '1000',
       storeName: '云Mall深圳旗舰店',
-      uid: '88888888205468',
-
       parentOrderNo: '132381532610540875',
       orderId: '132381537256650240',
       orderNo: '132381532610540875',
@@ -170,11 +166,11 @@ const orderResps = [
           actualPrice: '29800',
           specifications: [
             {
-              specTitle: '颜色',
+
               specValue: '米色荷叶边',
             },
             {
-              specTitle: '尺码',
+
               specValue: 'S',
             },
           ],
@@ -184,7 +180,6 @@ const orderResps = [
           itemPaymentAmount: '9987',
           goodsPaymentPrice: '9987',
           tagPrice: null,
-          tagText: null,
           outCode: null,
           labelVOs: null,
           buttonVOs: null,
@@ -204,8 +199,7 @@ const orderResps = [
           originPrice: '29900',
           actualPrice: '19900',
           specifications: [
-            { specTitle: '颜色', specValue: '奶黄色' },
-            { specTitle: '类型', specValue: '三件套' },
+            { specValue: '奶黄色' }
           ],
           buyQuantity: 1,
           itemTotalAmount: '19900',
@@ -213,7 +207,7 @@ const orderResps = [
           itemPaymentAmount: '6670',
           goodsPaymentPrice: '6670',
           tagPrice: null,
-          tagText: null,
+
           outCode: null,
           labelVOs: null,
           buttonVOs: null,
@@ -234,11 +228,11 @@ const orderResps = [
           actualPrice: '26900',
           specifications: [
             {
-              specTitle: '颜色',
+
               specValue: '白色',
             },
             {
-              specTitle: '尺码',
+
               specValue: 'S',
             },
           ],
@@ -248,7 +242,7 @@ const orderResps = [
           itemPaymentAmount: '20143',
           goodsPaymentPrice: '20143',
           tagPrice: null,
-          tagText: null,
+
           outCode: null,
           labelVOs: null,
           buttonVOs: null,
@@ -262,9 +256,9 @@ const orderResps = [
         logisticsCompanyName: '',
 
         receiverAddressId: '2',
-        provinceCode: '440000',
-        cityCode: '440300',
-        countryCode: '440306',
+
+
+
         receiverProvince: '广东省',
         receiverCity: '广州市',
         receiverCountry: '海珠区',
@@ -367,10 +361,9 @@ const orderResps = [
   },
   {
     data: {
-      saasId: '88888888',
+
       storeId: '1000',
       storeName: '云Mall深圳旗舰店',
-      uid: '88888888205468',
       parentOrderNo: '132222623132329291',
       orderId: '132222629674264064',
       orderNo: '132222623132329291',
@@ -411,11 +404,11 @@ const orderResps = [
           actualPrice: '8900',
           specifications: [
             {
-              specTitle: '颜色',
+
               specValue: '黑色',
             },
             {
-              specTitle: '尺码',
+
               specValue: '简约款',
             },
           ],
@@ -425,7 +418,6 @@ const orderResps = [
           itemPaymentAmount: '6766',
           goodsPaymentPrice: '6766',
           tagPrice: null,
-          tagText: null,
           outCode: null,
           labelVOs: null,
           buttonVOs: [{ primary: false, type: 4, name: '申请售后' }],
@@ -445,11 +437,11 @@ const orderResps = [
           actualPrice: '29800',
           specifications: [
             {
-              specTitle: '颜色',
+
               specValue: '米色荷叶边',
             },
             {
-              specTitle: '尺码',
+
               specValue: 'S',
             },
           ],
@@ -459,7 +451,7 @@ const orderResps = [
           itemPaymentAmount: '25774',
           goodsPaymentPrice: '25774',
           tagPrice: null,
-          tagText: null,
+
           outCode: null,
           labelVOs: null,
           buttonVOs: [{ primary: false, type: 4, name: '申请售后' }],
@@ -480,11 +472,9 @@ const orderResps = [
           actualPrice: '9900',
           specifications: [
             {
-              specTitle: '颜色',
               specValue: '经典白',
             },
             {
-              specTitle: '类型',
               specValue: '经典套装',
             },
           ],
@@ -494,7 +484,7 @@ const orderResps = [
           itemPaymentAmount: '8563',
           goodsPaymentPrice: '8563',
           tagPrice: null,
-          tagText: null,
+
           outCode: null,
           labelVOs: null,
           buttonVOs: [{ primary: false, type: 4, name: '申请售后' }],
@@ -515,11 +505,11 @@ const orderResps = [
           actualPrice: '29900',
           specifications: [
             {
-              specTitle: '颜色',
+
               specValue: '浅灰色',
             },
             {
-              specTitle: '尺码',
+
               specValue: 'S',
             },
           ],
@@ -529,7 +519,7 @@ const orderResps = [
           itemPaymentAmount: '115560',
           goodsPaymentPrice: '28890',
           tagPrice: null,
-          tagText: null,
+
           outCode: null,
           labelVOs: null,
           buttonVOs: [{ primary: false, type: 4, name: '申请售后' }],
@@ -549,11 +539,11 @@ const orderResps = [
           actualPrice: '25900',
           specifications: [
             {
-              specTitle: '颜色',
+
               specValue: '军绿色',
             },
             {
-              specTitle: '尺码',
+
               specValue: 'XS',
             },
           ],
@@ -563,7 +553,7 @@ const orderResps = [
           itemPaymentAmount: '25508',
           goodsPaymentPrice: '25508',
           tagPrice: null,
-          tagText: null,
+
           outCode: null,
           labelVOs: null,
           buttonVOs: [{ primary: false, type: 4, name: '申请售后' }],
@@ -575,11 +565,7 @@ const orderResps = [
         logisticsStatus: null,
         logisticsCompanyCode: 'yunda',
         logisticsCompanyName: '韵达快递',
-
         receiverAddressId: '8',
-        provinceCode: '440000',
-        cityCode: '440300',
-        countryCode: '440306',
         receiverProvince: '广东省',
         receiverCity: '深圳市',
         receiverCountry: '南山区',
@@ -691,10 +677,9 @@ const orderResps = [
   },
   {
     data: {
-      saasId: '88888888',
+
       storeId: '1000',
       storeName: '云Mall深圳旗舰店',
-      uid: '88888888205468',
       parentOrderNo: '130862219672031307',
       orderId: '130862224737571072',
       orderNo: '130862219672031307',
@@ -733,8 +718,8 @@ const orderResps = [
           originPrice: '40000',
           actualPrice: '29800',
           specifications: [
-            { specTitle: '颜色', specValue: '米色荷叶边' },
-            { specTitle: '尺码', specValue: 'S' },
+            { specValue: '米色荷叶边' },
+            { specValue: 'S' },
           ],
           buyQuantity: 10,
           itemTotalAmount: '298000',
@@ -742,7 +727,7 @@ const orderResps = [
           itemPaymentAmount: '268200',
           goodsPaymentPrice: '26820',
           tagPrice: null,
-          tagText: null,
+
           outCode: null,
           labelVOs: null,
           buttonVOs: null,
@@ -755,9 +740,9 @@ const orderResps = [
         logisticsCompanyCode: '',
         logisticsCompanyName: '',
         receiverAddressId: '2',
-        provinceCode: '440000',
-        cityCode: '440300',
-        countryCode: '440306',
+
+
+
         receiverProvince: '广东省',
         receiverCity: '深圳市',
         receiverCountry: '宝安区',
@@ -811,10 +796,9 @@ const orderResps = [
   },
   {
     data: {
-      saasId: '88888888',
+
       storeId: '1000',
       storeName: '云Mall深圳旗舰店',
-      uid: '88888888205468',
       parentOrderNo: '130494472895208267',
       orderId: '130494482155052032',
       orderNo: '130494472895208267',
@@ -854,8 +838,7 @@ const orderResps = [
           originPrice: '29900',
           actualPrice: '19900',
           specifications: [
-            { specTitle: '颜色', specValue: '奶黄色' },
-            { specTitle: '类型', specValue: '三件套' },
+            { specValue: '奶黄色' }
           ],
           buyQuantity: 3,
           itemTotalAmount: '59700',
@@ -863,7 +846,7 @@ const orderResps = [
           itemPaymentAmount: '29900',
           goodsPaymentPrice: '9966',
           tagPrice: null,
-          tagText: null,
+
           outCode: null,
           labelVOs: null,
           buttonVOs: null,
@@ -876,9 +859,9 @@ const orderResps = [
         logisticsCompanyCode: '',
         logisticsCompanyName: '',
         receiverAddressId: '2',
-        provinceCode: '440000',
-        cityCode: '440300',
-        countryCode: '440306',
+
+
+
         receiverProvince: '广东省',
         receiverCity: '深圳市',
         receiverCountry: '宝安区',
@@ -932,10 +915,9 @@ const orderResps = [
   },
   {
     data: {
-      saasId: '88888888',
+
       storeId: '1000',
       storeName: '云Mall深圳旗舰店',
-      uid: '88888888205468',
       parentOrderNo: '130169571554503755',
       orderId: '130169572291521792',
       orderNo: '130169571554503755',
@@ -975,8 +957,8 @@ const orderResps = [
           originPrice: '31900',
           actualPrice: '26900',
           specifications: [
-            { specTitle: '颜色', specValue: '橙色' },
-            { specTitle: '尺码', specValue: 'M' },
+            { specValue: '橙色' },
+            { specValue: 'M' },
           ],
           buyQuantity: 20,
           itemTotalAmount: '538000',
@@ -984,7 +966,7 @@ const orderResps = [
           itemPaymentAmount: '508200',
           goodsPaymentPrice: '25410',
           tagPrice: null,
-          tagText: null,
+
           outCode: null,
           labelVOs: null,
           buttonVOs: null,
@@ -997,9 +979,9 @@ const orderResps = [
         logisticsCompanyCode: 'zhongtong',
         logisticsCompanyName: '中通速递',
         receiverAddressId: '2',
-        provinceCode: '440000',
-        cityCode: '440300',
-        countryCode: '440306',
+
+
+
         receiverProvince: '广东省',
         receiverCity: '深圳市',
         receiverCountry: '宝安区',
@@ -1065,10 +1047,9 @@ const orderResps = [
   },
   {
     data: {
-      saasId: '88888888',
+
       storeId: '1000',
       storeName: '云Mall深圳旗舰店',
-      uid: '88888888205468',
       parentOrderNo: '130150835531421259',
       orderId: '130150836385879808',
       orderNo: '130150835531421259',
@@ -1107,8 +1088,8 @@ const orderResps = [
           originPrice: '40000',
           actualPrice: '29800',
           specifications: [
-            { specTitle: '颜色', specValue: '米色荷叶边' },
-            { specTitle: '尺码', specValue: 'M' },
+            { specValue: '米色荷叶边' },
+            { specValue: 'M' },
           ],
           buyQuantity: 1,
           itemTotalAmount: '29800',
@@ -1116,7 +1097,7 @@ const orderResps = [
           itemPaymentAmount: '4000',
           goodsPaymentPrice: '4000',
           tagPrice: null,
-          tagText: null,
+
           outCode: null,
           labelVOs: null,
           buttonVOs: null,
@@ -1129,9 +1110,9 @@ const orderResps = [
         logisticsCompanyCode: 'yuantong',
         logisticsCompanyName: '圆通速递',
         receiverAddressId: '2',
-        provinceCode: '440000',
-        cityCode: '440300',
-        countryCode: '440306',
+
+
+
         receiverProvince: '广东省',
         receiverCity: '深圳市',
         receiverCountry: '宝安区',
@@ -1199,7 +1180,7 @@ export function genBusinessTime() {
     data: {
       businessTime: ['周一,周二,周三,周四,周五:00:20:00-08:00:00'],
       telphone: '18565372257',
-      saasId: '88888888',
+
     },
     code: 'Success',
     msg: null,

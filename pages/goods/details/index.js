@@ -43,7 +43,6 @@ Page({
       middleCount: 0,
     },
     isShowPromotionPop: false,
-    activityList: [],
     recLeftImg,
     recRightImg,
     details: {},
@@ -178,19 +177,6 @@ Page({
     selectedSkuValues.forEach((item) => {
       selectedAttrStr += `，${item.specValue}  `;
     });
-    // eslint-disable-next-line array-callback-return
-    const skuItem = skuArray.filter((item) => {
-      let status = true;
-      (item.specInfo || []).forEach((subItem) => {
-        if (
-          !selectedSku[subItem.specId] ||
-          selectedSku[subItem.specId] !== subItem.specValueId
-        ) {
-          status = false;
-        }
-      });
-      if (status) return item;
-    });
     this.selectSpecsName(selectedSkuValues.length > 0 ? selectedAttrStr : '');
     if (skuItem) {
       this.setData({
@@ -278,13 +264,7 @@ Page({
       storeId: '1',
       spuId: this.data.spuId,
       goodsName: this.data.details.title,
-      skuId: type === 1 ? this.data.skuList[0].skuId : this.data.selectItem.skuId,
-      available: this.data.details.available,
       price: this.data.details.minSalePrice,
-      specInfo: this.data.details.specList?.map((item) => ({
-        specTitle: item.title,
-        specValue: item.specValueList[0].specValue,
-      })),
       primaryImage: this.data.details.primaryImage,
       spuId: this.data.details.spuId,
       thumb: this.data.details.primaryImage,
@@ -340,9 +320,8 @@ Page({
   },
 
   getDetail(spuId) {
-    Promise.all([fetchGood(spuId), fetchActivityList()]).then((res) => {
+    Promise.all([fetchGood(spuId)]).then((res) => {
       const details = res[0].data;
-      const activityList = res[1].data;
       const skuArray = [];
       const {
         skuList,
@@ -354,21 +333,12 @@ Page({
       } = details;
       skuList.forEach((item) => {
         skuArray.push({
-          skuId: item.skuId,
-          quantity: item.stockInfo ? item.stockInfo.stockQuantity : 0,
-          specInfo: item.specInfo,
+          quantity: item.stockInfo ? item.stockInfo.stockQuantity : 0
         });
       });
       const promotionArray = [];
-      activityList.forEach((item) => {
-        promotionArray.push({
-          tag: item.promotionSubCode === 'MYJ' ? '满减' : '满折',
-          label: '满100元减99.9元',
-        });
-      });
       this.setData({
         details,
-        activityList,
         isStock: details.spuStockQuantity > 0,
         maxSalePrice: maxSalePrice ? parseInt(maxSalePrice) : 0,
         maxLinePrice: maxLinePrice ? parseInt(maxLinePrice) : 0,
@@ -383,26 +353,24 @@ Page({
 
   async getCommentsList() {
     try {
-      const code = 'Success';
       const data = await getUrl('/getGoodsDetailsCommentList');
       const {
         homePageComments
       } = data.data;
-      if (code.toUpperCase() === 'SUCCESS') {
-        const nextState = {
-          commentsList: homePageComments.map((item) => {
-            return {
-              goodsSpu: item.spuId,
-              userName: item.userName || '',
-              commentScore: item.commentScore,
-              commentContent: item.commentContent || '用户未填写评价',
-              userHeadUrl: item.isAnonymity ?
-                this.anonymityAvatar : item.userHeadUrl || this.anonymityAvatar,
-            };
-          }),
-        };
-        this.setData(nextState);
-      }
+      const nextState = {
+        commentsList: homePageComments.map((item) => {
+          return {
+            goodsSpu: item.spuId,
+            userName: item.userName || '',
+            commentScore: item.commentScore,
+            commentContent: item.commentContent || '用户未填写评价',
+            userHeadUrl: item.isAnonymity ?
+              this.anonymityAvatar : item.userHeadUrl || this.anonymityAvatar,
+          };
+        }),
+      };
+      this.setData(nextState);
+
     } catch (error) {
       console.error('comments error:', error);
     }
@@ -429,30 +397,28 @@ Page({
   /** 获取评价统计 */
   async getCommentsStatistics() {
     try {
-      const code = 'Success';
       const data = await getUrl('/getGoodsDetailsCommentsCount');
-      if (code.toUpperCase() === 'SUCCESS') {
-        const {
-          badCount,
-          commentCount,
-          goodCount,
-          goodRate,
-          hasImageCount,
-          middleCount,
-        } = data.data;
-        const nextState = {
-          commentsStatistics: {
-            badCount: parseInt(`${badCount}`),
-            commentCount: parseInt(`${commentCount}`),
-            goodCount: parseInt(`${goodCount}`),
-            /** 后端返回百分比后数据但没有限制位数 */
-            goodRate: Math.floor(goodRate * 10) / 10,
-            hasImageCount: parseInt(`${hasImageCount}`),
-            middleCount: parseInt(`${middleCount}`),
-          },
-        };
-        this.setData(nextState);
-      }
+      const {
+        badCount,
+        commentCount,
+        goodCount,
+        goodRate,
+        hasImageCount,
+        middleCount,
+      } = data.data;
+      const nextState = {
+        commentsStatistics: {
+          badCount: parseInt(`${badCount}`),
+          commentCount: parseInt(`${commentCount}`),
+          goodCount: parseInt(`${goodCount}`),
+          /** 后端返回百分比后数据但没有限制位数 */
+          goodRate: Math.floor(goodRate * 10) / 10,
+          hasImageCount: parseInt(`${hasImageCount}`),
+          middleCount: parseInt(`${middleCount}`),
+        },
+      };
+      this.setData(nextState);
+
     } catch (error) {
       console.error('comments statiistics error:', error);
     }

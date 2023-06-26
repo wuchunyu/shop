@@ -26,9 +26,8 @@ export const resp = {
             type: 5,
           },
         ],
-        saasId: '8888',
+
         storeId: '2591',
-        uid: '88881046205',
         refundMethodList: [
           {
             refundMethodAmount: 99999,
@@ -55,12 +54,11 @@ export const resp = {
           rightsStatus: 50,
           rightsStatusName: '已完成',
           rightsType: 20,
-          saasId: 123,
+
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
           storeName: '大猫集团旗舰店',
-          uid: '123',
           updateTime: '1596524705613',
           userRightsStatus: 120,
           userRightsStatusDesc:
@@ -93,15 +91,15 @@ export const resp = {
             rightsNo: '112333',
             rightsParentNo: '345345',
             rightsQuantity: 12,
-            saasId: 123,
+
             skuId: 812312,
             specInfo: [
               {
-                specTitle: '测试dr超长',
+
                 specValues: '超长测试超长测试1',
               },
               {
-                specTitle: 'bwtgg01',
+
                 specValues: 'eee',
               },
             ],
@@ -125,15 +123,15 @@ export const resp = {
             rightsNo: '112333',
             rightsParentNo: '345345',
             rightsQuantity: 12,
-            saasId: 123,
+
             skuId: 8123129,
             specInfo: [
               {
-                specTitle: '测试dr超长',
+
                 specValues: '超长测试超长测试1',
               },
               {
-                specTitle: 'bwtgg01',
+
                 specValues: 'eee',
               },
             ],
@@ -161,9 +159,9 @@ export const resp = {
           logisticsCompanyCode: '',
           logisticsCompanyName: '顺丰',
           receiverAddressId: '20',
-          provinceCode: '440000',
-          cityCode: '440300',
-          countryCode: '440306',
+
+
+
           receiverProvince: '广东省',
           receiverCity: '深圳市',
           receiverCountry: '南山区',
@@ -213,9 +211,8 @@ export const resp = {
             type: 3,
           },
         ],
-        saasId: '8888',
+
         storeId: '2591',
-        uid: '88881046205',
         createTime: '1596524705613',
         rights: {
           rightsImageUrls: [
@@ -238,12 +235,11 @@ export const resp = {
           rightsStatus: 20,
           rightsStatusName: '已审核',
           rightsType: 10,
-          saasId: 123,
+
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
           storeName: '大猫集团旗舰店',
-          uid: '123',
           updateTime: '1596524705613',
           userRightsStatus: 100,
           userRightsStatusDesc: '商家已审核确认，预计1小时内发起退款',
@@ -268,15 +264,15 @@ export const resp = {
             rightsNo: '112333',
             rightsParentNo: '345345',
             rightsQuantity: 12,
-            saasId: 123,
+
             skuId: 812312,
             specInfo: [
               {
-                specTitle: '测试dr超长',
+
                 specValues: '超长测试超长测试1',
               },
               {
-                specTitle: 'bwtgg01',
+
                 specValues: 'eee',
               },
             ],
@@ -304,9 +300,9 @@ export const resp = {
           logisticsCompanyCode: '',
           logisticsCompanyName: '申通快递',
           receiverAddressId: '20',
-          provinceCode: '440000',
-          cityCode: '440300',
-          countryCode: '440306',
+
+
+
           receiverProvince: '广东省',
           receiverCity: '深圳市',
           receiverCountry: '南山区',
@@ -334,9 +330,8 @@ export const resp = {
             type: 2,
           },
         ],
-        saasId: '8888',
+
         storeId: '2591',
-        uid: '88881046205',
         createTime: '1596524705613',
         rights: {
           rightsImageUrls: [
@@ -359,12 +354,11 @@ export const resp = {
           rightsStatus: 60,
           rightsStatusName: '已关闭',
           rightsType: 10,
-          saasId: 123,
+
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
           storeName: '大猫集团旗舰店',
-          uid: '123',
           updateTime: '1596524705613',
           userRightsStatus: 100,
           userRightsStatusDesc: '商家将尽快确认您的退款申请',
@@ -389,15 +383,15 @@ export const resp = {
             rightsNo: '112333',
             rightsParentNo: '345345',
             rightsQuantity: 12,
-            saasId: 123,
+
             skuId: 812312,
             specInfo: [
               {
-                specTitle: '测试dr超长',
+
                 specValues: '超长测试超长测试1',
               },
               {
-                specTitle: 'bwtgg01',
+
                 specValues: 'eee',
               },
             ],
@@ -425,9 +419,9 @@ export const resp = {
           logisticsCompanyCode: '',
           logisticsCompanyName: '顺丰',
           receiverAddressId: '20',
-          provinceCode: '440000',
-          cityCode: '440300',
-          countryCode: '440306',
+
+
+
           receiverProvince: '广东省',
           receiverCity: '深圳市',
           receiverCountry: '南山区',
@@ -449,9 +443,8 @@ export const resp = {
       },
       {
         buttonVOs: [],
-        saasId: '8888',
+
         storeId: '2591',
-        uid: '88881046205',
         createTime: '1596524705613',
         refundMethodList: [
           {
@@ -478,13 +471,13 @@ export const resp = {
           rightsStatus: 50,
           rightsStatusName: '已完成',
           rightsType: 10,
-          saasId: 123,
+
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
           storeName:
             '大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店',
-          uid: '123',
+
           updateTime: '1596524705613',
           userRightsStatus: 160,
           userRightsStatusDesc: '退款/售后已完成',
@@ -509,15 +502,15 @@ export const resp = {
             rightsNo: '112333',
             rightsParentNo: '345345',
             rightsQuantity: 12,
-            saasId: 123,
+
             skuId: 812312,
             specInfo: [
               {
-                specTitle: '测试dr超长',
+
                 specValues: '超长测试超长测试1',
               },
               {
-                specTitle: 'bwtgg01',
+
                 specValues: 'eee',
               },
             ],
@@ -544,9 +537,9 @@ export const resp = {
           logisticsCompanyCode: '',
           logisticsCompanyName: '',
           receiverAddressId: '20',
-          provinceCode: '440000',
-          cityCode: '440300',
-          countryCode: '440306',
+
+
+
           receiverProvince: '广东省',
           receiverCity: '深圳市',
           receiverCountry: '南山区',
@@ -574,9 +567,8 @@ export const resp = {
             type: 4,
           },
         ],
-        saasId: '8888',
+
         storeId: '2591',
-        uid: '88881046205',
         createTime: '1596524705613',
         rights: {
           bizRightsStatus: 1,
@@ -593,12 +585,12 @@ export const resp = {
           rightsStatus: 20,
           rightsStatusName: '已审核',
           rightsType: 10,
-          saasId: 123,
+
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
           storeName: '大猫集团旗舰店',
-          uid: '123',
+
           updateTime: '1596524705613',
           userRightsStatus: 1,
           userRightsStatusDesc: '商家已审核确认，预计1小时内发起退款',
@@ -623,15 +615,15 @@ export const resp = {
             rightsNo: '112333',
             rightsParentNo: '345345',
             rightsQuantity: 12,
-            saasId: 123,
+
             skuId: 812312,
             specInfo: [
               {
-                specTitle: '测试dr超长',
+
                 specValues: '超长测试超长测试1',
               },
               {
-                specTitle: 'bwtgg01',
+
                 specValues: 'eee',
               },
             ],
@@ -659,9 +651,9 @@ export const resp = {
           logisticsCompanyName: '顺丰快递',
           remark: '质量问题，申请退货退款',
           receiverAddressId: '20',
-          provinceCode: '440000',
-          cityCode: '440300',
-          countryCode: '440306',
+
+
+
           receiverProvince: '广东省',
           receiverCity: '深圳市',
           receiverCountry: '南山区',
@@ -689,9 +681,8 @@ export const resp = {
             type: 2,
           },
         ],
-        saasId: '8888',
+
         storeId: '2591',
-        uid: '88881046205',
         createTime: '1596524705613',
         rights: {
           bizRightsStatus: 1,
@@ -708,13 +699,13 @@ export const resp = {
           rightsStatus: 10,
           rightsStatusName: '待审核',
           rightsType: 10,
-          saasId: 123,
+
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
           storeName:
             '大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店',
-          uid: '123',
+
           updateTime: '1596524705613',
           userRightsStatus: 1,
           userRightsStatusDesc:
@@ -741,15 +732,15 @@ export const resp = {
             rightsNo: '112333',
             rightsParentNo: '345345',
             rightsQuantity: 12,
-            saasId: 123,
+
             skuId: 812312,
             specInfo: [
               {
-                specTitle: '测试dr超长',
+
                 specValues: '超长测试超长测试1',
               },
               {
-                specTitle: 'bwtgg01',
+
                 specValues: 'eee',
               },
             ],
@@ -776,9 +767,9 @@ export const resp = {
           logisticsCompanyCode: '',
           logisticsCompanyName: '',
           receiverAddressId: '20',
-          provinceCode: '440000',
-          cityCode: '440300',
-          countryCode: '440306',
+
+
+
           receiverProvince: '广东省',
           receiverCity: '深圳市',
           receiverCountry: '南山区',
@@ -806,9 +797,9 @@ export const resp = {
             type: 4,
           },
         ],
-        saasId: '8888',
+
         storeId: '2591',
-        uid: '88881046205',
+
         createTime: '1596524705613',
         rights: {
           bizRightsStatus: 1,
@@ -825,12 +816,12 @@ export const resp = {
           rightsStatus: 20,
           rightsStatusName: '已审核',
           rightsType: 10,
-          saasId: 123,
+
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
           storeName: '大猫集团旗舰店',
-          uid: '123',
+
           updateTime: '1596524705613',
           userRightsStatus: 1,
           userRightsStatusDesc: '商家已审核确认，预计1小时内发起退款',
@@ -855,15 +846,15 @@ export const resp = {
             rightsNo: '112333',
             rightsParentNo: '345345',
             rightsQuantity: 12,
-            saasId: 123,
+
             skuId: 812312,
             specInfo: [
               {
-                specTitle: '测试dr超长',
+
                 specValues: '超长测试超长测试1',
               },
               {
-                specTitle: 'bwtgg01',
+
                 specValues: 'eee',
               },
             ],
@@ -891,9 +882,9 @@ export const resp = {
           logisticsCompanyName: '申通快递',
           remark: '质量问题，申请退货退款',
           receiverAddressId: '20',
-          provinceCode: '440000',
-          cityCode: '440300',
-          countryCode: '440306',
+
+
+
           receiverProvince: '广东省',
           receiverCity: '深圳市',
           receiverCountry: '南山区',
@@ -921,9 +912,9 @@ export const resp = {
             type: 3,
           },
         ],
-        saasId: '8888',
+
         storeId: '2591',
-        uid: '88881046205',
+
         createTime: '1596524705613',
         rights: {
           bizRightsStatus: 1,
@@ -940,12 +931,12 @@ export const resp = {
           rightsStatus: 20,
           rightsStatusName: '已审核',
           rightsType: 10,
-          saasId: 123,
+
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
           storeName: '大猫集团旗舰店',
-          uid: '123',
+
           updateTime: '1596524705613',
           userRightsStatus: 1,
           userRightsStatusDesc: '商家已审核确认，预计1小时内发起退款',
@@ -970,15 +961,15 @@ export const resp = {
             rightsNo: '112333',
             rightsParentNo: '345345',
             rightsQuantity: 12,
-            saasId: 123,
+
             skuId: 812312,
             specInfo: [
               {
-                specTitle: '测试dr超长',
+
                 specValues: '超长测试超长测试1',
               },
               {
-                specTitle: 'bwtgg01',
+
                 specValues: 'eee',
               },
             ],
@@ -1005,9 +996,9 @@ export const resp = {
           logisticsCompanyCode: '',
           logisticsCompanyName: '',
           receiverAddressId: '20',
-          provinceCode: '440000',
-          cityCode: '440300',
-          countryCode: '440306',
+
+
+
           receiverProvince: '广东省',
           receiverCity: '深圳市',
           receiverCountry: '南山区',
@@ -1035,9 +1026,9 @@ export const resp = {
             type: 2,
           },
         ],
-        saasId: '8888',
+
         storeId: '2591',
-        uid: '88881046205',
+
         createTime: '1596524705613',
         rights: {
           bizRightsStatus: 1,
@@ -1054,12 +1045,12 @@ export const resp = {
           rightsStatus: 20,
           rightsStatusName: '已审核',
           rightsType: 10,
-          saasId: 123,
+
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
           storeName: '大猫集团旗舰店',
-          uid: '123',
+
           updateTime: '1596524705613',
           userRightsStatus: 1,
           userRightsStatusDesc: '商家已审核确认，预计1小时内发起退款',
@@ -1084,15 +1075,15 @@ export const resp = {
             rightsNo: '112333',
             rightsParentNo: '345345',
             rightsQuantity: 12,
-            saasId: 123,
+
             skuId: 812312,
             specInfo: [
               {
-                specTitle: '测试dr超长',
+
                 specValues: '超长测试超长测试1',
               },
               {
-                specTitle: 'bwtgg01',
+
                 specValues: 'eee',
               },
             ],
@@ -1119,9 +1110,9 @@ export const resp = {
           logisticsCompanyCode: '',
           logisticsCompanyName: '',
           receiverAddressId: '20',
-          provinceCode: '440000',
-          cityCode: '440300',
-          countryCode: '440306',
+
+
+
           receiverProvince: '广东省',
           receiverCity: '深圳市',
           receiverCountry: '南山区',
@@ -1149,9 +1140,9 @@ export const resp = {
             type: 3,
           },
         ],
-        saasId: '8888',
+
         storeId: '2591',
-        uid: '88881046205',
+
         createTime: '1596524705613',
         rights: {
           bizRightsStatus: 1,
@@ -1168,12 +1159,12 @@ export const resp = {
           rightsStatus: 20,
           rightsStatusName: '已审核',
           rightsType: 10,
-          saasId: 123,
+
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
           storeName: '大猫集团旗舰店',
-          uid: '123',
+
           updateTime: '1596524705613',
           userRightsStatus: 1,
           userRightsStatusDesc: '商家已审核确认，预计1小时内发起退款',
@@ -1199,15 +1190,15 @@ export const resp = {
             rightsNo: '112333',
             rightsParentNo: '345345',
             rightsQuantity: 12,
-            saasId: 123,
+
             skuId: 812312,
             specInfo: [
               {
-                specTitle: '测试dr超长',
+
                 specValues: '超长测试超长测试1',
               },
               {
-                specTitle: 'bwtgg01',
+
                 specValues: 'eee',
               },
             ],
@@ -1234,9 +1225,9 @@ export const resp = {
           logisticsCompanyCode: '',
           logisticsCompanyName: '',
           receiverAddressId: '20',
-          provinceCode: '440000',
-          cityCode: '440300',
-          countryCode: '440306',
+
+
+
           receiverProvince: '广东省',
           receiverCity: '深圳市',
           receiverCountry: '南山区',

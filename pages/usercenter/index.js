@@ -2,75 +2,62 @@ import Toast from 'tdesign-miniprogram/toast/index';
 
 const menuData = [
   [{
-      title: '收货地址',
-      tit: '',
-      url: '',
-      type: 'address',
-    },
-    {
-      title: '优惠券',
-      tit: '',
-      url: '',
-      type: 'coupon',
-    },
-    {
-      title: '积分',
-      tit: '',
-      url: '',
-      type: 'point',
-    },
-  ],
+    title: '收货地址',
+    tit: '',
+    url: '',
+    type: 'address',
+  }],
   [{
-      title: '帮助中心',
-      tit: '',
-      url: '',
-      type: 'help-center',
-    },
-    {
-      title: '客服热线',
-      tit: '',
-      url: '',
-      type: 'service',
-      icon: 'service',
-    },
+    title: '帮助中心',
+    tit: '',
+    url: '',
+    type: 'help-center',
+  },
+  {
+    title: '客服热线',
+    tit: '',
+    url: '',
+    type: 'service',
+    icon: 'service',
+  },
   ],
 ];
 
 const orderTagInfos = [{
-    title: '待付款',
-    iconName: 'wallet',
-    orderNum: 0,
-    tabType: 5,
-    status: 1,
-  },
-  {
-    title: '待发货',
-    iconName: 'deliver',
-    orderNum: 0,
-    tabType: 10,
-    status: 1,
-  },
-  {
-    title: '待收货',
-    iconName: 'package',
-    orderNum: 0,
-    tabType: 40,
-    status: 1,
-  },
-  {
-    title: '待评价',
-    iconName: 'comment',
-    orderNum: 0,
-    tabType: 60,
-    status: 1,
-  },
-  {
-    title: '退款/售后',
-    iconName: 'exchang',
-    orderNum: 0,
-    tabType: 0,
-    status: 1,
-  },
+  title: '待付款',
+  iconName: 'wallet',
+  orderNum: 0,
+  tabType: 5,
+  status: 1,
+},
+{
+  title: '待发货',
+  iconName: 'deliver',
+  orderNum: 0,
+  tabType: 10,
+  status: 1,
+},
+{
+  title: '待收货',
+  iconName: 'package',
+  orderNum: 0,
+  tabType: 40,
+  status: 1,
+},
+{
+  title: '待评价',
+  iconName: 'comment',
+  orderNum: 0,
+  tabType: 60,
+  status: 1,
+},
+{
+  title: '退款/售后',
+  iconName: 'exchang',
+  orderNum: 0,
+  tabType: 0,
+  status: 1,
+},
 ];
 
 const getDefaultData = () => ({
@@ -78,7 +65,7 @@ const getDefaultData = () => ({
   userInfo: {
     avatarUrl: '',
     nickName: '正在登录...',
-    phoneNumber: '',
+    phone: '',
   },
   menuData,
   orderTagInfos,
@@ -138,16 +125,6 @@ Page({
         });
         break;
       }
-      case 'point': {
-        Toast({
-          context: this,
-          selector: '#t-toast',
-          message: '你点击了积分菜单',
-          icon: '',
-          duration: 1000,
-        });
-        break;
-      }
       case 'coupon': {
         wx.navigateTo({
           url: '/pages/coupon/coupon-list/index'
@@ -201,7 +178,7 @@ Page({
 
   call() {
     wx.makePhoneCall({
-      phoneNumber: this.data.customerServiceInfo.servicePhone,
+      phone: this.data.customerServiceInfo.servicePhone,
     });
   },
 

@@ -103,7 +103,6 @@ Page({
             specs: (goods.specifications || []).map((s) => s.specValue),
             price: goods.tagPrice ? goods.tagPrice : goods.actualPrice, // 商品销售单价, 优先取限时活动价
             num: goods.buyQuantity,
-            titlePrefixTags: goods.tagText ? [{ text: goods.tagText }] : [],
             buttons: goods.buttonVOs || [],
           }),
         ),
@@ -215,7 +214,7 @@ Page({
           '_order.receiverAddress': address.address,
         });
       })
-      .catch(() => {});
+      .catch(() => { });
 
     wx.navigateTo({
       url: `/pages/usercenter/address/list/index?selectMode=1`,
@@ -251,7 +250,7 @@ Page({
       nodes: this.data.logisticsNodes,
       company: this.data.order.logisticsVO.logisticsCompanyName,
       logisticsNo: this.data.order.logisticsVO.logisticsNo,
-      phoneNumber: this.data.order.logisticsVO.logisticsCompanyTel,
+      phone: this.data.order.logisticsVO.logisticsCompanyTel,
     };
     wx.navigateTo({
       url: `/pages/order/delivery-detail/index?data=${encodeURIComponent(

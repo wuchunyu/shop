@@ -8,10 +8,9 @@ export function genOrders(params) {
       totalCount: 7,
       orders: [
         {
-          saasId: '88888888',
+
           storeId: '1000',
           storeName: '云Mall深圳旗舰店',
-          uid: '88888888205468',
           parentOrderNo: '354021731671873099',
           orderId: '354021735982432279',
           orderNo: '354021731671873099',
@@ -47,8 +46,7 @@ export function genOrders(params) {
               goodsName:
                 '腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率',
               specifications: [
-                { specTitle: '颜色', specValue: '贵族青' },
-                { specTitle: '类型', specValue: '尊享礼盒装' },
+                { specValue: '贵族青' }
               ],
               goodsPictureUrl:
                 'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3b.png',
@@ -60,7 +58,7 @@ export function genOrders(params) {
               itemPaymentAmount: '10',
               goodsPaymentPrice: '10',
               tagPrice: null,
-              tagText: null,
+
               outCode: null,
               labelVOs: null,
               buttonVOs: null,
@@ -73,9 +71,9 @@ export function genOrders(params) {
             logisticsCompanyCode: '',
             logisticsCompanyName: '',
             receiverAddressId: '14',
-            provinceCode: '440000',
-            cityCode: '440300',
-            countryCode: '440306',
+
+
+
             receiverProvince: '广东省',
             receiverCity: '深圳市',
             receiverCountry: '宝安区',
@@ -124,10 +122,9 @@ export function genOrders(params) {
           invoiceUrl: null,
         },
         {
-          saasId: '88888888',
+
           storeId: '1000',
           storeName: '云Mall深圳旗舰店',
-          uid: '88888888205468',
           parentOrderNo: '132381532610540875',
           orderId: '132381537256650240',
           orderNo: '132381532610540875',
@@ -167,8 +164,8 @@ export function genOrders(params) {
               originPrice: '40000',
               actualPrice: '29800',
               specifications: [
-                { specTitle: '颜色', specValue: '米色荷叶边' },
-                { specTitle: '尺码', specValue: 'S' },
+                { specValue: '米色荷叶边' },
+                { specValue: 'S' },
               ],
               buyQuantity: 1,
               itemTotalAmount: '29800',
@@ -176,7 +173,7 @@ export function genOrders(params) {
               itemPaymentAmount: '9987',
               goodsPaymentPrice: '9987',
               tagPrice: null,
-              tagText: null,
+
               outCode: null,
               labelVOs: null,
               buttonVOs: null,
@@ -196,8 +193,7 @@ export function genOrders(params) {
               originPrice: '29900',
               actualPrice: '19900',
               specifications: [
-                { specTitle: '颜色', specValue: '奶黄色' },
-                { specTitle: '类型', specValue: '三件套' },
+                { specValue: '奶黄色' }
               ],
               buyQuantity: 1,
               itemTotalAmount: '19900',
@@ -205,7 +201,7 @@ export function genOrders(params) {
               itemPaymentAmount: '6670',
               goodsPaymentPrice: '6670',
               tagPrice: null,
-              tagText: null,
+
               outCode: null,
               labelVOs: null,
               buttonVOs: null,
@@ -225,8 +221,8 @@ export function genOrders(params) {
               originPrice: '31900',
               actualPrice: '26900',
               specifications: [
-                { specTitle: '颜色', specValue: '白色' },
-                { specTitle: '尺码', specValue: 'S' },
+                { specValue: '白色' },
+                { specValue: 'S' },
               ],
               buyQuantity: 1,
               itemTotalAmount: '26900',
@@ -234,7 +230,7 @@ export function genOrders(params) {
               itemPaymentAmount: '20143',
               goodsPaymentPrice: '20143',
               tagPrice: null,
-              tagText: null,
+
               outCode: null,
               labelVOs: null,
               buttonVOs: null,
@@ -247,9 +243,9 @@ export function genOrders(params) {
             logisticsCompanyCode: '',
             logisticsCompanyName: '',
             receiverAddressId: '2',
-            provinceCode: '440000',
-            cityCode: '440300',
-            countryCode: '440306',
+
+
+
             receiverProvince: '广东省',
             receiverCity: '深圳市',
             receiverCountry: '南山区',
@@ -306,10 +302,9 @@ export function genOrders(params) {
           invoiceUrl: null,
         },
         {
-          saasId: '88888888',
+
           storeId: '1000',
           storeName: '云Mall深圳旗舰店',
-          uid: '88888888205468',
           parentOrderNo: '132222623132329291',
           orderId: '132222629674264064',
           orderNo: '132222623132329291',
@@ -349,8 +344,8 @@ export function genOrders(params) {
               originPrice: '15900',
               actualPrice: '8900',
               specifications: [
-                { specTitle: '颜色', specValue: '黑色' },
-                { specTitle: '尺码', specValue: '简约' },
+                { specValue: '黑色' },
+                { specValue: '简约' },
               ],
               buyQuantity: 1,
               itemTotalAmount: '8900',
@@ -358,7 +353,7 @@ export function genOrders(params) {
               itemPaymentAmount: '6766',
               goodsPaymentPrice: '6766',
               tagPrice: null,
-              tagText: null,
+
               outCode: null,
               labelVOs: null,
               buttonVOs: null,
@@ -378,8 +373,8 @@ export function genOrders(params) {
               originPrice: '40000',
               actualPrice: '29800',
               specifications: [
-                { specTitle: '颜色', specValue: '米色荷叶边' },
-                { specTitle: '尺码', specValue: 'S' },
+                { specValue: '米色荷叶边' },
+                { specValue: 'S' },
               ],
               buyQuantity: 1,
               itemTotalAmount: '29800',
@@ -387,7 +382,7 @@ export function genOrders(params) {
               itemPaymentAmount: '25774',
               goodsPaymentPrice: '25774',
               tagPrice: null,
-              tagText: null,
+
               outCode: null,
               labelVOs: null,
               buttonVOs: null,
@@ -407,8 +402,7 @@ export function genOrders(params) {
               originPrice: '16900',
               actualPrice: '9900',
               specifications: [
-                { specTitle: '颜色', specValue: '经典白' },
-                { specTitle: '类型', specValue: '经典套装' },
+                { specValue: '经典白' }
               ],
               buyQuantity: 1,
               itemTotalAmount: '9900',
@@ -416,7 +410,7 @@ export function genOrders(params) {
               itemPaymentAmount: '8563',
               goodsPaymentPrice: '8563',
               tagPrice: null,
-              tagText: null,
+
               outCode: null,
               labelVOs: null,
               buttonVOs: null,
@@ -436,8 +430,8 @@ export function genOrders(params) {
               originPrice: '39900',
               actualPrice: '29900',
               specifications: [
-                { specTitle: '颜色', specValue: '浅灰色' },
-                { specTitle: '尺码', specValue: 'S' },
+                { specValue: '浅灰色' },
+                { specValue: 'S' },
               ],
               buyQuantity: 4,
               itemTotalAmount: '119600',
@@ -445,7 +439,7 @@ export function genOrders(params) {
               itemPaymentAmount: '115560',
               goodsPaymentPrice: '28890',
               tagPrice: null,
-              tagText: null,
+
               outCode: null,
               labelVOs: null,
               buttonVOs: null,
@@ -464,8 +458,8 @@ export function genOrders(params) {
               originPrice: '39900',
               actualPrice: '25900',
               specifications: [
-                { specTitle: '颜色', specValue: '军绿色' },
-                { specTitle: '尺码', specValue: 'XS' },
+                { specValue: '军绿色' },
+                { specValue: 'XS' },
               ],
               buyQuantity: 1,
               itemTotalAmount: '25900',
@@ -473,7 +467,7 @@ export function genOrders(params) {
               itemPaymentAmount: '25508',
               goodsPaymentPrice: '25508',
               tagPrice: null,
-              tagText: null,
+
               outCode: null,
               labelVOs: null,
               buttonVOs: null,
@@ -486,9 +480,9 @@ export function genOrders(params) {
             logisticsCompanyCode: '',
             logisticsCompanyName: '',
             receiverAddressId: '2',
-            provinceCode: '440000',
-            cityCode: '440300',
-            countryCode: '440306',
+
+
+
             receiverProvince: '广东省',
             receiverCity: '深圳市',
             receiverCountry: '南山区',
@@ -540,10 +534,9 @@ export function genOrders(params) {
           invoiceUrl: null,
         },
         {
-          saasId: '88888888',
+
           storeId: '1000',
           storeName: '云Mall深圳旗舰店',
-          uid: '88888888205468',
           parentOrderNo: '130862219672031307',
           orderId: '130862224737571072',
           orderNo: '130862219672031307',
@@ -583,8 +576,8 @@ export function genOrders(params) {
               originPrice: '40000',
               actualPrice: '29800',
               specifications: [
-                { specTitle: '颜色', specValue: '米色荷叶边' },
-                { specTitle: '尺码', specValue: 'S' },
+                { specValue: '米色荷叶边' },
+                { specValue: 'S' },
               ],
               buyQuantity: 10,
               itemTotalAmount: '298000',
@@ -592,7 +585,7 @@ export function genOrders(params) {
               itemPaymentAmount: '268200',
               goodsPaymentPrice: '26820',
               tagPrice: null,
-              tagText: null,
+
               outCode: null,
               labelVOs: null,
               buttonVOs: null,
@@ -605,9 +598,9 @@ export function genOrders(params) {
             logisticsCompanyCode: '',
             logisticsCompanyName: '',
             receiverAddressId: '2',
-            provinceCode: '440000',
-            cityCode: '440300',
-            countryCode: '440306',
+
+
+
             receiverProvince: '广东省',
             receiverCity: '深圳市',
             receiverCountry: '南山区',
@@ -653,10 +646,9 @@ export function genOrders(params) {
           invoiceUrl: null,
         },
         {
-          saasId: '88888888',
+
           storeId: '1000',
           storeName: '云Mall深圳旗舰店',
-          uid: '88888888205468',
           parentOrderNo: '130494472895208267',
           orderId: '130494482155052032',
           orderNo: '130494472895208267',
@@ -696,8 +688,7 @@ export function genOrders(params) {
               originPrice: '29900',
               actualPrice: '19900',
               specifications: [
-                { specTitle: '颜色', specValue: '奶黄色' },
-                { specTitle: '类型', specValue: '三件套' },
+                { specValue: '奶黄色' }
               ],
               buyQuantity: 3,
               itemTotalAmount: '59700',
@@ -705,7 +696,6 @@ export function genOrders(params) {
               itemPaymentAmount: '29900',
               goodsPaymentPrice: '9966',
               tagPrice: null,
-              tagText: null,
               outCode: null,
               labelVOs: null,
               buttonVOs: null,
@@ -718,9 +708,9 @@ export function genOrders(params) {
             logisticsCompanyCode: '',
             logisticsCompanyName: '',
             receiverAddressId: '2',
-            provinceCode: '440000',
-            cityCode: '440300',
-            countryCode: '440306',
+
+
+
             receiverProvince: '广东省',
             receiverCity: '深圳市',
             receiverCountry: '南山区',
@@ -766,10 +756,9 @@ export function genOrders(params) {
           invoiceUrl: null,
         },
         {
-          saasId: '88888888',
+
           storeId: '1000',
           storeName: '云Mall深圳旗舰店',
-          uid: '88888888205468',
           parentOrderNo: '130169571554503755',
           orderId: '130169572291521792',
           orderNo: '130169571554503755',
@@ -809,8 +798,8 @@ export function genOrders(params) {
               originPrice: '31900',
               actualPrice: '26900',
               specifications: [
-                { specTitle: '颜色', specValue: '橙色' },
-                { specTitle: '尺码', specValue: 'M' },
+                { specValue: '橙色' },
+                { specValue: 'M' },
               ],
               buyQuantity: 20,
               itemTotalAmount: '538000',
@@ -818,7 +807,7 @@ export function genOrders(params) {
               itemPaymentAmount: '508200',
               goodsPaymentPrice: '25410',
               tagPrice: null,
-              tagText: null,
+
               outCode: null,
               labelVOs: null,
               buttonVOs: [
@@ -837,9 +826,9 @@ export function genOrders(params) {
             logisticsCompanyCode: 'zhongtong',
             logisticsCompanyName: '中通速递',
             receiverAddressId: '2',
-            provinceCode: '440000',
-            cityCode: '440300',
-            countryCode: '440306',
+
+
+
             receiverProvince: '广东省',
             receiverCity: '深圳市',
             receiverCountry: '南山区',
@@ -897,10 +886,9 @@ export function genOrders(params) {
           invoiceUrl: null,
         },
         {
-          saasId: '88888888',
+
           storeId: '1000',
           storeName: '云Mall深圳旗舰店',
-          uid: '88888888205468',
           parentOrderNo: '130150835531421259',
           orderId: '130150836385879808',
           orderNo: '130150835531421259',
@@ -940,8 +928,8 @@ export function genOrders(params) {
               originPrice: '40000',
               actualPrice: '29800',
               specifications: [
-                { specTitle: '颜色', specValue: '米色荷叶边' },
-                { specTitle: '尺码', specValue: 'M' },
+                { specValue: '米色荷叶边' },
+                { specValue: 'M' },
               ],
               buyQuantity: 1,
               itemTotalAmount: '29800',
@@ -949,7 +937,7 @@ export function genOrders(params) {
               itemPaymentAmount: '4000',
               goodsPaymentPrice: '4000',
               tagPrice: null,
-              tagText: null,
+
               outCode: null,
               labelVOs: null,
               buttonVOs: null,
@@ -962,9 +950,9 @@ export function genOrders(params) {
             logisticsCompanyCode: 'yuantong',
             logisticsCompanyName: '圆通速递',
             receiverAddressId: '2',
-            provinceCode: '440000',
-            cityCode: '440300',
-            countryCode: '440306',
+
+
+
             receiverProvince: '广东省',
             receiverCity: '深圳市',
             receiverCountry: '南山区',

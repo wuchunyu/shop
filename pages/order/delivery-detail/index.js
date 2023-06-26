@@ -4,7 +4,7 @@ Page({
       logisticsNo: '',
       nodes: [],
       company: '',
-      phoneNumber: '',
+      phone: '',
     },
     active: 0,
   },
@@ -35,9 +35,9 @@ Page({
   },
 
   onCall() {
-    const { phoneNumber } = this.data.logisticsData;
+    const { phone } = this.data.logisticsData;
     wx.makePhoneCall({
-      phoneNumber,
+      phone,
     });
   },
 });

@@ -111,7 +111,6 @@ Page({
                 ),
                 price: goods.tagPrice ? goods.tagPrice : goods.actualPrice,
                 num: goods.buyQuantity,
-                titlePrefixTags: goods.tagText ? [{ text: goods.tagText }] : [],
               })),
               buttons: order.buttonVOs || [],
               groupInfoVo: order.groupInfoVo,

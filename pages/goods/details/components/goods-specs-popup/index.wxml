@@ -14,13 +14,7 @@
         <view class="popup-sku__selected-spec">
           <view>选择：</view>
           <view wx:for="{{specList}}" wx:key="specId">
-            <view
-              class="popup-sku__selected-item"
-              wx:for="{{item.specValueList}}"
-              wx:for-item="selectedItem"
-              wx:if="{{selectedItem.isSelected}}"
-              wx:key="specValueId"
-            >
+            <view class="popup-sku__selected-item" wx:for="{{item.specValueList}}" wx:for-item="selectedItem" wx:if="{{selectedItem.isSelected}}" wx:key="specValueId">
               {{selectedItem.specValue}}
             </view>
           </view>
@@ -31,20 +25,8 @@
       <view class="popup-sku-group-container">
         <view class="popup-sku-row" wx:for="{{specList}}" wx:key="specId">
           <view class="popup-sku-row__title">{{item.title}}</view>
-          <block
-            wx:for="{{item.specValueList}}"
-            wx:for-item="valuesItem"
-            wx:for-index="valuesIndex"
-            wx:key="specValueId"
-          >
-            <view
-              class="popup-sku-row__item {{valuesItem.isSelected ? 'popup-sku-row__item--active' : ''}} {{!valuesItem.hasStockObj.hasStock || !isStock ? 'disabled-sku-selected' : ''}}"
-              data-specid="{{item.specId}}"
-              data-id="{{valuesItem.specValueId}}"
-              data-val="{{valuesItem.specValue}}"
-              data-hasStock="{{valuesItem.hasStockObj.hasStock}}"
-              bindtap="toChooseItem"
-            >
+          <block wx:for="{{item.specValueList}}" wx:for-item="valuesItem" wx:for-index="valuesIndex" wx:key="specValueId">
+            <view class="popup-sku-row__item {{valuesItem.isSelected ? 'popup-sku-row__item--active' : ''}} {{!valuesItem.hasStockObj.hasStock || !isStock ? 'disabled-sku-selected' : ''}}" data-specid="{{item.specId}}" data-id="{{valuesItem.specValueId}}" data-val="{{valuesItem.specValue}}" data-hasStock="{{valuesItem.hasStockObj.hasStock}}" bindtap="toChooseItem">
               {{valuesItem.specValue}}
             </view>
           </block>
@@ -63,10 +45,7 @@
     <view wx:if="{{outOperateStatus}}" class="single-confirm-btn {{!isStock ? 'disabled' : ''}}" bindtap="specsConfirm">
       确定
     </view>
-    <view
-      class="popup-sku-actions flex flex-between {{!isStock ? 'popup-sku-disabled' : ''}}"
-      wx:if="{{!outOperateStatus}}"
-    >
+    <view class="popup-sku-actions flex flex-between {{!isStock ? 'popup-sku-disabled' : ''}}" wx:if="{{!outOperateStatus}}">
       <view class="sku-operate">
         <view class="selected-sku-btn sku-operate-addCart {{!isStock ? 'disabled' : ''}}" bindtap="addCart">
           加入购物车

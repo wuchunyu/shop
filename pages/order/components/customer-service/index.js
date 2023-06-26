@@ -2,7 +2,7 @@ Component({
   externalClasses: ['wr-class'],
 
   properties: {
-    phoneNumber: String,
+    phone: String,
     desc: String,
   },
 
@@ -24,9 +24,9 @@ Component({
     },
 
     onCall() {
-      const { phoneNumber } = this.properties;
+      const { phone } = this.properties;
       wx.makePhoneCall({
-        phoneNumber,
+        phone,
       });
     },
     onCallOnlineService() {

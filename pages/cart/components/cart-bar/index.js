@@ -37,6 +37,15 @@ Component({
   },
 
   methods: {
+    handleSelectAll() {
+      const { isAllSelected } = this.data;
+      this.setData({
+        isAllSelected: !isAllSelected,
+      });
+      this.triggerEvent('handleSelectAll', {
+        isAllSelected: isAllSelected,
+      });
+    },
     handleToSettle() {
       if (this.data.isDisabled) return;
       this.triggerEvent('handleToSettle');

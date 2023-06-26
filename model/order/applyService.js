@@ -3,8 +3,7 @@ import { mockIp, mockReqId } from '../../utils/mock';
 const orderResps = [
   {
     data: {
-      saasId: '88888888',
-      uid: '88888888205468',
+
       storeId: '1000',
       skuId: '135691625',
       numOfSku: 1,
@@ -22,12 +21,12 @@ const orderResps = [
         specInfo: [
           {
             specId: '50456',
-            specTitle: '颜色',
+
             specValue: '黑色',
           },
           {
             specId: '50459',
-            specTitle: '尺码',
+
             specValue: '简约款',
           },
         ],
@@ -42,8 +41,7 @@ const orderResps = [
   },
   {
     data: {
-      saasId: '88888888',
-      uid: '88888888205468',
+
       storeId: '1000',
       skuId: '135676631',
       numOfSku: 1,
@@ -60,12 +58,12 @@ const orderResps = [
         specInfo: [
           {
             specId: '50456',
-            specTitle: '颜色',
+
             specValue: '米色荷叶边',
           },
           {
             specId: '50459',
-            specTitle: '尺码',
+
             specValue: 'S',
           },
         ],
@@ -80,8 +78,7 @@ const orderResps = [
   },
   {
     data: {
-      saasId: '88888888',
-      uid: '88888888205468',
+
       storeId: '1000',
       skuId: '135691622',
       numOfSku: 1,
@@ -98,12 +95,11 @@ const orderResps = [
         specInfo: [
           {
             specId: '50456',
-            specTitle: '颜色',
+
             specValue: '经典白',
           },
           {
             specId: '50459',
-            specTitle: '类型',
             specValue: '经典套装',
           },
         ],
@@ -118,8 +114,7 @@ const orderResps = [
   },
   {
     data: {
-      saasId: '88888888',
-      uid: '88888888205468',
+
       storeId: '1000',
       skuId: '135676629',
       numOfSku: 1,
@@ -136,12 +131,12 @@ const orderResps = [
         specInfo: [
           {
             specId: '50456',
-            specTitle: '颜色',
+
             specValue: '浅灰色',
           },
           {
             specId: '50459',
-            specTitle: '尺码',
+
             specValue: 'S',
           },
         ],
@@ -156,8 +151,7 @@ const orderResps = [
   },
   {
     data: {
-      saasId: '88888888',
-      uid: '88888888205468',
+
       storeId: '1000',
       skuId: '135686631',
       numOfSku: 1,
@@ -174,12 +168,12 @@ const orderResps = [
         specInfo: [
           {
             specId: '50456',
-            specTitle: '颜色',
+
             specValue: '军绿色',
           },
           {
             specId: '50459',
-            specTitle: '尺码',
+
             specValue: 'XS',
           },
         ],
@@ -194,8 +188,7 @@ const orderResps = [
   },
   {
     data: {
-      saasId: '88888888',
-      uid: '88888888205468',
+
       storeId: '1000',
       skuId: '19384938948343',
       numOfSku: 1,
@@ -213,12 +206,12 @@ const orderResps = [
         specInfo: [
           {
             specId: '50456',
-            specTitle: '颜色',
+
             specValue: '军绿色',
           },
           {
             specId: '50459',
-            specTitle: '尺码',
+
             specValue: 'XS',
           },
         ],
@@ -244,7 +237,6 @@ export function genRightsPreview(params) {
 export function genApplyReasonList(params) {
   const resp = {
     data: {
-      saasId: '70000001',
       rightsReasonList: [
         { id: '1', desc: '实际商品与描述不符' },
         { id: '2', desc: '质量问题' },
@@ -279,8 +271,6 @@ export function applyService() {
   const resp = {
     data: {
       rightsNo: '123123423',
-      saasId: '70000001',
-      uid: '700000011070005',
       storeId: '542',
       result: null,
     },
