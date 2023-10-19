@@ -1,5 +1,5 @@
 <view id="{{independentID}}" class="wr-goods-card card-class {{ layout }} {{ centered ? 'center' : ''}}" bind:tap="clickHandle" data-goods="{{ goods }}" hidden="{{hiddenInData}}">
-  <view class="wr-goods-card__main">
+  <view class="wrGoodsOardMain">
     <view class="wr-goods-card__thumb thumb-class" bind:tap="clickThumbHandle">
       <!-- data-src 是方便加购动画读取图片用的 -->
       <t-image t-class="wr-goods-card__thumb-com" wx:if="{{ !!goods.thumb && !goods.hideKey.thumb }}" src="{{ goods.thumb }}" mode="{{ thumbMode }}" lazy-load="{{ lazyLoad }}" />
@@ -18,7 +18,6 @@
           <view class="wr-goods-card__specs__desc-text">{{ goods.specs }}</view>
           <t-icon name="chevron-down" size="32rpx" color="#999999" />
         </view>
-        <view class="goods_tips" wx:if="{{goods.stockQuantity !== 0 && goods.quantity >= goods.stockQuantity}}">库存不足</view>
       </view>
       <view class="wr-goods-card__short_content">
         <block wx:if="{{goods.stockQuantity !== 0}}">

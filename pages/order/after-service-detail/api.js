@@ -1,18 +1,11 @@
 import { resp } from '../after-service-list/api';
 import dayjs from 'dayjs';
-import { mockIp, mockReqId } from '../../../utils/mock';
 
 export const formatTime = (date, template) => dayjs(date).format(template);
 
 export function getRightsDetail({ rightsNo }) {
   const _resq = {
-    data: {},
-    code: 'Success',
-    msg: null,
-    requestId: mockReqId(),
-    clientIp: mockIp(),
-    rt: 79,
-    success: true,
+    data: {}
   };
   _resq.data =
     resp.data.dataList.filter((item) => item.rights.rightsNo === rightsNo) ||
@@ -22,13 +15,7 @@ export function getRightsDetail({ rightsNo }) {
 
 export function cancelRights() {
   const _resq = {
-    data: {},
-    code: 'Success',
-    msg: null,
-    requestId: mockReqId(),
-    clientIp: mockIp(),
-    rt: 79,
-    success: true,
+    data: {}
   };
   return Promise.resolve(_resq);
 }

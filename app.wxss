@@ -1,3 +1,7 @@
 @import 'style/iconfont.wxss';
 
 @import 'style/theme.wxss';
+
+.flex {
+  display: flex;
+}

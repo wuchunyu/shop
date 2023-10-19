@@ -22,10 +22,6 @@ Component({
         });
       },
     },
-    totalDiscountAmount: {
-      type: Number,
-      value: 0,
-    },
     bottomHeight: {
       type: Number,
       value: 100,

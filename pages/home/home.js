@@ -6,14 +6,12 @@ import {
 
 Page({
   data: {
-    tabList_key: 0,
     imgSrcs: [],
     tabList: [],
     goodsList: [],
     goodsListLoadStatus: 0,
     pageLoading: false,
     current: 1,
-    autoplay: true,
     duration: '500',
     interval: 5000,
     navigation: {

@@ -69,7 +69,6 @@ const getDefaultData = () => ({
   },
   menuData,
   orderTagInfos,
-  customerServiceInfo: {},
   currAuthStep: 1,
   showKefu: true,
   versionNo: '',
@@ -122,12 +121,6 @@ Page({
           message: '你点击了帮助中心',
           icon: '',
           duration: 1000,
-        });
-        break;
-      }
-      case 'coupon': {
-        wx.navigateTo({
-          url: '/pages/coupon/coupon-list/index'
         });
         break;
       }
@@ -186,7 +179,7 @@ Page({
     const {
       currAuthStep
     } = this.data;
-    if (currAuthStep === 2) {
+    if (currAuthStep === 1) {
       wx.navigateTo({
         url: '/pages/usercenter/person-info/index'
       });

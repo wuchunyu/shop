@@ -83,7 +83,7 @@ Page({
       loading: true,
     });
     try {
-      const result = await postUrl('/getSearchResult');
+      const result = await getUrl('/getSearchResult');
       const code = 'Success';
       const data = result.data;
       if (code.toUpperCase() === 'SUCCESS') {
@@ -151,13 +151,13 @@ Page({
     );
   },
 
-  handleFocus(){
+  handleFocus() {
     wx.navigateBack({
       delta: 1
     });
   },
 
-  clearSearch(){
+  clearSearch() {
     app.globalData.searchValue = ''
     wx.navigateBack({
       delta: 1

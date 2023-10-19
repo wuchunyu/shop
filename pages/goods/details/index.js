@@ -10,10 +10,6 @@ const fetchGood = function (spuId) {
   }); // 获取指定商品信息
 }
 
-const fetchActivityList = function () {
-  return getUrl('/fetchActivityList'); //活动优惠
-}
-
 import {
   cdnBase
 } from '../../../config/index';
@@ -56,7 +52,6 @@ Page({
     },
     ],
     storeLogo: `${imgPrefix}common/store-logo.png`,
-    storeName: '云mall标准版旗舰店',
     jumpArray: [{
       title: '首页',
       url: '/pages/home/home',
@@ -92,7 +87,6 @@ Page({
       type: 'fraction'
     },
     current: 0,
-    autoplay: true,
     duration: 500,
     interval: 5000,
     soldNum: 0, // 已售数量
@@ -310,12 +304,6 @@ Page({
     } = e.detail;
     wx.navigateTo({
       url: `/pages/promotion-detail/index?promotion_id=${index}`,
-    });
-  },
-
-  showPromotionPopup() {
-    this.setData({
-      isShowPromotionPop: true,
     });
   },
 

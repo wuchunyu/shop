@@ -1,4 +1,4 @@
-.goods-list-wrap {
+.goodsListWrap {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;

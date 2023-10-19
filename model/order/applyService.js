@@ -1,5 +1,3 @@
-import { mockIp, mockReqId } from '../../utils/mock';
-
 const orderResps = [
   {
     data: {
@@ -34,9 +32,6 @@ const orderResps = [
     },
     code: 'Success',
     msg: null,
-    requestId: mockReqId(),
-    clientIp: mockIp(),
-    rt: 36,
     success: true,
   },
   {
@@ -71,9 +66,6 @@ const orderResps = [
     },
     code: 'Success',
     msg: null,
-    requestId: mockReqId(),
-    clientIp: mockIp(),
-    rt: 36,
     success: true,
   },
   {
@@ -104,13 +96,7 @@ const orderResps = [
           },
         ],
       },
-    },
-    code: 'Success',
-    msg: null,
-    requestId: mockReqId(),
-    clientIp: mockIp(),
-    rt: 36,
-    success: true,
+    }
   },
   {
     data: {
@@ -141,13 +127,7 @@ const orderResps = [
           },
         ],
       },
-    },
-    code: 'Success',
-    msg: null,
-    requestId: mockReqId(),
-    clientIp: mockIp(),
-    rt: 36,
-    success: true,
+    }
   },
   {
     data: {
@@ -178,13 +158,7 @@ const orderResps = [
           },
         ],
       },
-    },
-    code: 'Success',
-    msg: null,
-    requestId: mockReqId(),
-    clientIp: mockIp(),
-    rt: 36,
-    success: true,
+    }
   },
   {
     data: {
@@ -216,13 +190,7 @@ const orderResps = [
           },
         ],
       },
-    },
-    code: 'Success',
-    msg: null,
-    requestId: mockReqId(),
-    clientIp: mockIp(),
-    rt: 36,
-    success: true,
+    }
   },
 ];
 
@@ -247,13 +215,7 @@ export function genApplyReasonList(params) {
         { id: '7', desc: '商家发错货' },
         { id: '8', desc: '不喜欢' },
       ],
-    },
-    code: 'Success',
-    msg: null,
-    requestId: mockReqId(),
-    clientIp: mockIp(),
-    rt: 6,
-    success: true,
+    }
   };
   // 未收货对应的原因列表
   if (params.rightsReasonType === 'REFUND_MONEY') {
@@ -273,13 +235,7 @@ export function applyService() {
       rightsNo: '123123423',
       storeId: '542',
       result: null,
-    },
-    code: 'Success',
-    msg: null,
-    requestId: mockReqId(),
-    clientIp: mockIp(),
-    rt: 269,
-    success: true,
+    }
   };
   return resp;
 }

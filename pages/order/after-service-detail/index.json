@@ -15,7 +15,6 @@
     "t-input": "tdesign-miniprogram/input/input",
     "t-swiper": "tdesign-miniprogram/swiper/swiper",
     "t-swiper-nav": "tdesign-miniprogram/swiper-nav/swiper-nav",
-    "wr-after-service-button-bar": "../components/after-service-button-bar/index",
-    "t-image": "/components/webp-image/index"
+    "wr-after-service-button-bar": "../components/after-service-button-bar/index"
   }
 }

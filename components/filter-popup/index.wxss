@@ -10,9 +10,8 @@
   box-sizing: border-box;
 }
 
-.filter-btn {
+.filterBtn {
   flex: 1;
-  display: flex;
   justify-content: center;
   align-items: center;
   font-size: 28rpx;

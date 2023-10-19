@@ -1,12 +1,12 @@
 <view class="goods-detail-page">
   <view class="goods-head">
-    <t-swiper wx:if="{{details.images.length > 0}}" height="750rpx" current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" navigation="{{navigation}}" list="{{details.images}}"></t-swiper>
+    <t-swiper wx:if="{{details.images.length > 0}}" height="750rpx" current="{{current}}" autoplay="{{true}}" duration="{{duration}}" interval="{{interval}}" navigation="{{navigation}}" list="{{details.images}}"></t-swiper>
     <view class="goods-info">
       <view class="goods-number">
         <view class="goods-price">
           <price wr-class="class-goods-price" symbol-class="class-goods-symbol" price="{{minSalePrice}}" type="lighter" />
-          <view class="goods-price-up">起</view>
-          <price wr-class="class-goods-del" price="{{maxLinePrice}}" type="delthrough" />
+          <!-- <view class="goods-price-up">起</view> -->
+          <!-- <price wr-class="class-goods-del" price="{{maxLinePrice}}" type="delthrough" /> -->
         </view>
         <view class="sold-num">已售{{soldNum}}</view>
       </view>

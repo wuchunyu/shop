@@ -4,7 +4,7 @@
       <t-image wx:if="{{ !!goods.thumb }}" t-class="goods-card__img" src="{{ goods.thumb }}" mode="aspectFill" lazy-load />
     </view>
     <view class="goods-card__body">
-      <view class="goods-card__upper">
+      <view class="goodsCardUpper">
         <view wx:if="{{ goods.title }}" class="goods-card__title">
           {{ goods.title }}
         </view>

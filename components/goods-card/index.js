@@ -21,9 +21,9 @@ Component({
           return;
         }
         let isValidityLinePrice = true;
-        if (data.originPrice && data.price && data.originPrice < data.price) {
-          isValidityLinePrice = false;
-        }
+        // if (data.originPrice && data.price && data.originPrice < data.price) {
+        //   isValidityLinePrice = false;
+        // }
         this.setData({ goods: data, isValidityLinePrice });
       },
     },
@@ -133,7 +133,7 @@ Component({
       if (this.intersectionObserverContext) {
         try {
           this.intersectionObserverContext.disconnect();
-        } catch (e) {}
+        } catch (e) { }
         this.intersectionObserverContext = null;
       }
     },

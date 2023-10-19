@@ -40,6 +40,7 @@
 }
 
 .goods-card__body {
+  width: 342rpx;
   display: flex;
   flex: 1 1 auto;
   background: #fff;
@@ -48,7 +49,7 @@
   flex-direction: column;
 }
 
-.goods-card__upper {
+.goodsCardUpper {
   display: flex;
   flex-direction: column;
   overflow: hidden;

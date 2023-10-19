@@ -1,5 +1,5 @@
 var isOnlyBack = function (data) {
-  return data.limitGoodsList || (data.inValidGoodsList && !data.storeGoodsList);
+  return (!data.storeGoodsList);
 };
 
 var isShowChangeAddress = function (data) {
@@ -7,7 +7,7 @@ var isShowChangeAddress = function (data) {
 };
 
 var isShowKeepPay = function (data) {
-  return data.outOfStockGoodsList || (data.storeGoodsList && data.inValidGoodsList);
+  return data.storeGoodsList;
 };
 
 module.exports = {

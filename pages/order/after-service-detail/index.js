@@ -59,7 +59,6 @@ Page({
       const service = {
         id: serviceRaw.rights.rightsNo,
         serviceNo: serviceRaw.rights.rightsNo,
-        storeName: serviceRaw.rights.storeName,
         type: serviceRaw.rights.rightsType,
         typeDesc: ServiceTypeDesc[serviceRaw.rights.rightsType],
         status: serviceRaw.rights.rightsStatus,

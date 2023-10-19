@@ -11,23 +11,10 @@
         </t-cell>
         <t-cell class="form-cell" t-class-title="t-cell-title" title="地区">
           <t-input slot="note" class="t-input" t-class="field-text" borderless placeholder="省/市/区" data-item="address" value="{{locationState.provinceName ? locationState.provinceName+'/':'' }}{{locationState.cityName ? locationState.cityName+'/':''}}{{locationState.districtName}}" catch:tap="onPickArea" disabled />
-          <t-icon slot="right-icon" t-class="map" prefix="wr" name="location" catch:tap="onSearchAddress" />
         </t-cell>
         <t-cell class="form-cell" t-class-title="t-cell-title" title="详细地址" bordered="{{false}}">
           <view slot="note" class="textarea__wrapper">
             <t-textarea slot="note" type="text" value="{{locationState.detailAddress}}" placeholder="门牌号等(例如:10栋1001号)" autosize bind:change="onInputValue" data-item="detailAddress" />
-          </view>
-        </t-cell>
-
-        <view class="divider-line" />
-        <t-cell class="form-cell" t-class-note="t-cell-note address__tag" t-class-title="t-cell-title" title="标签" bordered="{{false}}">
-          <view class="t-input address-flex-box" slot="note">
-            <t-button wx:for="{{labels}}" wx:for-item="label" wx:key="index" size="extra-small" t-class="label-list {{locationState.labelIndex === index ? 'active-btn':''}}" bindtap="onPickLabels" data-item="{{index}}">
-              {{label.name}}
-            </t-button>
-            <t-button size="extra-small" t-class="label-list" bindtap="addLabels">
-              <t-icon name="add" size="40rpx" color="#bbb" />
-            </t-button>
           </view>
         </t-cell>
         <view class="divider-line" />
@@ -36,13 +23,10 @@
         </t-cell>
       </t-cell-group>
       <view class="submit">
-        <t-button shape="round" block disabled="{{!submitActive}}" bind:tap="formSubmit"> 保存 </t-button>
+        <t-button shape="round" block bind:tap="formSubmit"> 保存 </t-button>
       </view>
     </form>
   </view>
-  <t-cascader data-item="address" data-type="1" visible="{{areaPickerVisible}}" theme="tab" options="{{areaData}}" title="选择地区" bind:change="onInputValue"></t-cascader>
+  <t-cascader data-item="address" data-type="1" visible="{{areaPickerVisible}}" theme="tab" options="{{areaData}}" value="{{locationState.districtCode}}" title="选择地区" bind:change="onInputValue"></t-cascader>
 </view>
-<t-dialog visible="{{visible}}" t-class-confirm="dialog__button-confirm" t-class-cancel="dialog__button-cancel" title="填写标签名称" confirm-btn="确定" cancel-btn="取消" bind:confirm="confirmHandle" bind:cancel="cancelHandle">
-  <t-input slot="content" class="dialog__input" model:value="{{labelValue}}" placeholder="请输入标签名称" borderless />
-</t-dialog>
 <t-toast id="t-toast" />

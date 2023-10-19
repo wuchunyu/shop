@@ -1,6 +1,4 @@
 /* eslint-disable */
-import { mockIp, mockReqId } from '../../../utils/mock';
-
 export const resp = {
   data: {
     pageNum: 1,
@@ -58,7 +56,7 @@ export const resp = {
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
-          storeName: '大猫集团旗舰店',
+
           updateTime: '1596524705613',
           userRightsStatus: 120,
           userRightsStatusDesc:
@@ -239,7 +237,7 @@ export const resp = {
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
-          storeName: '大猫集团旗舰店',
+
           updateTime: '1596524705613',
           userRightsStatus: 100,
           userRightsStatusDesc: '商家已审核确认，预计1小时内发起退款',
@@ -358,7 +356,7 @@ export const resp = {
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
-          storeName: '大猫集团旗舰店',
+
           updateTime: '1596524705613',
           userRightsStatus: 100,
           userRightsStatusDesc: '商家将尽快确认您的退款申请',
@@ -475,9 +473,6 @@ export const resp = {
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
-          storeName:
-            '大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店',
-
           updateTime: '1596524705613',
           userRightsStatus: 160,
           userRightsStatusDesc: '退款/售后已完成',
@@ -589,7 +584,7 @@ export const resp = {
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
-          storeName: '大猫集团旗舰店',
+
 
           updateTime: '1596524705613',
           userRightsStatus: 1,
@@ -703,9 +698,6 @@ export const resp = {
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
-          storeName:
-            '大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店',
-
           updateTime: '1596524705613',
           userRightsStatus: 1,
           userRightsStatusDesc:
@@ -820,7 +812,7 @@ export const resp = {
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
-          storeName: '大猫集团旗舰店',
+
 
           updateTime: '1596524705613',
           userRightsStatus: 1,
@@ -935,7 +927,7 @@ export const resp = {
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
-          storeName: '大猫集团旗舰店',
+
 
           updateTime: '1596524705613',
           userRightsStatus: 1,
@@ -1049,7 +1041,7 @@ export const resp = {
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
-          storeName: '大猫集团旗舰店',
+
 
           updateTime: '1596524705613',
           userRightsStatus: 1,
@@ -1163,7 +1155,7 @@ export const resp = {
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
-          storeName: '大猫集团旗舰店',
+
 
           updateTime: '1596524705613',
           userRightsStatus: 1,
@@ -1248,13 +1240,7 @@ export const resp = {
         },
       },
     ],
-  },
-  code: 'Success',
-  msg: null,
-  requestId: mockReqId(),
-  clientIp: mockIp(),
-  rt: 79,
-  success: true,
+  }
 };
 
 export function getRightsList({ parameter: { afterServiceStatus, pageNum } }) {

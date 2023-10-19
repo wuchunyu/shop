@@ -130,7 +130,6 @@ Page({
             return {
               id: _data.rights.rightsNo,
               serviceNo: _data.rights.rightsNo,
-              storeName: _data.rights.storeName,
               type: _data.rights.rightsType,
               typeDesc: ServiceTypeDesc[_data.rights.rightsType],
               typeDescIcon:

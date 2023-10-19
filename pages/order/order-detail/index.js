@@ -87,7 +87,6 @@ Page({
         orderNo: order.orderNo,
         parentOrderNo: order.parentOrderNo,
         storeId: order.storeId,
-        storeName: order.storeName,
         status: order.orderStatus,
         statusDesc: order.orderStatusName,
         amount: order.paymentAmount,
@@ -101,7 +100,7 @@ Page({
             skuId: goods.skuId,
             spuId: goods.spuId,
             specs: (goods.specifications || []).map((s) => s.specValue),
-            price: goods.tagPrice ? goods.tagPrice : goods.actualPrice, // 商品销售单价, 优先取限时活动价
+            price: goods.actualPrice, // 商品销售单价, 优先取限时活动价
             num: goods.buyQuantity,
             buttons: goods.buttonVOs || [],
           }),

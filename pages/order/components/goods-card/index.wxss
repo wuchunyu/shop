@@ -2,7 +2,7 @@
   box-sizing: border-box;
   font-size: 24rpx;
 }
-.wr-goods-card__main {
+.wrGoodsOardMain {
   position: relative;
   display: flex;
   line-height: 1;
@@ -10,7 +10,7 @@
   background: transparent;
   padding: 16rpx 0rpx;
 }
-.wr-goods-card.center .wr-goods-card__main {
+.wr-goods-card.center .wrGoodsOardMain {
   align-items: center;
   justify-content: center;
 }
@@ -197,7 +197,7 @@
 .wr-goods-card.horizontal-wrap .wr-goods-card__num {
   margin: 0 0 0 auto;
 }
-.wr-goods-card.vertical .wr-goods-card__main {
+.wr-goods-card.vertical .wrGoodsOardMain {
   padding: 0 0 22rpx 0;
   flex-direction: column;
 }

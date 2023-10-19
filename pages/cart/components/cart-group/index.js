@@ -7,7 +7,6 @@ Component({
     storeGoods: {
       type: Array,
       observer(storeGoods) {
-        // console.log(activity.goodsPromotionList);
         for (const store of storeGoods) {
           for (const activity of store.promotionGoodsList) {
             for (const goods of activity.goodsPromotionList) {
@@ -120,10 +119,6 @@ Component({
       }
       const { goods } = e.currentTarget.dataset;
       this.triggerEvent('goodsclick', { goods });
-    },
-
-    gotoCoupons() {
-      wx.navigateTo({ url: '/pages/coupon/coupon-list/index' });
     },
   },
 });

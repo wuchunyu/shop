@@ -1,6 +1,6 @@
 <!-- 过滤组件 -->
-<view class="wr-class filter-wrap">
-  <view class="filter-left-content">
+<view class="wr-class flex filterWrap">
+  <view class="flex filterLeftContent">
     <view class="filter-item {{overall === 1 ? 'filter-active-item' : ''}}" bindtap="onOverallAction">
       综合
     </view>

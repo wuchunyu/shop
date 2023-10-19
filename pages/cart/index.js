@@ -21,7 +21,6 @@ Page({
 
   refreshData() {
     getUrl('/fetchCartGroupData').then(res => {
-      console.log('--res--', res, JSON.stringify(res));
       const cartGroupData = res.data;
       // 一些组件中需要的字段可能接口并没有返回，或者返回的数据结构与预期不一致，需要在此先对数据做一些处理
       // 统计门店下加购的商品是否全选、是否存在缺货/无货
@@ -31,8 +30,6 @@ Page({
         }
         for (const activity of store.promotionGoodsList) {
           activity.goodsPromotionList = activity.goodsPromotionList.filter((goods) => {
-            goods.originPrice = undefined;
-
             // 库存为0（无货）的商品单独分组
             if (goods.stockQuantity > 0) {
               return true;

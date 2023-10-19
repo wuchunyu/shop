@@ -1,27 +1,13 @@
-import { mockIp, mockReqId } from '../../../utils/mock';
-
 export function create() {
   const _resq = {
-    data: null,
-    code: 'Success',
-    msg: null,
-    requestId: mockReqId(),
-    clientIp: mockIp(),
-    rt: 79,
-    success: true,
+    data: null
   };
   return Promise.resolve(_resq);
 }
 
 export function update() {
   const _resq = {
-    data: null,
-    code: 'Success',
-    msg: null,
-    requestId: mockReqId(),
-    clientIp: mockIp(),
-    rt: 79,
-    success: true,
+    data: null
   };
   return Promise.resolve(_resq);
 }

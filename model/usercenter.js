@@ -5,13 +5,6 @@ const userInfo = {
   phone: '13438358888',
   gender: 2,
 };
-const countsData = [
-  {
-    num: 10,
-    name: '优惠券',
-    type: 'coupon',
-  },
-];
 
 const orderTagInfos = [
   {
@@ -32,16 +25,9 @@ const orderTagInfos = [
   },
 ];
 
-const customerServiceInfo = {
-  servicePhone: '4006336868',
-  serviceTimeDuration: '每周三至周五 9:00-12:00  13:00-15:00',
-};
-
 export const genSimpleUserInfo = () => ({ ...userInfo });
 
 export const genUsercenter = () => ({
   userInfo,
-  countsData,
   orderTagInfos,
-  customerServiceInfo,
 });

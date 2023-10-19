@@ -1,10 +1,12 @@
 :host {
   background-color: #f5f5f5;
 }
-.select-service .service-form .service-from-group {
+
+.selectService .service-form .service-from-group {
   margin-top: 20rpx;
 }
-.select-service .service-form {
+
+.selectService .service-form {
   padding-bottom: calc(env(safe-area-inset-bottom) + 80rpx);
 }
 
@@ -21,58 +23,63 @@
   color: #999;
 }
 
-.select-service .order-goods-card-footer .order-goods-card-footer-price-class {
+.selectService .order-goods-card-footer .order-goods-card-footer-price-class {
   font-size: 36rpx;
   color: #333;
   font-family: DIN Alternate;
 }
-.select-service .order-goods-card-footer .order-goods-card-footer-price-decimal {
+
+.selectService .order-goods-card-footer .order-goods-card-footer-price-decimal {
   font-size: 28rpx;
   color: #333;
   font-family: DIN Alternate;
 }
-.select-service .order-goods-card-footer .order-goods-card-footer-price-symbol {
+
+.selectService .order-goods-card-footer .order-goods-card-footer-price-symbol {
   color: #333;
   font-size: 24rpx;
   font-family: DIN Alternate;
 }
 
-.select-service .remark {
+.selectService .remark {
   min-height: 110rpx;
   border-radius: 10rpx;
   margin-top: 20rpx;
   background-color: #f5f5f5;
 }
-.select-service .remark::after {
+
+.selectService .remark::after {
   border: none;
 }
 
-.select-service .special-cell .special-cell-note {
+.selectService .special-cell .special-cell-note {
   display: flex;
   flex-direction: column;
 }
 
-.select-service .special-cell .wr-cell__title {
+.selectService .special-cell .wr-cell__title {
   margin-right: 100rpx;
 }
 
-.select-service .special-cell .special-cell-note-price-class {
+.selectService .special-cell .special-cell-note-price-class {
   font-size: 36rpx;
   color: #fa4126;
   font-family: DIN Alternate;
 }
-.select-service .special-cell .special-cell-note-price-decimal {
+
+.selectService .special-cell .special-cell-note-price-decimal {
   font-size: 28rpx;
   color: #fa4126;
   font-family: DIN Alternate;
 }
-.select-service .special-cell .special-cell-note-price-symbol {
+
+.selectService .special-cell .special-cell-note-price-symbol {
   color: #fa4126;
   font-size: 24rpx;
   font-family: DIN Alternate;
 }
 
-.select-service .bottom-bar__btn {
+.selectService .bottom-bar__btn {
   width: 686rpx;
   background-color: #fa4126;
   color: white;
@@ -83,18 +90,22 @@
   top: 20rpx;
   transform: translateX(-50%);
 }
-.select-service .bottom-bar__btn::after {
+
+.selectService .bottom-bar__btn::after {
   border: none;
 }
-.select-service .bottom-bar__btn.disabled {
+
+.selectService .bottom-bar__btn.disabled {
   background-color: #c6c6c6;
   --td-button-default-active-bg-color: #c6c6c6;
   --td-button-default-border-bg-color: #c6c6c6;
 }
-.select-service .bottom-bar__btn.disabled::after {
+
+.selectService .bottom-bar__btn.disabled::after {
   border: none;
 }
-.select-service .order-goods-card .wr-goods-card {
+
+.selectService .order-goods-card .wr-goods-card {
   padding: 0 30rpx;
 }
 
@@ -163,6 +174,7 @@
   background-color: #f3f4f5;
   overflow: hidden;
 }
+
 .dialog--service-status .options .option {
   color: #333333;
   font-size: 30rpx;
@@ -171,15 +183,19 @@
   line-height: 100rpx;
   background-color: white;
 }
+
 .dialog--service-status .options .option:not(:last-child) {
   border-bottom: 1rpx solid #e6e6e6;
 }
+
 .dialog--service-status .options .option--active {
   opacity: 0.5;
 }
+
 .dialog--service-status .options .option.main {
   color: #fa4126;
 }
+
 .dialog--service-status .cancel {
   color: #333333;
   font-size: 30rpx;
@@ -189,19 +205,23 @@
   background-color: white;
   margin-top: 20rpx;
 }
+
 .dialog--service-status .cancel--active {
   opacity: 0.5;
 }
+
 .amount-dialog--focus .popup__content--center,
 .remark-dialog--focus .popup__content--center {
   top: 100rpx;
   transform: translate(-50%, 0);
 }
+
 .dialog .dialog__button-confirm {
   color: #fa4126;
   color: var(--color-primary, #fa4126);
 }
-.select-service .bottom-bar {
+
+.selectService .bottom-bar {
   background-color: #fff;
   position: fixed;
   bottom: 0;
@@ -210,6 +230,7 @@
   height: 158rpx;
   z-index: 3;
 }
+
 .order-goods-card {
   background: #fff;
   margin-bottom: 24rpx;
@@ -224,6 +245,7 @@
   text-align: right;
   color: #fa4126;
 }
+
 .service-from-group__price {
   display: flex;
   align-items: center;
@@ -232,8 +254,9 @@
   position: relative;
   left: 30rpx;
 }
-.textarea--label {
-}
+
+.textarea--label {}
+
 .service-from-group__textarea {
   margin-top: 20rpx;
   background-color: #fff;
@@ -245,10 +268,12 @@
   background: #f5f5f5 !important;
   border-radius: 16rpx;
 }
+
 .service-from-group__textarea .t-textarea__wrapper .t-textarea__wrapper-textarea {
   height: 136rpx;
   box-sizing: border-box;
 }
+
 .service-from-group__grid {
   padding: 0 32rpx 48rpx;
   background: #fff;

@@ -1,7 +1,10 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/coupon/coupon-activity-goods/index",
+    "pages/index/index",
+    "pages/order/apply-service/index",
+    "pages/order/invoice/index",
+    "pages/usercenter/name-edit/index",
     "pages/usercenter/index",
     "pages/usercenter/person-info/index",
     "pages/usercenter/address/list/index",
@@ -14,21 +17,17 @@
     "pages/cart/index",
     "pages/order/order-confirm/index",
     "pages/order/receipt/index",
-    "pages/order/pay-result/index",
     "pages/order/order-list/index",
     "pages/order/order-detail/index",
+    "pages/order/pay-result/index",
     "pages/goods/comments/index",
-    "pages/order/apply-service/index",
+    
     "pages/order/after-service-list/index",
     "pages/order/after-service-detail/index",
     "pages/goods/comments/create/index",
-    "pages/coupon/coupon-list/index",
-    "pages/coupon/coupon-detail/index",
     "pages/promotion-detail/index",
     "pages/order/fill-tracking-no/index",
-    "pages/order/delivery-detail/index",
-    "pages/order/invoice/index",
-    "pages/usercenter/name-edit/index"
+    "pages/order/delivery-detail/index"
   ],
   "tabBar": {
     "custom": true,
@@ -57,7 +56,6 @@
   },
   "requiredPrivateInfos": ["chooseAddress"],
   "lazyCodeLoading": "requiredComponents",
-  "usingComponents": {},
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

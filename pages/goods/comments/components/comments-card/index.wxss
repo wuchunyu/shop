@@ -16,10 +16,6 @@
   background-color: #f5f5f5;
 }
 
-.comments-card-item-userImg {
-  display: flex;
-}
-
 .comments-card-item-userImg .userImg {
   width: 64rpx;
   height: 64rpx;
@@ -30,18 +26,6 @@
   width: 100%;
 }
 
-.comments-card-item-container-name {
-  display: flex;
-  font-size: 28rpx;
-  color: #333;
-  font-weight: 600;
-  align-items: center;
-}
-
-.comments-card-item-container-name .userName {
-  margin-right: 12rpx;
-}
-
 .comments-card-item-container-date {
   font-size: 22rpx;
   color: #999;
@@ -49,19 +33,19 @@
   display: flex;
 }
 
-.comments-card-item-container-content {
+.commentsCardItemContainerContent {
   margin-top: 16rpx;
   position: relative;
 }
 
-.comments-card-item-container-content .content-text {
+.commentsCardItemContainerContent .content-text {
   font-size: 28rpx;
   white-space: normal;
   word-break: break-all;
   font-weight: normal;
 }
 
-.comments-card-item-container-content .hide-text {
+.commentsCardItemContainerContent .hide-text {
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 5;
@@ -70,51 +54,49 @@
   -webkit-box-orient: vertical;
 }
 
-.comments-card-item-container-content .showMore {
+.commentsCardItemContainerContent .showMore {
   position: absolute;
   width: 112rpx;
   height: 36rpx;
   bottom: 0;
   right: 0;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.2) 0,
-    rgba(255, 255, 255, 0.45) 20%,
-    rgba(255, 255, 255, 0.7) 25%,
-    rgba(255, 255, 255, 0.9) 30%,
-    rgba(255, 255, 255, 0.95) 35%,
-    #ffffff 50%,
-    #fff 100%
-  );
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 0.2) 0,
+      rgba(255, 255, 255, 0.45) 20%,
+      rgba(255, 255, 255, 0.7) 25%,
+      rgba(255, 255, 255, 0.9) 30%,
+      rgba(255, 255, 255, 0.95) 35%,
+      #ffffff 50%,
+      #fff 100%);
   font-size: 26rpx;
   color: #fa550f;
   line-height: 36rpx;
   text-align: right;
 }
 
-.comments-card-item-container-image {
+.commentsCardItemContainerImage {
   margin-top: 24rpx;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.comments-card-item-container-image .commentImg {
+.commentsCardItemContainerImage .commentImg {
   border-radius: 8rpx;
   margin-top: 12rpx;
 }
 
-.comments-card-item-container-image .commentImg3 {
+.commentsCardItemContainerImage .commentImg3 {
   width: 196rpx;
   height: 196rpx;
 }
 
-.comments-card-item-container-image .commentImg2 {
+.commentsCardItemContainerImage .commentImg2 {
   width: 300rpx;
   height: 300rpx;
 }
 
-.comments-card-item-container-image .commentImg1 {
+.commentsCardItemContainerImage .commentImg1 {
   width: 404rpx;
   height: 404rpx;
 }

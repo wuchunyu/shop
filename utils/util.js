@@ -96,11 +96,10 @@ const phoneRegCheck = (phone) => {
  * 封封微信的的request
  */
 function request(url, data = {}, method = "GET") {
-  console.log('--request--', url, data, method);
   return new Promise(function (resolve, reject) {
     wx.request({
-      // url: 'https://g.recallg.com' + url,
-      url: 'https://www.fastmock.site/mock/8ccc2ad21c37149c6f6b9d3aac2b06f2/api' + url,
+      url: 'https://g.recallg.com' + url,
+      // url: 'https://www.fastmock.site/mock/8ccc2ad21c37149c6f6b9d3aac2b06f2/api' + url,
       data,
       method: method,
       header: {

@@ -83,45 +83,44 @@ Page({
     };
     if (statusCode !== -1) params.parameter.orderStatus = statusCode;
     this.setData({ listLoading: 1 });
-    getUrl('/fetchOrders').then(res=>{
-        this.page.num++;
-        let orderList = [];
-        if (res && res.data && res.data.orders) {
-          orderList = (res.data.orders || []).map((order) => {
-            return {
-              id: order.orderId,
-              orderNo: order.orderNo,
-              parentOrderNo: order.parentOrderNo,
-              storeId: order.storeId,
-              storeName: order.storeName,
-              status: order.orderStatus,
-              statusDesc: order.orderStatusName,
-              amount: order.paymentAmount,
-              totalAmount: order.totalAmount,
-              logisticsNo: order.logisticsVO.logisticsNo,
-              createTime: order.createTime,
-              goodsList: (order.orderItemVOs || []).map((goods) => ({
-                id: goods.id,
-                thumb: cosThumb(goods.goodsPictureUrl, 70),
-                title: goods.goodsName,
-                skuId: goods.skuId,
-                spuId: goods.spuId,
-                specs: (goods.specifications || []).map(
-                  (spec) => spec.specValue,
-                ),
-                price: goods.tagPrice ? goods.tagPrice : goods.actualPrice,
-                num: goods.buyQuantity,
-              })),
-              buttons: order.buttonVOs || [],
-              groupInfoVo: order.groupInfoVo,
-              freightFee: order.freightFee,
-            };
-          });
-        }
-                  this.setData({
-            orderList: this.data.orderList.concat(orderList),
-            listLoading: orderList.length > 0 ? 0 : 2,
-          });
+    getUrl('/fetchOrders').then(res => {
+      this.page.num++;
+      let orderList = [];
+      if (res && res.data && res.data.orders) {
+        orderList = (res.data.orders || []).map((order) => {
+          return {
+            id: order.orderId,
+            orderNo: order.orderNo,
+            parentOrderNo: order.parentOrderNo,
+            storeId: order.storeId,
+            status: order.orderStatus,
+            statusDesc: order.orderStatusName,
+            amount: order.paymentAmount,
+            totalAmount: order.totalAmount,
+            logisticsNo: order.logisticsVO.logisticsNo,
+            createTime: order.createTime,
+            goodsList: (order.orderItemVOs || []).map((goods) => ({
+              id: goods.id,
+              thumb: cosThumb(goods.goodsPictureUrl, 70),
+              title: goods.goodsName,
+              skuId: goods.skuId,
+              spuId: goods.spuId,
+              specs: (goods.specifications || []).map(
+                (spec) => spec.specValue,
+              ),
+              price: goods.actualPrice,
+              num: goods.buyQuantity,
+            })),
+            buttons: order.buttonVOs || [],
+            groupInfoVo: order.groupInfoVo,
+            freightFee: order.freightFee,
+          };
+        });
+      }
+      this.setData({
+        orderList: this.data.orderList.concat(orderList),
+        listLoading: orderList.length > 0 ? 0 : 2,
+      });
     });
   },
 
