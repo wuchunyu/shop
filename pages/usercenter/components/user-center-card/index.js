@@ -26,18 +26,10 @@ Component({
     defaultAvatarUrl:
       'https://cdn-we-retail.ym.tencent.com/miniapp/usercenter/icon-user-center-avatar@2x.png',
     AuthStepType,
+    hasUserInfo: false,
+    userInfo: {},
   },
   onLoad() {
-    wx.getUserProfile({
-      desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        console.log(res);
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    })
   },
   methods: {
     gotoUserEditPage() {
@@ -47,8 +39,24 @@ Component({
         success: res => {
           console.log("成功", res)
           this.setData({
-            nickName: res.userInfo.nickName,
-            touxian: res.userInfo.avatarUrl
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+          wx.login({
+            success(res) {
+              console.log(res);
+              if (res.code) {
+                //发起网络请求
+                wx.request({
+                  url: 'http://g.recallg.com/token',
+                  header: {
+                    code: res.code
+                  }
+                })
+              } else {
+                console.log('登录失败！' + res.errMsg)
+              }
+            }
           })
         },
         fail: res => {

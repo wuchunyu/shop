@@ -1,13 +1,9 @@
-import updateManager from './common/updateManager';
-
 App({
   globalData: {
-		searchValue: '',
-	},
-  onLaunch: function () {},
-  onShow: function () {
-    updateManager();
+    searchValue: '',
   },
+  onLaunch: function () { },
+  onShow: function () { },
   // 监听全局变量变化
   watch: function (variate, method) {
     var obj = this.globalData;
@@ -17,7 +13,7 @@ App({
       enumerable: true,
       set: function (value) {
         val = value;// 重新赋值
-        method(variate,value);// 执行回调方法
+        method(variate, value);// 执行回调方法
       },
       get: function () {
         // 在其他界面调用getApp().globalData.variate的时候，这里就会执行。

@@ -1,9 +1,12 @@
 <view class="user-center-card">
-  <!-- 未登录的情况 -->
   <block>
-    <view class="user-center-card__header" bindtap="gotoUserEditPage">
+    <view wx:if="{{!hasUserInfo}}" class="user-center-card__header" bindtap="gotoUserEditPage">
       <t-avatar image="{{userInfo.avatarUrl || defaultAvatarUrl}}" class="user-center-card__header__avatar" />
       <view class="user-center-card__header__name">{{'请登录'}}</view>
+    </view>
+    <view wx:else class="user-center-card__header">
+      <t-avatar image="{{userInfo.avatarUrl || defaultAvatarUrl}}" class="user-center-card__header__avatar" />
+      <view class="user-center-card__header__name">{{userInfo.nickName}}</view>
     </view>
   </block>
 </view>

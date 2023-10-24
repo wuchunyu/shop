@@ -10,7 +10,7 @@
           <t-input slot="note" class="t-input" t-class="field-text" borderless type="number" value="{{locationState.phone}}" maxlength="11" placeholder="联系您的手机号" bind:change="onInputValue" data-item="phone" />
         </t-cell>
         <t-cell class="form-cell" t-class-title="t-cell-title" title="地区">
-          <t-input slot="note" class="t-input" t-class="field-text" borderless placeholder="省/市/区" data-item="address" value="{{locationState.provinceName ? locationState.provinceName+'/':'' }}{{locationState.cityName ? locationState.cityName+'/':''}}{{locationState.districtName}}" catch:tap="onPickArea" disabled />
+          <t-input slot="note" class="t-input" t-class="field-text" borderless placeholder="省/市/区" data-item="address" value="{{locationState.provinceName ? locationState.provinceName+'/':'' }}{{locationState.cityName ? locationState.cityName+'/':''}}{{locationState.districtName ? locationState.districtName+'/':''}}" catch:tap="onPickArea" disabled />
         </t-cell>
         <t-cell class="form-cell" t-class-title="t-cell-title" title="详细地址" bordered="{{false}}">
           <view slot="note" class="textarea__wrapper">

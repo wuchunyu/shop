@@ -167,6 +167,7 @@ module.exports = {
   get,
   rpx2px,
   phoneRegCheck,
+  request,
   getUrl,
   postUrl,
 };

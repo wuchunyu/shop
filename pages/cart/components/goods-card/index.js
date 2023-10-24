@@ -234,7 +234,7 @@ Component({
       if (this.intersectionObserverContext) {
         try {
           this.intersectionObserverContext.disconnect();
-        } catch (e) {}
+        } catch (e) { }
 
         this.intersectionObserverContext = null;
       }

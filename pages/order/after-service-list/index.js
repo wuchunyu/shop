@@ -101,8 +101,10 @@ Page({
     this.setData({
       listLoading: 1,
     });
+    console.log('--params--', params);
     return getRightsList(params)
       .then((res) => {
+        console.log(res);
         this.page.num++;
         let dataList = [];
         let { tabs } = this.data;
