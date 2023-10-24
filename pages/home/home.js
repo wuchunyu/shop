@@ -1,7 +1,6 @@
 import Toast from 'tdesign-miniprogram/toast/index';
 import {
-  getUrl,
-  postUrl
+  request
 } from '../../utils/util';
 
 Page({
@@ -54,22 +53,33 @@ Page({
   },
 
   loadHomePage() {
+    let _this = this;
     wx.stopPullDownRefresh();
 
     this.setData({
       pageLoading: true,
     });
-    getUrl('/fetchHome').then(res => { // 首页轮播图、分类名称
-      const {
-        swiper,
-        tabList
-      } = res.data;
-      this.setData({
-        tabList,
-        imgSrcs: swiper,
-        pageLoading: false,
-      });
-      this.loadGoodsList(true);
+    wx.login({
+      success(res) {
+        console.log(res);
+        if (res.code) {
+          //发起网络请求
+          request('/fetchHome', {}, 'GET', res.code).then(res => { // 首页轮播图、分类名称
+            const {
+              swiper,
+              tabList
+            } = res.data;
+            _this.setData({
+              tabList,
+              imgSrcs: swiper,
+              pageLoading: false,
+            });
+            _this.loadGoodsList(true);
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
     })
   },
 
@@ -83,6 +93,7 @@ Page({
   },
 
   async loadGoodsList(fresh = false) {
+    let _this = this;
     if (fresh) {
       wx.pageScrollTo({
         scrollTop: 0,
@@ -99,19 +110,26 @@ Page({
       pageIndex = 0;
     }
 
-    getUrl('/fetchGoodsList', { // 获取商品列表
-      // key: this.privateData.tabIndex.value || 0,
-      // pageIndex,
-      // pageSize
-    }).then(res => {
-      const nextList = res.data;
-      this.setData({
-        goodsList: fresh ? nextList : this.data.goodsList.concat(nextList),
-        goodsListLoadStatus: 0,
-      });
+    wx.login({
+      success(res) {
+        console.log(res);
+        if (res.code) {
+          //发起网络请求
+          request('/fetchGoodsList', {}, 'GET', res.code).then(res => {
+            // 获取商品列表
+            const nextList = res.data;
+            _this.setData({
+              goodsList: fresh ? nextList : _this.data.goodsList.concat(nextList),
+              goodsListLoadStatus: 0,
+            });
 
-      this.goodListPagination.index = pageIndex;
-      this.goodListPagination.num = pageSize;
+            _this.goodListPagination.index = pageIndex;
+            _this.goodListPagination.num = pageSize;
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
     })
   },
 

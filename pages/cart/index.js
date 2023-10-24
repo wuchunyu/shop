@@ -2,7 +2,8 @@ import Dialog from 'tdesign-miniprogram/dialog/index';
 import Toast from 'tdesign-miniprogram/toast/index';
 import {
   getUrl,
-  postUrl
+  postUrl,
+  request
 } from '../../utils/util';
 
 Page({

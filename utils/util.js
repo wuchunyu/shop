@@ -95,7 +95,7 @@ const phoneRegCheck = (phone) => {
 /**
  * 封封微信的的request
  */
-function request(url, data = {}, method = "GET") {
+function request(url, data = {}, method = "GET", code) {
   return new Promise(function (resolve, reject) {
     wx.request({
       url: 'https://g.recallg.com' + url,
@@ -104,7 +104,8 @@ function request(url, data = {}, method = "GET") {
       method: method,
       header: {
         'Content-Type': 'application/json',
-        'X-Nideshop-Token': wx.getStorageSync('token')
+        'X-Nideshop-Token': wx.getStorageSync('token'),
+        'code': code
       },
       success: function (res) {
 
