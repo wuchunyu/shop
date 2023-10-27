@@ -198,7 +198,7 @@ Page({
     });
   },
 
-  gotoBuy(type) {
+  gotoBuy() {
     const {
       buyNum
     } = this.data;
@@ -218,10 +218,10 @@ Page({
     });
 
     urlQueryStr = urlQueryStr ? `?${urlQueryStr}` : '';
-    // const path = `/pages/order/order-confirm/index${urlQueryStr}`;
-    // wx.navigateTo({
-    //   url: path,
-    // });
+    const path = `/pages/order/order-confirm/index${urlQueryStr}`;
+    wx.navigateTo({
+      url: path,
+    });
   },
 
   specsConfirm() {

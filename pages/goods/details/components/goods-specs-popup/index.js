@@ -64,7 +64,7 @@ Component({
 
     specsConfirm() {
       console.log('--buyType--', this.properties.buyType);
-      // this.triggerEvent('specsConfirm');
+      this.triggerEvent('specsConfirm');
     },
 
     // addCart() {

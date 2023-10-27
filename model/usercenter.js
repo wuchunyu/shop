@@ -24,10 +24,3 @@ const orderTagInfos = [
     tabType: 0,
   },
 ];
-
-export const genSimpleUserInfo = () => ({ ...userInfo });
-
-export const genUsercenter = () => ({
-  userInfo,
-  orderTagInfos,
-});
