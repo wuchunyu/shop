@@ -61,7 +61,6 @@ Page({
   async init(reset = true) {
     const params = this.generalQueryData(reset);
     try {
-      console.log('--params--', params);
       const result = await getUrl('/fetchGoodsLists', { groupId: item.groupId });
       const { spuList } = result.data;
       this.setData({

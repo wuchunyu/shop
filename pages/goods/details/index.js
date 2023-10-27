@@ -50,7 +50,6 @@ Page({
     buttonType: 1,
     buyNum: 1,
     selectedAttrStr: '',
-    skuArray: [],
     primaryImage: '',
     specImg: '',
     isSpuSelectPopupShow: false,
@@ -58,7 +57,6 @@ Page({
     buyType: 0,
     operateType: 0,
     selectSkuSellsPrice: 0,
-    maxLinePrice: 0,
     minSalePrice: 0,
     list: [],
     spuId: '',
@@ -76,7 +74,6 @@ Page({
   },
 
   showSkuSelectPopup(type) {
-    console.log('--showSkuSelectPopup--', type);
     this.setData({
       buyType: type || 0,
       isSpuSelectPopupShow: true,
@@ -128,7 +125,6 @@ Page({
 
   getSkuItem(specList, selectedSku) {
     const {
-      skuArray,
       primaryImage
     } = this.data;
     const selectedSkuValues = this.getSelectedSkuValues(specList, selectedSku);
@@ -190,7 +186,6 @@ Page({
   },
 
   addCart() {
-    console.log('--addCart--');
     const {
       isAllSelectedSku
     } = this.data;
@@ -204,7 +199,6 @@ Page({
   },
 
   gotoBuy(type) {
-    console.log('--gotoBuy--');
     const {
       buyNum
     } = this.data;
@@ -219,13 +213,11 @@ Page({
       thumb: this.data.details.primaryImage,
       title: this.data.details.title,
     };
-    console.log('--query--', query);
     let urlQueryStr = obj2Params({
       goodsRequestList: JSON.stringify([query]),
     });
 
     urlQueryStr = urlQueryStr ? `?${urlQueryStr}` : '';
-    console.log('--urlQueryStr--', urlQueryStr);
     // const path = `/pages/order/order-confirm/index${urlQueryStr}`;
     // wx.navigateTo({
     //   url: path,
@@ -233,11 +225,9 @@ Page({
   },
 
   specsConfirm() {
-
     const {
       buyType
     } = this.data;
-    console.log('--specsConfirm--', buyType);
     if (buyType === 1) {
       this.gotoBuy();
     } else {
@@ -269,31 +259,17 @@ Page({
         if (res.code) {
           //发起网络请求 
           request('/fetchGood', { spuId }, 'POST', res.code).then(res => {
-            console.log('--getDetail--', res);
             const details = res.data;
-            const skuArray = [];
             const {
-              skuList,
               primaryImage,
               minSalePrice,
-              maxLinePrice,
               soldNum,
             } = details;
-            skuList.forEach((item) => {
-              console.log('--quantity--', item.stockInfo, item.stockInfo.stockQuantity, {
-                quantity: item.stockInfo ? item.stockInfo.stockQuantity : 0
-              });
-              skuArray.push({
-                quantity: item.stockInfo ? item.stockInfo.stockQuantity : 0
-              });
-            });
             const promotionArray = [];
             _this.setData({
               details,
-              maxLinePrice: maxLinePrice ? parseInt(maxLinePrice) : 0,
               minSalePrice: minSalePrice ? parseInt(minSalePrice) : 0,
               list: promotionArray,
-              skuArray: skuArray,
               primaryImage,
               soldNum,
             });

@@ -9,42 +9,24 @@ Component({
   },
 
   properties: {
+    details: {
+      type: Object,
+      value: {},
+      observer(details) {
+        if (Object.keys(details).length > 0) {
+          this.initData();
+        }
+      },
+    },
+    buyType: {
+      type: Number,
+      value: 0
+    },
     show: {
       type: Boolean,
       value: false,
     },
-    skuList: {
-      type: Array,
-      value: [],
-      observer(skuList) {
-        console.log('--skuList--', skuList);
-        if (skuList && skuList.length > 0) {
-          this.initData();
-        }
-      },
-    },
-    specList: {
-      type: Array,
-      value: [],
-      observer(specList) {
-        console.log('--specList--', specList);
-        if (specList && specList.length > 0) {
-          this.initData();
-        }
-      },
-    },
-    count: {
-      type: Number,
-      value: 1,
-      observer(count) {
-        this.setData({
-          buyNum: count,
-        });
-      },
-    },
   },
-  selectedSku: {},
-  selectSpecObj: {},
 
   data: {
     isStock: false,
@@ -54,25 +36,9 @@ Component({
 
   methods: {
     initData() {
-      const { skuList } = this.properties;
-      const { specList } = this.properties;
-      specList.forEach((item) => {
-        if (item.specValueList.length > 0) {
-          item.specValueList.forEach((subItem) => {
-            const obj = this.checkSkuStockQuantity(subItem.specValueId, skuList);
-            subItem.hasStockObj = obj;
-          });
-        }
-      });
-      const selectedSku = {};
-      specList.forEach((item) => {
-        selectedSku[item.specId] = '';
-      });
       this.setData({
-        specList,
-      });
-      this.selectSpecObj = {};
-      this.selectedSku = {};
+        details: this.properties.details
+      })
     },
 
     checkSkuStockQuantity(specValueId, skuList) {
@@ -87,9 +53,6 @@ Component({
             array.push(subArray);
           }
         });
-      });
-      console.log('--checkSkuStockQuantity--', {
-        specsArray: array,
       });
       return {
         specsArray: array,
@@ -209,42 +172,24 @@ Component({
     },
 
     toChooseItem(e) {
-      console.log('--toChooseItem--', e.currentTarget.dataset);
+      console.log('--toChooseItem--', e, this.data.details);
       const { id } = e.currentTarget.dataset;
       const specId = e.currentTarget.dataset.specid;
-
-      let { selectedSku } = this;
-      console.log('--selectedSku--', selectedSku);
-      const { specList } = this.properties;
-      selectedSku =
-        selectedSku[specId] === id ? { ...this.selectedSku, [specId]: '' } : { ...this.selectedSku, [specId]: id };
-      specList.forEach((item) => {
-        item.specValueList.forEach((valuesItem) => {
-          if (item.specId === specId) {
-            valuesItem.isSelected = valuesItem.specValueId === selectedSku[specId];
-          }
-        });
-      });
-      this.chooseSpecValueId(id, specId);
-      const isAllSelectedSku = this.isAllSelected(specList, selectedSku);
-      console.log('--isAllSelectedSku--', isAllSelectedSku);
-      if (!isAllSelectedSku) {
-        this.setData({
-          selectSkuSellsPrice: 0,
-          selectSkuImg: '',
-        });
-      }
+      let { specList } = this.data.details;
+      specList.forEach(item => {
+        console.log(item);
+        if (item.title === e.currentTarget.dataset.title) {
+          item.specId = e.currentTarget.dataset.specid
+        }
+      })
+      Object.keys(specList).some((item) => {
+        console.log('--item--', item);
+        return item[specId] == ''
+      })
       this.setData({
-        specList,
-        isAllSelectedSku,
-        isStock: isAllSelectedSku
-      });
-      this.selectedSku = selectedSku;
-      this.triggerEvent('change', {
-        specList,
-        selectedSku,
-        isAllSelectedSku,
-      });
+        isStock: !Object.keys(specList).some((item) => item[specId] == ''),
+        details: { ...this.data.details, specList }
+      })
     },
 
     // 判断是否所有的sku都已经选中
@@ -260,7 +205,8 @@ Component({
     },
 
     specsConfirm() {
-      this.triggerEvent('specsConfirm');
+      console.log('--buyType--', this.properties.buyType);
+      // this.triggerEvent('specsConfirm');
     },
 
     // addCart() {

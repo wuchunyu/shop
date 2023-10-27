@@ -302,7 +302,6 @@ Page({
     } = this.data;
     const { goodsRequestList } = this;
 
-    console.log(!userAddressReq && !settleDetailData.userAddress);
     if (!userAddressReq && !settleDetailData.userAddress) {
       Toast({
         context: this,

@@ -6,7 +6,6 @@ Component({
     storeGoods: {
       type: Array,
       observer(storeGoods) {
-        console.log('--storeGoods--', storeGoods);
         for (const store of storeGoods) {
           for (const activity of store.promotionGoodsList) {
             for (const goods of activity.goodsPromotionList) {
@@ -42,7 +41,6 @@ Component({
     // 选中商品
     selectGoods(e) {
       const { goods } = e.currentTarget.dataset;
-      console.log('--selectGoods--', goods);
       this.triggerEvent('selectgoods', {
         goods,
         isSelected: !goods.isSelected,
@@ -62,7 +60,6 @@ Component({
       if (value > goods.stack) {
         num = goods.stack;
       }
-      console.log(num, goods);
       // this.changeQuantity(num, goods);
     },
 

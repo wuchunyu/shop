@@ -16,13 +16,9 @@ const orderResps = [
         skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2a.png',
         specInfo: [
           {
-            specId: '50456',
-
             specValue: '黑色',
           },
           {
-            specId: '50459',
-
             specValue: '简约款',
           },
         ],
@@ -48,13 +44,9 @@ const orderResps = [
         skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
         specInfo: [
           {
-            specId: '50456',
-
             specValue: '米色荷叶边',
           },
           {
-            specId: '50459',
-
             specValue: 'S',
           },
         ],
@@ -80,12 +72,9 @@ const orderResps = [
         skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3a.png',
         specInfo: [
           {
-            specId: '50456',
-
             specValue: '经典白',
           },
           {
-            specId: '50459',
             specValue: '经典套装',
           },
         ],
@@ -108,13 +97,9 @@ const orderResps = [
         skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png',
         specInfo: [
           {
-            specId: '50456',
-
             specValue: '浅灰色',
           },
           {
-            specId: '50459',
-
             specValue: 'S',
           },
         ],
@@ -137,13 +122,9 @@ const orderResps = [
         skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17a.png',
         specInfo: [
           {
-            specId: '50456',
-
             specValue: '军绿色',
           },
           {
-            specId: '50459',
-
             specValue: 'XS',
           },
         ],
@@ -167,13 +148,9 @@ const orderResps = [
         skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
         specInfo: [
           {
-            specId: '50456',
-
             specValue: '军绿色',
           },
           {
-            specId: '50459',
-
             specValue: 'XS',
           },
         ],

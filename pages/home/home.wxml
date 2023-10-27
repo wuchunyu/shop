@@ -3,18 +3,18 @@
 </view>
 <view class="homePageHeader">
   <view class="search" bind:tap="navToSearchPage">
-    <t-search t-class-input="t-search__input" t-class-input-container="t-search__input-container" placeholder="请输入" leftIcon="">
+    <t-search t-class-input="t-search__input" t-class-input-container="t-search__input-container" placeholder="请输入" leftIcon="" value="{{searchValue}}" bind:submit="handleSubmit">
       <t-icon slot="left-icon" prefix="wr" name="search" size="40rpx" color="#bbb" />
     </t-search>
   </view>
   <view class="swiper-wrap">
-    <t-swiper wx:if="{{imgSrcs.length > 0}}" current="{{current}}" autoplay="{{true}}" duration="{{duration}}" interval="{{interval}}" navigation="{{navigation}}" imageProps="{{swiperImageProps}}" list="{{imgSrcs}}" />
+    <t-swiper wx:if="{{imgSrcs.length > 0}}" current="{{current}}" autoplay="{{true}}" duration="500" interval="5000" navigation="{{navigation}}" imageProps="{{swiperImageProps}}" list="{{imgSrcs}}" />
   </view>
 </view>
 <view class="homePageContainer">
   <view class="home-page-tabs">
-    <t-tabs t-class="t-tabs" t-class-active="tabs-external__active" t-class-item="tabs-external__item" defaultValue="{{1}}" space-evenly="{{false}}" bind:change="tabChangeHandle">
-      <t-tab-panel wx:for="{{tabList}}" wx:for-index="index" wx:key="index" label="{{item.text}}" value="{{item.id}}" />
+    <t-tabs t-class="t-tabs" t-class-active="tabs-external__active" t-class-item="tabs-external__item" value="{{tabId}}" space-evenly="{{false}}" bind:change="tabChangeHandle">
+      <t-tab-panel wx:for="{{tabList}}" wx:for-index="index" wx:key="index" label="{{item.text}}" value="{{item.tabId}}" />
     </t-tabs>
   </view>
 

@@ -7,12 +7,12 @@ Page({
   data: {
     imgSrcs: [],
     tabList: [],
+    tabId: '',
+    searchValue: '',
     goodsList: [],
     goodsListLoadStatus: 0,
     pageLoading: false,
     current: 1,
-    duration: '500',
-    interval: 5000,
     navigation: {
       type: 'dots'
     },
@@ -24,10 +24,6 @@ Page({
   goodListPagination: {
     index: 0,
     num: 20,
-  },
-
-  privateData: {
-    tabIndex: 0,
   },
 
   onShow() {
@@ -72,6 +68,7 @@ Page({
             _this.setData({
               tabList,
               imgSrcs: swiper,
+              tabId: tabList[0].tabId,
               pageLoading: false,
             });
             _this.loadGoodsList(true);
@@ -84,7 +81,18 @@ Page({
   },
 
   tabChangeHandle(e) {
-    this.privateData.tabIndex = e.detail;
+    console.log('--tabChangeHandle--', e.detail);
+    this.setData({
+      tabId: e.detail.value
+    })
+    this.loadGoodsList(true);
+  },
+
+  handleSubmit(e) {
+    console.log(e);
+    this.setData({
+      searchValue: e.detail.value
+    })
     this.loadGoodsList(true);
   },
 
@@ -109,20 +117,18 @@ Page({
     if (fresh) {
       pageIndex = 0;
     }
-    console.log(pageSize, pageIndex);
+    const { tabId, searchValue } = this.data;
     wx.login({
       success(res) {
-
         if (res.code) {
-          //发起网络请求
-          request('/fetchGoodsList', {}, 'GET', res.code).then(res => {
+          //发起网络请求 
+          request('/fetchGoodsList', { pageSize, pageIndex, tabId, searchValue }, 'GET', res.code).then(res => {
             // 获取商品列表
             const nextList = res.data;
             _this.setData({
               goodsList: fresh ? nextList : _this.data.goodsList.concat(nextList),
               goodsListLoadStatus: 0,
             });
-
             _this.goodListPagination.index = pageIndex;
             _this.goodListPagination.num = pageSize;
           })
