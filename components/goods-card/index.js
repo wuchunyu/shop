@@ -21,9 +21,6 @@ Component({
           return;
         }
         let isValidityLinePrice = true;
-        // if (data.originPrice && data.price && data.originPrice < data.price) {
-        //   isValidityLinePrice = false;
-        // }
         this.setData({ goods: data, isValidityLinePrice });
       },
     },

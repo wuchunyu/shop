@@ -53,9 +53,7 @@ Component({
         let isValidityLinePrice = true;
         // 判断一次划线价格是否合理
         if (
-          goods.originPrice &&
-          goods.price &&
-          goods.originPrice < goods.price
+          goods.price
         ) {
           isValidityLinePrice = false;
         }
