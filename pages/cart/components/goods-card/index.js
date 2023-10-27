@@ -156,9 +156,6 @@ Component({
     clickThumbHandle() {
       this.triggerEvent('thumb', { goods: this.data.goods });
     },
-    clickSpecsHandle() {
-      this.triggerEvent('specs', { goods: this.data.goods });
-    },
     clickTagHandle(evt) {
       const { index } = evt.currentTarget.dataset;
       this.triggerEvent('tag', { goods: this.data.goods, index });

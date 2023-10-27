@@ -1,6 +1,5 @@
 import {
-  getUrl,
-  postUrl
+  request,
 } from '../../../utils/util';
 Page({
   data: {
@@ -8,11 +7,21 @@ Page({
   },
   init() {
     let _this = this;
-    getUrl('/getCategoryList').then(res => { //分类 商品列表
-      _this.setData({
-        list: res.data,
-      });
-    });
+    wx.login({
+      success(res) {
+
+        if (res.code) {
+          //发起网络请求
+          request('/getCategoryList', {}, 'GET', res.code).then(res => { //分类 商品列表
+            _this.setData({
+              list: res.data,
+            });
+          });
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
 
   onShow() {

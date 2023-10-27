@@ -1,8 +1,6 @@
 import Dialog from 'tdesign-miniprogram/dialog/index';
 import Toast from 'tdesign-miniprogram/toast/index';
 import {
-  getUrl,
-  postUrl,
   request
 } from '../../utils/util';
 
@@ -21,29 +19,40 @@ Page({
   },
 
   refreshData() {
-    getUrl('/fetchCartGroupData').then(res => {
-      const cartGroupData = res.data;
-      // 一些组件中需要的字段可能接口并没有返回，或者返回的数据结构与预期不一致，需要在此先对数据做一些处理
-      // 统计门店下加购的商品是否全选、是否存在缺货/无货
-      for (const store of cartGroupData.storeGoods) {
-        if (!store.shortageGoodsList) {
-          store.shortageGoodsList = []; // 该门店已加购商品如果库存为0需单独分组
-        }
-        for (const activity of store.promotionGoodsList) {
-          activity.goodsPromotionList = activity.goodsPromotionList.filter((goods) => {
-            // 库存为0（无货）的商品单独分组
-            if (goods.stockQuantity > 0) {
-              return true;
+    let _this = this;
+    wx.login({
+      success(res) {
+        if (res.code) {
+          //发起网络请求 
+          request('/fetchCartGroupData', {}, 'GET', res.code).then(res => {
+            const cartGroupData = res.data;
+            // 一些组件中需要的字段可能接口并没有返回，或者返回的数据结构与预期不一致，需要在此先对数据做一些处理
+            // 统计门店下加购的商品是否全选、是否存在缺货/无货
+            for (const store of cartGroupData.storeGoods) {
+              if (!store.shortageGoodsList) {
+                store.shortageGoodsList = []; // 该门店已加购商品如果库存为0需单独分组
+              }
+              for (const activity of store.promotionGoodsList) {
+                activity.goodsPromotionList = activity.goodsPromotionList.filter((goods) => {
+                  // 库存为0（无货）的商品单独分组
+                  if (goods.stockQuantity > 0) {
+                    return true;
+                  }
+                  store.shortageGoodsList.push(goods);
+                  return false;
+                });
+              }
             }
-            store.shortageGoodsList.push(goods);
-            return false;
+            _this.setData({
+              cartGroupData
+            });
           });
+        } else {
+          console.log('登录失败！' + res.errMsg)
         }
       }
-      this.setData({
-        cartGroupData
-      });
-    });
+    })
+
   },
 
   findGoods(spuId, skuId) {
@@ -204,9 +213,9 @@ Page({
   goCollect() {
     /** 活动肯定有一个活动ID，用来获取活动banner，活动商品列表等 */
     const promotionID = '123';
-    wx.navigateTo({
-      url: `/pages/promotion-detail/index?promotion_id=${promotionID}`,
-    });
+    // wx.navigateTo({
+    //   url: `/pages/promotion-detail/index?promotion_id=${promotionID}`,
+    // });
   },
 
   goGoodsDetail(e) {

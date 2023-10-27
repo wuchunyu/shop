@@ -154,10 +154,6 @@ function request(url, data = {}, method = "GET", code) {
   });
 }
 
-function getUrl(url, data = {}) {
-  return request(url, data, 'GET')
-}
-
 function postUrl(url, data = {}) {
   return request(url, data, 'POST')
 }
@@ -169,6 +165,5 @@ module.exports = {
   rpx2px,
   phoneRegCheck,
   request,
-  getUrl,
   postUrl,
 };

@@ -25,7 +25,6 @@
     "pages/order/after-service-list/index",
     "pages/order/after-service-detail/index",
     "pages/goods/comments/create/index",
-    "pages/promotion-detail/index",
     "pages/order/fill-tracking-no/index",
     "pages/order/delivery-detail/index"
   ],

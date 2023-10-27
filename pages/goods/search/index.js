@@ -1,6 +1,5 @@
 import {
-  getUrl,
-  postUrl
+  request
 } from '../../../utils/util';
 const app = getApp()
 
@@ -26,19 +25,30 @@ Page({
   },
 
   onLoad() {
-    app.watch('searchValue',this.watchBack);
+    app.watch('searchValue', this.watchBack);
   },
 
-  watchBack (name,value) {
+  watchBack(name, value) {
     this.setData({ searchValue: value })
- },
+  },
 
   queryHistory() {
-    getUrl('/getSearchHistory').then(res => { //获取搜索历史
-      this.setData({
-        historyWords: res.data
-      });
-    });
+    let _this = this;
+    wx.login({
+      success(res) {
+
+        if (res.code) {
+          //发起网络请求
+          request('/getSearchHistory', {}, 'GET', res.code).then(res => { //获取搜索历史
+            this.setData({
+              historyWords: res.data
+            });
+          });
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
 
   queryPopular() {
@@ -125,7 +135,7 @@ Page({
     }
   },
 
-  clearSearch(){
+  clearSearch() {
     app.globalData.searchValue = ''
   },
 

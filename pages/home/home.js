@@ -61,7 +61,7 @@ Page({
     });
     wx.login({
       success(res) {
-        console.log(res);
+
         if (res.code) {
           //发起网络请求
           request('/fetchHome', {}, 'GET', res.code).then(res => { // 首页轮播图、分类名称
@@ -112,7 +112,7 @@ Page({
 
     wx.login({
       success(res) {
-        console.log(res);
+
         if (res.code) {
           //发起网络请求
           request('/fetchGoodsList', {}, 'GET', res.code).then(res => {
@@ -146,6 +146,7 @@ Page({
   },
 
   goodListAddCartHandle() {
+    console.log('--goodListAddCartHandle--');
     Toast({
       context: this,
       selector: '#t-toast',
@@ -165,8 +166,8 @@ Page({
     const {
       index: promotionID = 0
     } = detail || {};
-    wx.navigateTo({
-      url: `/pages/promotion-detail/index?promotion_id=${promotionID}`,
-    });
+    // wx.navigateTo({
+    //   url: `/pages/promotion-detail/index?promotion_id=${promotionID}`,
+    // });
   },
 });

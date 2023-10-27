@@ -4,19 +4,10 @@ Component({
   options: { multipleSlots: true },
 
   properties: {
-    soldout: {
-      // 商品是否下架
-      type: Boolean,
-      value: false,
-    },
     jumpArray: {
       type: Array,
       value: [],
     },
-    isStock: {
-      type: Boolean,
-      value: true,
-    }, // 是否有库存
     isSlotButton: {
       type: Boolean,
       value: false,
@@ -44,14 +35,10 @@ Component({
 
   methods: {
     toAddCart() {
-      const { isStock } = this.properties;
-      if (!isStock) return;
       this.triggerEvent('toAddCart');
     },
 
     toBuyNow(e) {
-      const { isStock } = this.properties;
-      if (!isStock) return;
       this.triggerEvent('toBuyNow', e);
     },
 

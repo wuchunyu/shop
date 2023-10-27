@@ -1,4 +1,4 @@
-<view id="js-page-wrap" class="promotionDetailContainer">
+<!-- <view id="js-page-wrap" class="promotionDetailContainer">
   <view wx:if="{{banner}}" class="wrap" id="{{independentID}}">
     <view class="banner-wrap">
       <t-image src="{{banner}}" mode="aspectFill" webp="{{true}}" t-class="t-class-promotion-head" />
@@ -49,4 +49,5 @@
     <goods-list wr-class="goods-list-container" goodsList="{{list}}" bind:click="goodClickHandle" bind:addcart="cardClickHandle" />
   </view>
   <t-toast id="t-toast" />
-</view>
+</view> -->
+<view>1-1</view>

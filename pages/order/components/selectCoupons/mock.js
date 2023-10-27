@@ -11,7 +11,6 @@ export const couponsData = {
         promotionSubCode: 1,
         scopeText: '部分商品可用',
         startTime: 1584530282686,
-        storeId: 90,
         value: 550,
         type: 2,
       },

@@ -92,7 +92,6 @@ Page({
             id: order.orderId,
             orderNo: order.orderNo,
             parentOrderNo: order.parentOrderNo,
-            storeId: order.storeId,
             status: order.orderStatus,
             statusDesc: order.orderStatusName,
             amount: order.paymentAmount,

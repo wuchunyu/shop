@@ -9,38 +9,17 @@ Component({
   },
 
   properties: {
-    src: {
-      type: String,
-    },
-    title: String,
     show: {
       type: Boolean,
       value: false,
-    },
-    limitBuyInfo: {
-      type: String,
-      value: '',
-    },
-    isStock: {
-      type: Boolean,
-      value: true,
-    },
-    limitMaxCount: {
-      type: Number,
-      value: 999,
-    },
-    limitMinCount: {
-      type: Number,
-      value: 1,
     },
     skuList: {
       type: Array,
       value: [],
       observer(skuList) {
+        console.log('--skuList--', skuList);
         if (skuList && skuList.length > 0) {
-          if (this.initStatus) {
-            this.initData();
-          }
+          this.initData();
         }
       },
     },
@@ -48,18 +27,11 @@ Component({
       type: Array,
       value: [],
       observer(specList) {
+        console.log('--specList--', specList);
         if (specList && specList.length > 0) {
           this.initData();
         }
       },
-    },
-    outOperateStatus: {
-      type: Boolean,
-      value: false,
-    },
-    hasAuth: {
-      type: Boolean,
-      value: false,
     },
     count: {
       type: Number,
@@ -71,12 +43,11 @@ Component({
       },
     },
   },
-
-  initStatus: false,
   selectedSku: {},
   selectSpecObj: {},
 
   data: {
+    isStock: false,
     buyNum: 1,
     isAllSelectedSku: false,
   },
@@ -102,7 +73,6 @@ Component({
       });
       this.selectSpecObj = {};
       this.selectedSku = {};
-      this.initStatus = true;
     },
 
     checkSkuStockQuantity(specValueId, skuList) {
@@ -117,6 +87,9 @@ Component({
             array.push(subArray);
           }
         });
+      });
+      console.log('--checkSkuStockQuantity--', {
+        specsArray: array,
       });
       return {
         specsArray: array,
@@ -236,12 +209,12 @@ Component({
     },
 
     toChooseItem(e) {
-      const { isStock } = this.properties;
-      if (!isStock) return;
+      console.log('--toChooseItem--', e.currentTarget.dataset);
       const { id } = e.currentTarget.dataset;
       const specId = e.currentTarget.dataset.specid;
 
       let { selectedSku } = this;
+      console.log('--selectedSku--', selectedSku);
       const { specList } = this.properties;
       selectedSku =
         selectedSku[specId] === id ? { ...this.selectedSku, [specId]: '' } : { ...this.selectedSku, [specId]: id };
@@ -254,6 +227,7 @@ Component({
       });
       this.chooseSpecValueId(id, specId);
       const isAllSelectedSku = this.isAllSelected(specList, selectedSku);
+      console.log('--isAllSelectedSku--', isAllSelectedSku);
       if (!isAllSelectedSku) {
         this.setData({
           selectSkuSellsPrice: 0,
@@ -263,6 +237,7 @@ Component({
       this.setData({
         specList,
         isAllSelectedSku,
+        isStock: isAllSelectedSku
       });
       this.selectedSku = selectedSku;
       this.triggerEvent('change', {
@@ -285,21 +260,15 @@ Component({
     },
 
     specsConfirm() {
-      const { isStock } = this.properties;
-      if (!isStock) return;
       this.triggerEvent('specsConfirm');
     },
 
-    addCart() {
-      const { isStock } = this.properties;
-      if (!isStock) return;
-      this.triggerEvent('addCart');
-    },
+    // addCart() {
+    //   this.triggerEvent('addCart');
+    // },
 
     buyNow() {
       const { isAllSelectedSku } = this.data;
-      const { isStock } = this.properties;
-      if (!isStock) return;
       this.triggerEvent('buyNow', {
         isAllSelectedSku,
       });

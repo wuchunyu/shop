@@ -1,5 +1,4 @@
 import {
-  getUrl,
   postUrl
 } from '../../../utils/util';
 import dayjs from 'dayjs';
@@ -17,7 +16,6 @@ Page({
     myTotal: 0,
     hasLoaded: false,
     layoutText: layoutMap[0],
-    loadMoreStatus: 0,
     myLoadStatus: 0,
     spuId: '1060004',
     commentLevel: '',
@@ -101,17 +99,9 @@ Page({
   },
   async init(reset = true) {
     const {
-      loadMoreStatus,
       commentList = []
     } = this.data;
     const params = this.generalQueryData(reset);
-
-    // 在加载中或者无更多数据，直接返回
-    if (loadMoreStatus !== 0) return;
-
-    this.setData({
-      loadMoreStatus: 1,
-    });
 
     try {
       const data = await postUrl('/fetchComments', {
@@ -135,18 +125,14 @@ Page({
             commentList: [],
             hasLoaded: true,
             total: totalCount,
-            loadMoreStatus: 2,
           });
           return;
         }
         const _commentList = reset ? pageList : commentList.concat(pageList);
-        const _loadMoreStatus =
-          _commentList.length === Number(totalCount) ? 2 : 0;
         this.setData({
           commentList: _commentList,
           pageNum: params.pageNum || 1,
           totalCount: Number(totalCount),
-          loadMoreStatus: _loadMoreStatus,
         });
       } else {
         wx.showToast({
@@ -194,7 +180,6 @@ Page({
     } = this.data;
     if (commentType === commenttype) return;
     this.setData({
-      loadMoreStatus: 0,
       commentList: [],
       total: 0,
       myTotal: 0,
@@ -236,9 +221,6 @@ Page({
       total = 0, commentList
     } = this.data;
     if (commentList.length === total) {
-      this.setData({
-        loadMoreStatus: 2,
-      });
       return;
     }
 

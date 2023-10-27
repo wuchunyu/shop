@@ -1,6 +1,5 @@
 import Toast from 'tdesign-miniprogram/toast/index';
 import {
-  getUrl,
   postUrl
 } from '../../utils/util';
 
@@ -19,20 +18,20 @@ Page({
   },
 
   getGoodsList(promotionID) {
-    postUrl('/fetchPromotion').then(res=>{
-      const {list, banner, time, showBannerDesc, statusTag} = res.data;
-        const goods = list.map((item) => ({
-          ...item,
-          tags: item.tags.map((v) => v.title),
-        }));
-        this.setData({
-          list: goods,
-          banner,
-          time,
-          showBannerDesc,
-          statusTag,
-        });
-      },
+    postUrl('/fetchPromotion').then(res => {
+      const { list, banner, time, showBannerDesc, statusTag } = res.data;
+      const goods = list.map((item) => ({
+        ...item,
+        tags: item.tags.map((v) => v.title),
+      }));
+      this.setData({
+        list: goods,
+        banner,
+        time,
+        showBannerDesc,
+        statusTag,
+      });
+    },
     );
   },
 

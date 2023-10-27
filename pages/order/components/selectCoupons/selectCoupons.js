@@ -5,7 +5,6 @@ const emptyCouponImg = `https://cdn-we-retail.ym.tencent.com/miniapp/coupon/orde
 
 Component({
   properties: {
-    storeId: String,
     promotionGoodsList: {
       type: Array,
       value: [],
@@ -19,16 +18,14 @@ Component({
       value: false,
       observer(couponsShow) {
         if (couponsShow) {
-          const { promotionGoodsList, orderSureCouponList, storeId } =
+          const { promotionGoodsList, orderSureCouponList } =
             this.data;
           const products =
             promotionGoodsList &&
             promotionGoodsList.map((goods) => {
-              this.storeId = goods.storeId;
               return {
                 skuId: goods.skuId,
                 spuId: goods.spuId,
-                storeId: goods.storeId,
                 selected: true,
                 quantity: goods.num,
                 prices: {
@@ -41,7 +38,6 @@ Component({
             orderSureCouponList.map((ele) => {
               return {
                 promotionId: ele.promotionId,
-                storeId: ele.storeId,
                 couponId: ele.couponId,
               };
             });
@@ -51,7 +47,6 @@ Component({
           this.coupons({
             products,
             selectedCoupons,
-            storeId,
           }).then((res) => {
             this.initData(res);
           });
@@ -90,7 +85,6 @@ Component({
             selectedList.push({
               couponId,
               promotionId: ruleId,
-              storeId: this.storeId,
             });
           }
           const val = type === 2 ? value / 100 : value / 10;

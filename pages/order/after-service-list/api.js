@@ -25,7 +25,6 @@ export const resp = {
           },
         ],
 
-        storeId: '2591',
         refundMethodList: [
           {
             refundMethodAmount: 99999,
@@ -55,7 +54,6 @@ export const resp = {
 
           shippingFee: 99,
           shippingFeeBear: 1,
-          storeId: 123,
 
           updateTime: '1596524705613',
           userRightsStatus: 120,
@@ -209,8 +207,6 @@ export const resp = {
             type: 3,
           },
         ],
-
-        storeId: '2591',
         createTime: '1596524705613',
         rights: {
           rightsImageUrls: [
@@ -236,7 +232,6 @@ export const resp = {
 
           shippingFee: 99,
           shippingFeeBear: 1,
-          storeId: 123,
 
           updateTime: '1596524705613',
           userRightsStatus: 100,
@@ -328,8 +323,6 @@ export const resp = {
             type: 2,
           },
         ],
-
-        storeId: '2591',
         createTime: '1596524705613',
         rights: {
           rightsImageUrls: [
@@ -355,7 +348,6 @@ export const resp = {
 
           shippingFee: 99,
           shippingFeeBear: 1,
-          storeId: 123,
 
           updateTime: '1596524705613',
           userRightsStatus: 100,
@@ -441,8 +433,6 @@ export const resp = {
       },
       {
         buttonVOs: [],
-
-        storeId: '2591',
         createTime: '1596524705613',
         refundMethodList: [
           {
@@ -472,7 +462,6 @@ export const resp = {
 
           shippingFee: 99,
           shippingFeeBear: 1,
-          storeId: 123,
           updateTime: '1596524705613',
           userRightsStatus: 160,
           userRightsStatusDesc: '退款/售后已完成',
@@ -562,8 +551,6 @@ export const resp = {
             type: 4,
           },
         ],
-
-        storeId: '2591',
         createTime: '1596524705613',
         rights: {
           bizRightsStatus: 1,
@@ -583,7 +570,6 @@ export const resp = {
 
           shippingFee: 99,
           shippingFeeBear: 1,
-          storeId: 123,
 
 
           updateTime: '1596524705613',
@@ -676,8 +662,6 @@ export const resp = {
             type: 2,
           },
         ],
-
-        storeId: '2591',
         createTime: '1596524705613',
         rights: {
           bizRightsStatus: 1,
@@ -697,7 +681,6 @@ export const resp = {
 
           shippingFee: 99,
           shippingFeeBear: 1,
-          storeId: 123,
           updateTime: '1596524705613',
           userRightsStatus: 1,
           userRightsStatusDesc:
@@ -790,8 +773,6 @@ export const resp = {
           },
         ],
 
-        storeId: '2591',
-
         createTime: '1596524705613',
         rights: {
           bizRightsStatus: 1,
@@ -811,7 +792,6 @@ export const resp = {
 
           shippingFee: 99,
           shippingFeeBear: 1,
-          storeId: 123,
 
 
           updateTime: '1596524705613',
@@ -905,8 +885,6 @@ export const resp = {
           },
         ],
 
-        storeId: '2591',
-
         createTime: '1596524705613',
         rights: {
           bizRightsStatus: 1,
@@ -926,7 +904,6 @@ export const resp = {
 
           shippingFee: 99,
           shippingFeeBear: 1,
-          storeId: 123,
 
 
           updateTime: '1596524705613',
@@ -1019,8 +996,6 @@ export const resp = {
           },
         ],
 
-        storeId: '2591',
-
         createTime: '1596524705613',
         rights: {
           bizRightsStatus: 1,
@@ -1040,7 +1015,6 @@ export const resp = {
 
           shippingFee: 99,
           shippingFeeBear: 1,
-          storeId: 123,
 
 
           updateTime: '1596524705613',
@@ -1133,8 +1107,6 @@ export const resp = {
           },
         ],
 
-        storeId: '2591',
-
         createTime: '1596524705613',
         rights: {
           bizRightsStatus: 1,
@@ -1154,7 +1126,6 @@ export const resp = {
 
           shippingFee: 99,
           shippingFeeBear: 1,
-          storeId: 123,
 
 
           updateTime: '1596524705613',

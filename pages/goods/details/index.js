@@ -1,14 +1,7 @@
 import Toast from 'tdesign-miniprogram/toast/index';
 import {
-  getUrl,
-  postUrl
+  request
 } from '../../../utils/util';
-
-const fetchGood = function (spuId) {
-  return postUrl('/fetchGood', {
-    spuId
-  }); // 获取指定商品信息
-}
 
 import {
   cdnBase
@@ -38,20 +31,9 @@ Page({
       hasImageCount: 0,
       middleCount: 0,
     },
-    isShowPromotionPop: false,
     recLeftImg,
     recRightImg,
     details: {},
-    goodsTabArray: [{
-      name: '商品',
-      value: '', // 空字符串代表置顶
-    },
-    {
-      name: '详情',
-      value: 'goods-page',
-    },
-    ],
-    storeLogo: `${imgPrefix}common/store-logo.png`,
     jumpArray: [{
       title: '首页',
       url: '/pages/home/home',
@@ -64,9 +46,7 @@ Page({
       showCartNum: true,
     },
     ],
-    isStock: true,
     cartNum: 0,
-    // soldout: false,
     buttonType: 1,
     buyNum: 1,
     selectedAttrStr: '',
@@ -80,15 +60,12 @@ Page({
     selectSkuSellsPrice: 0,
     maxLinePrice: 0,
     minSalePrice: 0,
-    maxSalePrice: 0,
     list: [],
     spuId: '',
     navigation: {
       type: 'fraction'
     },
     current: 0,
-    duration: 500,
-    interval: 5000,
     soldNum: 0, // 已售数量
   },
 
@@ -99,6 +76,7 @@ Page({
   },
 
   showSkuSelectPopup(type) {
+    console.log('--showSkuSelectPopup--', type);
     this.setData({
       buyType: type || 0,
       isSpuSelectPopupShow: true,
@@ -119,19 +97,6 @@ Page({
     } = e.detail;
     wx.switchTab({
       url: url,
-    });
-  },
-
-  showCurImg(e) {
-    const {
-      index
-    } = e.detail;
-    const {
-      images
-    } = this.data.details;
-    wx.previewImage({
-      current: images[index],
-      urls: images, // 需要预览的图片http链接列表
     });
   },
 
@@ -172,20 +137,20 @@ Page({
       selectedAttrStr += `，${item.specValue}  `;
     });
     this.selectSpecsName(selectedSkuValues.length > 0 ? selectedAttrStr : '');
-    if (skuItem) {
-      this.setData({
-        selectItem: skuItem,
-        selectSkuSellsPrice: skuItem.price || 0,
-      });
-    } else {
-      this.setData({
-        selectItem: null,
-        selectSkuSellsPrice: 0,
-      });
-    }
-    this.setData({
-      specImg: skuItem && skuItem.skuImage ? skuItem.skuImage : primaryImage,
-    });
+    // if (skuItem) {
+    //   this.setData({
+    //     selectItem: skuItem,
+    //     selectSkuSellsPrice: skuItem.price || 0,
+    //   });
+    // } else {
+    //   this.setData({
+    //     selectItem: null,
+    //     selectSkuSellsPrice: 0,
+    //   });
+    // }
+    // this.setData({
+    //   specImg: skuItem && skuItem.skuImage ? skuItem.skuImage : primaryImage,
+    // });
   },
 
   // 获取已选择的sku名称
@@ -225,6 +190,7 @@ Page({
   },
 
   addCart() {
+    console.log('--addCart--');
     const {
       isAllSelectedSku
     } = this.data;
@@ -238,24 +204,13 @@ Page({
   },
 
   gotoBuy(type) {
+    console.log('--gotoBuy--');
     const {
-      isAllSelectedSku,
       buyNum
     } = this.data;
-    if (!isAllSelectedSku) {
-      Toast({
-        context: this,
-        selector: '#t-toast',
-        message: '请选择规格',
-        icon: '',
-        duration: 1000,
-      });
-      return;
-    }
     this.handlePopupHide();
     const query = {
       quantity: buyNum,
-      storeId: '1',
       spuId: this.data.spuId,
       goodsName: this.data.details.title,
       price: this.data.details.minSalePrice,
@@ -264,26 +219,31 @@ Page({
       thumb: this.data.details.primaryImage,
       title: this.data.details.title,
     };
+    console.log('--query--', query);
     let urlQueryStr = obj2Params({
       goodsRequestList: JSON.stringify([query]),
     });
+
     urlQueryStr = urlQueryStr ? `?${urlQueryStr}` : '';
-    const path = `/pages/order/order-confirm/index${urlQueryStr}`;
-    wx.navigateTo({
-      url: path,
-    });
+    console.log('--urlQueryStr--', urlQueryStr);
+    // const path = `/pages/order/order-confirm/index${urlQueryStr}`;
+    // wx.navigateTo({
+    //   url: path,
+    // });
   },
 
   specsConfirm() {
+
     const {
       buyType
     } = this.data;
+    console.log('--specsConfirm--', buyType);
     if (buyType === 1) {
       this.gotoBuy();
     } else {
       this.addCart();
     }
-    // this.handlePopupHide();
+    this.handlePopupHide();
   },
 
   changeNum(e) {
@@ -292,72 +252,91 @@ Page({
     });
   },
 
-  closePromotionPopup() {
-    this.setData({
-      isShowPromotionPop: false,
-    });
-  },
-
   promotionChange(e) {
     const {
       index
     } = e.detail;
-    wx.navigateTo({
-      url: `/pages/promotion-detail/index?promotion_id=${index}`,
-    });
+    // wx.navigateTo({
+    //   url: `/pages/promotion-detail/index?promotion_id=${index}`,
+    // });
   },
 
   getDetail(spuId) {
-    Promise.all([fetchGood(spuId)]).then((res) => {
-      const details = res[0].data;
-      const skuArray = [];
-      const {
-        skuList,
-        primaryImage,
-        minSalePrice,
-        maxSalePrice,
-        maxLinePrice,
-        soldNum,
-      } = details;
-      skuList.forEach((item) => {
-        skuArray.push({
-          quantity: item.stockInfo ? item.stockInfo.stockQuantity : 0
-        });
-      });
-      const promotionArray = [];
-      this.setData({
-        details,
-        isStock: details.spuStockQuantity > 0,
-        maxSalePrice: maxSalePrice ? parseInt(maxSalePrice) : 0,
-        maxLinePrice: maxLinePrice ? parseInt(maxLinePrice) : 0,
-        minSalePrice: minSalePrice ? parseInt(minSalePrice) : 0,
-        list: promotionArray,
-        skuArray: skuArray,
-        primaryImage,
-        soldNum,
-      });
-    });
+    let _this = this;
+    wx.login({
+      success(res) {
+
+        if (res.code) {
+          //发起网络请求 
+          request('/fetchGood', { spuId }, 'POST', res.code).then(res => {
+            console.log('--getDetail--', res);
+            const details = res.data;
+            const skuArray = [];
+            const {
+              skuList,
+              primaryImage,
+              minSalePrice,
+              maxLinePrice,
+              soldNum,
+            } = details;
+            skuList.forEach((item) => {
+              console.log('--quantity--', item.stockInfo, item.stockInfo.stockQuantity, {
+                quantity: item.stockInfo ? item.stockInfo.stockQuantity : 0
+              });
+              skuArray.push({
+                quantity: item.stockInfo ? item.stockInfo.stockQuantity : 0
+              });
+            });
+            const promotionArray = [];
+            _this.setData({
+              details,
+              maxLinePrice: maxLinePrice ? parseInt(maxLinePrice) : 0,
+              minSalePrice: minSalePrice ? parseInt(minSalePrice) : 0,
+              list: promotionArray,
+              skuArray: skuArray,
+              primaryImage,
+              soldNum,
+            });
+          });
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+
   },
 
   async getCommentsList() {
     try {
-      const data = await getUrl('/getGoodsDetailsCommentList');
-      const {
-        homePageComments
-      } = data.data;
-      const nextState = {
-        commentsList: homePageComments.map((item) => {
-          return {
-            goodsSpu: item.spuId,
-            userName: item.userName || '',
-            commentScore: item.commentScore,
-            commentContent: item.commentContent || '用户未填写评价',
-            userHeadUrl: item.isAnonymity ?
-              this.anonymityAvatar : item.userHeadUrl || this.anonymityAvatar,
-          };
-        }),
-      };
-      this.setData(nextState);
+      let _this = this;
+      wx.login({
+        success(res) {
+
+          if (res.code) {
+            //发起网络请求
+            request('/getGoodsDetailsCommentList', {}, 'GET', res.code).then(res => { //分类 商品列表
+              const {
+                homePageComments
+              } = res.data;
+              const nextState = {
+                commentsList: homePageComments.map((item) => {
+                  return {
+                    goodsSpu: item.spuId,
+                    userName: item.userName || '',
+                    commentScore: item.commentScore,
+                    commentContent: item.commentContent || '用户未填写评价',
+                    userHeadUrl: item.isAnonymity ?
+                      this.anonymityAvatar : item.userHeadUrl || this.anonymityAvatar,
+                  };
+                }),
+              };
+              _this.setData(nextState);
+            });
+          } else {
+            console.log('登录失败！' + res.errMsg)
+          }
+        }
+      })
 
     } catch (error) {
       console.error('comments error:', error);
@@ -385,27 +364,39 @@ Page({
   /** 获取评价统计 */
   async getCommentsStatistics() {
     try {
-      const data = await getUrl('/getGoodsDetailsCommentsCount');
-      const {
-        badCount,
-        commentCount,
-        goodCount,
-        goodRate,
-        hasImageCount,
-        middleCount,
-      } = data.data;
-      const nextState = {
-        commentsStatistics: {
-          badCount: parseInt(`${badCount}`),
-          commentCount: parseInt(`${commentCount}`),
-          goodCount: parseInt(`${goodCount}`),
-          /** 后端返回百分比后数据但没有限制位数 */
-          goodRate: Math.floor(goodRate * 10) / 10,
-          hasImageCount: parseInt(`${hasImageCount}`),
-          middleCount: parseInt(`${middleCount}`),
-        },
-      };
-      this.setData(nextState);
+      let _this = this;
+      wx.login({
+        success(res) {
+
+          if (res.code) {
+            //发起网络请求
+            request('/getGoodsDetailsCommentsCount', {}, 'GET', res.code).then(res => { //分类 商品列表
+              const {
+                badCount,
+                commentCount,
+                goodCount,
+                goodRate,
+                hasImageCount,
+                middleCount,
+              } = res.data;
+              const nextState = {
+                commentsStatistics: {
+                  badCount: parseInt(`${badCount}`),
+                  commentCount: parseInt(`${commentCount}`),
+                  goodCount: parseInt(`${goodCount}`),
+                  /** 后端返回百分比后数据但没有限制位数 */
+                  goodRate: Math.floor(goodRate * 10) / 10,
+                  hasImageCount: parseInt(`${hasImageCount}`),
+                  middleCount: parseInt(`${middleCount}`),
+                },
+              };
+              _this.setData(nextState);
+            });
+          } else {
+            console.log('登录失败！' + res.errMsg)
+          }
+        }
+      })
 
     } catch (error) {
       console.error('comments statiistics error:', error);

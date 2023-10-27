@@ -104,7 +104,7 @@ Page({
     console.log('--params--', params);
     return getRightsList(params)
       .then((res) => {
-        console.log(res);
+
         this.page.num++;
         let dataList = [];
         let { tabs } = this.data;
@@ -150,7 +150,6 @@ Page({
                 itemRefundAmount: item.itemRefundAmount,
                 rightsQuantity: item.itemRefundAmount,
               })),
-              storeId: _data.storeId,
               buttons: _data.buttonVOs || [],
               logisticsNo: _data.logisticsVO.logisticsNo, // 退货物流单号
               logisticsCompanyName: _data.logisticsVO.logisticsCompanyName, // 退货物流公司

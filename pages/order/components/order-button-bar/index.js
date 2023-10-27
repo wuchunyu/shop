@@ -43,7 +43,6 @@ Component({
                   promotionId,
                   remainMember,
                   groupPrice,
-                  storeId: order.storeId,
                 },
               };
             }

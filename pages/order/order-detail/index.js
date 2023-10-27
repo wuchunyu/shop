@@ -86,7 +86,6 @@ Page({
         id: order.orderId,
         orderNo: order.orderNo,
         parentOrderNo: order.parentOrderNo,
-        storeId: order.storeId,
         status: order.orderStatus,
         statusDesc: order.orderStatusName,
         amount: order.paymentAmount,
@@ -169,13 +168,24 @@ Page({
   },
 
   getStoreDetail() {
-    getUrl('/fetchBusinessTime').then((res) => {
-      const storeDetail = {
-        storeTel: res.data.telphone,
-        storeBusiness: res.data.businessTime.join('\n'),
-      };
-      this.setData({ storeDetail });
-    });
+    let _this = this;
+    wx.login({
+      success(res) {
+
+        if (res.code) {
+          //发起网络请求
+          request('/fetchBusinessTime', {}, 'GET', res.code).then((res) => {
+            const storeDetail = {
+              storeTel: res.data.telphone,
+              storeBusiness: res.data.businessTime.join('\n'),
+            };
+            _this.setData({ storeDetail });
+          });
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
 
   // 仅对待支付状态计算付款倒计时

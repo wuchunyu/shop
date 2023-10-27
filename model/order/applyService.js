@@ -1,8 +1,6 @@
 const orderResps = [
   {
     data: {
-
-      storeId: '1000',
       skuId: '135691625',
       numOfSku: 1,
       numOfSkuAvailable: 1,
@@ -36,8 +34,6 @@ const orderResps = [
   },
   {
     data: {
-
-      storeId: '1000',
       skuId: '135676631',
       numOfSku: 1,
       numOfSkuAvailable: 1,
@@ -70,8 +66,6 @@ const orderResps = [
   },
   {
     data: {
-
-      storeId: '1000',
       skuId: '135691622',
       numOfSku: 1,
       numOfSkuAvailable: 1,
@@ -100,8 +94,6 @@ const orderResps = [
   },
   {
     data: {
-
-      storeId: '1000',
       skuId: '135676629',
       numOfSku: 1,
       numOfSkuAvailable: 1,
@@ -131,8 +123,6 @@ const orderResps = [
   },
   {
     data: {
-
-      storeId: '1000',
       skuId: '135686631',
       numOfSku: 1,
       numOfSkuAvailable: 1,
@@ -162,8 +152,6 @@ const orderResps = [
   },
   {
     data: {
-
-      storeId: '1000',
       skuId: '19384938948343',
       numOfSku: 1,
       numOfSkuAvailable: 1,
@@ -175,7 +163,7 @@ const orderResps = [
       orderNo: '130169571554503755',
       goodsInfo: {
         goodsName:
-          '纯色纯棉休闲圆领短袖T恤纯白亲肤厚柔软细腻面料纯白短袖套头T恤',
+          '123',
         skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
         specInfo: [
           {
@@ -233,7 +221,6 @@ export function applyService() {
   const resp = {
     data: {
       rightsNo: '123123423',
-      storeId: '542',
       result: null,
     }
   };

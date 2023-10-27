@@ -24,7 +24,6 @@ Page({
     filter: initFilters,
     hasLoaded: false,
     keywords: '',
-    loadMoreStatus: 0,
     loading: true,
   },
 
@@ -75,11 +74,9 @@ Page({
   },
 
   async init(reset = true) {
-    const { loadMoreStatus, goodsList = [] } = this.data;
+    const { goodsList = [] } = this.data;
     const params = this.generalQueryData(reset);
-    if (loadMoreStatus !== 0) return;
     this.setData({
-      loadMoreStatus: 1,
       loading: true,
     });
     try {
@@ -95,7 +92,6 @@ Page({
               tip: '抱歉，未找到相关商品',
             },
             hasLoaded: true,
-            loadMoreStatus: 0,
             loading: false,
             goodsList: [],
           });
@@ -107,12 +103,10 @@ Page({
           v.tags = v.spuTagList.map((u) => u.title);
           v.hideKey = { desc: true };
         });
-        const _loadMoreStatus = _goodsList.length === totalCount ? 2 : 0;
         this.pageNum = params.pageNum || 1;
         this.total = totalCount;
         this.setData({
           goodsList: _goodsList,
-          loadMoreStatus: _loadMoreStatus,
         });
       } else {
         this.setData({
@@ -143,7 +137,6 @@ Page({
     this.setData(
       {
         goodsList: [],
-        loadMoreStatus: 0,
       },
       () => {
         this.init(true);
@@ -168,9 +161,6 @@ Page({
     const { goodsList } = this.data;
     const { total = 0 } = this;
     if (goodsList.length === total) {
-      this.setData({
-        loadMoreStatus: 2,
-      });
       return;
     }
     this.init(false);
@@ -209,7 +199,6 @@ Page({
     this.setData(
       {
         goodsList: [],
-        loadMoreStatus: 0,
       },
       () => {
         total && this.init(true);
@@ -268,7 +257,6 @@ Page({
         show: false,
         minVal: '',
         goodsList: [],
-        loadMoreStatus: 0,
         maxVal: '',
       },
       () => {

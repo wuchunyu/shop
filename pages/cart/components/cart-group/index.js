@@ -1,12 +1,12 @@
 import Toast from 'tdesign-miniprogram/toast/index';
 
 Component({
-  isSpecsTap: false, // 标记本次点击事件是否因为点击specs触发（由于底层goods-card组件没有catch specs点击事件，只能在此处加状态来避免点击specs时触发跳转商品详情）
   externalClasses: ['wr-class'],
   properties: {
     storeGoods: {
       type: Array,
       observer(storeGoods) {
+        console.log('--storeGoods--', storeGoods);
         for (const store of storeGoods) {
           for (const activity of store.promotionGoodsList) {
             for (const goods of activity.goodsPromotionList) {
@@ -30,7 +30,6 @@ Component({
     currentGoods: {},
     isShowToggle: false,
     _storeGoods: [],
-    _invalidGoodItems: [],
   },
 
   methods: {
@@ -40,14 +39,10 @@ Component({
       this.triggerEvent('delete', { goods });
     },
 
-    // 清空失效商品
-    clearInvalidGoods() {
-      this.triggerEvent('clearinvalidgoods');
-    },
-
     // 选中商品
     selectGoods(e) {
       const { goods } = e.currentTarget.dataset;
+      console.log('--selectGoods--', goods);
       this.triggerEvent('selectgoods', {
         goods,
         isSelected: !goods.isSelected,
@@ -67,7 +62,8 @@ Component({
       if (value > goods.stack) {
         num = goods.stack;
       }
-      this.changeQuantity(num, goods);
+      console.log(num, goods);
+      // this.changeQuantity(num, goods);
     },
 
     input(e) {
@@ -77,46 +73,7 @@ Component({
       this.changeQuantity(num, goods);
     },
 
-    overlimit(e) {
-      const text =
-        e.detail.type === 'minus'
-          ? '该商品数量不能减少了哦'
-          : '同一商品最多购买999件';
-      Toast({
-        context: this,
-        selector: '#t-toast',
-        message: text,
-      });
-    },
-
-    // 展开/收起切换
-    showToggle() {
-      this.setData({
-        isShowToggle: !this.data.isShowToggle,
-      });
-    },
-
-    // 展示规格popup
-    specsTap(e) {
-      this.isSpecsTap = true;
-      const { goods } = e.currentTarget.dataset;
-      this.setData({
-        isShowSpecs: true,
-        currentGoods: goods,
-      });
-    },
-
-    hideSpecsPopup() {
-      this.setData({
-        isShowSpecs: false,
-      });
-    },
-
     goGoodsDetail(e) {
-      if (this.isSpecsTap) {
-        this.isSpecsTap = false;
-        return;
-      }
       const { goods } = e.currentTarget.dataset;
       this.triggerEvent('goodsclick', { goods });
     },

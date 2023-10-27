@@ -2,7 +2,6 @@ import Toast from 'tdesign-miniprogram/toast/index';
 import { commitPay, wechatPayOrder } from './pay';
 import { getAddressPromise } from '../../usercenter/address/list/util';
 import {
-  getUrl,
   postUrl
 } from '../../../utils/util';
 
@@ -100,7 +99,7 @@ Page({
         this.setData({
           loading: false,
         });
-        this.initData(res.data.data);
+        this.initData(res.data);
       },
       () => {
         //接口异常处理
@@ -160,7 +159,6 @@ Page({
   handleGoodsRequest(goods, isOutStock = false) {
     const {
       quantity,
-      storeId,
       spuId,
       goodsName,
       skuId
@@ -168,13 +166,13 @@ Page({
     const resQuantity = quantity;
     return {
       quantity: resQuantity,
-      storeId,
       spuId,
       goodsName,
       skuId
     };
   },
   handleResToGoodsCard(data) {
+    console.log('--handleResToGoodsCard--', data);
     // 转换数据 符合 goods-card展示
     const orderCardList = []; // 订单卡片列表
     const storeInfoList = [];
@@ -182,7 +180,6 @@ Page({
     data.storeGoodsList &&
       data.storeGoodsList.forEach((ele) => {
         const orderCard = {
-          id: ele.storeId,
           status: 0,
           statusDesc: '',
           goodsList: [],
@@ -198,12 +195,10 @@ Page({
             num: item.quantity,
             skuId: item.skuId,
             spuId: item.spuId,
-            storeId: item.storeId,
           });
         });
 
         storeInfoList.push({
-          storeId: ele.storeId,
           remark: '',
         });
         this.noteInfo.push('');
@@ -474,8 +469,7 @@ Page({
       },
     } = e;
     const index = this.goodsRequestList.findIndex(
-      ({ storeId, spuId, skuId }) =>
-        goods.storeId === storeId &&
+      ({ spuId, skuId }) =>
         goods.spuId === spuId &&
         goods.skuId === skuId,
     );
