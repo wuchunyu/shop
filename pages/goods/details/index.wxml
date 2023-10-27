@@ -49,7 +49,7 @@
   <view class="goods-bottom-operation">
     <buy-bar jumpArray="{{jumpArray}}" shopCartNum="{{cartNum}}" buttonType="{{buttonType}}" bind:toAddCart="toAddCart" bind:toNav="toNav" bind:toBuyNow="buyItNow" class="goods-details-card" />
   </view>
-  <goods-specs-popup id="goodsSpecsPopup" buyType="{{buyType}}" show="{{isSpuSelectPopupShow}}" details="{{details}}" specList="{{details.specList || []}}" bind:closeSpecsPopup="handlePopupHide" bind:change="chooseSpecItem" bind:changeNum="changeNum" bind:addCart="addCart" bind:buyNow="gotoBuy" bind:specsConfirm="specsConfirm">
+  <goods-specs-popup id="goodsSpecsPopup" buyType="{{buyType}}" show="{{isSpuSelectPopupShow}}" details="{{details}}" specList="{{details.specList || []}}" bind:closeSpecsPopup="handlePopupHide" bind:change="chooseSpecItem" bind:changeNum="changeNum" bind:addCart="addCart" bind:specsConfirm="specsConfirm">
     <view slot="goods-price">
       <view class="popup-sku__price">
         <price wx:if="{{!isAllSelectedSku || (!promotionSubCode && isAllSelectedSku)}}" price="{{selectSkuSellsPrice ? selectSkuSellsPrice : minSalePrice }}" wr-class="popup-sku__price-num" symbol-class="popup-sku__price-symbol" />

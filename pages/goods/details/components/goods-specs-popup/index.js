@@ -41,161 +41,19 @@ Component({
       })
     },
 
-    checkSkuStockQuantity(specValueId, skuList) {
-      const array = [];
-      skuList.forEach((item) => {
-        (item.specInfo || []).forEach((subItem) => {
-          if (subItem.specValueId === specValueId && item.quantity > 0) {
-            const subArray = [];
-            (item.specInfo || []).forEach((specItem) => {
-              subArray.push(specItem.specValueId);
-            });
-            array.push(subArray);
-          }
-        });
-      });
-      return {
-        specsArray: array,
-      };
-    },
-
-    chooseSpecValueId(specValueId, specId) {
-      const { selectSpecObj } = this;
-      const { skuList, specList } = this.properties;
-      if (selectSpecObj[specId]) {
-        selectSpecObj[specId] = [];
-        this.selectSpecObj = selectSpecObj;
-      } else {
-        selectSpecObj[specId] = [];
-      }
-
-      const itemAllSpecArray = [];
-      const itemUnSelectArray = [];
-      const itemSelectArray = [];
-      specList.forEach((item) => {
-        if (item.specId === specId) {
-          const subSpecValueItem = item.specValueList.find((subItem) => subItem.specValueId === specValueId);
-          let specSelectStatus = false;
-          item.specValueList.forEach((n) => {
-            itemAllSpecArray.push(n.hasStockObj.specsArray);
-            if (n.isSelected) {
-              specSelectStatus = true;
-            }
-            if (n.hasStockObj.hasStock) {
-              itemSelectArray.push(n.specValueId);
-            } else {
-              itemUnSelectArray.push(n.specValueId);
-            }
-          });
-          if (specSelectStatus) {
-            selectSpecObj[specId] = this.flatten(subSpecValueItem?.hasStockObj.specsArray.concat(itemSelectArray));
-          } else {
-            const subSet = function (arr1, arr2) {
-              const set2 = new Set(arr2);
-              const subset = [];
-              arr1.forEach((val) => {
-                if (!set2.has(val)) {
-                  subset.push(val);
-                }
-              });
-              return subset;
-            };
-            selectSpecObj[specId] = subSet(this.flatten(itemAllSpecArray), this.flatten(itemUnSelectArray));
-          }
-        } else {
-          // 未点击规格的逻辑
-          const itemSelectArray = [];
-          let specSelectStatus = false;
-          item.specValueList.map(
-            // 找到有库存的规格数组
-            (n) => {
-              itemSelectArray.push(n.hasStockObj.specsArray);
-              if (n.isSelected) {
-                specSelectStatus = true;
-              }
-              n.hasStockObj.hasStock = true;
-              return n;
-            },
-          );
-          if (specSelectStatus) {
-            selectSpecObj[item.specId] = this.flatten(itemSelectArray);
-          } else {
-            delete selectSpecObj[item.specId];
-          }
-        }
-        this.selectSpecObj = selectSpecObj;
-      });
-      const combatArray = Object.values(selectSpecObj);
-      if (combatArray.length > 0) {
-        const showArray = combatArray.reduce((x, y) => this.getIntersection(x, y));
-        const lastResult = Array.from(new Set(showArray));
-        specList.forEach((item) => {
-          item.specValueList.forEach((subItem) => {
-            if (lastResult.includes(subItem.specValueId)) {
-              subItem.hasStockObj.hasStock = true;
-            } else {
-              subItem.hasStockObj.hasStock = false;
-            }
-          });
-        });
-      } else {
-        specList.forEach((item) => {
-          if (item.specValueList.length > 0) {
-            item.specValueList.forEach((subItem) => {
-              const obj = this.checkSkuStockQuantity(subItem.specValueId, skuList);
-              subItem.hasStockObj = obj;
-            });
-          }
-        });
-      }
-      this.setData({
-        specList,
-      });
-    },
-
-    flatten(input) {
-      const stack = [...input];
-      const res = [];
-      while (stack.length) {
-        const next = stack.pop();
-        if (Array.isArray(next)) {
-          stack.push(...next);
-        } else {
-          res.push(next);
-        }
-      }
-      return res.reverse();
-    },
-
-    getIntersection(array, nextArray) {
-      return array.filter((item) => nextArray.includes(item));
-    },
-
     toChooseItem(e) {
       console.log('--toChooseItem--', e, this.data.details);
-      const { id } = e.currentTarget.dataset;
-      const specId = e.currentTarget.dataset.specid;
+      const { specid, title } = e.currentTarget.dataset;
       let { specList } = this.data.details;
       specList.forEach(item => {
-        console.log(item);
-        if (item.title === e.currentTarget.dataset.title) {
-          item.specId = e.currentTarget.dataset.specid
+        if (item.title === title) {
+          item.specId = specid
         }
       })
-      Object.keys(specList).some((item) => {
-        console.log('--item--', item);
-        return item[specId] == ''
-      })
       this.setData({
-        isStock: !Object.keys(specList).some((item) => item[specId] == ''),
+        isStock: !specList.some((item) => item['specId'] == ''),
         details: { ...this.data.details, specList }
       })
-    },
-
-    // 判断是否所有的sku都已经选中
-    isAllSelected(skuTree, selectedSku) {
-      const selected = Object.keys(selectedSku).filter((skuKeyStr) => selectedSku[skuKeyStr] !== '');
-      return skuTree.length === selected.length;
     },
 
     handlePopupHide() {
@@ -212,23 +70,6 @@ Component({
     // addCart() {
     //   this.triggerEvent('addCart');
     // },
-
-    buyNow() {
-      const { isAllSelectedSku } = this.data;
-      this.triggerEvent('buyNow', {
-        isAllSelectedSku,
-      });
-    },
-
-    // 总处理
-    setBuyNum(buyNum) {
-      this.setData({
-        buyNum,
-      });
-      this.triggerEvent('changeNum', {
-        buyNum,
-      });
-    },
 
     handleBuyNumChange(e) {
       const { value } = e.detail;
