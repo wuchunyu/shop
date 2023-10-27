@@ -1,6 +1,5 @@
 import Toast from 'tdesign-miniprogram/toast/index';
 import {
-  getUrl,
   postUrl
 } from '../../../../utils/util';
 
@@ -29,12 +28,22 @@ Page({
     this.getareaData();
   },
   getareaData() {
-    getUrl('/getAreaData').
-      then((data) => {
-        this.setData({
-          areaData: data.data
-        })
-      });
+    let _this = this;
+    wx.login({
+      success(res) {
+        if (res.code) {
+          //发起网络请求 
+          request('/getAreaData', {}, 'GET', res.code).
+            then((data) => {
+              _this.setData({
+                areaData: data.data
+              })
+            });
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
   onInputValue(e) {
     const { item } = e.currentTarget.dataset;

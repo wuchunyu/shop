@@ -3,7 +3,7 @@
 </view>
 <view class="homePageHeader">
   <view class="search" bind:tap="navToSearchPage">
-    <t-search t-class-input="t-search__input" t-class-input-container="t-search__input-container" placeholder="请输入" leftIcon="" disabled>
+    <t-search t-class-input="t-search__input" t-class-input-container="t-search__input-container" placeholder="请输入" leftIcon="">
       <t-icon slot="left-icon" prefix="wr" name="search" size="40rpx" color="#bbb" />
     </t-search>
   </view>

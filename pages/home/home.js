@@ -155,9 +155,9 @@ Page({
   },
 
   navToSearchPage() {
-    wx.navigateTo({
-      url: '/pages/goods/search/index'
-    });
+    // wx.navigateTo({
+    //   url: '/pages/goods/search/index'
+    // });
   },
 
   navToActivityDetail({

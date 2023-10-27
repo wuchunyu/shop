@@ -5,8 +5,7 @@ import {
   rejectAddress
 } from './util';
 import {
-  getUrl,
-  postUrl
+  request
 } from '../../../../utils/util';
 
 Page({
@@ -43,11 +42,21 @@ Page({
     }
   },
   getAddressList() {
-    getUrl('/fetchDeliveryAddressList').then(res => {
-      const addressList = res.data;
-      this.setData({
-        addressList
-      });
+    let _this = this;
+    wx.login({
+      success(res) {
+        if (res.code) {
+          //发起网络请求 
+          request('/fetchDeliveryAddressList', {}, 'GET', res.code).then(res => {
+            const addressList = res.data;
+            _this.setData({
+              addressList
+            });
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
     })
   },
   confirmDeleteHandle({
