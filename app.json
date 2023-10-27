@@ -12,7 +12,7 @@
     "pages/goods/list/index",
     "pages/goods/details/index",
     "pages/goods/category/index",
-    "pages/goods/result/index",
+    
     "pages/cart/index",
     "pages/order/order-confirm/index",
     "pages/order/receipt/index",

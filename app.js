@@ -1,6 +1,5 @@
 App({
   globalData: {
-    searchValue: '',
   },
   onLaunch: function () { },
   onShow: function () { },
