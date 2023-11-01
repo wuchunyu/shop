@@ -70,10 +70,13 @@ Component({
     onOverallAction() {
       const { overall } = this.data;
       const nextOverall = overall === 1 ? 0 : 1;
-      const nextData = {
-        sorts: '',
+      const nextData = overall === 1 ? {
+        sorts: 'desc',
         prices: [],
-      };
+      } : {
+          sorts: '',
+          prices: [],
+        };
       this.triggerEvent('change', {
         ...this.properties,
         ...nextData,

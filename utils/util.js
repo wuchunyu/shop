@@ -148,14 +148,11 @@ function request(url, data = {}, method = "GET", code) {
 
       },
       fail: function (err) {
+        console.log('--err--', err);
         reject(err)
       }
     })
   });
-}
-
-function postUrl(url, data = {}) {
-  return request(url, data, 'POST')
 }
 
 module.exports = {
@@ -165,5 +162,4 @@ module.exports = {
   rpx2px,
   phoneRegCheck,
   request,
-  postUrl,
 };

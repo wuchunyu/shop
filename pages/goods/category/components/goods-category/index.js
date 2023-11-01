@@ -13,17 +13,14 @@ Component({
           this.setActiveKey(newVal[0], 0);
         }
       },
-    },
-    level: {
-      type: Number,
-      value: 3,
-    },
+    }
   },
   data: {
     activeKey: 0,
     subActiveKey: 0,
   },
   attached() {
+    console.log('---', this.properties);
     if (this.properties.initActive && this.properties.initActive.length > 0) {
       this.setData({
         activeKey: this.properties.initActive[0],

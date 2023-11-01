@@ -46,6 +46,7 @@ Component({
     },
 
     init() {
+
       this.genIndependentID(this.id || '');
     },
 

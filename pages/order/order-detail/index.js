@@ -1,8 +1,7 @@
 import { formatTime } from '../../../utils/util';
 import { OrderStatus, LogisticsIconMap } from '../config';
 import {
-  getUrl,
-  postUrl
+  request
 } from '../../../utils/util';
 import Toast from 'tdesign-miniprogram/toast/index';
 import { getAddressPromise } from '../../usercenter/address/list/util';
@@ -80,55 +79,72 @@ Page({
     const params = {
       parameter: this.orderNo,
     };
-    return getUrl('/fetchOrderDetail').then((res) => {
-      const order = res.data.data;
-      const _order = {
-        id: order.orderId,
-        orderNo: order.orderNo,
-        parentOrderNo: order.parentOrderNo,
-        status: order.orderStatus,
-        statusDesc: order.orderStatusName,
-        amount: order.paymentAmount,
-        totalAmount: order.goodsAmountApp,
-        logisticsNo: order.logisticsVO.logisticsNo,
-        goodsList: (order.orderItemVOs || []).map((goods) =>
-          Object.assign({}, goods, {
-            id: goods.id,
-            thumb: goods.goodsPictureUrl,
-            title: goods.goodsName,
-            skuId: goods.skuId,
-            spuId: goods.spuId,
-            specs: (goods.specifications || []).map((s) => s.specValue),
-            price: goods.actualPrice, // 商品销售单价, 优先取限时活动价
-            num: goods.buyQuantity,
-            buttons: goods.buttonVOs || [],
-          }),
-        ),
-        buttons: order.buttonVOs || [],
-        createTime: order.createTime,
-        receiverAddress: this.composeAddress(order),
-        groupInfoVo: order.groupInfoVo,
-      };
-      this.setData({
-        order,
-        _order,
-        formatCreateTime: formatTime(
-          parseFloat(`${order.createTime}`),
-          'YYYY-MM-DD HH:mm',
-        ), // 格式化订单创建时间
-        countDownTime: this.computeCountDownTime(order),
-        addressEditable:
-          [OrderStatus.PENDING_PAYMENT, OrderStatus.PENDING_DELIVERY].includes(
-            order.orderStatus,
-          ) && order.orderSubStatus !== -1, // 订单正在取消审核时不允许修改地址（但是返回的状态码与待发货一致）
-        isPaid: !!order.paymentVO.paySuccessTime,
-        invoiceStatus: this.datermineInvoiceStatus(order),
-        invoiceDesc: order.invoiceDesc,
-        invoiceType:
-          order.invoiceVO?.invoiceType === 5 ? '电子普通发票' : '不开发票', //是否开票 0-不开 5-电子发票
-        logisticsNodes: this.flattenNodes(order.trajectoryVos || []),
-      });
-    });
+    let _this = this;
+    wx.login({
+      success(res) {
+
+        if (res.code) {
+          //发起网络请求
+          // request('/fetchOrderDetail', {}, 'GET', res.code).then(res => { //分类 商品列表
+          //   _this.setData({
+          //     list: res.data,
+          //   });
+          // });
+          request('/fetchOrderDetail', {}, 'GET', res.code).then((res) => {
+            const order = res.data.data;
+            const _order = {
+              id: order.orderId,
+              orderNo: order.orderNo,
+              parentOrderNo: order.parentOrderNo,
+              status: order.orderStatus,
+              statusDesc: order.orderStatusName,
+              amount: order.paymentAmount,
+              totalAmount: order.goodsAmountApp,
+              logisticsNo: order.logisticsVO.logisticsNo,
+              goodsList: (order.orderItemVOs || []).map((goods) =>
+                Object.assign({}, goods, {
+                  id: goods.id,
+                  thumb: goods.goodsPictureUrl,
+                  title: goods.goodsName,
+                  skuId: goods.skuId,
+                  spuId: goods.spuId,
+                  specs: (goods.specifications || []).map((s) => s.specValue),
+                  price: goods.actualPrice, // 商品销售单价, 优先取限时活动价
+                  num: goods.buyQuantity,
+                  buttons: goods.buttonVOs || [],
+                }),
+              ),
+              buttons: order.buttonVOs || [],
+              createTime: order.createTime,
+              receiverAddress: _this.composeAddress(order),
+              groupInfoVo: order.groupInfoVo,
+            };
+            _this.setData({
+              order,
+              _order,
+              formatCreateTime: formatTime(
+                parseFloat(`${order.createTime}`),
+                'YYYY-MM-DD HH:mm',
+              ), // 格式化订单创建时间
+              countDownTime: _this.computeCountDownTime(order),
+              addressEditable:
+                [OrderStatus.PENDING_PAYMENT, OrderStatus.PENDING_DELIVERY].includes(
+                  order.orderStatus,
+                ) && order.orderSubStatus !== -1, // 订单正在取消审核时不允许修改地址（但是返回的状态码与待发货一致）
+              isPaid: !!order.paymentVO.paySuccessTime,
+              invoiceStatus: _this.datermineInvoiceStatus(order),
+              invoiceDesc: order.invoiceDesc,
+              invoiceType:
+                order.invoiceVO?.invoiceType === 5 ? '电子普通发票' : '不开发票', //是否开票 0-不开 5-电子发票
+              logisticsNodes: _this.flattenNodes(order.trajectoryVos || []),
+            });
+          });
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+
   },
 
   // 展开物流节点

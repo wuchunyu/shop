@@ -15,6 +15,7 @@
 
 .filterLeftContent {
   height: 100%;
+  display: flex;
   flex-grow: 2;
   flex-flow: row nowrap;
   justify-content: space-between;

@@ -3,6 +3,7 @@
   "usingComponents": {
     "t-toast": "tdesign-miniprogram/toast/toast",
     "goods-list": "/components/goods-list/index",
-    "filter": "/components/filter/index"
+    "filter": "/components/filter/index",
+    "load-more": "/components/load-more/index"
   }
 }

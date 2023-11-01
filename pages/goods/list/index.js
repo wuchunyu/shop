@@ -1,7 +1,6 @@
 import Toast from 'tdesign-miniprogram/toast/index';
 import {
-  getUrl,
-  postUrl
+  request
 } from '../../../utils/util';
 
 const initFilters = {
@@ -9,26 +8,64 @@ const initFilters = {
   sorts: '',
 };
 
-let item = null;
 Page({
   data: {
-    goodsList: [],
     sorts: '',
     overall: 1,
-    filter: initFilters,
+    tabList: [],
+    tabId: '',
+    searchValue: '',
+    goodsList: [],
+    goodsListLoadStatus: 0,
+    pageLoading: false,
+    current: 1,
+    navigation: {
+      type: 'dots'
+    },
+    swiperImageProps: {
+      mode: 'scaleToFill'
+    },
+  },
+
+  goodListPagination: {
+    index: 0,
+    num: 20,
+  },
+
+  onShow() {
+    // this.getTabBar().init();
   },
 
   onLoad(option) {
+    console.log('-----', option);
     console.log('--option--', JSON.parse(option.item));
-    item = JSON.parse(option.item);
+    let item = JSON.parse(option.item);
+    this.setData({
+      tabId: item.groupId
+    })
     wx.setNavigationBarTitle({
       title: item.name,
     })
-    this.init(true);
+    this.init();
+  },
+
+  // onLoad() {
+  //   this.init();
+  // },
+
+  onReachBottom() {
+    if (this.data.goodsListLoadStatus === 0) {
+      this.loadGoodsList();
+    }
+  },
+
+  onPullDownRefresh() {
+    this.init();
   },
 
   handleFilterChange(e) {
     const { overall, sorts } = e.detail;
+    console.log('--overall, sorts--', overall, sorts);
     this.setData({
       sorts,
       overall,
@@ -36,65 +73,76 @@ Page({
     this.init(true);
   },
 
-  generalQueryData(reset = false) {
-    const { filter } = this.data;
-    const { sorts, overall } = filter;
-    const params = {
-      sort: 0, // 0 综合，1 价格
-    };
-
-    if (sorts) {
-      params.sort = 1;
-    }
-
-    if (overall) {
-      params.sort = 0;
-    } else {
-      params.sort = 1;
-    }
-    if (reset) return params;
-    return {
-      ...params,
-    };
+  init() {
+    this.loadGoodsList(true);
   },
 
-  async init(reset = true) {
-    const params = this.generalQueryData(reset);
-    try {
-      const result = await getUrl('/fetchGoodsLists', { groupId: item.groupId });
-      const { spuList } = result.data;
-      this.setData({
-        goodsList: spuList,
+  tabChangeHandle(e) {
+    console.log('--tabChangeHandle--', e.detail);
+    this.setData({
+      tabId: e.detail.value
+    })
+    this.loadGoodsList(true);
+  },
+
+  onReTry() {
+    this.loadGoodsList();
+  },
+
+  async loadGoodsList(fresh = false) {
+    let _this = this;
+    if (fresh) {
+      wx.pageScrollTo({
+        scrollTop: 0,
       });
-
-    } catch (error) {
     }
-  },
 
-  handleAddCart() {
-    Toast({
-      context: this,
-      selector: '#t-toast',
-      message: '点击加购',
+    this.setData({
+      goodsListLoadStatus: 1
     });
+
+    const pageSize = this.goodListPagination.num;
+    let pageIndex = this.goodListPagination.index + 1;
+    if (fresh) {
+      pageIndex = 0;
+    }
+    const { tabId, searchValue } = this.data;
+    wx.login({
+      success(res) {
+        if (res.code) {
+          //发起网络请求 
+          request('/fetchGoodsList', { pageSize, pageIndex, tabId, searchValue }, 'GET', res.code).then(res => {
+            // 获取商品列表
+            const nextList = res.data;
+            _this.setData({
+              goodsList: fresh ? nextList : _this.data.goodsList.concat(nextList),
+              goodsListLoadStatus: 0,
+            });
+            _this.goodListPagination.index = pageIndex;
+            _this.goodListPagination.num = pageSize;
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
 
-  gotoGoodsDetail(e) {
-    const { index } = e.detail;
-    const { spuId } = this.data.goodsList[index];
+  goodListClickHandle(e) {
+    const {
+      index
+    } = e.detail;
+    const {
+      spuId
+    } = this.data.goodsList[index];
     wx.navigateTo({
       url: `/pages/goods/details/index?spuId=${spuId}`,
     });
   },
 
-  confirm() {
-    this.setData(
-      {
-        goodsList: [],
-      },
-      () => {
-        this.init();
-      },
-    );
+  navToSearchPage() {
+    // wx.navigateTo({
+    //   url: '/pages/goods/search/index'
+    // });
   },
 });

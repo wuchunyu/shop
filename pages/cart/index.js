@@ -52,7 +52,6 @@ Page({
         }
       }
     })
-
   },
 
   findGoods(spuId, skuId) {

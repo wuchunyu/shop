@@ -42,7 +42,7 @@ Component({
     },
 
     toChooseItem(e) {
-      console.log('--toChooseItem--', e, this.data.details);
+      // console.log('--toChooseItem--', e, this.data.details);
       const { specid, title } = e.currentTarget.dataset;
       let { specList } = this.data.details;
       specList.forEach(item => {

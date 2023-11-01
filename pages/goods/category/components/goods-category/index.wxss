@@ -7,7 +7,7 @@
 }
 
 .goods-category__right {
-  height: 100%;
+  height: calc(100% - 50px);
   flex: auto;
   width: 0;
   position: relative;
@@ -41,10 +41,10 @@
 
 .goods-category-normal-item-container-item {
   height: 196rpx;
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   align-items: center;
-  margin-top: 24rpx;
+  margin-top: 20rpx;
   width: 33.3%;
 }
 

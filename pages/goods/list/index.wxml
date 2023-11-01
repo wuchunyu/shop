@@ -1,8 +1,12 @@
-<view class="goods-list-container">
-  <filter wr-class="filter-container" bind:change="handleFilterChange" sorts="{{sorts}}" overall="{{overall}}">
-  </filter>
-  <view class="category-goods-list" wx:if="{{goodsList.length}}">
-    <goods-list wr-class="wr-goods-list" goodsList="{{goodsList}}" bind:click="gotoGoodsDetail" bind:addcart="handleAddCart" />
-  </view>
+<view style="text-align: center; color: #b9b9b9" wx:if="{{pageLoading}}">
+  <t-loading theme="circular" size="40rpx" text="加载中..." inherit-color />
 </view>
-<t-toast id="t-toast" />
+<view class="homePageContainer">
+  <view class="home-page-tabs">
+    <filter wr-class="filter-container" bind:change="handleFilterChange" sorts="{{sorts}}" overall="{{overall}}">
+    </filter>
+  </view>
+
+  <goods-list wr-class="goods-list-container" goodsList="{{goodsList}}" bind:click="goodListClickHandle" />
+  <load-more list-is-empty="{{!goodsList.length}}" status="{{goodsListLoadStatus}}" bind:retry="onReTry" />
+</view>

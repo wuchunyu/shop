@@ -1,8 +1,7 @@
 import { OrderStatus } from '../config';
 import { cosThumb } from '../../../utils/util';
 import {
-  getUrl,
-  postUrl
+  request
 } from '../../../utils/util';
 
 Page({
@@ -148,17 +147,29 @@ Page({
   },
 
   getOrdersCount() {
-    return getUrl('fetchOrdersCount').then((res) => {
-      const tabsCount = res.data || [];
-      const { tabs } = this.data;
-      tabs.forEach((tab) => {
-        const tabCount = tabsCount.find((c) => c.tabType === tab.key);
-        if (tabCount) {
-          tab.info = tabCount.orderNum;
+    console.log('--getOrdersCount--');
+    let _this = this;
+    wx.login({
+      success(res) {
+        if (res.code) {
+          //发起网络请求 
+          request('/fetchOrdersCount', {}, 'GET', res.code).then((res) => {
+            console.log('--res--', res);
+            const tabsCount = res.data || [];
+            const { tabs } = this.data;
+            tabs.forEach((tab) => {
+              const tabCount = tabsCount.find((c) => c.tabType === tab.key);
+              if (tabCount) {
+                tab.info = tabCount.orderNum;
+              }
+            });
+            _this.setData({ tabs });
+          });
+        } else {
+          console.log('登录失败！' + res.errMsg)
         }
-      });
-      this.setData({ tabs });
-    });
+      }
+    })
   },
 
   refreshList(status = -1) {

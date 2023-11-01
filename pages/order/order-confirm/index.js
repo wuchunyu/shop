@@ -172,7 +172,6 @@ Page({
     };
   },
   handleResToGoodsCard(data) {
-    console.log('--handleResToGoodsCard--', data);
     // 转换数据 符合 goods-card展示
     const orderCardList = []; // 订单卡片列表
     const storeInfoList = [];
