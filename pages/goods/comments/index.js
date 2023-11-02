@@ -1,5 +1,5 @@
 import {
-  postUrl
+  postUrl, request
 } from '../../../utils/util';
 import dayjs from 'dayjs';
 const layoutMap = {
@@ -34,32 +34,36 @@ Page({
     this.getCount(options);
     this.getComments(options);
   },
-  async getCount(options) {
-    try {
-      const result = await postUrl('/fetchCommentsCount', {
-        spuId: options.spuId,
-      })
-      this.setData({
-        countObj: result.data,
-      });
-      const {
-        data,
-        code = ''
-      } = result;
-      // if (code.toUpperCase() === 'SUCCESS') {
-      wx.setNavigationBarTitle({
-        title: `全部评价(${data.commentCount})`,
-      });
-      this.setData({
-        countObj: data,
-      });
-      // }
-      //  else {
-      //   wx.showToast({
-      //     title: '查询失败，请稍候重试',
-      //   });
-      // }
-    } catch (error) { }
+  getCount(options) {
+
+    let _this = this;
+    wx.login({
+      success(res) {
+        if (res.code) {
+          //发起网络请求 
+          request('/fetchCommentsCount', {
+            spuId: options.spuId,
+          }, 'POST', res.code).
+            then((result) => {
+              this.setData({
+                countObj: result.data,
+              });
+              const {
+                data,
+                code = ''
+              } = result;
+              wx.setNavigationBarTitle({
+                title: `全部评价(${data.commentCount})`,
+              });
+              this.setData({
+                countObj: data,
+              });
+            });
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
   generalQueryData(reset) {
     const {
@@ -97,49 +101,47 @@ Page({
       pageSize,
     };
   },
-  async init(reset = true) {
+  init(reset = true) {
     const {
       commentList = []
     } = this.data;
     const params = this.generalQueryData(reset);
 
-    try {
-      const data = await postUrl('/fetchComments', {
-        params
-      })
-      const code = 'SUCCESS';
-      if (code.toUpperCase() === 'SUCCESS') {
-        const {
-          pageList,
-          totalCount = 0
-        } = data.data;
-        pageList.forEach((item) => {
-          // eslint-disable-next-line no-param-reassign
-          item.commentTime = dayjs(Number(item.commentTime)).format(
-            'YYYY/MM/DD HH:mm',
-          );
-        });
+    const data = await postUrl('/fetchComments', {
+      params
+    })
+    const code = 'SUCCESS';
+    if (code.toUpperCase() === 'SUCCESS') {
+      const {
+        pageList,
+        totalCount = 0
+      } = data.data;
+      pageList.forEach((item) => {
+        // eslint-disable-next-line no-param-reassign
+        item.commentTime = dayjs(Number(item.commentTime)).format(
+          'YYYY/MM/DD HH:mm',
+        );
+      });
 
-        if (Number(totalCount) === 0 && reset) {
-          this.setData({
-            commentList: [],
-            hasLoaded: true,
-            total: totalCount,
-          });
-          return;
-        }
-        const _commentList = reset ? pageList : commentList.concat(pageList);
+      if (Number(totalCount) === 0 && reset) {
         this.setData({
-          commentList: _commentList,
-          pageNum: params.pageNum || 1,
-          totalCount: Number(totalCount),
+          commentList: [],
+          hasLoaded: true,
+          total: totalCount,
         });
-      } else {
-        wx.showToast({
-          title: '查询失败，请稍候重试',
-        });
+        return;
       }
-    } catch (error) { }
+      const _commentList = reset ? pageList : commentList.concat(pageList);
+      this.setData({
+        commentList: _commentList,
+        pageNum: params.pageNum || 1,
+        totalCount: Number(totalCount),
+      });
+    } else {
+      wx.showToast({
+        title: '查询失败，请稍候重试',
+      });
+    }
     this.setData({
       hasLoaded: true,
     });

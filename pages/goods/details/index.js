@@ -185,17 +185,31 @@ Page({
     }
   },
 
-  addCart() {
-    const {
-      isAllSelectedSku
-    } = this.data;
-    Toast({
-      context: this,
-      selector: '#t-toast',
-      message: isAllSelectedSku ? '点击加入购物车' : '请选择规格',
-      icon: '',
-      duration: 1000,
-    });
+  addCart(item) {
+    console.log(item, JSON.parse(item.detail));
+    let dataList = {
+      spuId: JSON.parse(item.detail).details.spuId,
+      buyNum: JSON.parse(item.detail).buyNum,
+      specId: []
+    }
+    for (let i of JSON.parse(item.detail).details.specList) {
+      dataList.specId.push(i.specId)
+    }
+    console.log(dataList);
+    let _this = this;
+    wx.login({
+      success(res) {
+
+        if (res.code) {
+          //发起网络请求 
+          request('/addCart', dataList, 'POST', res.code).then(res => {
+            console.log(res);
+          });
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
 
   gotoBuy() {
@@ -224,14 +238,14 @@ Page({
     });
   },
 
-  specsConfirm() {
+  specsConfirm(item) {
     const {
       buyType
     } = this.data;
     if (buyType === 1) {
       this.gotoBuy();
     } else {
-      this.addCart();
+      this.addCart(item);
     }
     this.handlePopupHide();
   },

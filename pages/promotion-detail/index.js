@@ -1,6 +1,6 @@
 import Toast from 'tdesign-miniprogram/toast/index';
 import {
-  postUrl
+  request
 } from '../../utils/util';
 
 Page({
@@ -18,21 +18,32 @@ Page({
   },
 
   getGoodsList(promotionID) {
-    postUrl('/fetchPromotion').then(res => {
-      const { list, banner, time, showBannerDesc, statusTag } = res.data;
-      const goods = list.map((item) => ({
-        ...item,
-        tags: item.tags.map((v) => v.title),
-      }));
-      this.setData({
-        list: goods,
-        banner,
-        time,
-        showBannerDesc,
-        statusTag,
-      });
-    },
-    );
+    let _this = this;
+    wx.login({
+      success(res) {
+        if (res.code) {
+          //发起网络请求 
+          request('/fetchPromotion', {}, 'POST', res.code).then(
+            (res) => {
+              const { list, banner, time, showBannerDesc, statusTag } = res.data;
+              const goods = list.map((item) => ({
+                ...item,
+                tags: item.tags.map((v) => v.title),
+              }));
+              _this.setData({
+                list: goods,
+                banner,
+                time,
+                showBannerDesc,
+                statusTag,
+              });
+            }
+          );
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
 
   goodClickHandle(e) {

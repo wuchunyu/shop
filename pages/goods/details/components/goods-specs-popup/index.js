@@ -63,8 +63,8 @@ Component({
     },
 
     specsConfirm() {
-      console.log('--buyType--', this.properties.buyType);
-      this.triggerEvent('specsConfirm');
+      console.log('--buyType--', this.properties, this.data.isStock);
+      this.data.isStock && this.triggerEvent('specsConfirm', JSON.stringify(this.properties));
     },
 
     // addCart() {

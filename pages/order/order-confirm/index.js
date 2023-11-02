@@ -2,7 +2,7 @@ import Toast from 'tdesign-miniprogram/toast/index';
 import { commitPay, wechatPayOrder } from './pay';
 import { getAddressPromise } from '../../usercenter/address/list/util';
 import {
-  postUrl
+  request
 } from '../../../utils/util';
 
 Page({
@@ -93,19 +93,28 @@ Page({
       storeInfoList,
       userAddressReq,
     };
-
-    postUrl('/fetchSettleDetail').then(
-      (res) => {
-        this.setData({
-          loading: false,
-        });
-        this.initData(res.data);
-      },
-      () => {
-        //接口异常处理
-        this.handleError();
-      },
-    );
+    let _this = this;
+    wx.login({
+      success(res) {
+        if (res.code) {
+          //发起网络请求 
+          request('/fetchSettleDetail', {}, 'POST', res.code).then(
+            (res) => {
+              _this.setData({
+                loading: false,
+              });
+              _this.initData(res.data);
+            },
+            () => {
+              //接口异常处理
+              _this.handleError();
+            },
+          );
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
   initData(resData) {
     // 转换商品卡片显示数据

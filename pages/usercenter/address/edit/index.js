@@ -1,6 +1,6 @@
 import Toast from 'tdesign-miniprogram/toast/index';
 import {
-  postUrl
+  request
 } from '../../../../utils/util';
 
 Page({
@@ -85,37 +85,47 @@ Page({
 
   async formSubmit() {
     const { locationState } = this.data;
-    const result = await postUrl('/addAddress', {
-      addressId: locationState.addressId,
-      phone: locationState.phone,
-      name: locationState.name,
-      provinceName: locationState.provinceName,
-      provinceCode: locationState.provinceCode,
-      cityName: locationState.cityName,
-      cityCode: locationState.cityCode,
-      districtName: locationState.districtName,
-      districtCode: locationState.districtCode,
-      detailAddress: locationState.detailAddress,
-      isDefault: locationState.isDefault,
+    let _this = this;
+    wx.login({
+      success(res) {
+        if (res.code) {
+          //发起网络请求 
+          request('/addAddress', {
+            addressId: locationState.addressId,
+            phone: locationState.phone,
+            name: locationState.name,
+            provinceName: locationState.provinceName,
+            provinceCode: locationState.provinceCode,
+            cityName: locationState.cityName,
+            cityCode: locationState.cityCode,
+            districtName: locationState.districtName,
+            districtCode: locationState.districtCode,
+            detailAddress: locationState.detailAddress,
+            isDefault: locationState.isDefault,
+          }, 'POST', res.code).then(
+            (res) => {
+              if (res.ec !== 200) {
+                console.log(res);
+                wx.showToast({
+                  title: res.em,
+                  icon: 'error',
+                  duration: 2000
+                })
+
+              } else {
+                wx.showToast({
+                  title: '保存成功',
+                  icon: 'success',
+                  duration: 2000
+                })
+                wx.navigateBack({ delta: 1 });
+              }
+            }
+          );
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
     })
-    console.log(result);
-    if (result.ec !== 200) {
-      Toast({
-        context: this,
-        selector: '#t-toast',
-        message:
-          result.em,
-        duration: 2000,
-        icon: 'close-circle',
-      });
-    } else {
-      Toast({
-        context: this,
-        selector: '#t-toast',
-        message: '保存成功',
-        icon: 'check-circle',
-      });
-      wx.navigateBack({ delta: 1 });
-    }
   },
 });
