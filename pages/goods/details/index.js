@@ -53,7 +53,6 @@ Page({
     navigation: {
       type: 'fraction'
     },
-    soldNum: 0, // 已售数量
   },
 
   handlePopupHide() {
@@ -147,7 +146,7 @@ Page({
       buyNum
     };
     let urlQueryStr = obj2Params({
-      goodsRequestList: JSON.stringify(query),
+      orderCardList: JSON.stringify([query]),
     });
 
     urlQueryStr = urlQueryStr ? `?${urlQueryStr}` : '';
@@ -192,13 +191,8 @@ Page({
         if (res.code) {
           //发起网络请求 
           request('/fetchGood', { spuId }, 'POST', res.code).then(res => {
-            const details = res.data;
-            const {
-              soldNum,
-            } = details;
             _this.setData({
-              details,
-              soldNum,
+              details: res.data
             });
           });
         } else {

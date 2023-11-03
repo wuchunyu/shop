@@ -262,17 +262,17 @@ Page({
   },
 
   onToSettle() {
-    const goodsRequestList = [];
+    const orderCardList = [];
     this.data.cartGroupData.storeGoods.forEach((store) => {
       store.promotionGoodsList.forEach((promotion) => {
         promotion.goodsPromotionList.forEach((m) => {
           if (m.isSelected == 1) {
-            goodsRequestList.push(m);
+            orderCardList.push(m);
           }
         });
       });
     });
-    wx.setStorageSync('order.goodsRequestList', JSON.stringify(goodsRequestList));
+    wx.setStorageSync('order.orderCardList', JSON.stringify(orderCardList));
     wx.navigateTo({
       url: '/pages/order/order-confirm/index?type=cart'
     });

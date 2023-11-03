@@ -6,7 +6,7 @@
         <view class="goods-price">
           <price wr-class="class-goods-price" symbol-class="class-goods-symbol" price="{{details.price}}" type="lighter" />
         </view>
-        <view class="sold-num">已售{{soldNum}}</view>
+        <view class="sold-num">已售{{details.soldNum}}</view>
       </view>
       <view class="goods-title">
         <view class="goods-name">{{details.title}}</view>

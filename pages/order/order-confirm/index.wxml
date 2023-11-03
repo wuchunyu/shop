@@ -1,6 +1,5 @@
 <wxs module="order" src="./order.wxs" />
 
-<wxs module="handleInvoice" src="./handleInvoice.wxs" />
 <wxs module="getNotes" src="./getNotes.wxs" />
 <view class="order-sure">
   <address-card addressData="{{userAddress}}" bind:addclick="onGotoAddress" bind:addressclick="onGotoAddress" />
@@ -25,39 +24,31 @@
       </view>
     </view>
     <view class="pay-item">
-      <text>发票</text>
-      <view class="pay-item__right" catchtap="onReceipt">
-        <text>{{handleInvoice(invoiceData)}}</text>
-        <t-icon name="chevron-right" size="32rpx" color="#BBBBBB" />
-      </view>
-    </view>
-    <view class="pay-item">
       <text>订单备注</text>
-      <view class="pay-item__right" data-storenoteindex="{{0}}" catchtap="onNotes">
-        <text class="pay-remark">{{getNotes(storeInfoList, 0) ? getNotes(storeInfoList, 0) :'选填，建议先和商家沟通确认'}}</text>
+      <view class="pay-item__right" catchtap="onNotes">
+        <text class="pay-remark">{{placeholder ? placeholder : '选填，建议先和商家沟通确认'}}</text>
         <t-icon name="chevron-right" size="32rpx" color="#BBBBBB" />
       </view>
     </view>
   </view>
   <view class="amount-wrapper">
     <view class="pay-amount">
-      <text class="order-num">共123件</text>
+      <text class="order-num">共{{total}}件</text>
       <text>小计</text>
-      <price class="total-price" price="{{settleDetailData.totalPayAmount}}" fill="{{false}}" decimalSmaller />
+      <price class="total-price" price="{{totalPrice}}" fill="{{false}}" decimalSmaller />
     </view>
   </view>
   <view class="wx-pay-cover">
     <view class="wx-pay">
-      <price decimalSmaller fill class="price" price="{{settleDetailData.totalPayAmount || '0'}}" />
+      <price decimalSmaller fill class="price" price="{{totalPrice}}" />
       <view class="submit-btn" bindtap="submitOrder">
         提交订单
       </view>
     </view>
   </view>
   <t-dialog t-class="add-notes" title="填写备注信息" visible="{{dialogShow}}" confirm-btn="确认" cancel-btn="取消" t-class-content="add-notes__content" t-class-confirm="dialog__button-confirm" t-class-cancel="dialog__button-cancel" bindconfirm="onNoteConfirm" bindcancel="onNoteCancel">
-    <t-textarea slot="content" focus="{{dialogShow}}" class="notes" t-class="add-notes__textarea" value="{{storeInfoList[storeNoteIndex] && storeInfoList[storeNoteIndex].remark}}" placeholder="备注信息" t-class-textarea="add-notes__textarea__font" bindfocus="onFocus" bindblur="onBlur" bindchange="onInput" maxlength="{{50}}" />
+    <t-textarea slot="content" focus="{{dialogShow}}" class="notes" t-class="add-notes__textarea" value="{{placeholder}}" placeholder="备注信息" t-class-textarea="add-notes__textarea__font" bindchange="onInput" maxlength="{{50}}" />
   </t-dialog>
-  <select-coupons bind:sure="onCoupons" storeId="{{currentStoreId}}" orderSureCouponList="{{couponList}}" promotionGoodsList="{{promotionGoodsList}}" couponsShow="{{couponsShow}}" />
 </view>
 <t-toast id="t-toast" />
 <t-dialog id="t-dialog" />

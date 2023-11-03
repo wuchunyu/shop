@@ -16,7 +16,7 @@
       <view class="popup-sku-stepper-stock">
         <view class="popup-sku-stepper-container">
           <view class="popup-sku__stepper-title">
-            购买数量{{buyNum}}
+            购买数量
           </view>
           <t-stepper value="{{buyNum}}" min="{{1}}" theme="filled" bind:change="changeNum" />
         </view>
