@@ -20,7 +20,6 @@ Component({
     subActiveKey: 0,
   },
   attached() {
-    console.log('---', this.properties);
     if (this.properties.initActive && this.properties.initActive.length > 0) {
       this.setData({
         activeKey: this.properties.initActive[0],

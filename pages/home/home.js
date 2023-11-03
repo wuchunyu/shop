@@ -81,7 +81,6 @@ Page({
   },
 
   tabChangeHandle(e) {
-    console.log('--tabChangeHandle--', e.detail);
     this.setData({
       tabId: e.detail.value
     })
@@ -89,7 +88,6 @@ Page({
   },
 
   handleSubmit(e) {
-    console.log(e);
     this.setData({
       searchValue: e.detail.value
     })

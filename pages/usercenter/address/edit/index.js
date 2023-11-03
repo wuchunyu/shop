@@ -105,7 +105,6 @@ Page({
           }, 'POST', res.code).then(
             (res) => {
               if (res.ec !== 200) {
-                console.log(res);
                 wx.showToast({
                   title: res.em,
                   icon: 'error',

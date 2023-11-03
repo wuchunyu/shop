@@ -37,8 +37,6 @@ Page({
   },
 
   onLoad(option) {
-    console.log('-----', option);
-    console.log('--option--', JSON.parse(option.item));
     let item = JSON.parse(option.item);
     this.setData({
       tabId: item.groupId
@@ -65,7 +63,6 @@ Page({
 
   handleFilterChange(e) {
     const { overall, sorts } = e.detail;
-    console.log('--overall, sorts--', overall, sorts);
     this.setData({
       sorts,
       overall,
@@ -78,7 +75,6 @@ Page({
   },
 
   tabChangeHandle(e) {
-    console.log('--tabChangeHandle--', e.detail);
     this.setData({
       tabId: e.detail.value
     })

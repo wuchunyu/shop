@@ -13,7 +13,6 @@ Page({
         if (res.code) {
           //发起网络请求
           request('/getCategoryList', {}, 'GET', res.code).then(res => { //分类 商品列表
-            console.log('--getCategoryList--', res);
             _this.setData({
               list: res.data,
             });
@@ -29,7 +28,6 @@ Page({
     this.getTabBar().init();
   },
   onChange(data) {
-    console.log('--onChange--', data, data.detail.item.groupId);
     wx.navigateTo({
       url: `/pages/goods/list/index?item=${JSON.stringify(data.detail.item)}`,
     });

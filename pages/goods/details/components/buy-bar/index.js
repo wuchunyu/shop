@@ -12,13 +12,6 @@ Component({
       type: Boolean,
       value: false,
     }, // 是否开启按钮插槽
-    shopCartNum: {
-      type: Number, // 购物车气泡数量
-    },
-    buttonType: {
-      type: Number,
-      value: 0,
-    },
     minDiscountPrice: {
       type: String,
       value: '',

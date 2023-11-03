@@ -1,10 +1,10 @@
 <view class="goods-detail-page">
   <view class="goods-head">
-    <t-swiper wx:if="{{details.images.length > 0}}" height="750rpx" current="{{current}}" autoplay="{{true}}" duration="500" interval="5000" navigation="{{navigation}}" list="{{details.images}}"></t-swiper>
+    <t-swiper wx:if="{{details.images.length > 0}}" height="750rpx" autoplay="{{true}}" duration="500" interval="5000" navigation="{{navigation}}" list="{{details.images}}"></t-swiper>
     <view class="goods-info">
       <view class="goods-number">
         <view class="goods-price">
-          <price wr-class="class-goods-price" symbol-class="class-goods-symbol" price="{{minSalePrice}}" type="lighter" />
+          <price wr-class="class-goods-price" symbol-class="class-goods-symbol" price="{{details.price}}" type="lighter" />
         </view>
         <view class="sold-num">已售{{soldNum}}</view>
       </view>
@@ -47,14 +47,8 @@
     </view>
   </view>
   <view class="goods-bottom-operation">
-    <buy-bar jumpArray="{{jumpArray}}" shopCartNum="{{cartNum}}" buttonType="{{buttonType}}" bind:toAddCart="toAddCart" bind:toNav="toNav" bind:toBuyNow="buyItNow" class="goods-details-card" />
+    <buy-bar jumpArray="{{jumpArray}}" bind:toAddCart="toAddCart" bind:toNav="toNav" bind:toBuyNow="buyItNow" class="goods-details-card" />
   </view>
-  <goods-specs-popup id="goodsSpecsPopup" buyType="{{buyType}}" show="{{isSpuSelectPopupShow}}" details="{{details}}" specList="{{details.specList || []}}" bind:closeSpecsPopup="handlePopupHide" bind:change="chooseSpecItem" bind:changeNum="changeNum" bind:addCart="addCart" bind:specsConfirm="specsConfirm">
-    <view slot="goods-price">
-      <view class="popup-sku__price">
-        <price wx:if="{{!isAllSelectedSku || (!promotionSubCode && isAllSelectedSku)}}" price="{{selectSkuSellsPrice ? selectSkuSellsPrice : minSalePrice }}" wr-class="popup-sku__price-num" symbol-class="popup-sku__price-symbol" />
-      </view>
-    </view>
-  </goods-specs-popup>
+  <goods-specs-popup id="goodsSpecsPopup" buyNum="{{buyNum}}" buyType="{{buyType}}" show="{{isSpuSelectPopupShow}}" details="{{details}}" specList="{{details.specList || []}}" bind:closeSpecsPopup="handlePopupHide" bind:changeNum="changeNum" bind:addCart="addCart" bind:specsConfirm="specsConfirm" />
 </view>
 <t-toast id="t-toast" />

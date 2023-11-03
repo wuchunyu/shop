@@ -147,14 +147,12 @@ Page({
   },
 
   getOrdersCount() {
-    console.log('--getOrdersCount--');
     let _this = this;
     wx.login({
       success(res) {
         if (res.code) {
           //发起网络请求 
           request('/fetchOrdersCount', {}, 'GET', res.code).then((res) => {
-            console.log('--res--', res);
             const tabsCount = res.data || [];
             const { tabs } = this.data;
             tabs.forEach((tab) => {

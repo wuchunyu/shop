@@ -8,10 +8,6 @@ import {
 Page({
   data: {
     placeholder: '备注信息',
-    loading: false,
-    settleDetailData: {
-      storeGoodsList: [], //正常下单商品列表
-    }, // 获取结算页详情 data
     orderCardList: [], // 仅用于商品卡片展示
     couponsShow: false, // 显示优惠券的弹框
     invoiceData: {
@@ -25,7 +21,6 @@ Page({
     },
     goodsRequestList: [],
     userAddressReq: null,
-    popupShow: false, // 不在配送范围 失效 库存不足 商品展示弹框
     notesPosition: 'center',
     storeInfoList: [],
     userAddress: null,
@@ -35,10 +30,8 @@ Page({
   noteInfo: [],
   tempNoteInfo: [],
   onLoad(options) {
-    this.setData({
-      loading: true,
-    });
-    this.handleOptionsParams(options);
+    console.log('--options--', JSON.parse(options.goodsRequestList));
+    this.handleOptionsParams(JSON.parse(options.goodsRequestList));
   },
   onShow() {
     const invoiceData = wx.getStorageSync('invoiceData');
@@ -53,68 +46,69 @@ Page({
   },
 
   init() {
-    this.setData({
-      loading: true,
-    });
     const { goodsRequestList } = this;
     this.handleOptionsParams({ goodsRequestList });
   },
   // 处理不同情况下跳转到结算页时需要的参数
   handleOptionsParams(options, couponList) {
-    let { goodsRequestList } = this; // 商品列表
-    let { userAddressReq } = this; // 收货地址
-
-    const storeInfoList = []; // 门店列表
-    // 如果是从地址选择页面返回，则使用地址显选择页面新选择的地址去获取结算数据
-    if (options.userAddressReq) {
-      userAddressReq = options.userAddressReq;
-    }
-    if (options.type === 'cart') {
-      // 从购物车跳转过来时，获取传入的商品列表数据
-      const goodsRequestListJson = wx.getStorageSync('order.goodsRequestList');
-      goodsRequestList = JSON.parse(goodsRequestListJson);
-    } else if (typeof options.goodsRequestList === 'string') {
-      goodsRequestList = JSON.parse(options.goodsRequestList);
-    }
-    //获取结算页请求数据列表
-    const storeMap = {};
-    goodsRequestList.forEach((goods) => {
-      if (!storeMap[goods.storeId]) {
-        storeInfoList.push({
-          storeId: goods.storeId,
-        });
-        storeMap[goods.storeId] = true;
-      }
-    });
-    this.goodsRequestList = goodsRequestList;
-    this.storeInfoList = storeInfoList;
-    const params = {
-      goodsRequestList,
-      storeInfoList,
-      userAddressReq,
-    };
-    let _this = this;
-    wx.login({
-      success(res) {
-        if (res.code) {
-          //发起网络请求 
-          request('/fetchSettleDetail', {}, 'POST', res.code).then(
-            (res) => {
-              _this.setData({
-                loading: false,
-              });
-              _this.initData(res.data);
-            },
-            () => {
-              //接口异常处理
-              _this.handleError();
-            },
-          );
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
+    console.log('--handleOptionsParams--', options);
+    let orderCardList = JSON.parse(JSON.stringify(this.data.orderCardList));
+    orderCardList.push(options)
+    this.setData({
+      orderCardList
     })
+    // let { goodsRequestList } = this; // 商品列表
+    // let { userAddressReq } = this; // 收货地址
+
+    // const storeInfoList = []; // 门店列表
+    // // 如果是从地址选择页面返回，则使用地址显选择页面新选择的地址去获取结算数据
+    // if (options.userAddressReq) {
+    //   userAddressReq = options.userAddressReq;
+    // }
+    // if (options.type === 'cart') {
+    //   // 从购物车跳转过来时，获取传入的商品列表数据
+    //   const goodsRequestListJson = wx.getStorageSync('order.goodsRequestList');
+    //   goodsRequestList = JSON.parse(goodsRequestListJson);
+    // } else if (typeof options.goodsRequestList === 'string') {
+    //   goodsRequestList = JSON.parse(options.goodsRequestList);
+    // }
+    // //获取结算页请求数据列表
+    // const storeMap = {};
+    // goodsRequestList.forEach((goods) => {
+    //   if (!storeMap[goods.storeId]) {
+    //     storeInfoList.push({
+    //       storeId: goods.storeId,
+    //     });
+    //     storeMap[goods.storeId] = true;
+    //   }
+    // });
+    // this.goodsRequestList = goodsRequestList;
+    // this.storeInfoList = storeInfoList;
+    // const params = {
+    //   goodsRequestList,
+    //   storeInfoList,
+    //   userAddressReq,
+    // };
+    // let _this = this;
+    // wx.login({
+    //   success(res) {
+    //     if (res.code) {
+    //       //发起网络请求 
+    //       request('/fetchSettleDetail', {}, 'POST', res.code).then(
+    //         (res) => {
+    //           console.log('--fetchSettleDetail--', res);
+    //           _this.initData(res.data);
+    //         },
+    //         () => {
+    //           //接口异常处理
+    //           _this.handleError();
+    //         },
+    //       );
+    //     } else {
+    //       console.log('登录失败！' + res.errMsg)
+    //     }
+    //   }
+    // })
   },
   initData(resData) {
     // 转换商品卡片显示数据
@@ -124,13 +118,11 @@ Page({
     if (resData.userAddress) {
       this.setData({ userAddress: resData.userAddress });
     }
-    this.setData({ settleDetailData: data });
     this.isInvalidOrder(data);
   },
 
   isInvalidOrder(data) {
     // 失效 不在配送范围 限购的商品 提示弹窗
-    this.setData({ popupShow: false });
     if (data.settleType === 0) {
       return true;
     }
@@ -149,9 +141,6 @@ Page({
     setTimeout(() => {
       wx.navigateBack();
     }, 1500);
-    this.setData({
-      loading: false,
-    });
   },
   getRequestGoodsList(storeGoodsList) {
     const filterStoreGoodsList = [];
@@ -213,7 +202,7 @@ Page({
         this.tempNoteInfo.push('');
         orderCardList.push(orderCard);
       });
-
+    console.log('--orderCardList--', orderCardList);
     this.setData({ orderCardList, storeInfoList });
     return data;
   },
@@ -288,7 +277,6 @@ Page({
 
   onSureCommit() {
     // 商品库存不足继续结算
-    const { settleDetailData } = this.data;
     const { storeGoodsList } =
       settleDetailData;
     if (storeGoodsList) {
@@ -303,14 +291,13 @@ Page({
   // 提交订单
   submitOrder() {
     const {
-      settleDetailData,
       userAddressReq,
       invoiceData,
       storeInfoList,
     } = this.data;
     const { goodsRequestList } = this;
 
-    if (!userAddressReq && !settleDetailData.userAddress) {
+    if (!userAddressReq) {
       Toast({
         context: this,
         selector: '#t-toast',
@@ -329,9 +316,7 @@ Page({
     }
     this.payLock = true;
     const params = {
-      userAddressReq: settleDetailData.userAddress || userAddressReq,
       goodsRequestList: goodsRequestList,
-      userName: settleDetailData.userAddress.name || userAddressReq.name,
       invoiceRequest: null,
       storeInfoList,
     };

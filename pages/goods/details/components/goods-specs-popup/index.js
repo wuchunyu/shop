@@ -12,11 +12,6 @@ Component({
     details: {
       type: Object,
       value: {},
-      observer(details) {
-        if (Object.keys(details).length > 0) {
-          this.initData();
-        }
-      },
     },
     buyType: {
       type: Number,
@@ -26,25 +21,20 @@ Component({
       type: Boolean,
       value: false,
     },
+    buyNum: {
+      type: Number,
+      value: 1
+    },
   },
 
   data: {
     isStock: false,
-    buyNum: 1,
-    isAllSelectedSku: false,
   },
 
   methods: {
-    initData() {
-      this.setData({
-        details: this.properties.details
-      })
-    },
-
     toChooseItem(e) {
-      // console.log('--toChooseItem--', e, this.data.details);
       const { specid, title } = e.currentTarget.dataset;
-      let { specList } = this.data.details;
+      let { specList } = this.properties.details;
       specList.forEach(item => {
         if (item.title === title) {
           item.specId = specid
@@ -52,7 +42,7 @@ Component({
       })
       this.setData({
         isStock: !specList.some((item) => item['specId'] == ''),
-        details: { ...this.data.details, specList }
+        details: { ...this.properties.details, specList }
       })
     },
 
@@ -63,19 +53,12 @@ Component({
     },
 
     specsConfirm() {
-      console.log('--buyType--', this.properties, this.data.isStock);
       this.data.isStock && this.triggerEvent('specsConfirm', JSON.stringify(this.properties));
     },
 
-    // addCart() {
-    //   this.triggerEvent('addCart');
-    // },
-
-    handleBuyNumChange(e) {
+    changeNum(e) {
       const { value } = e.detail;
-      this.setData({
-        buyNum: value,
-      });
+      this.triggerEvent('changeNum', value);
     },
   },
 });
