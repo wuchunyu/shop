@@ -7,7 +7,7 @@
       <view class="popup-sku-group-container">
         <view class="popup-sku-row" wx:for="{{details.specList}}" wx:key="title">{{item.title}}：
           <block wx:for="{{item.specValueList}}" wx:for-item="valuesItem" wx:for-index="valuesIndex" wx:key="specId">
-            <view class="popup-sku-row__item {{item.specId === valuesItem.specId ? 'popup-sku-row__item--active' : ''}} {{!valuesItem.hasStockObj.hasStock || !isStock ? 'disabled-sku-selected' : ''}}" data-title="{{item.title}}" data-specId="{{valuesItem.specId}}" data-specValue="{{valuesItem.specValue}}" data-hasStock="{{valuesItem.hasStockObj.hasStock}}" bindtap="toChooseItem">
+            <view class="popup-sku-row__item {{item.specId === valuesItem.specId ? 'popup-sku-row__item--active' : ''}}" data-title="{{item.title}}" data-specId="{{valuesItem.specId}}" data-specValue="{{valuesItem.specValue}}" bindtap="toChooseItem">
               {{valuesItem.specValue}}
             </view>
           </block>

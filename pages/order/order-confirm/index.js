@@ -1,24 +1,18 @@
-import Toast from 'tdesign-miniprogram/toast/index';
-import { getAddressPromise } from '../../usercenter/address/list/util';
 import {
   request
 } from '../../../utils/util';
 
 Page({
   data: {
-    placeholder: '',
+    remarks: '',
     orderCardList: [], // 仅用于商品卡片展示
-    notesPosition: 'center',
-    storeInfoList: [],
-    userAddress: null,
+    address: {},
     total: 0,
     totalPrice: 0,
   },
-  noteInfo: [],
-  tempNoteInfo: [],
   onLoad(options) {
-    console.log('----00---', JSON.parse(options.orderCardList));
-    let orderCardList = JSON.parse(options.orderCardList);
+    const orderCardList = JSON.parse(options.orderCardList);
+    console.log('--orderCardList--', orderCardList);
     let total = 0, totalPrice = 0;
     orderCardList.forEach(item => {
       total = total + item.buyNum;
@@ -29,10 +23,30 @@ Page({
       totalPrice,
       orderCardList
     })
+    this.getAddress();
   },
-  onShow() {
-  },
+  getAddress() {
+    let _this = this;
+    wx.login({
+      success(res) {
 
+        if (res.code) {
+          //发起网络请求
+          console.log(_this.data.orderCardList);
+          request('/fetchDeliveryAddressList', { userId: 123 }, 'GET', res.code).then(res => {
+            console.log(res);
+            if (res.ec === 200) {
+              _this.setData({
+                address: res.data[0]
+              })
+            }
+          });
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+  },
   onGotoAddress() {
     let id = '';
 
@@ -48,7 +62,7 @@ Page({
   },
   onInput(e) {
     this.setData({
-      placeholder: e.detail.value
+      remarks: e.detail.value
     })
   },
   onNoteConfirm() {
@@ -60,19 +74,48 @@ Page({
   onNoteCancel() {
     // 备注信息 取消按钮
     this.setData({
-      placeholder: '',
+      remarks: '',
       dialogShow: false,
     });
   },
 
   // 提交订单
   submitOrder() {
-  },
+    let _this = this;
+    wx.login({
+      success(res) {
 
-  hide() {
-    // 隐藏 popup
-    this.setData({
-      'settleDetailData.abnormalDeliveryGoodsList': [],
-    });
+        if (res.code) {
+          //发起网络请求
+          console.log(_this.data.orderCardList);
+          let params = {
+            address_id: _this.data.address.address_id,
+            commodity: [],
+            remarks: _this.data.remarks,
+          };
+
+          _this.data.orderCardList.forEach(item => {
+            let commoditys = { specId: [] };
+            console.log(item);
+            commoditys.spuId = item.spuId;
+            commoditys.buyNum = item.buyNum;
+            item.specList.forEach(v => {
+              commoditys.specId.push(v.specId);
+            })
+            params.commodity.push(commoditys)
+          })
+          console.log(params);
+          request('/commitPay', params, 'POST', res.code).then(res => { //分类 商品列表
+            console.log(res);
+            if (res.ec === 200) {
+              // 跳转支付结果页面
+              wx.redirectTo({ url: `/pages/order/pay-result/index` });
+            }
+          });
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   }
 });

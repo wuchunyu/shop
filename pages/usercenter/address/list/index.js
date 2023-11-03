@@ -41,18 +41,39 @@ Page({
       rejectAddress();
     }
   },
+  // getAddressList() {
+  //   let _this = this;
+  //   wx.login({
+  //     success(res) {
+  //       if (res.code) {
+  //         //发起网络请求 
+  //         request('/fetchDeliveryAddressList', {}, 'GET', res.code).then(res => {
+  //           const addressList = res.data;
+  //           _this.setData({
+  //             addressList
+  //           });
+  //         })
+  //       } else {
+  //         console.log('登录失败！' + res.errMsg)
+  //       }
+  //     }
+  //   })
+  // },
   getAddressList() {
     let _this = this;
     wx.login({
       success(res) {
+
         if (res.code) {
-          //发起网络请求 
-          request('/fetchDeliveryAddressList', {}, 'GET', res.code).then(res => {
-            const addressList = res.data;
-            _this.setData({
-              addressList
-            });
-          })
+          //发起网络请求
+          request('/fetchDeliveryAddressList', { userId: 123 }, 'GET', res.code).then(res => {
+            console.log(res);
+            if (res.ec === 200) {
+              _this.setData({
+                addressList: res.data
+              })
+            }
+          });
         } else {
           console.log('登录失败！' + res.errMsg)
         }
@@ -100,11 +121,9 @@ Page({
   editAddressHandle({
     detail
   }) {
-    const {
-      id
-    } = detail || {};
+    console.log('--editAddressHandle--', detail);
     wx.navigateTo({
-      url: `/pages/usercenter/address/edit/index?id=${id}`
+      url: `/pages/usercenter/address/edit/index?detail=${JSON.stringify(detail)}`
     });
   },
   selectHandle({

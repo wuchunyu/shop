@@ -106,15 +106,9 @@ Page({
       buyNum: this.data.buyNum,
       specId: []
     }
-    for (let i of JSON.parse(item.detail).details.specList) {
+    for (let i of this.data.details.specList) {
       dataList.specId.push(i.specId)
     }
-    this.setData({
-      details: {
-        ...this.data.details,
-        specList: JSON.parse(item.detail).details.specList
-      }
-    });
     let _this = this;
     wx.login({
       success(res) {
@@ -157,13 +151,19 @@ Page({
   },
 
   specsConfirm(item) {
+    this.setData({
+      details: {
+        ...this.data.details,
+        specList: item.detail
+      }
+    });
     const {
       buyType
     } = this.data;
     if (buyType === 1) {
       this.gotoBuy();
     } else {
-      this.addCart(item);
+      this.addCart();
     }
     this.handlePopupHide();
   },

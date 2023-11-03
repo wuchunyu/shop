@@ -33,11 +33,12 @@ Component({
 
   methods: {
     toChooseItem(e) {
-      const { specid, title } = e.currentTarget.dataset;
+      const { specid, title, specvalue } = e.currentTarget.dataset;
       let { specList } = this.properties.details;
       specList.forEach(item => {
         if (item.title === title) {
           item.specId = specid
+          item.specValue = specvalue
         }
       })
       this.setData({
@@ -53,7 +54,7 @@ Component({
     },
 
     specsConfirm() {
-      this.data.isStock && this.triggerEvent('specsConfirm', JSON.stringify(this.properties));
+      this.data.isStock && this.triggerEvent('specsConfirm', this.properties.details.specList);
     },
 
     changeNum(e) {

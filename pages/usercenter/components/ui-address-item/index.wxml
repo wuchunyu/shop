@@ -15,8 +15,8 @@
         </view>
         <view class="label-adds">
           <text class="adds address-info-class">
-            <text wx:if="{{address.isDefault}}" class="tag tag-default default-tag-class">默认</text>
-            <text class="address-text">{{address.address}}</text>
+            <text wx:if="{{address.isDefault === 1}}" class="tag tag-default default-tag-class">默认</text>
+            <text class="address-text">{{address.provinceName + address.cityName + address.districtName}}</text>
           </text>
         </view>
       </view>

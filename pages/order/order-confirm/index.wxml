@@ -2,13 +2,15 @@
 
 <wxs module="getNotes" src="./getNotes.wxs" />
 <view class="order-sure">
-  <address-card addressData="{{userAddress}}" bind:addclick="onGotoAddress" bind:addressclick="onGotoAddress" />
+  <address-card addressData="{{address}}" bind:addclick="onGotoAddress" bind:addressclick="onGotoAddress" />
   <view class="order-wrapper">
     <view wx:if="{{orderCardList.length > 0}}" wx:for="{{orderCardList}}" wx:for-item="goods" wx:for-index="gIndex" wx:key="id" class="goods-wrapper">
       <t-image src="{{goods.images[0]}}" t-class="goods-image" mode="aspectFill" />
       <view class="goods-content">
         <view class="goods-title">{{goods.title}}</view>
-        <view>{{goods.specs}}</view>
+        <view>
+          <span wx:for="{{goods.specList}}" wx:for-item="specs">{{specs.specValue}}</span>
+        </view>
       </view>
       <view class="goods-right">
         <price wr-class="goods-price" price="{{goods.price}}" fill="{{true}}" decimalSmaller />
@@ -26,7 +28,7 @@
     <view class="pay-item">
       <text>订单备注</text>
       <view class="pay-item__right" catchtap="onNotes">
-        <text class="pay-remark">{{placeholder ? placeholder : '选填，建议先和商家沟通确认'}}</text>
+        <text class="pay-remark">{{remarks ? remarks : '选填，建议先和商家沟通确认'}}</text>
         <t-icon name="chevron-right" size="32rpx" color="#BBBBBB" />
       </view>
     </view>
@@ -47,7 +49,7 @@
     </view>
   </view>
   <t-dialog t-class="add-notes" title="填写备注信息" visible="{{dialogShow}}" confirm-btn="确认" cancel-btn="取消" t-class-content="add-notes__content" t-class-confirm="dialog__button-confirm" t-class-cancel="dialog__button-cancel" bindconfirm="onNoteConfirm" bindcancel="onNoteCancel">
-    <t-textarea slot="content" focus="{{dialogShow}}" class="notes" t-class="add-notes__textarea" value="{{placeholder}}" placeholder="备注信息" t-class-textarea="add-notes__textarea__font" bindchange="onInput" maxlength="{{50}}" />
+    <t-textarea slot="content" focus="{{dialogShow}}" class="notes" t-class="add-notes__textarea" value="{{remarks}}" placeholder="备注信息" t-class-textarea="add-notes__textarea__font" bindchange="onInput" maxlength="{{50}}" />
   </t-dialog>
 </view>
 <t-toast id="t-toast" />
