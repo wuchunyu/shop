@@ -10,18 +10,6 @@ Component({
       type: Number,
       value: 1,
     },
-    totalGoodsNum: {
-      type: Number,
-      value: 0,
-      observer(num) {
-        const isDisabled = num == 0;
-        setTimeout(() => {
-          this.setData({
-            isDisabled,
-          });
-        });
-      },
-    },
     bottomHeight: {
       type: Number,
       value: 100,

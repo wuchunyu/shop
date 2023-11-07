@@ -14,7 +14,7 @@
       </view>
       <view class="goods-right">
         <price wr-class="goods-price" price="{{goods.price}}" fill="{{true}}" decimalSmaller />
-        <view class="goods-num">x{{goods.buyNum}}</view>
+        <view class="goods-num">x{{goods.stockQuantity}}</view>
       </view>
     </view>
   </view>

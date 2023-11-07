@@ -15,8 +15,8 @@ Page({
     console.log('--orderCardList--', orderCardList);
     let total = 0, totalPrice = 0;
     orderCardList.forEach(item => {
-      total = total + item.buyNum;
-      totalPrice = item.buyNum * item.price;
+      total = total + item.stockQuantity;
+      totalPrice = item.stockQuantity * item.price;
     })
     this.setData({
       total,
@@ -98,7 +98,7 @@ Page({
             let commoditys = { specId: [] };
             console.log(item);
             commoditys.spuId = item.spuId;
-            commoditys.buyNum = item.buyNum;
+            commoditys.stockQuantity = item.stockQuantity;
             item.specList.forEach(v => {
               commoditys.specId.push(v.specId);
             })

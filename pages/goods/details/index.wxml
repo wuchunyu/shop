@@ -49,6 +49,6 @@
   <view class="goods-bottom-operation">
     <buy-bar jumpArray="{{jumpArray}}" bind:toAddCart="toAddCart" bind:toNav="toNav" bind:toBuyNow="buyItNow" class="goods-details-card" />
   </view>
-  <goods-specs-popup id="goodsSpecsPopup" buyNum="{{buyNum}}" buyType="{{buyType}}" show="{{isSpuSelectPopupShow}}" details="{{details}}" specList="{{details.specList || []}}" bind:closeSpecsPopup="handlePopupHide" bind:changeNum="changeNum" bind:addCart="addCart" bind:specsConfirm="specsConfirm" />
+  <goods-specs-popup id="goodsSpecsPopup" stockQuantity="{{stockQuantity}}" buyType="{{buyType}}" show="{{isSpuSelectPopupShow}}" details="{{details}}" specList="{{details.specList || []}}" bind:closeSpecsPopup="handlePopupHide" bind:changeNum="changeNum" bind:addCart="addCart" bind:specsConfirm="specsConfirm" />
 </view>
 <t-toast id="t-toast" />

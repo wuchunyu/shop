@@ -46,7 +46,7 @@ Page({
     },
     ],
     cartNum: 0,
-    buyNum: 1,
+    stockQuantity: 1,
     isSpuSelectPopupShow: false,
     buyType: 0,
     spuId: '',
@@ -103,7 +103,7 @@ Page({
   addCart(item) {
     let dataList = {
       spuId: this.data.spuId,
-      buyNum: this.data.buyNum,
+      stockQuantity: this.data.stockQuantity,
       specId: []
     }
     for (let i of this.data.details.specList) {
@@ -132,21 +132,15 @@ Page({
 
   gotoBuy() {
     const {
-      buyNum
+      stockQuantity
     } = this.data;
     this.handlePopupHide();
     const query = {
       ...this.data.details,
-      buyNum
+      stockQuantity
     };
-    let urlQueryStr = obj2Params({
-      orderCardList: JSON.stringify([query]),
-    });
-
-    urlQueryStr = urlQueryStr ? `?${urlQueryStr}` : '';
-    const path = `/pages/order/order-confirm/index${urlQueryStr}`;
     wx.navigateTo({
-      url: path,
+      url: `/pages/order/order-confirm/index?orderCardList=${JSON.stringify([query])}`
     });
   },
 
@@ -170,7 +164,7 @@ Page({
 
   changeNum(e) {
     this.setData({
-      buyNum: e.detail
+      stockQuantity: e.detail
     });
   },
 
@@ -191,6 +185,7 @@ Page({
         if (res.code) {
           //发起网络请求 
           request('/fetchGood', { spuId }, 'POST', res.code).then(res => {
+            console.log(JSON.stringify(res));
             _this.setData({
               details: res.data
             });

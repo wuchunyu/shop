@@ -21,7 +21,7 @@ Component({
       type: Boolean,
       value: false,
     },
-    buyNum: {
+    stockQuantity: {
       type: Number,
       value: 1
     },
