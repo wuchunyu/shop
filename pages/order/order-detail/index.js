@@ -99,7 +99,7 @@ Page({
               status: order.orderStatus,
               statusDesc: order.orderStatusName,
               amount: order.paymentAmount,
-              totalAmount: order.goodsAmountApp,
+              // totalAmount: order.goodsAmountApp,
               logisticsNo: order.logisticsVO.logisticsNo,
               goodsList: (order.orderItemVOs || []).map((goods) =>
                 Object.assign({}, goods, {

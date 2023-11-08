@@ -94,7 +94,11 @@ Page({
           _this.data.orderCardList.forEach(item => {
             let commoditys = { specId: [] };
             console.log(item);
-            commoditys.spuId = item.spuId;
+            if (item.cartId) {
+              commoditys.cartId = item.cartId;
+            } else {
+              commoditys.spuId = item.spuId;
+            }
             commoditys.stockQuantity = item.stockQuantity;
             item.specList.forEach(v => {
               commoditys.specId.push(v.specId);

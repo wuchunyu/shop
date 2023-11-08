@@ -16,7 +16,7 @@ Component({
     // 删除商品
     deleteGoods(e) {
       const { goods } = e.currentTarget.dataset;
-      this.triggerEvent('delete', { spuId: goods.spuId });
+      this.triggerEvent('delete', { cartId: goods.cartId });
     },
 
     // 选中商品

@@ -18,12 +18,17 @@ Page({
   },
 
   refreshData() {
+    this.onfetchCartGroupData();
+  },
+
+  onfetchCartGroupData() {
     let _this = this;
     wx.login({
       success(res) {
         if (res.code) {
           //发起网络请求 
           request('/fetchCartGroupData', {}, 'GET', res.code).then(res => {
+            console.log('--fetchCartGroupData--', res);
             const cartGroupData = res.data;
             _this.setData({
               cartGroupData
@@ -104,13 +109,28 @@ Page({
   },
 
   onGoodsDelete(e) {
-    const { spuId } = e.detail;
+    let _this = this;
+    const { cartId } = e.detail;
     wx.showModal({
       title: '提示',
       content: '确认删除该商品吗?',
       success(res) {
         if (res.confirm) {
           console.log('用户点击确定')
+
+          wx.login({
+            success(res) {
+              if (res.code) {
+                //发起网络请求 
+                request('/delCartSelected', { cartId }, 'POST', res.code).then(res => {
+                  // _this.onselectedGoodsCount();
+                  _this.onfetchCartGroupData();
+                });
+              } else {
+                console.log('登录失败！' + res.errMsg)
+              }
+            }
+          })
         } else if (res.cancel) {
           console.log('用户点击取消')
         }

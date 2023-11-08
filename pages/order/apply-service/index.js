@@ -2,11 +2,11 @@ import Dialog from 'tdesign-miniprogram/dialog/index';
 import Toast from 'tdesign-miniprogram/toast/index';
 import { OrderStatus, ServiceType, ServiceReceiptStatus } from '../config';
 import reasonSheet from '../components/reason-sheet/reasonSheet';
-import {
-  fetchRightsPreview,
-  fetchApplyReasonList,
-  dispatchApplyService,
-} from '../../../services/order/applyService';
+// import {
+//   fetchRightsPreview,
+//   fetchApplyReasonList,
+//   dispatchApplyService,
+// } from '../../../services/order/applyService';
 
 Page({
   query: {},
@@ -15,8 +15,8 @@ Page({
     canApplyReturn: true, // 是否可退货
     goodsInfo: {},
     receiptStatusList: [
-      { desc: '未收到货', status: ServiceReceiptStatus.NOT_RECEIPTED },
-      { desc: '已收到货', status: ServiceReceiptStatus.RECEIPTED },
+      { desc: '未收到货', status: 0 },
+      { desc: '已收到货', status: 1 },
     ],
     applyReasons: [],
     serviceType: null, // 20-仅退款，10-退货退款
@@ -90,8 +90,9 @@ Page({
   },
 
   onLoad(query) {
-    this.query = query;
-    if (!this.checkQuery()) return;
+    this.query = JSON.parse(query.order);
+    console.log('--query--', this.query);
+    // if (!this.checkQuery()) return;
     this.setData({
       canApplyReturn: query.canApplyReturn === 'true',
     });
@@ -111,14 +112,14 @@ Page({
 
   checkQuery() {
     const { orderNo, skuId } = this.query;
-    if (!orderNo) {
-      Dialog.alert({
-        content: '请先选择订单',
-      }).then(() => {
-        wx.redirectTo({ url: 'pages/order/order-list/index' });
-      });
-      return false;
-    }
+    // if (!orderNo) {
+    //   Dialog.alert({
+    //     content: '请先选择订单',
+    //   }).then(() => {
+    //     wx.redirectTo({ url: 'pages/order/order-list/index' });
+    //   });
+    //   return false;
+    // }
     if (!skuId) {
       Dialog.alert({
         content: '请先选择商品',

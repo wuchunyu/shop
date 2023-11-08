@@ -12,18 +12,17 @@ Page({
 
   data: {
     tabs: [
-      { key: -1, text: '全部' },
-      { key: OrderStatus.PENDING_PAYMENT, text: '待付款', info: '' },
-      { key: OrderStatus.PENDING_DELIVERY, text: '待发货', info: '' },
-      { key: OrderStatus.PENDING_RECEIPT, text: '待收货', info: '' },
-      { key: OrderStatus.COMPLETE, text: '已完成', info: '' },
+      { key: '', text: '全部' },
+      { key: 0, text: '待付款', info: '' },
+      { key: 1, text: '待发货', info: '' },
+      { key: 2, text: '待收货', info: '' },
+      { key: 3, text: '已取消', info: '' },
+      { key: 4, text: '已完成', info: '' },
     ],
-    curTab: -1,
+    curTab: '',
     orderList: [],
     listLoading: 0,
     pullDownRefreshing: false,
-    emptyImg:
-      'https://cdn-we-retail.ym.tencent.com/miniapp/order/empty-order-list.png',
     backRefresh: false,
     status: -1,
   },
@@ -89,42 +88,13 @@ Page({
         if (res.code) {
           //发起网络请求
           request('/fetchOrders', {}, 'GET', res.code).then(res => {
-            _this.page.num++;
-            let orderList = [];
-            if (res && res.data && res.data.orders) {
-              orderList = (res.data.orders || []).map((order) => {
-                return {
-                  id: order.orderId,
-                  orderNo: order.orderNo,
-                  parentOrderNo: order.parentOrderNo,
-                  status: order.orderStatus,
-                  statusDesc: order.orderStatusName,
-                  amount: order.paymentAmount,
-                  totalAmount: order.totalAmount,
-                  logisticsNo: order.logisticsVO.logisticsNo,
-                  createTime: order.createTime,
-                  goodsList: (order.orderItemVOs || []).map((goods) => ({
-                    id: goods.id,
-                    thumb: cosThumb(goods.goodsPictureUrl, 70),
-                    title: goods.goodsName,
-                    skuId: goods.skuId,
-                    spuId: goods.spuId,
-                    specs: (goods.specifications || []).map(
-                      (spec) => spec.specValue,
-                    ),
-                    price: goods.actualPrice,
-                    num: goods.buyQuantity,
-                  })),
-                  buttons: order.buttonVOs || [],
-                  groupInfoVo: order.groupInfoVo,
-                  freightFee: order.freightFee,
-                };
-              });
-            }
-            _this.setData({
-              orderList: _this.data.orderList.concat(orderList),
-              listLoading: orderList.length > 0 ? 0 : 2,
+            let orderList = res.data;
+            orderList.forEach(element => {
+              console.log(element);
             });
+            _this.setData({
+              orderList: res.data
+            })
           });
         } else {
           console.log('登录失败！' + res.errMsg)
@@ -153,15 +123,15 @@ Page({
         if (res.code) {
           //发起网络请求 
           request('/fetchOrdersCount', {}, 'GET', res.code).then((res) => {
-            const tabsCount = res.data || [];
-            const { tabs } = this.data;
-            tabs.forEach((tab) => {
-              const tabCount = tabsCount.find((c) => c.tabType === tab.key);
-              if (tabCount) {
-                tab.info = tabCount.orderNum;
-              }
-            });
-            _this.setData({ tabs });
+            // const tabsCount = res.data || [];
+            // const { tabs } = this.data;
+            // tabs.forEach((tab) => {
+            //   const tabCount = tabsCount.find((c) => c.tabType === tab.key);
+            //   if (tabCount) {
+            //     tab.info = tabCount.orderNum;
+            //   }
+            // });
+            // _this.setData({ tabs });
           });
         } else {
           console.log('登录失败！' + res.errMsg)
@@ -179,7 +149,7 @@ Page({
 
     return Promise.all([
       this.getOrderList(status, true),
-      this.getOrdersCount(),
+      // this.getOrdersCount(),
     ]);
   },
 

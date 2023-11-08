@@ -36,7 +36,13 @@ Component({
         }
       },
     },
-    data: Object,
+    data: {
+      // 设置为null代表不做类型转换
+      type: Object,
+      observer(data) {
+        // console.log('--data--', data);
+      },
+    },
     layout: {
       type: String,
       value: 'horizontal',

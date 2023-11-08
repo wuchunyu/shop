@@ -45,13 +45,6 @@ Component({
   properties: {
     order: {
       type: Object,
-      observer(order) {
-        if (!order?.goodsList) return;
-        const goodsCount = order.goodsList.length;
-        this.setData({
-          goodsCount,
-        });
-      },
     },
     useTopRightSlot: Boolean,
     //  初始显示的商品数量，超出部分会隐藏。
@@ -67,7 +60,13 @@ Component({
 
   data: {
     showAll: true, // 是否展示所有商品，设置为false，可以使用展开更多功能
-    goodsCount: 0,
+    orderStatusList: {
+      0: '待付款',
+      1: '待发货',
+      2: '待收货',
+      3: '已取消',
+      4: '已完成'
+    }
   },
 
   methods: {
