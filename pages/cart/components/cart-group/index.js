@@ -10,11 +10,7 @@ Component({
     thumbHeight: { type: null },
   },
 
-  data: {
-    // isShowSpecs: false,
-    currentGoods: {},
-    isShowToggle: false,
-  },
+  data: {},
 
   methods: {
     // 删除商品
@@ -27,7 +23,7 @@ Component({
     selectGoods(e) {
       const { goods } = e.currentTarget.dataset;
       this.triggerEvent('selectgoods', {
-        spuId: goods.spuId,
+        cartId: goods.cartId,
         isSelected: !goods.isSelected,
       });
     },
@@ -35,12 +31,11 @@ Component({
     changeStepper(e) {
       const { value } = e.detail;
       const { goods } = e.currentTarget.dataset;
-      this.triggerEvent('changequantity', { value, spuId: goods.spuId });
+      this.triggerEvent('changequantity', { value, cartId: goods.cartId });
     },
 
     goGoodsDetail(e) {
       const { goods } = e.currentTarget.dataset;
-      console.log('--goGoodsDetail--', goods);
       this.triggerEvent('goodsclick', { goods });
     },
   },

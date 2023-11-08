@@ -15,6 +15,7 @@ Component({
       value: 100,
     },
     fixed: Boolean,
+    isAllSelected: Boolean,
   },
   data: {
     isDisabled: false,
@@ -22,12 +23,8 @@ Component({
 
   methods: {
     handleSelectAll() {
-      const { isAllSelected } = this.data;
-      this.setData({
-        isAllSelected: !isAllSelected,
-      });
       this.triggerEvent('handleSelectAll', {
-        isAllSelected: isAllSelected,
+        isAllSelected: !this.properties.isAllSelected,
       });
     },
     handleToSettle() {

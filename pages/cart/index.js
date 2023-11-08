@@ -1,5 +1,3 @@
-import Dialog from 'tdesign-miniprogram/dialog/index';
-import Toast from 'tdesign-miniprogram/toast/index';
 import {
   request
 } from '../../utils/util';
@@ -41,11 +39,11 @@ Page({
 
   onGoodsSelect(e) {
     const {
-      spuId,
+      cartId,
       isSelected,
     } = e.detail;
     this.data.cartGroupData.forEach(item => {
-      if (item.spuId == spuId) {
+      if (item.cartId == cartId) {
         item.isSelected = isSelected;
       }
     })
@@ -57,7 +55,7 @@ Page({
       success(res) {
         if (res.code) {
           //发起网络请求 
-          request('/setIsSelected', { spuId, isSelected: isSelected ? 1 : 0 }, 'POST', res.code).then(res => {
+          request('/setIsSelected', { cartId, isSelected: isSelected ? 1 : 0 }, 'POST', res.code).then(res => {
             _this.onselectedGoodsCount();
           });
         } else {
@@ -70,11 +68,11 @@ Page({
   onQuantityChange(e) {
     // 更改购物车 选择数量
     const {
-      spuId,
+      cartId,
       value,
     } = e.detail;
     this.data.cartGroupData.forEach(item => {
-      if (item.spuId == spuId) {
+      if (item.cartId == cartId) {
         item.stockQuantity = value;
       }
     })
@@ -86,7 +84,8 @@ Page({
       success(res) {
         if (res.code) {
           //发起网络请求 
-          request('/setStockQuantity', { spuId, stockQuantity: value }, 'POST', res.code).then(res => {
+          request('/setStockQuantity', { cartId, stockQuantity: value }, 'POST', res.code).then(res => {
+            _this.onselectedGoodsCount();
           });
         } else {
           console.log('登录失败！' + res.errMsg)
@@ -105,7 +104,6 @@ Page({
   },
 
   onGoodsDelete(e) {
-    console.log('--onGoodsDelete--', e);
     const { spuId } = e.detail;
     wx.showModal({
       title: '提示',
@@ -120,26 +118,31 @@ Page({
     })
   },
 
-  onSelectAll(event) {
+  onSelectAll(e) {
+    const { isAllSelected } = e.detail;
     this.data.cartGroupData.forEach(item => {
-      item.isSelected = true;
+      item.isSelected = isAllSelected;
     })
     this.setData({
-      cartGroupData: this.data.cartGroupData
+      cartGroupData: this.data.cartGroupData,
+      isAllSelected
     })
     this.onselectedGoodsCount();
   },
 
   onselectedGoodsCount() {
-    console.log('--onselectedGoodsCount--');
-    let selectedGoodsCount = 0;
+    let selectedGoodsCount = 0, isAllSelected = true;
     this.data.cartGroupData.forEach(item => {
       if (item.isSelected == true || item.isSelected == 1) {
         selectedGoodsCount = selectedGoodsCount + (item.price * item.stockQuantity);
+      } else {
+        isAllSelected = false;
       }
     })
+
     this.setData({
-      selectedGoodsCount
+      selectedGoodsCount,
+      isAllSelected
     })
   },
 

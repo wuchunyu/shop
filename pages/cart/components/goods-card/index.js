@@ -26,7 +26,6 @@ Component({
           return;
         }
         goods.lineClamp = 2;
-        console.log('--goods--', goods);
         this.setData({ goods });
       },
     },

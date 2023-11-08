@@ -32,9 +32,7 @@ Page({
 
         if (res.code) {
           //发起网络请求
-          console.log(_this.data.orderCardList);
           request('/fetchDeliveryAddressList', { userId: 123 }, 'GET', res.code).then(res => {
-            console.log(res);
             if (res.ec === 200) {
               _this.setData({
                 address: res.data[0]
@@ -87,7 +85,6 @@ Page({
 
         if (res.code) {
           //发起网络请求
-          console.log(_this.data.orderCardList);
           let params = {
             address_id: _this.data.address.address_id,
             commodity: [],

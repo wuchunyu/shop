@@ -67,7 +67,6 @@ Page({
         if (res.code) {
           //发起网络请求
           request('/fetchDeliveryAddressList', { userId: 123 }, 'GET', res.code).then(res => {
-            console.log(res);
             if (res.ec === 200) {
               _this.setData({
                 addressList: res.data
@@ -121,7 +120,6 @@ Page({
   editAddressHandle({
     detail
   }) {
-    console.log('--editAddressHandle--', detail);
     wx.navigateTo({
       url: `/pages/usercenter/address/edit/index?detail=${JSON.stringify(detail)}`
     });

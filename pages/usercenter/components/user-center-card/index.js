@@ -33,18 +33,15 @@ Component({
   },
   methods: {
     gotoUserEditPage() {
-      console.log("点击了按按钮")
       wx.getUserProfile({
         desc: '获取用户的信息',
         success: res => {
-          console.log("成功", res)
           this.setData({
             userInfo: res.userInfo,
             hasUserInfo: true
           })
           wx.login({
             success(res) {
-
               if (res.code) {
                 //发起网络请求
                 wx.request({

@@ -185,7 +185,6 @@ Page({
         if (res.code) {
           //发起网络请求 
           request('/fetchGood', { spuId }, 'POST', res.code).then(res => {
-            console.log(JSON.stringify(res));
             _this.setData({
               details: res.data
             });

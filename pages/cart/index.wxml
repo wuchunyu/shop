@@ -4,7 +4,7 @@
 
   <view class="gap" />
   <!-- 商品小计以及结算按钮 -->
-  <cart-bar total-amount="{{selectedGoodsCount}}" fixed="{{true}}" bottomHeight="{{112}}" bindhandleSelectAll="onSelectAll" bindhandleToSettle="onToSettle" />
+  <cart-bar total-amount="{{selectedGoodsCount}}" fixed="{{true}}" isAllSelected="{{isAllSelected}}" bottomHeight="{{112}}" bindhandleSelectAll="onSelectAll" bindhandleToSettle="onToSettle" />
 </block>
 <!-- 购物车空态 -->
 <cart-empty wx:else bind:handleClick="onGotoHome" />

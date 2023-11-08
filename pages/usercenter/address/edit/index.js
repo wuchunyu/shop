@@ -25,8 +25,6 @@ Page({
     areaPickerVisible: false,
   },
   onLoad(options) {
-    console.log('--options--', options, options.length, Object.keys(options).length);
-    // console.log(JSON.parse(options.detail));
     if (Object.keys(options).length !== 0) {
       const detail = JSON.parse(options.detail);
       this.setData({
