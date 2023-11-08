@@ -1,5 +1,3 @@
-import { OrderStatus } from '../config';
-import { cosThumb } from '../../../utils/util';
 import {
   request
 } from '../../../utils/util';
@@ -12,12 +10,12 @@ Page({
 
   data: {
     tabs: [
-      { key: '', text: '全部' },
-      { key: 0, text: '待付款', info: '' },
-      { key: 1, text: '待发货', info: '' },
-      { key: 2, text: '待收货', info: '' },
-      { key: 3, text: '已取消', info: '' },
-      { key: 4, text: '已完成', info: '' },
+      { key: -1, text: '全部' },
+      { key: 0, text: '待付款' },
+      { key: 1, text: '待发货' },
+      { key: 2, text: '待收货' },
+      { key: 3, text: '已取消' },
+      { key: 4, text: '已完成' },
     ],
     curTab: '',
     orderList: [],
@@ -41,6 +39,7 @@ Page({
   },
 
   onReachBottom() {
+    console.log('--onReachBottom--', this.data.listLoading);
     if (this.data.listLoading === 0) {
       this.getOrderList(this.data.curTab);
     }
@@ -51,17 +50,17 @@ Page({
   },
 
   onPullDownRefresh_(e) {
-    const { callback } = e.detail;
-    this.setData({ pullDownRefreshing: true });
-    this.refreshList(this.data.curTab)
-      .then(() => {
-        this.setData({ pullDownRefreshing: false });
-        callback && callback();
-      })
-      .catch((err) => {
-        this.setData({ pullDownRefreshing: false });
-        Promise.reject(err);
-      });
+    // const { callback } = e.detail;
+    // this.setData({ pullDownRefreshing: true });
+    // this.refreshList(this.data.curTab)
+    //   .then(() => {
+    //     this.setData({ pullDownRefreshing: false });
+    //     callback && callback();
+    //   })
+    //   .catch((err) => {
+    //     this.setData({ pullDownRefreshing: false });
+    //     Promise.reject(err);
+    //   });
   },
 
   init(status) {
@@ -79,21 +78,21 @@ Page({
         pageNum: this.page.num,
       },
     };
-    if (statusCode !== -1) params.parameter.orderStatus = statusCode;
+    console.log('--getOrderList--', params);
     this.setData({ listLoading: 1 });
     let _this = this;
     wx.login({
       success(res) {
-
         if (res.code) {
           //发起网络请求
-          request('/fetchOrders', {}, 'GET', res.code).then(res => {
-            let orderList = res.data;
-            orderList.forEach(element => {
-              console.log(element);
-            });
+          request('/fetchOrders', {
+            orderStatus: statusCode
+          }, 'GET', res.code).then(res => {
+            console.log(res.data.length);
+            _this.page.num++;
             _this.setData({
-              orderList: res.data
+              orderList: _this.data.orderList.concat(res.data),
+              listLoading: res.data.length > 0 ? 0 : 2,
             })
           });
         } else {
@@ -123,15 +122,6 @@ Page({
         if (res.code) {
           //发起网络请求 
           request('/fetchOrdersCount', {}, 'GET', res.code).then((res) => {
-            // const tabsCount = res.data || [];
-            // const { tabs } = this.data;
-            // tabs.forEach((tab) => {
-            //   const tabCount = tabsCount.find((c) => c.tabType === tab.key);
-            //   if (tabCount) {
-            //     tab.info = tabCount.orderNum;
-            //   }
-            // });
-            // _this.setData({ tabs });
           });
         } else {
           console.log('登录失败！' + res.errMsg)

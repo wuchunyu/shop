@@ -1,6 +1,6 @@
 import Dialog from 'tdesign-miniprogram/dialog/index';
 import Toast from 'tdesign-miniprogram/toast/index';
-import { OrderStatus, ServiceType, ServiceReceiptStatus } from '../config';
+// import { OrderStatus, ServiceType, ServiceReceiptStatus } from '../config';
 import reasonSheet from '../components/reason-sheet/reasonSheet';
 // import {
 //   fetchRightsPreview,
@@ -9,8 +9,9 @@ import reasonSheet from '../components/reason-sheet/reasonSheet';
 // } from '../../../services/order/applyService';
 
 Page({
-  query: {},
+
   data: {
+    query: {},
     uploading: false, // 凭证上传状态
     canApplyReturn: true, // 是否可退货
     goodsInfo: {},
@@ -90,8 +91,11 @@ Page({
   },
 
   onLoad(query) {
-    this.query = JSON.parse(query.order);
-    console.log('--query--', this.query);
+    this.setData({
+      query: JSON.parse(query.order)
+    })
+    // this.query = JSON.parse(query.order);
+    console.log('--query--', this.data.query);
     // if (!this.checkQuery()) return;
     this.setData({
       canApplyReturn: query.canApplyReturn === 'true',
@@ -108,6 +112,10 @@ Page({
     try {
       await this.refresh();
     } catch (e) { }
+  },
+
+  handleSelect(e) {
+    console.log(e);
   },
 
   checkQuery() {

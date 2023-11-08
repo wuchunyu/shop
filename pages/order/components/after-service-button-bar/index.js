@@ -2,7 +2,7 @@ import Dialog from 'tdesign-miniprogram/dialog/index';
 import Toast from 'tdesign-miniprogram/toast/index';
 
 import { cancelRights } from '../../after-service-detail/api';
-import { ServiceButtonTypes } from '../../config';
+// import { ServiceButtonTypes } from '../../config';
 
 Component({
   properties: {
@@ -64,13 +64,10 @@ Component({
 
     onChangeTrackingNo(service) {
       wx.navigateTo({
-        url: `/pages/order/fill-tracking-no/index?rightsNo=${
-          service.id
-        }&logisticsNo=${service.logisticsNo}&logisticsCompanyName=${
-          service.logisticsCompanyName
-        }&logisticsCompanyCode=${service.logisticsCompanyCode}&remark=${
-          service.remark || ''
-        }`,
+        url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id
+          }&logisticsNo=${service.logisticsNo}&logisticsCompanyName=${service.logisticsCompanyName
+          }&logisticsCompanyCode=${service.logisticsCompanyCode}&remark=${service.remark || ''
+          }`,
       });
     },
 

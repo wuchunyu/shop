@@ -123,7 +123,6 @@ Page({
               if (res.code) {
                 //发起网络请求 
                 request('/delCartSelected', { cartId }, 'POST', res.code).then(res => {
-                  // _this.onselectedGoodsCount();
                   _this.onfetchCartGroupData();
                 });
               } else {

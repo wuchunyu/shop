@@ -1,9 +1,9 @@
 <view class="selectService">
   <view class="order-goods-card">
-    <wr-order-goods-card wx:for="{{query}}" wx:key="type" wx:for-item="rightBtn" goods="{{goodsInfo}}" no-top-line thumb-class="order-goods-card-title-class">
+    <wr-order-goods-card wx:for="{{query.orderItemVOs}}" wx:key="spuId" wx:for-item="goodsInfo" goods="{{goodsInfo}}" no-top-line thumb-class="order-goods-card-title-class">
       <view slot="footer" class="order-goods-card-footer">
-        <wr-price price="{{goodsInfo.paidAmountEach}}" fill wr-class="order-goods-card-footer-price-class" symbol-class="order-goods-card-footer-price-symbol" decimal-class="order-goods-card-footer-price-decimal" />
-        <view class="order-goods-card-footer-num">x {{goodsInfo.boughtQuantity}}</view>
+        <!-- <wr-price price="{{goodsInfo.paidAmountEach}}" fill wr-class="order-goods-card-footer-price-class" symbol-class="order-goods-card-footer-price-symbol" decimal-class="order-goods-card-footer-price-decimal" /> -->
+        <t-icon size="40rpx" color="{{isAllSelected ? '#FA4126' : '#BBBBBB'}}" name="{{isAllSelected ? 'check-circle-filled' : 'circle'}}" class="cart-bar__check" data-spuId="{{goodsInfo.spuId}}" catchtap="handleSelect" />
       </view>
     </wr-order-goods-card>
   </view>

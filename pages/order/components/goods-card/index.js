@@ -121,7 +121,7 @@ Component({
       // this.init();
     },
     detached() {
-      this.clear();
+      // this.clear();
     },
   },
 

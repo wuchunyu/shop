@@ -1,5 +1,5 @@
 import { getRightsList } from './api';
-import { AfterServiceStatus, ServiceType, ServiceTypeDesc } from '../config';
+// import { AfterServiceStatus, ServiceType, ServiceTypeDesc } from '../config';
 
 Page({
   page: {

@@ -1,5 +1,5 @@
 import { formatTime } from '../../../utils/util';
-import { OrderStatus, LogisticsIconMap } from '../config';
+// import { OrderStatus, LogisticsIconMap } from '../config';
 import {
   request
 } from '../../../utils/util';

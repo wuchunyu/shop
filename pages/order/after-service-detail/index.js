@@ -1,5 +1,5 @@
 import Toast from 'tdesign-miniprogram/toast/index';
-import { ServiceType, ServiceTypeDesc, ServiceStatus } from '../config';
+// import { ServiceType, ServiceTypeDesc, ServiceStatus } from '../config';
 import { formatTime, getRightsDetail } from './api';
 
 const TitleConfig = {

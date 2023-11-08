@@ -14,7 +14,12 @@ Component({
   },
 
   properties: {
-    goods: Object,
+    goods: {
+      type: Object,
+      observer(goods) {
+        // console.log('--goods--0-', goods);
+      },
+    },
     thumbWidth: Number,
     thumbHeight: Number,
     thumbWidthInPopup: Number,
