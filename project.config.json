@@ -83,12 +83,6 @@
           "scene": null
         },
         {
-          "name": "示例页-售后列表",
-          "pathName": "pages/order/after-service-list/index",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "示例页-售后详情",
           "pathName": "pages/order/after-service-detail/index",
           "query": "rightsNo=123123423",

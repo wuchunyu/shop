@@ -129,9 +129,9 @@ Page({
     const status = e.detail.tabType;
 
     if (status === 0) {
-      wx.navigateTo({
-        url: '/pages/order/after-service-list/index'
-      });
+      // wx.navigateTo({
+      //   url: '/pages/order/after-service-list/index'
+      // });
     } else {
       wx.navigateTo({
         url: `/pages/order/order-list/index?status=${status}`
@@ -168,9 +168,9 @@ Page({
       currAuthStep
     } = this.data;
     if (currAuthStep === 1) {
-      wx.navigateTo({
-        url: '/pages/usercenter/person-info/index'
-      });
+      // wx.navigateTo({
+      //   url: '/pages/usercenter/person-info/index'
+      // });
     } else {
       this.fetUseriInfoHandle();
     }
