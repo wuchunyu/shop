@@ -1,4 +1,4 @@
-<view class="wr-goods-card card-class {{ layout }} {{ centered ? 'center' : ''}}" bind:tap="clickHandle" data-goods="{{ goods }}">
+<view class="wr-goods-card card-class center {{ layout }}" bind:tap="clickHandle" data-goods="{{ goods }}">
   <view class="wrGoodsOardMain">
     <view class="wr-goods-card__thumb thumb-class" bind:tap="clickThumbHandle">
       <!-- data-src 是方便加购动画读取图片用的 -->
@@ -20,7 +20,6 @@
 
       <view class="wr-goods-card__short_content">
         <block>
-          <view class="wr-goods-card__price__prefix price-prefix-class">{{ pricePrefix }}</view>
           <slot name="price-prefix" />
           <view class="wr-goods-card__price">
             <price wr-class="price-class" symbol="{{currency}}" price="{{goods.price}}" fill="{{priceFill}}" decimalSmaller />

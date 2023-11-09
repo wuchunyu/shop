@@ -61,17 +61,6 @@ Component({
       value: '¥',
     },
     lazyLoad: Boolean,
-    centered: Boolean,
-    showCart: Boolean,
-    pricePrefix: String,
-    cartSize: {
-      type: Number,
-      value: 48,
-    },
-    cartColor: {
-      type: String,
-      value: '#FA550F',
-    },
     disablePopup: Boolean,
   },
 

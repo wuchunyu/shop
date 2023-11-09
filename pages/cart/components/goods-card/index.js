@@ -49,10 +49,6 @@ Component({
       type: Boolean,
       value: false,
     },
-    centered: {
-      type: Boolean,
-      value: false,
-    },
     specsIcon: {
       type: String,
       value: 'expand_more',

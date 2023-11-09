@@ -8,7 +8,7 @@
           <t-icon size="40rpx" color="{{goods.isSelected ? '#FA4126' : '#BBBBBB'}}" name="{{goods.isSelected ? 'check-circle-filled' : 'circle'}}" class="check" />
         </view>
         <view class="goods-sku-info">
-          <goods-card layout="horizontal-wrap" thumb-width="{{thumbWidth}}" thumb-height="{{thumbHeight}}" centered="{{true}}" data="{{goods}}" data-goods="{{goods}}" catchclick="goGoodsDetail">
+          <goods-card layout="horizontal-wrap" thumb-width="{{thumbWidth}}" thumb-height="{{thumbHeight}}" data="{{goods}}" data-goods="{{goods}}" catchclick="goGoodsDetail">
             <view slot="append-body" class="goods-stepper">
               <t-stepper classname="stepper-info" value="{{goods.stockQuantity}}" min="{{1}}" max="{{999}}" data-goods="{{goods}}" catchchange="changeStepper" theme="filled" />
             </view>

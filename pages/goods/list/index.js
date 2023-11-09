@@ -38,8 +38,9 @@ Page({
 
   onLoad(option) {
     let item = JSON.parse(option.item);
+    console.log(item);
     this.setData({
-      tabId: item.groupId
+      tabId: item.tabId
     })
     wx.setNavigationBarTitle({
       title: item.name,

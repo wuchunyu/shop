@@ -76,37 +76,9 @@ Component({
       type: Boolean,
       value: false,
     },
-    centered: {
-      type: Boolean,
-      value: false,
-    },
-    showCart: {
-      type: Boolean,
-      value: false,
-    },
-    pricePrefix: {
-      type: String,
-      value: '',
-    },
-    cartSize: {
-      type: Number,
-      value: 48,
-    },
-    cartColor: {
-      type: String,
-      value: '#FA550F',
-    },
-    specsIconClassPrefix: {
-      type: String,
-      value: 'wr',
-    },
     specsIcon: {
       type: String,
       value: 'expand_more',
-    },
-    addCartIconClassPrefix: {
-      type: String,
-      value: 'wr',
     },
   },
 
