@@ -26,7 +26,6 @@ Component({
     // 点击【订单操作】按钮，根据按钮类型分发
     onOrderBtnTap(e) {
       const { type } = e.currentTarget.dataset;
-      console.log('--type--', type);
       switch (type) {
         case 2:
           this.onCancel();
@@ -55,7 +54,6 @@ Component({
           if (res.code) {
             //发起网络请求 
             request('/cancelOrder', { uid: _this.data.order.uid }, 'POST', res.code).then(res => {
-              console.log('--fetchCartGroupData--', res);
               if (res.ec === 200) {
                 wx.showToast({
                   title: '取消成功',
@@ -91,7 +89,6 @@ Component({
               if (res.code) {
                 //发起网络请求 
                 request('/complete', { uid: _this.data.order.uid }, 'POST', res.code).then(res => {
-                  console.log('--fetchCartGroupData--', res);
                   if (res.ec === 200) {
                     wx.showToast({
                       title: '你确认了确认收货',

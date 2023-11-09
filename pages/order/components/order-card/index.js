@@ -10,7 +10,7 @@ Component({
       type: 'descendant',
       linked(target) {
         this.children.push(target);
-        this.setHidden();
+        // this.setHidden();
       },
       unlinked(target) {
         this.children = this.children.filter((item) => item !== target);
@@ -20,7 +20,7 @@ Component({
       type: 'descendant',
       linked(target) {
         this.children.push(target);
-        this.setHidden();
+        // this.setHidden();
       },
       unlinked(target) {
         this.children = this.children.filter((item) => item !== target);
@@ -30,7 +30,7 @@ Component({
       type: 'descendant',
       linked(target) {
         this.children.push(target);
-        this.setHidden();
+        // this.setHidden();
       },
       unlinked(target) {
         this.children = this.children.filter((item) => item !== target);
@@ -46,20 +46,12 @@ Component({
     order: {
       type: Object,
     },
-    useTopRightSlot: Boolean,
-    //  初始显示的商品数量，超出部分会隐藏。
-    defaultShowNum: {
-      type: null,
-      value: 10,
-    },
-    useLogoSlot: {
+    hidden: {
       type: Boolean,
-      value: false,
     },
   },
 
   data: {
-    showAll: true, // 是否展示所有商品，设置为false，可以使用展开更多功能
     orderStatusList: {
       0: '待付款',
       1: '待发货',
@@ -70,20 +62,8 @@ Component({
   },
 
   methods: {
-    setHidden() {
-      const isHidden = !this.data.showAll;
-      this.children.forEach(
-        (c, i) => i >= this.properties.defaultShowNum && c.setHidden(isHidden),
-      );
-    },
-
     onOrderCardTap() {
       this.triggerEvent('cardtap');
-    },
-
-    onShowMoreTap() {
-      this.setData({ showAll: true }, () => this.setHidden());
-      this.triggerEvent('showall');
     },
   },
 });

@@ -28,7 +28,6 @@ Page({
         if (res.code) {
           //发起网络请求 
           request('/fetchCartGroupData', {}, 'GET', res.code).then(res => {
-            console.log('--fetchCartGroupData--', res);
             const cartGroupData = res.data;
             _this.setData({
               cartGroupData

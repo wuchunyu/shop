@@ -94,9 +94,6 @@ Page({
     this.setData({
       query: JSON.parse(query.order)
     })
-    // this.query = JSON.parse(query.order);
-    console.log('--query--', this.data.query);
-    // if (!this.checkQuery()) return;
     this.setData({
       canApplyReturn: query.canApplyReturn === 'true',
     });

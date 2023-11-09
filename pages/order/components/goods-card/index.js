@@ -41,7 +41,6 @@ Component({
     data: {
       type: Object,
       observer(goods) {
-        console.log('--goods--', goods);
         // 敲定换行数量默认值
         if (goods.lineClamp === undefined || goods.lineClamp <= 0) {
           // tag数组长度 大于0 且 可见

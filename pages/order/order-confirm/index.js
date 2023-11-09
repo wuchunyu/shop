@@ -12,7 +12,6 @@ Page({
   },
   onLoad(options) {
     const orderCardList = JSON.parse(options.orderCardList);
-    console.log('--orderCardList--', orderCardList);
     let total = 0, totalPrice = 0;
     orderCardList.forEach(item => {
       total = total + item.stockQuantity;
@@ -93,7 +92,6 @@ Page({
 
           _this.data.orderCardList.forEach(item => {
             let commoditys = { specId: [] };
-            console.log(item);
             if (item.cartId) {
               commoditys.cartId = item.cartId;
             } else {
@@ -105,9 +103,7 @@ Page({
             })
             params.commodity.push(commoditys)
           })
-          console.log(params);
           request('/commitPay', params, 'POST', res.code).then(res => { //分类 商品列表
-            console.log(res);
             if (res.ec === 200) {
               // 跳转支付结果页面
               wx.redirectTo({ url: `/pages/order/pay-result/index` });

@@ -39,7 +39,6 @@ Page({
   },
 
   onReachBottom() {
-    console.log('--onReachBottom--', this.data.listLoading);
     if (this.data.listLoading === 0) {
       this.getOrderList(this.data.curTab);
     }
@@ -78,7 +77,6 @@ Page({
         pageNum: this.page.num,
       },
     };
-    console.log('--getOrderList--', params);
     this.setData({ listLoading: 1 });
     let _this = this;
     wx.login({
@@ -88,10 +86,16 @@ Page({
           request('/fetchOrders', {
             orderStatus: statusCode
           }, 'GET', res.code).then(res => {
-            console.log(res.data.length);
             _this.page.num++;
+            let orderList = _this.data.orderList.concat(res.data);
+            orderList.forEach(item => {
+              item.totalAmount = 0;
+              item.orderItemVOs.forEach(v => {
+                item.totalAmount = item.totalAmount + v.price * v.stockQuantity;
+              })
+            })
             _this.setData({
-              orderList: _this.data.orderList.concat(res.data),
+              orderList,
               listLoading: res.data.length > 0 ? 0 : 2,
             })
           });
@@ -150,7 +154,7 @@ Page({
   onOrderCardTap(e) {
     const { order } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: `/pages/order/order-detail/index?orderNo=${order.orderNo}`,
+      url: `/pages/order/order-detail/index?orderNo=${JSON.stringify(order)}`,
     });
   },
 });

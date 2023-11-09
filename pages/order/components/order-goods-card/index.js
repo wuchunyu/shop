@@ -17,7 +17,9 @@ Component({
     goods: {
       type: Object,
       observer(goods) {
-        // console.log('--goods--0-', goods);
+        this.setData({
+          goods
+        })
       },
     },
     thumbWidth: Number,
@@ -26,19 +28,18 @@ Component({
     thumbHeightInPopup: Number,
     noTopLine: Boolean,
     step: Boolean,
-    stepDisabled: Boolean,
+    hidden: Boolean,
   },
 
   data: {
-    goods: {},
-    hidden: false,
+    goods: {}
   },
 
   methods: {
-    setHidden(hidden) {
-      if (this.data.hidden === hidden) return;
-      this.setData({ hidden });
-    },
+    // setHidden(hidden) {
+    //   if (this.data.hidden === hidden) return;
+    //   this.setData({ hidden });
+    // },
 
     onNumChange(e) {
       const { value } = e.detail;

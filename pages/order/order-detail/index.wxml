@@ -5,25 +5,25 @@
       <view class="order-detail__header">
         <view class="title">{{_order.statusDesc}}</view>
         <view class="desc">
-          <block wx:if="{{ order.holdStatus === 1 }}">
+          <!-- <block wx:if="{{ order.holdStatus === 1 }}">
             <block wx:if="{{ order.groupInfoVo.residueTime > 0 }}">
               拼团剩余
               <t-count-down time="{{order.groupInfoVo.residueTime}}" format="HH小时mm分ss秒" t-class="count-down" bindfinish="onCountDownFinish" />
               <view>过时自动取消</view>
             </block>
-          </block>
-          <block wx:elif="{{countDownTime === null}}">{{order.orderSatusRemark || ''}}</block>
-          <block wx:elif="{{countDownTime > 0}}">
+          </block> -->
+          <block>{{orderStatusList[order.orderStatus]}}</block>
+          <!-- <block wx:elif="{{countDownTime > 0}}">
             剩
             <t-count-down time="{{countDownTime}}" format="HH小时mm分ss秒" t-class="count-down" bindfinish="onCountDownFinish" />
             支付，过时订单将会取消
           </block>
-          <block wx:else>超时未支付</block>
+          <block wx:else>超时未支付</block> -->
         </view>
       </view>
 
       <!-- 物流 -->
-      <view class="order-logistics" wx:if="{{logisticsNodes[0]}}" bindtap="onDeliveryClick">
+      <view class="order-logistics" bindtap="onDeliveryClick">
         <t-icon name="deliver" size="40rpx" class="logistics-icon" prefix="wr" />
         <view class="logistics-content">
           <view>{{logisticsNodes[0].desc}}</view>
@@ -43,15 +43,15 @@
       </view>
     </view>
     <!-- 店铺及商品 -->
-    <order-card order="{{_order}}" use-top-right-slot>
-      <order-goods-card wx:for="{{_order.goodsList}}" wx:key="id" wx:for-item="goods" wx:for-index="gIndex" goods="{{goods}}" no-top-line="{{gIndex === 0}}" bindtap="onGoodsCardTap" data-index="{{gIndex}}">
+    <view style="padding: 16rpx 32rpx;background-color: #ffffff;">
+      <order-goods-card wx:for="{{order.orderItemVOs}}" wx:key="id" wx:for-item="goods" wx:for-index="gIndex" goods="{{goods}}" no-top-line="{{gIndex === 0}}" bindtap="onGoodsCardTap" data-index="{{gIndex}}">
         <order-button-bar slot="append-card" class="goods-button-bar" order="{{_order}}" bindrefresh="onRefresh" goodsIndex="{{gIndex}}" />
       </order-goods-card>
       <view class="pay-detail">
-        <view class="pay-item">
+        <!-- <view class="pay-item">
           <text>商品总额</text>
           <price fill decimalSmaller wr-class="pay-item__right font-bold" price="{{order.totalAmount || '0'}}" />
-        </view>
+        </view> -->
         <view class="pay-item">
           <text>运费</text>
           <view class="pay-item__right font-bold">
@@ -63,37 +63,37 @@
           </view>
         </view>
         <view class="pay-item">
-          <text>{{isPaid ? '实付' : '应付'}}</text>
-          <price fill decimalSmaller wr-class="pay-item__right font-bold primary max-size" price="{{order.paymentAmount || '0'}}" />
+          <text>商品总额</text>
+          <price fill decimalSmaller wr-class="pay-item__right font-bold primary max-size" price="{{order.totalAmount || '0'}}" />
         </view>
       </view>
-    </order-card>
+    </view>
     <view class="pay-detail padding-inline">
       <view class="pay-item">
         <text>订单编号</text>
         <view class="pay-item__right" bindtap="onOrderNumCopy">
-          <text class="order-no">{{order.orderNo}}</text>
+          <text class="order-no">{{order.uid}}</text>
           <view class="pay-item__right__copy">复制</view>
         </view>
       </view>
       <view class="pay-item">
         <text>下单时间</text>
         <view class="pay-item__right">
-          <text class="order-no normal-color">{{formatCreateTime}}</text>
+          <text class="order-no normal-color">{{order.created_at}}</text>
         </view>
       </view>
       <view class="border-bottom border-bottom-margin" />
-      <view class="pay-item">
+      <!-- <view class="pay-item">
         <text>发票</text>
         <view class="pay-item__right" bindtap="onOrderInvoiceView">
           <text class="order-no normal-color">{{invoiceType}}</text>
           <view class="pay-item__right__copy">查看</view>
         </view>
-      </view>
+      </view> -->
       <view class="pay-item">
         <text>备注</text>
         <view class="pay-item__right">
-          <text class="order-no normal-color">{{order.remark || '-'}}</text>
+          <text class="order-no normal-color">{{order.remarks}}</text>
         </view>
       </view>
       <view class="border-bottom border-bottom-margin" />

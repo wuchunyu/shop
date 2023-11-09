@@ -7,19 +7,14 @@ const menuData = [
     url: '',
     type: 'address',
   }],
-  [{
-    title: '帮助中心',
-    tit: '',
-    url: '',
-    type: 'help-center',
-  },
-  {
-    title: '客服热线',
-    tit: '',
-    url: '',
-    type: 'service',
-    icon: 'service',
-  },
+  [
+    {
+      title: '客服热线',
+      tit: '',
+      url: '',
+      type: 'service',
+      icon: 'service',
+    },
   ],
 ];
 

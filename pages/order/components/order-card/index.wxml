@@ -1,5 +1,5 @@
 <view class="order-card wr-class" bind:tap="onOrderCardTap">
-  <view class="header header-class">
+  <view class="header header-class" wx:if="{{hidden}}">
     <view class="store-name title-class">
       <slot name="top-left" />
     </view>
