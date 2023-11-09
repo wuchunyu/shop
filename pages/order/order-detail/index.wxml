@@ -9,15 +9,6 @@
         </view>
       </view>
 
-      <!-- 物流 -->
-      <view wx:if="{{order.orderStatus === 1}}" class="order-logistics" bindtap="onDeliveryClick">
-        <t-icon name="deliver" size="40rpx" class="logistics-icon" prefix="wr" />
-        <view class="logistics-content">
-          <view>{{logisticsNodes[0].desc}}</view>
-          <view class="logistics-time">{{logisticsNodes[0].date}}</view>
-        </view>
-        <t-icon class="logistics-back" name="arrow_forward" size="36rpx" prefix="wr" />
-      </view>
       <view class="border-bottom" wx:if="{{logisticsNodes[0]}}" />
       <!-- 收货地址 -->
       <view class="order-logistics">
@@ -31,7 +22,7 @@
     </view>
     <!-- 店铺及商品 -->
     <view style="padding: 16rpx 32rpx;background-color: #ffffff;">
-      <order-goods-card wx:for="{{order.orderItemVOs}}" wx:key="id" wx:for-item="goods" wx:for-index="gIndex" goods="{{goods}}" no-top-line="{{gIndex === 0}}" bindtap="onGoodsCardTap" data-index="{{gIndex}}">
+      <order-goods-card wx:for="{{order.orderItemVOs}}" wx:key="id" wx:for-item="goods" wx:for-index="gIndex" goods="{{goods}}" no-top-line="{{gIndex === 0}}" data-index="{{gIndex}}">
         <order-button-bar slot="append-card" class="goods-button-bar" order="{{_order}}" bindrefresh="onRefresh" goodsIndex="{{gIndex}}" />
       </order-goods-card>
       <view class="pay-detail">

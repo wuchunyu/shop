@@ -46,13 +46,6 @@ const orderTagInfos = [{
   tabType: 60,
   status: 1,
 },
-{
-  title: '退款/售后',
-  iconName: 'exchang',
-  orderNum: 0,
-  tabType: 0,
-  status: 1,
-},
 ];
 
 const getDefaultData = () => ({
