@@ -2,6 +2,7 @@ Component({
   externalClasses: ['title-class', 'icon-class', 'number-class'],
   options: {
     multipleSlots: true,
+    addGlobalClass: true
   },
   properties: {
     orderTagInfos: {

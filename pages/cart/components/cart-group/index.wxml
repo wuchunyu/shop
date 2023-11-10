@@ -15,7 +15,7 @@
           </goods-card>
         </view>
       </view>
-      <view slot="right" class="swiper-right-del" bindtap="deleteGoods" data-goods="{{goods}}"> 删除 </view>
+      <view slot="right" class="swiper_right_del" bindtap="deleteGoods" data-goods="{{goods}}"> 删除 </view>
     </swipeout>
     <view class="promotion-line-wrap">
       <view class="promotion-line" />

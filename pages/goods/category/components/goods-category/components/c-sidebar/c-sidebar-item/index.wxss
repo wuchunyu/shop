@@ -25,24 +25,22 @@
   border-radius: 64rpx;
 }
 
-.c-sidebar-item__text {
+.c_sidebar_item_text {
   width: 136rpx;
   height: 36rpx;
   padding: 8rpx 0;
   line-height: 36rpx;
-  text-align: center;
   font-size: 28rpx;
   color: #666666;
 }
 
-.c-sidebar-item.active .c-sidebar-item__text {
+.c-sidebar-item.active .c_sidebar_item_text {
   background-color: white;
   border-radius: 36rpx;
   color: #fa4126;
 }
 
 .text-overflow {
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }

@@ -200,7 +200,7 @@
   .popup-sku-stepper-stock
   .popup-sku-stepper-container
   .popup-stepper
-  .popup-stepper__minus {
+  .popup-stepper_minus {
   margin-right: 4rpx;
   border-radius: 4rpx;
   color: #9a979b;
@@ -213,7 +213,7 @@
   .popup-sku-stepper-stock
   .popup-sku-stepper-container
   .popup-stepper
-  .popup-stepper__plus {
+  .popup-stepper_plus {
   margin-left: 4rpx;
   border-radius: 4rpx;
   color: #9a979b;
@@ -226,7 +226,7 @@
   .popup-sku-stepper-stock
   .popup-sku-stepper-container
   .popup-stepper
-  .popup-stepper__plus::after {
+  .popup-stepper_plus::after {
   width: 24rpx;
   height: 3rpx;
   background-color: #999999;
@@ -236,7 +236,7 @@
   .popup-sku-stepper-stock
   .popup-sku-stepper-container
   .popup-stepper
-  .popup-stepper__plus::before {
+  .popup-stepper_plus::before {
   width: 3rpx;
   height: 24rpx;
   background-color: #999999;

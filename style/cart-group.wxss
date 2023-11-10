@@ -2,7 +2,8 @@
 .wr-swiper-cell__right {
   margin: 20rpx 0;
 }
-.wr-swiper-cell__right .swiper-right-del {
+
+.wr-swiper-cell__right .swiper_right_del {
   height: calc(100% - 40rpx);
   width: 60px;
   background-color: #ff2525;
@@ -12,6 +13,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .goods-stepper .stepper {
   border: none;
   border-radius: 0;
@@ -19,24 +21,29 @@
   width: 168rpx;
   overflow: visible;
 }
-.goods-stepper .stepper .stepper__minus,
-.goods-stepper .stepper .stepper__plus {
+
+.goods-stepper .stepper .stepper_minus,
+.goods-stepper .stepper .stepper_plus {
   width: 44rpx;
   height: 44rpx;
   background-color: #f5f5f5;
 }
-.goods-stepper .stepper .stepper__minus--hover,
-.goods-stepper .stepper .stepper__plus--hover {
+
+.goods-stepper .stepper .stepper_minus--hover,
+.goods-stepper .stepper .stepper_plus--hover {
   background-color: #f5f5f5;
 }
-.goods-stepper .stepper .stepper__minus .wr-icon,
-.goods-stepper .stepper .stepper__plus .wr-icon {
+
+.goods-stepper .stepper .stepper_minus .wr-icon,
+.goods-stepper .stepper .stepper_plus .wr-icon {
   font-size: 24rpx;
 }
-.goods-stepper .stepper .stepper__minus {
+
+.goods-stepper .stepper .stepper_minus {
   position: relative;
 }
-.goods-stepper .stepper .stepper__minus::after {
+
+.goods-stepper .stepper .stepper_minus::after {
   position: absolute;
   display: block;
   content: ' ';
@@ -46,10 +53,12 @@
   bottom: -20rpx;
   background-color: transparent;
 }
-.goods-stepper .stepper .stepper__plus {
+
+.goods-stepper .stepper .stepper_plus {
   position: relative;
 }
-.goods-stepper .stepper .stepper__plus::after {
+
+.goods-stepper .stepper .stepper_plus::after {
   position: absolute;
   display: block;
   content: ' ';
@@ -59,6 +68,7 @@
   bottom: -20rpx;
   background-color: transparent;
 }
+
 .goods-stepper .stepper .stepper__input {
   width: 72rpx;
   height: 44rpx;
@@ -73,10 +83,12 @@
   display: flex;
   align-items: center;
 }
+
 .invalid-card .invalid-private-mask .wr-goods-card {
   background-color: #fff;
   padding: 18rpx 32rpx 24rpx 80rpx;
 }
+
 .text-primary .wr-icon {
   color: #fa550f;
   color: var(--color-primary, #fa550f);
