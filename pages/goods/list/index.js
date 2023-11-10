@@ -18,7 +18,6 @@ Page({
     goodsList: [],
     goodsListLoadStatus: 0,
     pageLoading: false,
-    current: 1,
     navigation: {
       type: 'dots'
     },
@@ -47,10 +46,6 @@ Page({
     })
     this.init();
   },
-
-  // onLoad() {
-  //   this.init();
-  // },
 
   onReachBottom() {
     if (this.data.goodsListLoadStatus === 0) {

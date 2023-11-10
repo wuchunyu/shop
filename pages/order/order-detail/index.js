@@ -78,15 +78,15 @@ Page({
   },
 
   onToInvoice() {
-    wx.navigateTo({
-      url: `/pages/order/invoice/index?orderNo=${this.data._order.orderNo}`,
-    });
+    // wx.navigateTo({
+    //   url: `/pages/order/invoice/index?orderNo=${this.data._order.orderNo}`,
+    // });
   },
 
   onSuppleMentInvoice() {
-    wx.navigateTo({
-      url: `/pages/order/receipt/index?orderNo=${this.data._order.orderNo}`,
-    });
+    // wx.navigateTo({
+    //   url: `/pages/order/receipt/index?orderNo=${this.data._order.orderNo}`,
+    // });
   },
 
   onDeliveryClick() {
@@ -96,11 +96,11 @@ Page({
       logisticsNo: this.data.order.logisticsVO.logisticsNo,
       phone: this.data.order.logisticsVO.logisticsCompanyTel,
     };
-    wx.navigateTo({
-      url: `/pages/order/delivery-detail/index?data=${encodeURIComponent(
-        JSON.stringify(logisticsData),
-      )}`,
-    });
+    // wx.navigateTo({
+    //   url: `/pages/order/delivery-detail/index?data=${encodeURIComponent(
+    //     JSON.stringify(logisticsData),
+    //   )}`,
+    // });
   },
 
   clickService() {
@@ -112,8 +112,8 @@ Page({
   },
 
   onOrderInvoiceView() {
-    wx.navigateTo({
-      url: `/pages/order/invoice/index?orderNo=${this.orderNo}`,
-    });
+    // wx.navigateTo({
+    //   url: `/pages/order/invoice/index?orderNo=${this.orderNo}`,
+    // });
   },
 });

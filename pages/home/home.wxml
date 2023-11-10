@@ -8,7 +8,7 @@
     </t-search>
   </view>
   <view class="swiper-wrap">
-    <t-swiper wx:if="{{imgSrcs.length > 0}}" current="{{current}}" autoplay="{{true}}" duration="500" interval="5000" navigation="{{navigation}}" imageProps="{{swiperImageProps}}" list="{{imgSrcs}}" />
+    <t-swiper wx:if="{{imgSrcs.length > 0}}" current="1" autoplay="{{true}}" duration="500" interval="5000" navigation="{{navigation}}" imageProps="{{swiperImageProps}}" list="{{imgSrcs}}" />
   </view>
 </view>
 <view class="homePageContainer">

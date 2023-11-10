@@ -12,7 +12,6 @@ Page({
     goodsList: [],
     goodsListLoadStatus: 0,
     pageLoading: false,
-    current: 1,
     navigation: {
       type: 'dots'
     },
