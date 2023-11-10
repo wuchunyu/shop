@@ -1,5 +1,5 @@
 <!-- 过滤组件 -->
-<view class="wr-class flex filterWrap">
+<view class="wr-class flex filterWrap width_max">
   <view class="flex filterLeftContent">
     <view class="filter-item {{overall === 1 ? 'filter-active-item' : ''}}" bindtap="onOverallAction">
       综合

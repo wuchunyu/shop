@@ -38,8 +38,6 @@ Page({
               })
             }
           });
-        } else {
-          console.log('登录失败！' + res.errMsg)
         }
       }
     })
@@ -109,8 +107,6 @@ Page({
               wx.redirectTo({ url: `/pages/order/pay-result/index` });
             }
           });
-        } else {
-          console.log('登录失败！' + res.errMsg)
         }
       }
     })

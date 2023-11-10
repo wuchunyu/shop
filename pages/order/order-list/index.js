@@ -99,8 +99,6 @@ Page({
               listLoading: res.data.length > 0 ? 0 : 2,
             })
           });
-        } else {
-          console.log('登录失败！' + res.errMsg)
         }
       }
     })
@@ -127,8 +125,6 @@ Page({
           //发起网络请求 
           request('/fetchOrdersCount', {}, 'GET', res.code).then((res) => {
           });
-        } else {
-          console.log('登录失败！' + res.errMsg)
         }
       }
     })

@@ -2,7 +2,7 @@
 <block wx:if="{{cartGroupData}}">
   <cart-group store-goods="{{ cartGroupData }}" bindselectgoods="onGoodsSelect" bindchangequantity="onQuantityChange" bindgoodsclick="goGoodsDetail" binddelete="onGoodsDelete" />
 
-  <view class="gap" />
+  <view class="gap width_max" />
   <!-- 商品小计以及结算按钮 -->
   <cart-bar total-amount="{{selectedGoodsCount}}" fixed="{{true}}" isAllSelected="{{isAllSelected}}" bottomHeight="{{112}}" bindhandleSelectAll="onSelectAll" bindhandleToSettle="onToSettle" />
 </block>

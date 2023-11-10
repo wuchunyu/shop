@@ -1,4 +1,4 @@
-import { formatTime, request } from '../../../utils/util';
+import { request } from '../../../utils/util';
 import Toast from 'tdesign-miniprogram/toast/index';
 import { getAddressPromise } from '../../usercenter/address/list/util';
 
@@ -13,30 +13,19 @@ Page({
     },
     pageLoading: true,
     order: {}, // 后台返回的原始数据
-    storeDetail: {},
-    countDownTime: null,
-    addressEditable: false,
-    backRefresh: false, // 用于接收其他页面back时的状态
-    logisticsNodes: [],
-    /** 订单评论状态 */
-    orderHasCommented: true,
   },
 
   onLoad(query) {
     this.setData({
       order: JSON.parse(query.orderNo)
     })
-    // this.orderNo = query.orderNo;
     this.init();
     this.navbar = this.selectComponent('#navbar');
     this.pullDownRefresh = this.selectComponent('#wr-pull-down-refresh');
   },
 
   onShow() {
-    // 当从其他页面返回，并且 backRefresh 被置为 true 时，刷新数据
-    if (!this.data.backRefresh) return;
-    this.onRefresh();
-    this.setData({ backRefresh: false });
+    // this.onRefresh();
   },
 
   onPageScroll(e) {
@@ -52,7 +41,7 @@ Page({
   // 页面初始化，会展示pageLoading
   init() {
     this.setData({ pageLoading: true });
-    this.getStoreDetail();
+    // this.getStoreDetail();
   },
 
   onEditAddressTap() {
@@ -86,20 +75,6 @@ Page({
   onSuppleMentInvoice() {
     // wx.navigateTo({
     //   url: `/pages/order/receipt/index?orderNo=${this.data._order.orderNo}`,
-    // });
-  },
-
-  onDeliveryClick() {
-    const logisticsData = {
-      nodes: this.data.logisticsNodes,
-      company: this.data.order.logisticsVO.logisticsCompanyName,
-      logisticsNo: this.data.order.logisticsVO.logisticsNo,
-      phone: this.data.order.logisticsVO.logisticsCompanyTel,
-    };
-    // wx.navigateTo({
-    //   url: `/pages/order/delivery-detail/index?data=${encodeURIComponent(
-    //     JSON.stringify(logisticsData),
-    //   )}`,
     // });
   },
 

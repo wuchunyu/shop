@@ -22,10 +22,6 @@
   border-radius: 50%;
 }
 
-.comments-card-item-container {
-  width: 100%;
-}
-
 .comments-card-item-container-date {
   font-size: 22rpx;
   color: #999;

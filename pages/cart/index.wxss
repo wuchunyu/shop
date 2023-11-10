@@ -4,7 +4,6 @@
 
 .gap {
   height: 100rpx;
-  width: 100%;
 }
 
 .t-button {

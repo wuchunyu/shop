@@ -72,8 +72,6 @@ Page({
             });
             _this.loadGoodsList(true);
           })
-        } else {
-          console.log('登录失败！' + res.errMsg)
         }
       }
     })
@@ -129,8 +127,6 @@ Page({
             _this.goodListPagination.index = pageIndex;
             _this.goodListPagination.num = pageSize;
           })
-        } else {
-          console.log('登录失败！' + res.errMsg)
         }
       }
     })

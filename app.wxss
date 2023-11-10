@@ -5,3 +5,7 @@
 .flex {
   display: flex;
 }
+
+.width_max {
+  width: 100%;
+}

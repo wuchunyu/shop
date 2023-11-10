@@ -34,8 +34,6 @@ Page({
             });
             _this.onselectedGoodsCount();
           });
-        } else {
-          console.log('登录失败！' + res.errMsg)
         }
       }
     })
@@ -62,8 +60,6 @@ Page({
           request('/setIsSelected', { cartId, isSelected: isSelected ? 1 : 0 }, 'POST', res.code).then(res => {
             _this.onselectedGoodsCount();
           });
-        } else {
-          console.log('登录失败！' + res.errMsg)
         }
       }
     })
@@ -91,8 +87,6 @@ Page({
           request('/setStockQuantity', { cartId, stockQuantity: value }, 'POST', res.code).then(res => {
             _this.onselectedGoodsCount();
           });
-        } else {
-          console.log('登录失败！' + res.errMsg)
         }
       }
     })
@@ -115,8 +109,6 @@ Page({
       content: '确认删除该商品吗?',
       success(res) {
         if (res.confirm) {
-          console.log('用户点击确定')
-
           wx.login({
             success(res) {
               if (res.code) {
@@ -124,13 +116,9 @@ Page({
                 request('/delCartSelected', { cartId }, 'POST', res.code).then(res => {
                   _this.onfetchCartGroupData();
                 });
-              } else {
-                console.log('登录失败！' + res.errMsg)
               }
             }
           })
-        } else if (res.cancel) {
-          console.log('用户点击取消')
         }
       }
     })

@@ -9,7 +9,6 @@ Page({
     let _this = this;
     wx.login({
       success(res) {
-
         if (res.code) {
           //发起网络请求
           request('/getCategoryList', {}, 'GET', res.code).then(res => { //分类 商品列表
@@ -17,8 +16,6 @@ Page({
               list: res.data,
             });
           });
-        } else {
-          console.log('登录失败！' + res.errMsg)
         }
       }
     })

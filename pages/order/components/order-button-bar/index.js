@@ -2,6 +2,7 @@ import Toast from 'tdesign-miniprogram/toast/index';
 import Dialog from 'tdesign-miniprogram/dialog/index';
 // import { OrderButtonTypes } from '../../config';
 import { request } from '../../../../utils/util'
+import { buttons } from '../config';
 
 Component({
   options: {
@@ -11,6 +12,10 @@ Component({
     order: {
       type: Object,
     },
+    goodsIndex: {
+      type: Number,
+      value: null,
+    },
     isBtnMax: {
       type: Boolean,
       value: false,
@@ -19,13 +24,15 @@ Component({
 
   data: {
     order: {},
-    buttons: [[{ primary: false, type: 2, name: "取消订单" }, { primary: true, type: 1, name: "付款" }], [{ primary: false, type: 2, name: "取消订单" }, { primary: true, type: 9, name: "再次购买" }], [{ primary: true, type: 3, name: "确认收货" }], [], [{ primary: false, type: 4, name: "申请售后" }, { primary: true, type: 6, name: "评价" }]],
+    buttons,
+    // buttons: [[{ primary: false, type: 2, name: "取消订单" }, { primary: true, type: 1, name: "付款" }], [{ primary: false, type: 2, name: "取消订单" }, { primary: true, type: 9, name: "再次购买" }], [{ primary: true, type: 3, name: "确认收货" }], [], [{ primary: false, type: 4, name: "申请售后" }, { primary: true, type: 6, name: "评价" }]],
   },
 
   methods: {
     // 点击【订单操作】按钮，根据按钮类型分发
     onOrderBtnTap(e) {
       const { type } = e.currentTarget.dataset;
+      console.log('--type--', type);
       switch (type) {
         case 2:
           this.onCancel();
@@ -62,14 +69,7 @@ Component({
                 })
 
               }
-              // const cartGroupData = res.data;
-              // _this.setData({
-              //   cartGroupData
-              // });
-              // _this.onselectedGoodsCount();
             });
-          } else {
-            console.log('登录失败！' + res.errMsg)
           }
         }
       })
@@ -95,16 +95,8 @@ Component({
                       icon: 'success',
                       duration: 2000
                     })
-
                   }
-                  // const cartGroupData = res.data;
-                  // _this.setData({
-                  //   cartGroupData
-                  // });
-                  // _this.onselectedGoodsCount();
                 });
-              } else {
-                console.log('登录失败！' + res.errMsg)
               }
             }
           })

@@ -15,7 +15,6 @@
   margin-bottom: 48rpx;
   height: 96rpx;
   line-height: 48rpx;
-  display: flex;
   justify-content: flex-start;
   align-items: center;
   color: #333;

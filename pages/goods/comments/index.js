@@ -58,8 +58,6 @@ Page({
                 countObj: data,
               });
             });
-        } else {
-          console.log('登录失败！' + res.errMsg)
         }
       }
     })
@@ -139,8 +137,6 @@ Page({
                 totalCount: Number(totalCount),
               });
             });
-        } else {
-          console.log('登录失败！' + res.errMsg)
         }
       }
     });

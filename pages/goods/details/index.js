@@ -123,8 +123,6 @@ Page({
               })
             }
           });
-        } else {
-          console.log('登录失败！' + res.errMsg)
         }
       }
     })
@@ -189,91 +187,79 @@ Page({
               details: res.data
             });
           });
-        } else {
-          console.log('登录失败！' + res.errMsg)
         }
       }
     })
 
   },
 
-  async getCommentsList() {
-    try {
-      let _this = this;
-      wx.login({
-        success(res) {
+  getCommentsList() {
+    let _this = this;
+    wx.login({
+      success(res) {
 
-          if (res.code) {
-            //发起网络请求
-            request('/getGoodsDetailsCommentList', {}, 'GET', res.code).then(res => { //分类 商品列表
-              const {
-                homePageComments
-              } = res.data;
-              const nextState = {
-                commentsList: homePageComments.map((item) => {
-                  return {
-                    goodsSpu: item.spuId,
-                    userName: item.userName || '',
-                    commentScore: item.commentScore,
-                    commentContent: item.commentContent || '用户未填写评价',
-                    userHeadUrl: item.isAnonymity ?
-                      this.anonymityAvatar : item.userHeadUrl || this.anonymityAvatar,
-                  };
-                }),
-              };
-              _this.setData(nextState);
-            });
-          } else {
-            console.log('登录失败！' + res.errMsg)
-          }
+        if (res.code) {
+          //发起网络请求
+          request('/getGoodsDetailsCommentList', {}, 'GET', res.code).then(res => { //分类 商品列表
+            const {
+              homePageComments
+            } = res.data;
+            const nextState = {
+              commentsList: homePageComments.map((item) => {
+                return {
+                  goodsSpu: item.spuId,
+                  userName: item.userName || '',
+                  commentScore: item.commentScore,
+                  commentContent: item.commentContent || '用户未填写评价',
+                  userHeadUrl: item.isAnonymity ?
+                    this.anonymityAvatar : item.userHeadUrl || this.anonymityAvatar,
+                };
+              }),
+            };
+            _this.setData(nextState);
+          });
         }
-      })
+      }
+    })
 
-    } catch (error) {
-      console.error('comments error:', error);
-    }
+
   },
 
   /** 获取评价统计 */
-  async getCommentsStatistics() {
-    try {
-      let _this = this;
-      wx.login({
-        success(res) {
+  getCommentsStatistics() {
+    let _this = this;
+    wx.login({
+      success(res) {
 
-          if (res.code) {
-            //发起网络请求
-            request('/getGoodsDetailsCommentsCount', {}, 'GET', res.code).then(res => { //分类 商品列表
-              const {
-                badCount,
-                commentCount,
-                goodCount,
-                goodRate,
-                hasImageCount,
-                middleCount,
-              } = res.data;
-              const nextState = {
-                commentsStatistics: {
-                  badCount: parseInt(`${badCount}`),
-                  commentCount: parseInt(`${commentCount}`),
-                  goodCount: parseInt(`${goodCount}`),
-                  /** 后端返回百分比后数据但没有限制位数 */
-                  goodRate: Math.floor(goodRate * 10) / 10,
-                  hasImageCount: parseInt(`${hasImageCount}`),
-                  middleCount: parseInt(`${middleCount}`),
-                },
-              };
-              _this.setData(nextState);
-            });
-          } else {
-            console.log('登录失败！' + res.errMsg)
-          }
+        if (res.code) {
+          //发起网络请求
+          request('/getGoodsDetailsCommentsCount', {}, 'GET', res.code).then(res => { //分类 商品列表
+            const {
+              badCount,
+              commentCount,
+              goodCount,
+              goodRate,
+              hasImageCount,
+              middleCount,
+            } = res.data;
+            const nextState = {
+              commentsStatistics: {
+                badCount: parseInt(`${badCount}`),
+                commentCount: parseInt(`${commentCount}`),
+                goodCount: parseInt(`${goodCount}`),
+                /** 后端返回百分比后数据但没有限制位数 */
+                goodRate: Math.floor(goodRate * 10) / 10,
+                hasImageCount: parseInt(`${hasImageCount}`),
+                middleCount: parseInt(`${middleCount}`),
+              },
+            };
+            _this.setData(nextState);
+          });
         }
-      })
+      }
+    })
 
-    } catch (error) {
-      console.error('comments statiistics error:', error);
-    }
+
   },
 
   /** 跳转到评价列表 */

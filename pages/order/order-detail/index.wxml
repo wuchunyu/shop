@@ -9,27 +9,23 @@
         </view>
       </view>
 
-      <view class="border-bottom" wx:if="{{logisticsNodes[0]}}" />
+      <view class="border-bottom" />
       <!-- 收货地址 -->
       <view class="order-logistics">
         <t-icon name="location" size="40rpx" class="logistics-icon" prefix="wr" />
         <view class="logistics-content">
-          <view>{{order.logisticsVO.receiverName + ' '}}{{order.logisticsVO.receiverPhone}}</view>
-          <view class="logistics-time">{{_order.receiverAddress}}</view>
+          <view>{{order.orderAddress.name + ' '}}{{order.orderAddress.phone}}</view>
+          <view class="logistics-time">{{order.orderAddress.provinceName + ' ' + order.orderAddress.cityName + ' ' + order.orderAddress.districtName + ' ' + order.orderAddress.detailAddress}}</view>
         </view>
-        <view wx:if="{{addressEditable}}" class="edit-text" bindtap="onEditAddressTap"> 修改 </view>
+        <view wx:if="{{order.orderStatus === 0 || order.orderStatus === 1}}" class="edit-text" bindtap="onEditAddressTap"> 修改 </view>
       </view>
     </view>
     <!-- 店铺及商品 -->
-    <view style="padding: 16rpx 32rpx;background-color: #ffffff;">
+    <view style="padding: 16rpx 32rpx;background-color: #ffffff;margin: 24rpx 0;">
       <order-goods-card wx:for="{{order.orderItemVOs}}" wx:key="id" wx:for-item="goods" wx:for-index="gIndex" goods="{{goods}}" no-top-line="{{gIndex === 0}}" data-index="{{gIndex}}">
-        <order-button-bar slot="append-card" class="goods-button-bar" order="{{_order}}" bindrefresh="onRefresh" goodsIndex="{{gIndex}}" />
+        <order-button-bar wx:if="{{order.orderStatus === 2 || order.orderStatus === 4}}" slot="append-card" class="goods-button-bar" order="{{order}}" goodsIndex="{{ order.orderStatus === 2 ? 5 : 4}}" bindrefresh="onRefresh" />
       </order-goods-card>
       <view class="pay-detail">
-        <!-- <view class="pay-item">
-          <text>商品总额</text>
-          <price fill decimalSmaller wr-class="pay-item__right font-bold" price="{{order.totalAmount || '0'}}" />
-        </view> -->
         <view class="pay-item">
           <text>运费</text>
           <view class="pay-item__right font-bold">
@@ -75,14 +71,14 @@
         </view>
       </view>
       <view class="border-bottom border-bottom-margin" />
-      <view class="pay-service" wx:if="{{storeDetail && storeDetail.storeTel}}" catch:tap="clickService">
+      <view class="pay-service" catch:tap="clickService">
         <t-icon name="service" size="40rpx" />
         <text decode="{{true}}">&nbsp;联系客服</text>
       </view>
     </view>
   </view>
-  <view wx:if="{{_order.buttons.length > 0}}" class="bottom-bar">
-    <order-button-bar order="{{_order}}" bindrefresh="onRefresh" isBtnMax />
+  <view class="bottom-bar" wx:if="{{order.orderStatus !== 3 && order.orderStatus !== 4}}">
+    <order-button-bar order="{{order}}" goodsIndex="{{order.orderStatus}}" bindrefresh="onRefresh" isBtnMax />
   </view>
 </t-pull-down-refresh>
 <t-toast id="t-toast" />

@@ -1,3 +1,4 @@
 <goods-card hidden="{{hidden}}" class="order-goods-card {{ step ? 'order-goods-card--step' : '' }}" data="{{goods}}" thumb-width="{{thumbWidth}}" thumb-height="{{thumbHeight}}" thumb-width-in-popup="{{thumbWidthInPopup}}" thumb-height-in-popup="{{thumbHeightInPopup}}">
   <slot name="footer" slot="footer" />
+  <slot name="append-card" slot="append-card" />
 </goods-card>

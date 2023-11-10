@@ -13,7 +13,7 @@
           <t-input slot="note" class="t-input" t-class="field-text" borderless placeholder="省/市/区" data-item="address" value="{{locationState.provinceName ? locationState.provinceName+'/':'' }}{{locationState.cityName ? locationState.cityName+'/':''}}{{locationState.districtName ? locationState.districtName+'/':''}}" catch:tap="onPickArea" disabled />
         </t-cell>
         <t-cell class="form-cell" t-class-title="t-cell-title" title="详细地址" bordered="{{false}}">
-          <view slot="note" class="textarea__wrapper">
+          <view slot="note" class="textarea__wrapper width_max">
             <t-textarea slot="note" type="text" value="{{locationState.detailAddress}}" placeholder="门牌号等(例如:10栋1001号)" autosize bind:change="onInputValue" data-item="detailAddress" />
           </view>
         </t-cell>

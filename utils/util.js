@@ -1,43 +1,3 @@
-import dayjs from 'dayjs';
-
-const formatTime = (date, template) => dayjs(date).format(template);
-
-/**
- * 获取cdn裁剪后链接
- *
- * @param {string} url 基础链接
- * @param {number} width 宽度，单位px
- * @param {number} [height] 可选，高度，不填时与width同值
- */
-const cosThumb = (url, width, height = width) => {
-  if (url.indexOf('?') > -1) {
-    return url;
-  }
-
-  if (url.indexOf('http://') === 0) {
-    url = url.replace('http://', 'https://');
-  }
-
-  return `${url}?imageMogr2/thumbnail/${~~width}x${~~height}`;
-};
-
-const get = (source, paths, defaultValue) => {
-  if (typeof paths === 'string') {
-    paths = paths
-      .replace(/\[/g, '.')
-      .replace(/\]/g, '')
-      .split('.')
-      .filter(Boolean);
-  }
-  const {
-    length
-  } = paths;
-  let index = 0;
-  while (source != null && index < length) {
-    source = source[paths[index++]];
-  }
-  return source === undefined || index === 0 ? defaultValue : source;
-};
 let systemWidth = 0;
 /** 获取系统宽度，为了减少启动消耗所以在函数里边做初始化 */
 export const loadSystemWidth = () => {
@@ -156,9 +116,6 @@ function request(url, data = {}, method = "GET", code) {
 }
 
 module.exports = {
-  formatTime,
-  cosThumb,
-  get,
   rpx2px,
   phoneRegCheck,
   request,

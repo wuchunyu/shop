@@ -1,5 +1,5 @@
 <view class="comments-card-item wr-class">
-  <view class="comments-card-item-container">
+  <view class="comments-card-item-container width_max">
     <view class="comments-title">
       <view class="flex comments-card-item-userImg">
         <t-image t-class="userImg" src="{{userHeadUrl}}" />

@@ -37,7 +37,6 @@ Page({
 
   onLoad(option) {
     let item = JSON.parse(option.item);
-    console.log(item);
     this.setData({
       tabId: item.tabId
     })
@@ -113,8 +112,6 @@ Page({
             _this.goodListPagination.index = pageIndex;
             _this.goodListPagination.num = pageSize;
           })
-        } else {
-          console.log('登录失败！' + res.errMsg)
         }
       }
     })
