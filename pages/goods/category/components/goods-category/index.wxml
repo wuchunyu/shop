@@ -8,7 +8,7 @@
         <block wx:for="{{category[activeKey].children}}" wx:key="index">
           <view class="goods-category-normal-item-container-item" bindtap="changCategory" data-item="{{item}}">
             <t-image src="{{item.thumbnail}}" t-class="image" />
-            <view class="flex goods-title">
+            <view class="flex goods_title">
               {{item.name}}
             </view>
           </view>

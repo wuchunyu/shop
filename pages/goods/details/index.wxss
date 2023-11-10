@@ -95,14 +95,14 @@ page {
   line-height: 42rpx;
 }
 
-.goods_detail-page .goods-info .goods-title {
+.goods_detail-page .goods-info .goods_title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 20rpx;
 }
 
-.goods_detail-page .goods-info .goods-title .goods-name {
+.goods_detail-page .goods-info .goods_title .goods-name {
   width: 600rpx;
   font-weight: 500;
   display: -webkit-box;
@@ -114,12 +114,12 @@ page {
   color: #333333;
 }
 
-.goods_detail-page .goods-info .goods-title .goods-tag {
+.goods_detail-page .goods-info .goods_title .goods-tag {
   width: 104rpx;
   margin-left: 26rpx;
 }
 
-.goods_detail-page .goods-info .goods-title .goods-tag .shareBtn {
+.goods_detail-page .goods-info .goods_title .goods-tag .shareBtn {
   border-radius: 200rpx 0px 0px 200rpx;
   width: 100rpx;
   height: 96rpx;
@@ -127,11 +127,11 @@ page {
   padding-right: 36rpx !important;
 }
 
-.goods_detail-page .goods-info .goods-title .goods-tag .shareBtn::after {
+.goods_detail-page .goods-info .goods_title .goods-tag .shareBtn::after {
   border: none;
 }
 
-.goods_detail-page .goods-info .goods-title .goods-tag .btn-icon {
+.goods_detail-page .goods-info .goods_title .goods-tag .btn-icon {
   font-size: 20rpx;
   display: flex;
   flex-direction: column;
@@ -141,7 +141,7 @@ page {
   color: #999;
 }
 
-.goods_detail-page .goods-info .goods-title .goods-tag .btn-icon .share-text {
+.goods_detail-page .goods-info .goods_title .goods-tag .btn-icon .share-text {
   padding-top: 8rpx;
   font-size: 20rpx;
   line-height: 24rpx;

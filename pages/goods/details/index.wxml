@@ -8,7 +8,7 @@
         </view>
         <view class="sold-num">已售{{details.soldNum}}</view>
       </view>
-      <view class="goods-title">
+      <view class="goods_title">
         <view class="goods-name">{{details.title}}</view>
       </view>
       <view class="goods-intro">{{intro}}</view>

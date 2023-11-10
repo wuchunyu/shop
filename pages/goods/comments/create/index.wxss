@@ -2,55 +2,55 @@ page {
   background-color: #f5f5f5;
 }
 
-.page-container .comment-card {
+.page-container .comment_card {
   padding: 24rpx 32rpx 28rpx;
   background-color: #ffffff;
 }
 
-.comment-card .goods-info-container .goods-image {
+.comment_card .goods_info_container .goods_image {
   width: 112rpx;
   height: 112rpx;
   border-radius: 8rpx;
 }
 
-.comment-card .goods-info-container {
+.comment_card .goods_info_container {
   display: flex;
   align-items: center;
 }
 
-.comment-card .goods-info-container .goods_title_container {
+.comment_card .goods_info_container .goods_title_container {
   padding-left: 24rpx;
 }
 
-.comment-card .goods-info-container .goods-title {
+.comment_card .goods_info_container .goods_title {
   font-size: 28rpx;
   font-weight: normal;
 }
 
-.comment-card .goods-info-container .goods_detail {
+.comment_card .goods_info_container .goods_detail {
   font-size: 24rpx;
   font-weight: normal;
   color: #999999;
   margin-top: 16rpx;
 }
 
-.comment-card .rate-container {
+.comment_card .rate-container {
   display: flex;
   align-items: center;
   margin-top: 22rpx;
 }
 
-.comment-card .rate-container .rate-title {
+.comment_card .rate-container .rate-title {
   font-size: 28rpx;
   font-weight: bold;
   margin-right: 12rpx;
 }
 
-.comment-card .textarea-container {
+.comment_card .textarea-container {
   margin-top: 22rpx;
 }
 
-.comment-card .textarea-container .textarea {
+.comment_card .textarea-container .textarea {
   height: 294rpx;
   background-color: #f5f5f5;
   border-radius: 16rpx;
@@ -62,12 +62,12 @@ page {
   display: none;
 }
 
-.page-container .anonymous-box {
+.page-container .anonymous_box {
   align-items: center;
   padding-top: 52rpx;
 }
 
-.page-container .anonymous-box .name {
+.page-container .anonymous_box .name {
   font-size: 28rpx;
   font-weight: normal;
   color: #999999;
@@ -82,19 +82,19 @@ page {
   display: none;
 }
 
-.comment-card .convey-comment-title {
+.comment_card .convey-comment-title {
   font-size: 28rpx;
   font-weight: bold;
 }
 
-.convey-card {
+.convey_card {
   background-color: #ffffff;
   margin-top: 24rpx;
   padding: 32rpx;
   padding-bottom: calc(env(safe-area-inset-bottom) + 140rpx);
 }
 
-.convey-card .rate-container .rate-title {
+.convey_card .rate-container .rate-title {
   font-weight: normal;
 }
 
@@ -104,7 +104,6 @@ page {
 
 .submit-button-container {
   padding: 12rpx 32rpx;
-  display: flex;
   width: 100vw;
   box-sizing: border-box;
   justify-content: center;

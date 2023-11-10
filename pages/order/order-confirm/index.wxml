@@ -5,9 +5,9 @@
   <address-card addressData="{{address}}" bind:addclick="onGotoAddress" bind:addressclick="onGotoAddress" />
   <view class="order-wrapper">
     <view wx:if="{{orderCardList.length > 0}}" wx:for="{{orderCardList}}" wx:for-item="goods" wx:for-index="gIndex" wx:key="id" class="goods-wrapper">
-      <t-image src="{{goods.images[0]}}" t-class="goods-image" mode="aspectFill" />
+      <t-image src="{{goods.images[0]}}" t-class="goods_image" mode="aspectFill" />
       <view class="goods-content">
-        <view class="goods-title">{{goods.title}}</view>
+        <view class="goods_title">{{goods.title}}</view>
         <view>
           <span wx:for="{{goods.specList}}" wx:for-item="specs">{{specs.specValue}}</span>
         </view>

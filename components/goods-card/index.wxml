@@ -5,7 +5,7 @@
     </view>
     <view class="flex goods-card__body">
       <view class="flex goodsCardUpper">
-        <view wx:if="{{ goods.title }}" class="goods-card__title">
+        <view wx:if="{{ goods.title }}" class="hidden goods_card__title">
           {{ goods.title }}
         </view>
       </view>

@@ -1,11 +1,11 @@
 <view class="page-container">
-  <view class="comment-card">
-    <view class="goods-info-container">
-      <view class="goods-image-container">
-        <t-image t-class="goods-image" src="{{imgUrl}}" />
+  <view class="comment_card">
+    <view class="goods_info_container">
+      <view class="goods_image-container">
+        <t-image t-class="goods_image" src="{{imgUrl}}" />
       </view>
       <view class="goods_title_container">
-        <view class="goods-title">{{title}}</view>
+        <view class="goods_title">{{title}}</view>
         <view class="goods_detail">{{goodsDetail}}</view>
       </view>
     </view>
@@ -22,13 +22,13 @@
       <t-upload media-type="{{['image','video']}}" files="{{uploadFiles}}" bind:remove="handleRemove" bind:success="handleSuccess" gridConfig="{{gridConfig}}" imageProps="{{imageProps}}" />
     </view>
 
-    <view class="flex anonymous-box">
+    <view class="flex anonymous_box">
       <t-checkbox bind:change="onAnonymousChange" checked="{{isAnonymous}}" color="#FA4126" />
       <view class="name">匿名评价</view>
     </view>
   </view>
 </view>
-<view class="comment-card convey-card">
+<view class="comment_card convey_card">
   <view class="convey-comment-title">物流服务评价</view>
   <view class="rate-container">
     <text class="rate-title">物流评价</text>
@@ -43,7 +43,7 @@
     </view>
   </view>
 </view>
-<view class="fixed submit-button-container">
+<view class="fixed flex submit-button-container">
   <t-button content="提交" block shape="round" t-class="submit-button{{isAllowedSubmit ? '' : '-disabled'}}" bind:tap="onSubmitBtnClick" />
 </view>
 <t-toast id="t-toast" />
