@@ -7,6 +7,7 @@ const AuthStepType = {
 Component({
   options: {
     multipleSlots: true,
+    addGlobalClass: true
   },
   properties: {
     currAuthStep: {

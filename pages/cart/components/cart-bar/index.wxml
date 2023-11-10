@@ -1,5 +1,5 @@
 <view class="cart-bar__placeholder" wx:if="{{fixed}}" />
-<view class="cart-bar {{fixed ? 'cart-bar--fixed' : ''}} flex flex-v-center" style="bottom: {{fixed ? 'calc(' + bottomHeight + 'rpx + env(safe-area-inset-bottom))' : ''}};">
+<view class="cart-bar {{fixed ? 'fixed cart-bar--fixed' : ''}} flex flex-v-center" style="bottom: {{fixed ? 'calc(' + bottomHeight + 'rpx + env(safe-area-inset-bottom))' : ''}};">
   <t-icon size="40rpx" color="{{isAllSelected ? '#FA4126' : '#BBBBBB'}}" name="{{isAllSelected ? 'check-circle-filled' : 'circle'}}" class="cart-bar__check" catchtap="handleSelectAll" />
   <text>全选</text>
   <view class="cart-bar__total flex1">

@@ -18,7 +18,7 @@ page {
   align-items: center;
 }
 
-.comment-card .goods-info-container .goods-title-container {
+.comment-card .goods-info-container .goods_title_container {
   padding-left: 24rpx;
 }
 
@@ -27,7 +27,7 @@ page {
   font-weight: normal;
 }
 
-.comment-card .goods-info-container .goods-detail {
+.comment-card .goods-info-container .goods_detail {
   font-size: 24rpx;
   font-weight: normal;
   color: #999999;
@@ -63,7 +63,6 @@ page {
 }
 
 .page-container .anonymous-box {
-  display: flex;
   align-items: center;
   padding-top: 52rpx;
 }
@@ -109,7 +108,6 @@ page {
   width: 100vw;
   box-sizing: border-box;
   justify-content: center;
-  position: fixed;
   bottom: 0;
   padding-bottom: calc(env(safe-area-inset-bottom) + 20rpx);
   background-color: #ffffff;
@@ -137,23 +135,6 @@ page {
 .page-container .t-upload__wrapper {
   border-radius: 8rpx;
   overflow: hidden;
-}
-
-.page-container .submmit-bar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 12;
-  padding: 12rpx 32rpx;
-  padding-bottom: env(safe-area-inset-bottom);
-  background-color: #fff;
-  height: 112rpx;
-}
-
-.page-container .submmit-bar-button {
-  border-radius: 48rpx !important;
-  padding: 0 !important;
 }
 
 .page-container .t-upload__close-btn {

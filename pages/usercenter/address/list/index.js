@@ -1,10 +1,6 @@
 /* eslint-disable no-param-reassign */
 import Toast from 'tdesign-miniprogram/toast/index';
 import {
-  resolveAddress,
-  rejectAddress
-} from './util';
-import {
   request
 } from '../../../../utils/util';
 
@@ -35,11 +31,6 @@ Page({
 
   init() {
     this.getAddressList();
-  },
-  onUnload() {
-    if (this.selectMode && !this.hasSelect) {
-      rejectAddress();
-    }
   },
   getAddressList() {
     let _this = this;
@@ -108,7 +99,6 @@ Page({
   }) {
     if (this.selectMode) {
       this.hasSelect = true;
-      resolveAddress(detail);
       wx.navigateBack({
         delta: 1
       });

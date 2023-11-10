@@ -5,13 +5,6 @@
   background: #fff;
 }
 
-.filter-right-content {
-  height: 100%;
-  flex-basis: 100rpx;
-  text-align: center;
-  line-height: 88rpx;
-}
-
 .filterLeftContent {
   height: 100%;
   flex-grow: 2;

@@ -212,7 +212,6 @@
 }
 
 .bottom-bar {
-  position: fixed;
   left: 0;
   bottom: 0;
   right: 0;
@@ -221,7 +220,6 @@
   height: 112rpx;
   width: 686rpx;
   padding: 0rpx 32rpx env(safe-area-inset-bottom);
-  display: flex;
   align-items: center;
 }
 

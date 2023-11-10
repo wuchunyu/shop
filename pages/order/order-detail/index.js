@@ -1,6 +1,5 @@
 import { request } from '../../../utils/util';
 import Toast from 'tdesign-miniprogram/toast/index';
-import { getAddressPromise } from '../../usercenter/address/list/util';
 
 Page({
   data: {
@@ -42,22 +41,6 @@ Page({
   init() {
     this.setData({ pageLoading: true });
     // this.getStoreDetail();
-  },
-
-  onEditAddressTap() {
-    getAddressPromise()
-      .then((address) => {
-        this.setData({
-          'order.logisticsVO.receiverName': address.name,
-          'order.logisticsVO.receiverPhone': address.phone,
-          '_order.receiverAddress': address.address,
-        });
-      })
-      .catch(() => { });
-
-    wx.navigateTo({
-      url: `/pages/usercenter/address/list/index?selectMode=1`,
-    });
   },
 
   onOrderNumCopy() {

@@ -1,5 +1,4 @@
 .user-center-card {
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -10,7 +9,7 @@
   padding: 0 24rpx;
 }
 
-.user-center-card__header {
+.userCenterCardHeader {
   margin-top: 192rpx;
   margin-bottom: 48rpx;
   height: 96rpx;
@@ -35,15 +34,6 @@
   font-weight: bold;
   margin-left: 24rpx;
   margin-right: 16rpx;
-}
-
-.user-center-card__header__transparent {
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: transparent;
-  height: 100%;
-  width: 100%;
 }
 
 .user-center-card__icon {

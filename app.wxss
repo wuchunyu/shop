@@ -2,8 +2,20 @@
 
 @import 'style/theme.wxss';
 
+.text_center {
+  text-align: center;
+}
+
 .flex {
   display: flex;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
 }
 
 .width_max {

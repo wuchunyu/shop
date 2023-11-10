@@ -77,7 +77,7 @@
       </view>
     </view>
   </view>
-  <view class="bottom-bar" wx:if="{{order.orderStatus !== 3 && order.orderStatus !== 4}}">
+  <view class="fixed flex bottom-bar" wx:if="{{order.orderStatus !== 3 && order.orderStatus !== 4}}">
     <order-button-bar order="{{order}}" goodsIndex="{{order.orderStatus}}" bindrefresh="onRefresh" isBtnMax />
   </view>
 </t-pull-down-refresh>
