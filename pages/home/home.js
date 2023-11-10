@@ -56,7 +56,6 @@ Page({
     });
     wx.login({
       success(res) {
-
         if (res.code) {
           //发起网络请求
           request('/fetchHome', {}, 'GET', res.code).then(res => { // 首页轮播图、分类名称

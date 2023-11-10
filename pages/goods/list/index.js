@@ -21,9 +21,6 @@ Page({
     navigation: {
       type: 'dots'
     },
-    swiperImageProps: {
-      mode: 'scaleToFill'
-    },
   },
 
   goodListPagination: {
