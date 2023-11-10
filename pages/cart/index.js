@@ -4,7 +4,7 @@ import {
 
 Page({
   data: {
-    cartGroupData: null,
+    cartData: null,
     selectedGoodsCount: 0,
   },
 
@@ -28,9 +28,9 @@ Page({
         if (res.code) {
           //发起网络请求 
           request('/fetchCartGroupData', {}, 'GET', res.code).then(res => {
-            const cartGroupData = res.data;
+            const cartData = res.data;
             _this.setData({
-              cartGroupData
+              cartData
             });
             _this.onselectedGoodsCount();
           });
@@ -44,13 +44,13 @@ Page({
       cartId,
       isSelected,
     } = e.detail;
-    this.data.cartGroupData.forEach(item => {
+    this.data.cartData.forEach(item => {
       if (item.cartId == cartId) {
         item.isSelected = isSelected;
       }
     })
     this.setData({
-      cartGroupData: this.data.cartGroupData
+      cartData: this.data.cartData
     })
     let _this = this;
     wx.login({
@@ -71,13 +71,13 @@ Page({
       cartId,
       value,
     } = e.detail;
-    this.data.cartGroupData.forEach(item => {
+    this.data.cartData.forEach(item => {
       if (item.cartId == cartId) {
         item.stockQuantity = value;
       }
     })
     this.setData({
-      cartGroupData: this.data.cartGroupData
+      cartData: this.data.cartData
     })
     let _this = this;
     wx.login({
@@ -126,11 +126,11 @@ Page({
 
   onSelectAll(e) {
     const { isAllSelected } = e.detail;
-    this.data.cartGroupData.forEach(item => {
+    this.data.cartData.forEach(item => {
       item.isSelected = isAllSelected;
     })
     this.setData({
-      cartGroupData: this.data.cartGroupData,
+      cartData: this.data.cartData,
       isAllSelected
     })
     this.onselectedGoodsCount();
@@ -138,7 +138,7 @@ Page({
 
   onselectedGoodsCount() {
     let selectedGoodsCount = 0, isAllSelected = true;
-    this.data.cartGroupData.forEach(item => {
+    this.data.cartData.forEach(item => {
       if (item.isSelected == true || item.isSelected == 1) {
         selectedGoodsCount = selectedGoodsCount + (item.price * item.stockQuantity);
       } else {
@@ -154,7 +154,7 @@ Page({
 
   onToSettle() {
     wx.navigateTo({
-      url: `/pages/order/order-confirm/index?orderCardList=${JSON.stringify(this.data.cartGroupData)}`
+      url: `/pages/order/order-confirm/index?orderCardList=${JSON.stringify(this.data.cartData)}`
     });
   },
   onGotoHome() {

@@ -1,6 +1,6 @@
 <!-- 分层购物车 -->
-<block wx:if="{{cartGroupData}}">
-  <cart-group store-goods="{{ cartGroupData }}" bindselectgoods="onGoodsSelect" bindchangequantity="onQuantityChange" bindgoodsclick="goGoodsDetail" binddelete="onGoodsDelete" />
+<block wx:if="{{ cartData}}">
+  <cart-group store-goods="{{  cartData }}" bindselectgoods="onGoodsSelect" bindchangequantity="onQuantityChange" bindgoodsclick="goGoodsDetail" binddelete="onGoodsDelete" />
 
   <view class="gap width_max" />
   <!-- 商品小计以及结算按钮 -->

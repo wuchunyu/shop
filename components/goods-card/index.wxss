@@ -30,9 +30,10 @@
   margin: 0;
 }
 
-.goods-card__img {
+.goodsCardImg {
   display: block;
   height: 100%;
+  width: 100%;
   border-radius: 16rpx 16rpx 0 0;
   overflow: hidden;
 }
