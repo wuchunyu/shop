@@ -3,9 +3,15 @@
   <view class="order-detail">
     <view class="header">
       <view class="order-detail__header">
-        <view class="title">{{_order.statusDesc}}</view>
-        <view class="desc">
+        <view class="title">
           <block>{{orderStatusList[order.orderStatus]}}</block>
+        </view>
+        <view class="desc">
+          <block wx:if="{{order.orderStatus === 0}}">
+            剩
+            <t-count-down time="{{order.autoCancelTime}}" format="HH小时mm分ss秒" t-class="count-down" bindfinish="onCountDownFinish" />
+            支付，过时订单将会取消
+          </block>
         </view>
       </view>
 

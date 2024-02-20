@@ -15,8 +15,12 @@ Page({
   },
 
   onLoad(query) {
+    let order = JSON.parse(query.orderNo);
+    if (order.orderStatus === 0) {
+      order.autoCancelTime = order.autoCancelTime - (new Date().getTime());
+    }
     this.setData({
-      order: JSON.parse(query.orderNo)
+      order
     })
     this.init();
     this.navbar = this.selectComponent('#navbar');

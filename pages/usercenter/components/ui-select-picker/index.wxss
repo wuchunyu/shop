@@ -10,7 +10,6 @@
 .cityPickerHeader {
   height: 100rpx;
   line-height: 100rpx;
-  text-align: center;
   font-size: 32rpx;
   color: #333333;
 }
@@ -86,7 +85,6 @@
   height: 300rpx;
   margin: 50rpx 0;
   line-height: 88rpx;
-  text-align: center;
 }
 
 /* 似乎小程序picker-view的bug，indicator-class仅height生效，其他诸如line-height、text-align等放到父class中设置 */

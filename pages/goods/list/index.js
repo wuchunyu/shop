@@ -100,6 +100,7 @@ Page({
         if (res.code) {
           //发起网络请求 
           request('/fetchGoodsList', { pageSize, pageIndex, tabId, searchValue }, 'GET', res.code).then(res => {
+            console.log('--1--');
             // 获取商品列表
             const nextList = res.data;
             _this.setData({
