@@ -17,9 +17,6 @@ Component({
     fixed: Boolean,
     isAllSelected: Boolean,
   },
-  data: {
-    isDisabled: false,
-  },
 
   methods: {
     handleSelectAll() {
@@ -28,7 +25,7 @@ Component({
       });
     },
     handleToSettle() {
-      if (this.data.isDisabled) return;
+      if (this.properties.totalAmount == 0) return;
       this.triggerEvent('handleToSettle');
     },
   },

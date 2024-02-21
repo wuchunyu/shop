@@ -1,5 +1,3 @@
-import Toast from 'tdesign-miniprogram/toast/index';
-
 Component({
   externalClasses: ['wr-class'],
   properties: {
@@ -21,10 +19,11 @@ Component({
 
     // 选中商品
     selectGoods(e) {
+      console.log('--selectGoods--', e);
       const { goods } = e.currentTarget.dataset;
       this.triggerEvent('selectgoods', {
         cartId: goods.cartId,
-        isSelected: !goods.isSelected,
+        isSelected: goods.isSelected == 1 ? 0 : 1,
       });
     },
 

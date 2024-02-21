@@ -15,7 +15,7 @@ Page({
     let total = 0, totalPrice = 0;
     orderCardList.forEach(item => {
       total = total + item.stockQuantity;
-      totalPrice = item.stockQuantity * item.price;
+      totalPrice = totalPrice + item.stockQuantity * item.price;
     })
     this.setData({
       total,

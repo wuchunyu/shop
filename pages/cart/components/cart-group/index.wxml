@@ -1,11 +1,11 @@
-<wxs src="./index.wxs" module="handlePromotion" />
+<!-- <wxs src="./index.wxs" module="handlePromotion" /> -->
 
 <view class="cart-group">
   <view class="goods-wrap" wx:for="{{storeGoods}}" wx:for-item="goods" wx:for-index="si" wx:key="storeId">
     <swipeout right-width="{{ 72 }}">
       <view class="goods-item-info">
         <view class="check-wrap" catchtap="selectGoods" data-goods="{{goods}}">
-          <t-icon size="40rpx" color="{{goods.isSelected ? '#FA4126' : '#BBBBBB'}}" name="{{goods.isSelected ? 'check-circle-filled' : 'circle'}}" class="check" />
+          <t-icon size="40rpx" color="{{goods.isSelected == 1 ? '#FA4126' : '#BBBBBB'}}" name="{{goods.isSelected == 1 ? 'check-circle-filled' : 'circle'}}" class="check" />
         </view>
         <view class="goods-sku-info">
           <goods-card layout="horizontal-wrap" thumb-width="{{thumbWidth}}" thumb-height="{{thumbHeight}}" data="{{goods}}" data-goods="{{goods}}" catchclick="goGoodsDetail">

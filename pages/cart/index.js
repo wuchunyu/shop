@@ -40,6 +40,7 @@ Page({
   },
 
   onGoodsSelect(e) {
+    console.log('--onGoodsSelect--', e);
     const {
       cartId,
       isSelected,
@@ -52,6 +53,7 @@ Page({
     this.setData({
       cartData: this.data.cartData
     })
+    console.log('--onGoodsSelect--', this.data.cartData);
     let _this = this;
     wx.login({
       success(res) {
@@ -127,7 +129,7 @@ Page({
   onSelectAll(e) {
     const { isAllSelected } = e.detail;
     this.data.cartData.forEach(item => {
-      item.isSelected = isAllSelected;
+      item.isSelected = isAllSelected ? 1 : 0;
     })
     this.setData({
       cartData: this.data.cartData,
@@ -153,8 +155,15 @@ Page({
   },
 
   onToSettle() {
+    console.log('--onToSettle--', this.data.cartData);
+    let orderCardList = [];
+    this.data.cartData.forEach(item => {
+      if (item.isSelected == 1) {
+        orderCardList.push(item)
+      }
+    })
     wx.navigateTo({
-      url: `/pages/order/order-confirm/index?orderCardList=${JSON.stringify(this.data.cartData)}`
+      url: `/pages/order/order-confirm/index?orderCardList=${JSON.stringify(orderCardList)}`
     });
   },
   onGotoHome() {
