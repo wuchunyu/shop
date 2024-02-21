@@ -44,18 +44,12 @@ Page({
             spuId: options.spuId,
           }, 'POST', res.code).
             then((result) => {
-              this.setData({
-                countObj: result.data,
-              });
-              const {
-                data,
-                code = ''
-              } = result;
+              console.log('--result.data--', result.data);
               wx.setNavigationBarTitle({
-                title: `全部评价(${data.commentCount})`,
+                title: `全部评价(${result.data.commentCount})`,
               });
-              this.setData({
-                countObj: data,
+              _this.setData({
+                countObj: result.data,
               });
             });
         }
