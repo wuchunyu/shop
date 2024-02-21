@@ -117,19 +117,6 @@ Page({
     this.refreshList(value);
   },
 
-  getOrdersCount() {
-    let _this = this;
-    wx.login({
-      success(res) {
-        if (res.code) {
-          //发起网络请求 
-          request('/fetchOrdersCount', {}, 'GET', res.code).then((res) => {
-          });
-        }
-      }
-    })
-  },
-
   refreshList(status = -1) {
     this.page = {
       size: this.page.size,
@@ -139,7 +126,6 @@ Page({
 
     return Promise.all([
       this.getOrderList(status, true),
-      // this.getOrdersCount(),
     ]);
   },
 

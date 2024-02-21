@@ -107,10 +107,13 @@ Page({
     });
 
     const pageSize = this.goodListPagination.num;
+
     let pageIndex = this.goodListPagination.index + 1;
+    console.log('--this.goodListPagination.index--', this.goodListPagination.index, this.goodListPagination.index + 1, pageIndex);
     if (fresh) {
-      pageIndex = 0;
+      pageIndex = 1;
     }
+    console.log('--pageIndex--', pageIndex);
     const { tabId, searchValue } = this.data;
     wx.login({
       success(res) {
@@ -119,7 +122,7 @@ Page({
           request('/fetchGoodsList', { pageSize, pageIndex, tabId, searchValue }, 'GET', res.code).then(res => {
             console.log('--0--');
             // 获取商品列表
-            const nextList = res.data;
+            const nextList = res.data.list;
             _this.setData({
               goodsList: fresh ? nextList : _this.data.goodsList.concat(nextList),
               goodsListLoadStatus: 0,
