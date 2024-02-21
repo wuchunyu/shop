@@ -47,6 +47,13 @@ Page({
     // this.getStoreDetail();
   },
 
+  editAddressHandle() {
+    console.log('--editAddressHandle--', this.data.order);
+    wx.navigateTo({
+      url: `/pages/usercenter/address/edit/index?detail=${JSON.stringify(this.data.order.orderAddress)}`
+    });
+  },
+
   onOrderNumCopy() {
     wx.setClipboardData({
       data: this.data.order.uid,

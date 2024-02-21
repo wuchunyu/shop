@@ -23,7 +23,7 @@
           <view>{{order.orderAddress.name + ' '}}{{order.orderAddress.phone}}</view>
           <view class="logistics-time">{{order.orderAddress.provinceName + ' ' + order.orderAddress.cityName + ' ' + order.orderAddress.districtName + ' ' + order.orderAddress.detailAddress}}</view>
         </view>
-        <view wx:if="{{order.orderStatus === 0 || order.orderStatus === 1}}" class="edit-text" bindtap="onEditAddressTap"> 修改 </view>
+        <view wx:if="{{order.orderStatus === 0 || order.orderStatus === 1}}" class="edit-text" bindtap="editAddressHandle"> 修改 </view>
       </view>
     </view>
     <!-- 店铺及商品 -->

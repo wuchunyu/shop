@@ -78,6 +78,7 @@ Page({
     }
   },
   deleteAddressHandle(e) {
+    console.log('--deleteAddressHandle--');
     const {
       id
     } = e.currentTarget.dataset;
@@ -90,23 +91,10 @@ Page({
   editAddressHandle({
     detail
   }) {
+    console.log('--editAddressHandle--', detail);
     wx.navigateTo({
       url: `/pages/usercenter/address/edit/index?detail=${JSON.stringify(detail)}`
     });
-  },
-  selectHandle({
-    detail
-  }) {
-    if (this.selectMode) {
-      this.hasSelect = true;
-      wx.navigateBack({
-        delta: 1
-      });
-    } else {
-      this.editAddressHandle({
-        detail
-      });
-    }
   },
   createHandle() {
     wx.navigateTo({
