@@ -48,7 +48,6 @@ Page({
   },
 
   editAddressHandle() {
-    console.log('--editAddressHandle--', this.data.order);
     wx.navigateTo({
       url: `/pages/usercenter/address/edit/index?detail=${JSON.stringify(this.data.order.orderAddress)}`
     });

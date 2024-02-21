@@ -26,7 +26,6 @@ Page({
   },
 
   onReachBottom() {
-    console.log('--onReachBottom--');
     if (this.data.is_next) {
       this.loadGoodsList();
     }
@@ -99,14 +98,12 @@ Page({
     if (fresh) {
       pageIndex = 1;
     }
-    console.log('--pageIndex--', pageIndex);
     const { tabId, searchValue } = this.data;
     wx.login({
       success(res) {
         if (res.code) {
           //发起网络请求 
           request('/fetchGoodsList', { pageSize: 20, pageIndex, tabId, searchValue }, 'GET', res.code).then(res => {
-            console.log('--0--');
             // 获取商品列表
             const nextList = res.data.list;
             _this.setData({

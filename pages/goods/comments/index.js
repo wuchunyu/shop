@@ -44,7 +44,6 @@ Page({
             spuId: options.spuId,
           }, 'POST', res.code).
             then((result) => {
-              console.log('--result.data--', result.data);
               wx.setNavigationBarTitle({
                 title: `全部评价(${result.data.commentCount})`,
               });

@@ -32,7 +32,6 @@ Component({
     // 点击【订单操作】按钮，根据按钮类型分发
     onOrderBtnTap(e) {
       const { type } = e.currentTarget.dataset;
-      console.log('--type--', type);
       switch (type) {
         case 2:
           this.onCancel();

@@ -19,7 +19,6 @@ Component({
 
     // 选中商品
     selectGoods(e) {
-      console.log('--selectGoods--', e);
       const { goods } = e.currentTarget.dataset;
       this.triggerEvent('selectgoods', {
         cartId: goods.cartId,

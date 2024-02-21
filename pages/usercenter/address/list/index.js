@@ -78,7 +78,6 @@ Page({
     }
   },
   deleteAddressHandle(e) {
-    console.log('--deleteAddressHandle--');
     const {
       id
     } = e.currentTarget.dataset;
@@ -91,7 +90,6 @@ Page({
   editAddressHandle({
     detail
   }) {
-    console.log('--editAddressHandle--', detail);
     wx.navigateTo({
       url: `/pages/usercenter/address/edit/index?detail=${JSON.stringify(detail)}`
     });
