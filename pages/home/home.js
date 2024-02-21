@@ -1,4 +1,3 @@
-import Toast from 'tdesign-miniprogram/toast/index';
 import {
   request
 } from '../../utils/util';
@@ -10,19 +9,12 @@ Page({
     tabId: '',
     searchValue: '',
     goodsList: [],
-    goodsListLoadStatus: 0,
+    is_next: true,
     pageLoading: false,
-    navigation: {
-      type: 'dots'
-    },
-    swiperImageProps: {
-      mode: 'scaleToFill'
-    },
   },
 
   goodListPagination: {
     index: 0,
-    num: 20,
   },
 
   onShow() {
@@ -34,7 +26,8 @@ Page({
   },
 
   onReachBottom() {
-    if (this.data.goodsListLoadStatus === 0) {
+    console.log('--onReachBottom--');
+    if (this.data.is_next) {
       this.loadGoodsList();
     }
   },
@@ -102,14 +95,7 @@ Page({
       });
     }
 
-    this.setData({
-      goodsListLoadStatus: 1
-    });
-
-    const pageSize = this.goodListPagination.num;
-
     let pageIndex = this.goodListPagination.index + 1;
-    console.log('--this.goodListPagination.index--', this.goodListPagination.index, this.goodListPagination.index + 1, pageIndex);
     if (fresh) {
       pageIndex = 1;
     }
@@ -119,16 +105,15 @@ Page({
       success(res) {
         if (res.code) {
           //发起网络请求 
-          request('/fetchGoodsList', { pageSize, pageIndex, tabId, searchValue }, 'GET', res.code).then(res => {
+          request('/fetchGoodsList', { pageSize: 20, pageIndex, tabId, searchValue }, 'GET', res.code).then(res => {
             console.log('--0--');
             // 获取商品列表
             const nextList = res.data.list;
             _this.setData({
               goodsList: fresh ? nextList : _this.data.goodsList.concat(nextList),
-              goodsListLoadStatus: 0,
+              is_next: res.data.is_next
             });
             _this.goodListPagination.index = pageIndex;
-            _this.goodListPagination.num = pageSize;
           })
         }
       }
@@ -145,11 +130,5 @@ Page({
     wx.navigateTo({
       url: `/pages/goods/details/index?spuId=${spuId}`,
     });
-  },
-
-  navToSearchPage() {
-    // wx.navigateTo({
-    //   url: '/pages/goods/search/index'
-    // });
-  },
+  }
 });

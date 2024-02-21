@@ -125,11 +125,5 @@ Page({
     wx.navigateTo({
       url: `/pages/goods/details/index?spuId=${spuId}`,
     });
-  },
-
-  navToSearchPage() {
-    // wx.navigateTo({
-    //   url: '/pages/goods/search/index'
-    // });
-  },
+  }
 });
