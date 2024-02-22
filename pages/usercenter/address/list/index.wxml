@@ -1,7 +1,12 @@
 <view class="address-container">
   <view class="address-list" wx:if="{{addressList.length > 0}}">
     <block wx:for="{{addressList}}" wx:for-index="index" wx:for-item="address" wx:key="addressId">
-      <t-address-item isDrawLine="{{index+1 !== addressList.length}}" extra-space="{{extraSpace}}" class-prefix="ym" address="{{address}}" bind:onDelete="deleteAddressHandle" bind:onEdit="editAddressHandle" />
+      <view style="display: flex; align-items: center;">
+        <view style="margin-left: 2%;display: {{type == '0' ? 'none' : '' }}" class="check-wrap" catchtap="selectaddress" data-address="{{address}}">
+          <t-icon size="40rpx" color="{{address.address_id == address_id ? '#FA4126' : '#BBBBBB'}}" name="{{address.address_id == address_id ? 'check-circle-filled' : 'circle'}}" class="check" />
+        </view>
+        <t-address-item style="width: 100%;" isDrawLine="{{index+1 !== addressList.length}}" extra-space="{{extraSpace}}" class-prefix="ym" address="{{address}}" bind:onDelete="deleteAddressHandle" bind:onEdit="editAddressHandle" />
+      </view>
     </block>
   </view>
   <view wx:else class="no-address">

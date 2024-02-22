@@ -3,29 +3,24 @@ import Toast from 'tdesign-miniprogram/toast/index';
 import {
   request
 } from '../../../../utils/util';
+const app = getApp();
 
 Page({
   data: {
     addressList: [],
     deleteID: '',
-    showDeleteConfirm: false,
-    isOrderSure: false,
+    type: '0',
+    address_id: ''
   },
-
-  /** 选择模式 */
-  selectMode: false,
   /** 是否已经选择地址，不置为true的话页面离开时会触发取消选择行为 */
   hasSelect: false,
 
   onLoad(query) {
-    const {
-      selectMode = '', isOrderSure = '', id = ''
-    } = query;
+    const { type = '0' } = query;
     this.setData({
-      isOrderSure: !!isOrderSure,
-      id,
-    });
-    this.selectMode = !!selectMode;
+      type,
+      address_id: app.globalData.address.address_id
+    })
     this.init();
   },
 
@@ -58,7 +53,6 @@ Page({
     if (id !== undefined) {
       this.setData({
         deleteID: id,
-        showDeleteConfirm: true
       });
       Toast({
         context: this,
@@ -77,6 +71,13 @@ Page({
       });
     }
   },
+  selectaddress(e) {
+    this.setData({
+      address_id: e.currentTarget.dataset.address.address_id
+    })
+    app.globalData.address = e.currentTarget.dataset.address;
+    wx.navigateBack({ delta: 1 });
+  },
   deleteAddressHandle(e) {
     const {
       id
@@ -84,7 +85,6 @@ Page({
     this.setData({
       addressList: this.data.addressList.filter((address) => address.id !== id),
       deleteID: '',
-      showDeleteConfirm: false,
     });
   },
   editAddressHandle({

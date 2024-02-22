@@ -1,6 +1,7 @@
 import {
   request
 } from '../../../utils/util';
+const app = getApp();
 
 Page({
   data: {
@@ -24,17 +25,23 @@ Page({
     })
     this.getAddress();
   },
+  onShow() {
+    if (Object.values(app.globalData.address).length !== 0) {
+      this.setData({
+        address: app.globalData.address
+      })
+    }
+  },
   getAddress() {
     let _this = this;
     wx.login({
       success(res) {
-
         if (res.code) {
           //发起网络请求
           request('/fetchDeliveryAddressList', { userId: 123 }, 'GET', res.code).then(res => {
             if (res.ec === 200) {
               _this.setData({
-                address: res.data[0]
+                address: Object.values(app.globalData.address).length !== 0 ? app.globalData.address : res.data[0]
               })
             }
           });
@@ -43,10 +50,9 @@ Page({
     })
   },
   onGotoAddress() {
-    let id = '';
-
+    app.globalData.address = this.data.address;
     wx.navigateTo({
-      url: `/pages/usercenter/address/list/index?selectMode=1&isOrderSure=1${id}`,
+      url: `/pages/usercenter/address/list/index?type=true`,
     });
   },
   onNotes(e) {

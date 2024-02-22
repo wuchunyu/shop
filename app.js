@@ -1,5 +1,6 @@
 App({
   globalData: {
+    address: {}
   },
   onLaunch: function () { },
   onShow: function () { },
