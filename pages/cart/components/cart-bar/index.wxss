@@ -2,10 +2,6 @@
   height: 100rpx;
 }
 
-.flex {
-  display: flex;
-}
-
 .flex-v-center {
   align-items: center;
 }
@@ -53,7 +49,6 @@
   font-weight: bold;
   line-height: 80rpx;
   color: #ffffff;
-  text-align: center;
 }
 
 .cart-bar .disabled-btn {

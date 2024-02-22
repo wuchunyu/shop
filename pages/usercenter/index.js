@@ -18,12 +18,6 @@ const menuData = [
   ],
 ];
 
-// { key: -1, text: '全部' },
-// { key: 0, text: '待付款' },
-// { key: 1, text: '待发货' },
-// { key: 2, text: '待收货' },
-// { key: 3, text: '已取消' },
-// { key: 4, text: '已完成' },
 const orderTagInfos = [{
   title: '待付款',
   iconName: 'wallet',
