@@ -8,12 +8,9 @@ const app = getApp();
 Page({
   data: {
     addressList: [],
-    deleteID: '',
     type: '0',
     address_id: ''
   },
-  /** 是否已经选择地址，不置为true的话页面离开时会触发取消选择行为 */
-  hasSelect: false,
 
   onLoad(query) {
     const { type = '0' } = query;
@@ -51,9 +48,6 @@ Page({
       id
     } = detail || {};
     if (id !== undefined) {
-      this.setData({
-        deleteID: id,
-      });
       Toast({
         context: this,
         selector: '#t-toast',
@@ -84,7 +78,6 @@ Page({
     } = e.currentTarget.dataset;
     this.setData({
       addressList: this.data.addressList.filter((address) => address.id !== id),
-      deleteID: '',
     });
   },
   editAddressHandle({
