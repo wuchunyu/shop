@@ -18,33 +18,35 @@ const menuData = [
   ],
 ];
 
+// { key: -1, text: '全部' },
+// { key: 0, text: '待付款' },
+// { key: 1, text: '待发货' },
+// { key: 2, text: '待收货' },
+// { key: 3, text: '已取消' },
+// { key: 4, text: '已完成' },
 const orderTagInfos = [{
   title: '待付款',
   iconName: 'wallet',
   orderNum: 0,
-  tabType: 5,
-  status: 1,
+  status: 0,
 },
 {
   title: '待发货',
   iconName: 'deliver',
   orderNum: 0,
-  tabType: 10,
   status: 1,
 },
 {
   title: '待收货',
   iconName: 'package',
   orderNum: 0,
-  tabType: 40,
-  status: 1,
+  status: 2,
 },
 {
   title: '待评价',
   iconName: 'comment',
   orderNum: 0,
-  tabType: 60,
-  status: 1,
+  status: 4,
 },
 ];
 
@@ -71,17 +73,6 @@ Page({
 
   onShow() {
     this.getTabBar().init();
-    this.init();
-  },
-  onPullDownRefresh() {
-    this.init();
-  },
-
-  init() {
-    this.fetUseriInfoHandle();
-  },
-
-  fetUseriInfoHandle() {
   },
 
   onClickCell({
@@ -98,10 +89,10 @@ Page({
         });
         break;
       }
-      case 'service': {
-        this.openMakePhone();
-        break;
-      }
+      // case 'service': {
+      //   this.openMakePhone();
+      //   break;
+      // }
       case 'help-center': {
         Toast({
           context: this,
@@ -126,20 +117,15 @@ Page({
   },
 
   jumpNav(e) {
-    const status = e.detail.tabType;
-
-    if (status === 0) {
-      // wx.navigateTo({
-      //   url: '/pages/order/after-service-list/index'
-      // });
-    } else {
-      wx.navigateTo({
-        url: `/pages/order/order-list/index?status=${status}`
-      });
-    }
+    const status = e.detail.status;
+    console.log('--jumpNav--', e);
+    wx.navigateTo({
+      url: `/pages/order/order-list/index?status=${status}`
+    });
   },
 
   jumpAllOrder() {
+    console.log('--jumpAllOrder--');
     wx.navigateTo({
       url: '/pages/order/order-list/index'
     });
@@ -161,19 +147,6 @@ Page({
     wx.makePhoneCall({
       phone: this.data.customerServiceInfo.servicePhone,
     });
-  },
-
-  gotoUserEditPage() {
-    const {
-      currAuthStep
-    } = this.data;
-    if (currAuthStep === 1) {
-      // wx.navigateTo({
-      //   url: '/pages/usercenter/person-info/index'
-      // });
-    } else {
-      this.fetUseriInfoHandle();
-    }
   },
 
   getVersionInfo() {
