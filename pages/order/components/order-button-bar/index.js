@@ -1,6 +1,5 @@
 import Toast from 'tdesign-miniprogram/toast/index';
 import Dialog from 'tdesign-miniprogram/dialog/index';
-// import { OrderButtonTypes } from '../../config';
 import { request } from '../../../../utils/util'
 import { buttons } from '../config';
 
@@ -27,7 +26,11 @@ Component({
     buttons,
     // buttons: [[{ primary: false, type: 2, name: "取消订单" }, { primary: true, type: 1, name: "付款" }], [{ primary: false, type: 2, name: "取消订单" }, { primary: true, type: 9, name: "再次购买" }], [{ primary: true, type: 3, name: "确认收货" }], [], [{ primary: false, type: 4, name: "申请售后" }, { primary: true, type: 6, name: "评价" }]],
   },
-
+  created() {
+    this.setData({
+      order: this.properties.order
+    })
+  },
   methods: {
     // 点击【订单操作】按钮，根据按钮类型分发
     onOrderBtnTap(e) {
@@ -117,6 +120,7 @@ Component({
     },
 
     onApplyRefund(order) {
+      console.log('--onApplyRefund--', order);
       wx.navigateTo({ url: `/pages/order/apply-service/index?order=${JSON.stringify(order)}` });
     },
 
@@ -131,11 +135,12 @@ Component({
 
     /** 添加订单评论 */
     onAddComment(order) {
-      const imgUrl = order?.goodsList?.[0]?.thumb;
-      const title = order?.goodsList?.[0]?.title;
-      const specs = order?.goodsList?.[0]?.specs;
+      // const imgUrl = order?.goodsList?.[0]?.thumb;
+      // const title = order?.goodsList?.[0]?.title;
+      // const specs = order?.goodsList?.[0]?.specs;
+      console.log('--添加订单评论--', order, this.properties, this.data);
       wx.navigateTo({
-        url: `/pages/goods/comments/create/index?specs=${specs}&title=${title}&orderNo=${order?.orderNo}&imgUrl=${imgUrl}`,
+        url: `/pages/goods/comments/create/index?uid=${order.uid}`,
       });
     },
   },

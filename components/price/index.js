@@ -24,6 +24,7 @@ Component({
 
   methods: {
     format(price) {
+      console.log('--price--', price);
       this.setData({ price });
     },
   },

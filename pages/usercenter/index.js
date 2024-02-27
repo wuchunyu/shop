@@ -21,25 +21,25 @@ const menuData = [
 const orderTagInfos = [{
   title: '待付款',
   iconName: 'wallet',
-  orderNum: 0,
+  orderNum: 1,
   status: 0,
 },
 {
   title: '待发货',
   iconName: 'deliver',
-  orderNum: 0,
+  orderNum: 2,
   status: 1,
 },
 {
   title: '待收货',
   iconName: 'package',
-  orderNum: 0,
+  orderNum: 3,
   status: 2,
 },
 {
   title: '待评价',
   iconName: 'comment',
-  orderNum: 0,
+  orderNum: 4,
   status: 4,
 },
 ];

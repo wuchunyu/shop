@@ -12,9 +12,6 @@ Page({
       column: 3,
     },
     isAllowedSubmit: false,
-    imgUrl: '',
-    title: '',
-    goodsDetail: '',
     imageProps: {
       mode: 'aspectFit',
     },
@@ -22,9 +19,7 @@ Page({
 
   onLoad(options) {
     this.setData({
-      imgUrl: options.imgUrl,
-      title: options.title,
-      goodsDetail: options.specs,
+      uid: options.uid,
     });
   },
 
@@ -73,6 +68,7 @@ Page({
 
   onSubmitBtnClick() {
     const { isAllowedSubmit } = this.data;
+    console.log('--isAllowedSubmit--', isAllowedSubmit, this.data);
     if (!isAllowedSubmit) return;
     Toast({
       context: this,
@@ -80,6 +76,6 @@ Page({
       message: '评价提交成功',
       icon: 'check-circle',
     });
-    wx.navigateBack();
+    // wx.navigateBack();
   },
 });

@@ -1,14 +1,5 @@
 <view class="page-container">
   <view class="comment_card">
-    <view class="goods_info_container">
-      <view class="goods_image-container">
-        <t-image t-class="goods_image" src="{{imgUrl}}" />
-      </view>
-      <view class="goods_title_container">
-        <view class="goods_title">{{title}}</view>
-        <view class="goods_detail">{{goodsDetail}}</view>
-      </view>
-    </view>
     <view class="rate-container">
       <text class="rate-title">商品评价</text>
       <view class="rate">
