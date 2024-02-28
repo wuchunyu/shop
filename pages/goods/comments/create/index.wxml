@@ -1,6 +1,6 @@
 <view class="page-container">
   <view class="comment_card">
-    <view class="rate-container">
+    <view class="rate-container align_center">
       <text class="rate-title">商品评价</text>
       <view class="rate">
         <t-rate value="{{goodRateValue}}" bind:change="onRateChange" size="26" gap="6" color="{{['#ffc51c', '#ddd']}}" data-item="goodRateValue" />
@@ -21,13 +21,13 @@
 </view>
 <view class="comment_card convey_card">
   <view class="convey-comment-title">物流服务评价</view>
-  <view class="rate-container">
+  <view class="rate-container align_center">
     <text class="rate-title">物流评价</text>
     <view class="rate">
       <t-rate value="{{conveyRateValue}}" bind:change="onRateChange" variant="filled" size="26" gap="6" color="{{['#ffc51c', '#ddd']}}" data-item="conveyRateValue" />
     </view>
   </view>
-  <view class="rate-container">
+  <view class="rate-container align_center">
     <text class="rate-title">服务评价</text>
     <view class="rate">
       <t-rate value="{{serviceRateValue}}" bind:change="onRateChange" size="26" gap="6" color="{{['#ffc51c', '#ddd']}}" data-item="serviceRateValue" />

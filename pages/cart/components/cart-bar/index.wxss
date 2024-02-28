@@ -2,10 +2,6 @@
   height: 100rpx;
 }
 
-.flex-v-center {
-  align-items: center;
-}
-
 .flex1 {
   flex: 1;
 }

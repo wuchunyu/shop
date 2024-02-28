@@ -9,7 +9,6 @@ page {
 
 .comment_card .rate-container {
   display: flex;
-  align-items: center;
   margin-top: 22rpx;
 }
 
