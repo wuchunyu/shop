@@ -9,7 +9,7 @@
           {{ goods.title }}
         </view>
       </view>
-      <view class="flex goods-card__down">
+      <view class="flex justify_start goods-card__down">
         <price wx:if="{{ goods.price }}" wr-class="spec-for-price" symbol-class="spec-for-symbol" price="{{goods.price}}" />
       </view>
     </view>

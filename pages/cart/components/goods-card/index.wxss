@@ -148,7 +148,6 @@
 .wr-goods-card__short_content {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: flex-end;
   margin: 0 0 0 46rpx;
 }

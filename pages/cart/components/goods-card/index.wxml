@@ -16,7 +16,7 @@
           </view>
         </view>
       </view>
-      <view class="wr-goods-card__short_content">
+      <view class="wr-goods-card__short_content justify_start">
         <block>
           <view class="wr-goods-card__price">
             <price wr-class="price-class" symbol="{{currency}}" price="{{goods.price}}" fill="{{priceFill}}" decimalSmaller />

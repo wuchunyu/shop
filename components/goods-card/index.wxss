@@ -69,7 +69,6 @@
 .goods-card__down {
   position: relative;
   flex-direction: row;
-  justify-content: flex-start;
   align-items: baseline;
   line-height: 32rpx;
   margin: 8rpx 0 0 0;

@@ -1,10 +1,10 @@
 <view class="fixed width_max user-center-card">
   <block>
-    <view wx:if="{{!hasUserInfo}}" class="flex userCenterCardHeader" bindtap="gotoUserEditPage">
+    <view wx:if="{{!hasUserInfo}}" class="flex justify_start relative userCenterCardHeader" bindtap="gotoUserEditPage">
       <t-avatar image="{{userInfo.avatarUrl || defaultAvatarUrl}}" class="user-center-card__header__avatar" />
       <view class="user-center-card__header__name">{{'请登录'}}</view>
     </view>
-    <view wx:else class="flex userCenterCardHeader">
+    <view wx:else class="flex justify_start relative userCenterCardHeader">
       <t-avatar image="{{userInfo.avatarUrl || defaultAvatarUrl}}" class="user-center-card__header__avatar" />
       <view class="user-center-card__header__name">{{userInfo.nickName}}</view>
     </view>

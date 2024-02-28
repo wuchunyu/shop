@@ -9,7 +9,7 @@
       </view>
     </block>
   </view>
-  <view wx:else class="no-address">
+  <view wx:else class="no-address justify_start">
     <t-empty icon="" description="暂无收货地址，赶快添加吧" />
   </view>
   <view class="fixed bottom-fixed">
