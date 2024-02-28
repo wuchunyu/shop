@@ -13,7 +13,7 @@
       <t-upload media-type="{{['image','video']}}" files="{{uploadFiles}}" bind:remove="handleRemove" bind:success="handleSuccess" gridConfig="{{gridConfig}}" imageProps="{{imageProps}}" />
     </view>
 
-    <view class="flex anonymous_box">
+    <view class="flex align_center anonymous_box">
       <t-checkbox bind:change="onAnonymousChange" checked="{{isAnonymous}}" color="#FA4126" />
       <view class="name">匿名评价</view>
     </view>

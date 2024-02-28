@@ -1,6 +1,6 @@
 <t-popup visible="{{show}}" placement="bottom">
   <view class="cityPickerBox" slot="content">
-    <view wx:if="{{headerVisible}}" class="cityPickerHeader text_center city-picker-more">
+    <view wx:if="{{headerVisible}}" class="cityPickerHeader text_center city-picker-more align_center">
       <view class="btn" hover-class="btn__active" catch:tap="onClose">取消</view>
       <view wx:if="{{title}}" class="title">{{title}}</view>
       <view class="btn primary" hover-class="btn__active" catch:tap="onConfirm">确定</view>
@@ -13,7 +13,7 @@
         <view wx:for="{{ pickerOptions }}" wx:key="code">{{ item.name }}</view>
       </picker-view-column>
     </picker-view>
-    <view class="cityPickerFooter" wx:if="{{!headerVisible}}">
+    <view class="cityPickerFooter align_center" wx:if="{{!headerVisible}}">
       <view class="btn" hover-class="btn__active" catch:tap="onClose">取消</view>
       <view class="btn primary" hover-class="btn__active" catch:tap="onConfirm">确定</view>
     </view>

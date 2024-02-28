@@ -21,7 +21,6 @@
 
 .order_group_item {
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   flex: 1;
 }

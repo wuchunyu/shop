@@ -7,33 +7,6 @@ page {
   background-color: #ffffff;
 }
 
-.comment_card .goods_info_container .goods_image {
-  width: 112rpx;
-  height: 112rpx;
-  border-radius: 8rpx;
-}
-
-.comment_card .goods_info_container {
-  display: flex;
-  align-items: center;
-}
-
-.comment_card .goods_info_container .goods_title_container {
-  padding-left: 24rpx;
-}
-
-.comment_card .goods_info_container .goods_title {
-  font-size: 28rpx;
-  font-weight: normal;
-}
-
-.comment_card .goods_info_container .goods_detail {
-  font-size: 24rpx;
-  font-weight: normal;
-  color: #999999;
-  margin-top: 16rpx;
-}
-
 .comment_card .rate-container {
   display: flex;
   align-items: center;
@@ -63,7 +36,6 @@ page {
 }
 
 .page-container .anonymous_box {
-  align-items: center;
   padding-top: 52rpx;
 }
 

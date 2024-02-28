@@ -17,14 +17,12 @@
 .city-picker-more {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .cityPickerFooter {
   height: 100rpx;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .cityPickerFooter .btn {

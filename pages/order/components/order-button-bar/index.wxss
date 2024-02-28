@@ -5,7 +5,6 @@
 .btn-bar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   line-height: 1;
 }
 
@@ -15,7 +14,6 @@
 
 .btn-bar .right {
   display: flex;
-  align-items: center;
 }
 
 .btn-bar .t-button {

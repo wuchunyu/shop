@@ -1,6 +1,6 @@
-<view class="btn-bar">
+<view class="btn-bar align_center">
   <view class="left"></view>
-  <view class="right">
+  <view class="right align_center">
     <t-button wx:for="{{buttons[goodsIndex]}}" wx:key="type" wx:for-item="rightBtn" size="extra-small" variant="{{ rightBtn.primary ? 'base' : 'outline'}}" shape="round" t-class="{{isBtnMax ? 't-button--max':'t-button'}} order-btn {{rightBtn.primary ? 'primary' : 'normal'}}" hover-class="order-btn--active" catchtap="onOrderBtnTap" data-type="{{rightBtn.type}}" open-type="{{ rightBtn.openType }}" data-share="{{ rightBtn.dataShare }}">
       {{rightBtn.name}}
     </t-button>
