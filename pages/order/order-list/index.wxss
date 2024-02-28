@@ -12,7 +12,6 @@
 .page-container .tab-bar__inner {
   font-size: 26rpx;
   color: #333333;
-  position: fixed;
   width: 100vw;
   top: 0;
   left: 0;

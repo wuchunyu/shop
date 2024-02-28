@@ -51,5 +51,4 @@
   font-size: 28rpx;
   font-weight: bold;
   line-height: 88rpx;
-  text-align: center;
 }

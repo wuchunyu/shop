@@ -53,7 +53,7 @@
         <text>订单编号</text>
         <view class="pay-item__right" bindtap="onOrderNumCopy">
           <text class="order-no">{{order.uid}}</text>
-          <view class="pay-item__right__copy">复制</view>
+          <view class="pay-item__right__copy text_center">复制</view>
         </view>
       </view>
       <view class="pay-item">
@@ -63,13 +63,6 @@
         </view>
       </view>
       <view class="border-bottom border-bottom-margin" />
-      <!-- <view class="pay-item">
-        <text>发票</text>
-        <view class="pay-item__right" bindtap="onOrderInvoiceView">
-          <text class="order-no normal-color">{{invoiceType}}</text>
-          <view class="pay-item__right__copy">查看</view>
-        </view>
-      </view> -->
       <view class="pay-item">
         <text>备注</text>
         <view class="pay-item__right">

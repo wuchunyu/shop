@@ -15,14 +15,6 @@ page {
   align-items: baseline;
 }
 
-.goods_detail-page .goods-info .goods-price-up {
-  color: #fa4126;
-  font-size: 28rpx;
-  position: relative;
-  bottom: 4rpx;
-  left: 8rpx;
-}
-
 .goods_detail-page .goods-info .goods-price .class-goods-price {
   font-size: 64rpx;
   color: #fa4126;

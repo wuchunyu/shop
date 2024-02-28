@@ -98,7 +98,6 @@
 }
 
 .wr-goods-card__specs__desc-text {
-  height: 100%;
   max-width: 380rpx;
   word-break: break-all;
   overflow: hidden;

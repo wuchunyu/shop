@@ -18,8 +18,16 @@
   position: fixed;
 }
 
+.relative {
+  position: relative;
+}
+
 .width_max {
   width: 100%;
+}
+
+.height_max {
+  height: 100%;
 }
 
 .hidden {

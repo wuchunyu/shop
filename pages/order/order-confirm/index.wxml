@@ -40,7 +40,7 @@
       <price class="total-price" price="{{totalPrice}}" fill="{{false}}" decimalSmaller />
     </view>
   </view>
-  <view class="wx-pay-cover">
+  <view class="fixed wx-pay-cover">
     <view class="wx-pay">
       <price decimalSmaller fill class="price" price="{{totalPrice}}" />
       <view class="submit-btn" bindtap="submitOrder">

@@ -1,6 +1,6 @@
 <t-popup visible="{{show}}" placement="bottom" bind:visible-change="onCancel" close-btn="{{showCloseButton}}">
   <view class="hidden popupContent">
-    <view class="header">
+    <view class="header text_center">
       {{title}}
     </view>
     <view class="options">

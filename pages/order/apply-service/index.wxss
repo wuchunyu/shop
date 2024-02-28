@@ -222,7 +222,6 @@
 
 .select-service .bottom-bar {
   background-color: #fff;
-  position: fixed;
   bottom: 0;
   left: 0;
   height: 158rpx;

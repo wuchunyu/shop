@@ -164,7 +164,6 @@
 .pay-item .pay-item__right .pay-item__right__copy {
   width: 80rpx;
   height: 40rpx;
-  text-align: center;
   font-size: 24rpx;
   line-height: 40rpx;
   color: #333333;

@@ -1,5 +1,4 @@
 .video .video_cover {
-  height: 100%;
   position: relative;
 }
 

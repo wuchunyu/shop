@@ -11,7 +11,7 @@
           {{ goods.title }}
         </view>
         <view class="wr-goods-card__specs__desc specs-class">
-          <view class="wr-goods-card__specs__desc-text">
+          <view class="wr-goods-card__specs__desc-text height_max">
             <span wx:for="{{goods.specList}}" wx:for-item="specs">{{specs.specValue}}</span>
           </view>
         </view>

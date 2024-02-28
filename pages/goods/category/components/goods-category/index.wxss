@@ -2,10 +2,6 @@
   display: flex;
 }
 
-.custom-sidebar {
-  height: 100%;
-}
-
 .goods-category__right {
   height: calc(100% - 50px);
   flex: auto;

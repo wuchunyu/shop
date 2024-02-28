@@ -52,7 +52,7 @@
         </view>
       </t-upload>
     </view>
-    <view class="width_max bottom-bar">
+    <view class="width_max fixed bottom-bar">
       <t-button t-class="bottom-bar__btn {{validateRes.valid && !uploading ? '' : 'disabled'}}" bindtap="onSubmit" loading="{{submitting}}">
         提交
       </t-button>
