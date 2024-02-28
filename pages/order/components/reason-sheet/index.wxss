@@ -33,7 +33,6 @@ page view {
 }
 
 .popupContent .button-bar {
-  width: 100%;
   padding: 20rpx 30rpx;
   display: flex;
   flex-wrap: nowrap;
@@ -43,12 +42,7 @@ page view {
 }
 
 .popupContent .button-bar .btn {
-  width: 100%;
   background: #fa4126;
   color: #fff;
   border-radius: 48rpx;
-}
-
-.button-bar .btnWrapper {
-  width: 100%;
 }

@@ -14,7 +14,6 @@
 }
 
 .order_group_content {
-  width: 100%;
   height: 164rpx;
   background-color: #fff;
   border-radius: 0 0 16rpx 16rpx;

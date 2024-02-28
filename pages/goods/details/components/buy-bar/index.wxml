@@ -1,5 +1,5 @@
 <view class="footer-cont flex flex-between wr-class">
-  <view class="flex flex-between bottom-operate-left" wx:if="{{jumpArray.length > 0}}">
+  <view class="flex flex-between width_max bottom-operate-left" wx:if="{{jumpArray.length > 0}}">
     <view wx:for="{{jumpArray}}" wx:key="index" class="icon-warp operate-wrap" bindtap="toNav" data-ele="foot_navigation" data-index="{{index}}" data-url="{{item.url}}">
       <view>
         <t-icon prefix="wr" name="{{item.iconName}}" size="40rpx" />

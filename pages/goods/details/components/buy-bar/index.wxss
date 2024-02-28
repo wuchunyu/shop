@@ -1,3 +1,5 @@
+@import '../../../../../app.wxss';
+
 .footer-cont {
   background-color: #fff;
   padding: 16rpx;
@@ -13,10 +15,6 @@
 
 .operate-wrap {
   position: relative;
-}
-
-.bottom-operate-left {
-  width: 100%;
 }
 
 .bottom-operate-left .icon-warp {

@@ -2,20 +2,20 @@
   background: #fff;
   margin: 0rpx 0rpx 24rpx;
 }
+
 .address-card .wr-cell__title {
   color: #999;
   margin-left: 6rpx;
 }
-.address-card .order-address {
-  display: flex;
-  width: 100%;
-}
+
 .address-card .order-address .address-content {
   flex: 1;
 }
+
 .order-address .address__right {
   align-self: center;
 }
+
 .address-card .order-address .title {
   display: flex;
   align-items: center;
@@ -25,6 +25,7 @@
   color: #999999;
   line-height: 40rpx;
 }
+
 .address-card .order-address .title .address-tag {
   width: 52rpx;
   height: 29rpx;
@@ -37,6 +38,7 @@
   font-size: 20rpx;
   margin-right: 12rpx;
 }
+
 .address-card .order-address .detail {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -49,6 +51,7 @@
   line-height: 48rpx;
   margin: 8rpx 0;
 }
+
 .address-card .order-address .info {
   height: 40rpx;
   font-size: 28rpx;
@@ -56,8 +59,8 @@
   color: #333333;
   line-height: 40rpx;
 }
+
 .address-card .top-line {
-  width: 100%;
   height: 6rpx;
   background-color: #fff;
   background-image: url(https://cdn-we-retail.ym.tencent.com/miniapp/order/stripe.png);

@@ -52,8 +52,6 @@ page {
 }
 
 .address-container .btn-wrap {
-  width: 100%;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 32rpx;
@@ -87,7 +85,6 @@ page {
 }
 
 .address-container .btn-wrap .address-btn {
-  width: 100%;
   height: 88rpx;
   display: flex;
   justify-content: center;
@@ -104,7 +101,6 @@ page {
 .address-container .bottom-fixed .footer {
   margin-top: 10rpx;
   display: inline-block;
-  width: 100%;
   text-align: center;
   font-size: 24rpx;
   font-weight: 400;

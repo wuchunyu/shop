@@ -11,7 +11,7 @@
 
 <view class="address-card wr-class">
   <t-cell wx:if="{{addressData && addressData.detailAddress}}" bindtap="onAddressTap" hover>
-    <view class="order-address" slot="title">
+    <view class="width_max flex order-address" slot="title">
       <view class="address-content">
         <view class="title">
           {{addressData.provinceName}} {{addressData.cityName}} {{addressData.districtName}}
@@ -27,5 +27,5 @@
   <t-cell wx:else bindtap="onAddTap" title="添加收货地址" hover>
     <t-icon name="add-circle" slot="left-icon" size="40rpx" />
   </t-cell>
-  <view class="top-line" />
+  <view class="width_max top-line" />
 </view>

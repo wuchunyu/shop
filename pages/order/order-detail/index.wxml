@@ -1,7 +1,7 @@
 <t-pull-down-refresh id="t-pull-down-refresh" bindrefresh="onPullDownRefresh_" t-class-indicator="t-class-indicator">
   <!-- 页面内容 -->
-  <view class="order-detail">
-    <view class="header">
+  <view class="width_max order-detail">
+    <view class="width_max header">
       <view class="order-detail__header">
         <view class="title">
           <block>{{orderStatusList[order.orderStatus]}}</block>

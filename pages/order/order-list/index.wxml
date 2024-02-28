@@ -13,7 +13,7 @@
       </view>
       <specs-goods-card wx:for="{{order.orderItemVOs}}" wx:key="id" wx:for-item="goods" wx:for-index="gIndex" data="{{goods}}" no-top-line="{{gIndex === 0}}" />
       <view slot="more">
-        <view class="price-total">
+        <view class="width_max price-total">
           <text decode>&nbsp;</text>
           <text class="bold-price" decode="{{true}}">总价&nbsp;</text>
           <price fill class="real-pay" price="{{order.totalAmount + ''}}" decimalSmaller />

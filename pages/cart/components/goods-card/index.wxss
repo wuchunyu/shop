@@ -49,16 +49,6 @@
   flex: 1 1 auto;
 }
 
-.wr-goods-card__long_content .goods_tips {
-  width: 100%;
-  margin-top: 16rpx;
-  text-align: right;
-  color: #fa4126;
-  font-size: 24rpx;
-  line-height: 32rpx;
-  font-weight: bold;
-}
-
 .wr-goods-card__title {
   flex-shrink: 0;
   font-size: 28rpx;

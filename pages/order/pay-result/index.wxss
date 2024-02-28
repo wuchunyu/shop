@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
 }
 
 .pay-result .pay-status {
@@ -14,9 +13,11 @@
   display: flex;
   align-items: center;
 }
+
 .pay-result .pay-status text {
   padding-left: 12rpx;
 }
+
 .pay-result .pay-money {
   color: #666666;
   font-size: 28rpx;
@@ -31,13 +32,13 @@
   line-height: 48rpx;
   color: #fa4126;
 }
+
 .pay-result .btn-wrapper {
   margin-top: 48rpx;
   padding: 12rpx 32rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
   box-sizing: border-box;
 }
 

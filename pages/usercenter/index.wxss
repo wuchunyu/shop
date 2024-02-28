@@ -36,38 +36,11 @@ page {
   align-items: center;
 }
 
-.order-content {
-  overflow: hidden;
-  width: 100%;
-  display: flex;
-  background-color: #fff;
-  border-radius: 16rpx;
-}
-
 .order-item {
   flex: 1;
   height: 180rpx;
   overflow: hidden;
   position: relative;
-  text-align: center;
-}
-
-.order-content-box {
-  margin: auto;
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.order-content-t {
-  margin-top: 10rpx;
-  font-size: 24rpx;
-  color: #333;
-  letter-spacing: 0;
   text-align: center;
 }
 

@@ -3,7 +3,6 @@
 }
 
 .order-detail {
-  width: 100%;
   box-sizing: border-box;
   padding: 0rpx 0rpx calc(env(safe-area-inset-bottom) + 144rpx);
 }
@@ -13,7 +12,6 @@
 }
 
 .order-detail .header {
-  width: 100%;
   background-color: #ffffff;
 }
 

@@ -37,6 +37,7 @@ Component({
       wx.getUserProfile({
         desc: '获取用户的信息',
         success: res => {
+          console.log('--获取用户的信息--', res);
           this.setData({
             userInfo: res.userInfo,
             hasUserInfo: true

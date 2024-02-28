@@ -10,11 +10,6 @@ page {
   background-color: #fff;
 }
 
-.goods_detail-page .swipe-img {
-  width: 100%;
-  height: 750rpx;
-}
-
 .goods_detail-page .goods-info .goods-price {
   display: flex;
   align-items: baseline;

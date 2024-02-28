@@ -11,8 +11,8 @@
         </view>
       </t-cell>
     </view>
-    <view class="button-bar" wx:if="{{showConfirmButton}}">
-      <t-button class="btnWrapper" wx:if="{{showConfirmButton}}" t-class="btn" bindtap="onConfirm">
+    <view class="width_max button-bar" wx:if="{{showConfirmButton}}">
+      <t-button class="width_max" wx:if="{{showConfirmButton}}" t-class="width_max btn" bindtap="onConfirm">
         {{confirmButtonText}}
       </t-button>
     </view>
