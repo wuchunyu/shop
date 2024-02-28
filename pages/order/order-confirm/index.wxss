@@ -83,7 +83,6 @@
   width: 176rpx;
   height: 176rpx;
   border-radius: 8rpx;
-  overflow: hidden;
   margin-right: 16rpx;
 }
 

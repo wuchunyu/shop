@@ -22,7 +22,6 @@ page {
 
 .cell-box {
   border-radius: 10rpx;
-  overflow: hidden;
   margin-bottom: 20rpx;
 }
 
@@ -34,14 +33,6 @@ page {
   height: 100rpx;
   display: flex;
   align-items: center;
-}
-
-.order-item {
-  flex: 1;
-  height: 180rpx;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
 }
 
 .popupContent {

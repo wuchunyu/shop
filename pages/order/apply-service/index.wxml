@@ -61,7 +61,7 @@
 </view>
 <!-- 收货状态选择 -->
 <t-popup visible="{{showReceiptStatusDialog}}" placement="bottom" bindclose="onReceiptStatusDialogConfirm">
-  <view class="dialog--service-status" slot="content">
+  <view class="hidden dialog--service-status" slot="content">
     <view class="options">
       <view wx:for="{{receiptStatusList}}" wx:key="status" class="option" hover-class="option--active" bindtap="onReceiptStatusDialogConfirm" data-index="{{index}}">
         {{item.desc}}

@@ -1,5 +1,5 @@
 <t-popup visible="{{show}}" placement="bottom" bind:visible-change="onCancel" close-btn="{{showCloseButton}}">
-  <view class="popupContent">
+  <view class="hidden popupContent">
     <view class="header">
       {{title}}
     </view>

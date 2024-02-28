@@ -172,7 +172,6 @@
 
 .dialog--service-status {
   background-color: #f3f4f5;
-  overflow: hidden;
 }
 
 .dialog--service-status .options .option {

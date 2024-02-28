@@ -16,7 +16,7 @@
         <view class="title">
           {{addressData.provinceName}} {{addressData.cityName}} {{addressData.districtName}}
         </view>
-        <view class="detail">{{addressData.detailAddress}}</view>
+        <view class="detail hidden">{{addressData.detailAddress}}</view>
         <view class="info">
           {{addressData.name}} {{utils.hidePhoneNum(addressData.phone)}}
         </view>

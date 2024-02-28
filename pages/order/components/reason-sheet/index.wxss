@@ -6,7 +6,6 @@ page view {
   background-color: white;
   color: #222427;
   border-radius: 20rpx 20rpx 0 0;
-  overflow: hidden;
 }
 
 .popupContent .header {

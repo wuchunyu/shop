@@ -2,7 +2,7 @@
   <!-- 页面内容 -->
   <view class="width_max order-detail">
     <view class="width_max header">
-      <view class="order-detail__header">
+      <view class="order-detail__header hidden">
         <view class="title">
           <block>{{orderStatusList[order.orderStatus]}}</block>
         </view>
@@ -17,7 +17,7 @@
 
       <view class="border-bottom" />
       <!-- 收货地址 -->
-      <view class="order-logistics">
+      <view class="order-logistics hidden">
         <t-icon name="location" size="40rpx" class="logistics-icon" prefix="wr" />
         <view class="logistics-content">
           <view>{{order.orderAddress.name + ' '}}{{order.orderAddress.phone}}</view>

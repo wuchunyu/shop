@@ -1,6 +1,5 @@
 .wrap {
   height: 100vh;
-  overflow: hidden;
 }
 
 .goods-category-class {
