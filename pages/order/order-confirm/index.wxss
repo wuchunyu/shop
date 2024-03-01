@@ -41,7 +41,6 @@
   line-height: 80rpx;
   font-weight: bold;
   font-size: 28rpx;
-  text-align: center;
 }
 
 .order-sure .wx-pay-cover .wx-pay .btn-gray {

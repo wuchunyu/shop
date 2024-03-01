@@ -43,7 +43,7 @@
   <view class="fixed wx-pay-cover">
     <view class="wx-pay">
       <price decimalSmaller fill class="price" price="{{totalPrice}}" />
-      <view class="submit-btn" bindtap="submitOrder">
+      <view class="submit-btn text_center" bindtap="submitOrder">
         提交订单
       </view>
     </view>

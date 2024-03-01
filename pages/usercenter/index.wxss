@@ -43,11 +43,9 @@ page {
 
 .popupContent .popup-title {
   background: #fff;
-  text-align: center;
   font-size: 24rpx;
   color: #999;
   height: 112rpx;
-  text-align: center;
   line-height: 112rpx;
   border-radius: 16rpx 16rpx 0 0;
 }
@@ -103,7 +101,6 @@ page {
 }
 
 .footer__version {
-  text-align: center;
   margin-top: 50rpx;
   color: #999;
   margin-bottom: 4rpx;

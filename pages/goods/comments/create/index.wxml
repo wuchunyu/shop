@@ -9,17 +9,17 @@
     <view class="textarea-container">
       <t-textarea t-class="textarea" maxlength="{{500}}" indicator placeholder="对商品满意吗？评论一下" bind:change="onTextAreaChange" />
     </view>
-    <view class="upload-container">
+    <!-- <view class="upload-container">
       <t-upload media-type="{{['image','video']}}" files="{{uploadFiles}}" bind:remove="handleRemove" bind:success="handleSuccess" gridConfig="{{gridConfig}}" imageProps="{{imageProps}}" />
-    </view>
+    </view> -->
 
-    <view class="flex align_center anonymous_box">
+    <!-- <view class="flex align_center anonymous_box">
       <t-checkbox bind:change="onAnonymousChange" checked="{{isAnonymous}}" color="#FA4126" />
       <view class="name">匿名评价</view>
-    </view>
+    </view> -->
   </view>
 </view>
-<view class="comment_card convey_card">
+<!-- <view class="comment_card convey_card">
   <view class="convey-comment-title">物流服务评价</view>
   <view class="rate-container align_center">
     <text class="rate-title">物流评价</text>
@@ -33,7 +33,7 @@
       <t-rate value="{{serviceRateValue}}" bind:change="onRateChange" size="26" gap="6" color="{{['#ffc51c', '#ddd']}}" data-item="serviceRateValue" />
     </view>
   </view>
-</view>
+</view> -->
 <view class="fixed flex submit-button-container">
   <t-button content="提交" block shape="round" t-class="submit-button{{isAllowedSubmit ? '' : '-disabled'}}" bind:tap="onSubmitBtnClick" />
 </view>

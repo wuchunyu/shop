@@ -14,8 +14,8 @@
       </picker-view-column>
     </picker-view>
     <view class="cityPickerFooter align_center" wx:if="{{!headerVisible}}">
-      <view class="btn" hover-class="btn__active" catch:tap="onClose">取消</view>
-      <view class="btn primary" hover-class="btn__active" catch:tap="onConfirm">确定</view>
+      <view class="btn text_center" hover-class="btn__active" catch:tap="onClose">取消</view>
+      <view class="btn text_center primary" hover-class="btn__active" catch:tap="onConfirm">确定</view>
     </view>
   </view>
 </t-popup>

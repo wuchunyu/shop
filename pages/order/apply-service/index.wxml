@@ -45,7 +45,7 @@
       <t-upload media-type="{{['image','video']}}" files="{{sessionFrom.rightsImageUrls}}" bind:remove="handleRemove" bind:success="handleSuccess" bind:complete="handleComplete" bind:select-change="handleSelectChange" gridConfig="{{uploadGridConfig}}" max="3">
         <view slot="add-content" class="upload-addcontent-slot">
           <t-icon name="add" size="60rpx" />
-          <view class="upload-desc">
+          <view class="flex upload-desc text_center">
             <text>上传凭证</text>
             <text>（最多3张）</text>
           </view>
@@ -67,7 +67,7 @@
         {{item.desc}}
       </view>
     </view>
-    <view class="cancel" hover-class="cancel--active" bindtap="onReceiptStatusDialogConfirm">取消</view>
+    <view class="cancel text_center" hover-class="cancel--active" bindtap="onReceiptStatusDialogConfirm">取消</view>
   </view>
 </t-popup>
 <!-- 理由选择 -->

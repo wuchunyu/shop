@@ -13,19 +13,6 @@
   margin-top: 0;
 }
 
-.cart-group .cart-store {
-  height: 96rpx;
-  background-color: #fff;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  padding: 0rpx 24rpx 0rpx 36rpx;
-}
-
-.cart-group .cart-store .cart-store__check {
-  padding: 28rpx 32rpx 28rpx 0rpx;
-}
-
 .cart-group .cart-store__content {
   box-sizing: border-box;
   flex: auto;
@@ -34,26 +21,8 @@
   justify-content: space-between;
 }
 
-.cart-group .cart-store__content .store-title {
-  flex: auto;
-  font-size: 28rpx;
-  line-height: 40rpx;
-  color: #333333;
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  overflow: hidden;
-}
-
 .cart-group .cart-store__content .store-title .wr-store {
   font-size: 32rpx;
-}
-
-.cart-group .cart-store__content .store-title .store-name {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  margin-left: 12rpx;
 }
 
 .cart-group .cart-store__content .get-coupon {
@@ -350,28 +319,4 @@
   margin: 0 4rpx;
   display: flex;
   align-items: center;
-}
-
-.goods-sku-info .no-storage-mask {
-  position: absolute;
-  color: #fff;
-  bottom: 0rpx;
-  left: 0rpx;
-  background-color: rgba(0, 0, 0, 0.1);
-  height: 192rpx;
-  width: 192rpx;
-  border-radius: 8rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.no-storage-mask .no-storage-content {
-  width: 128rpx;
-  height: 128rpx;
-  border-radius: 64rpx;
-  background-color: rgba(0, 0, 0, 0.4);
-  text-align: center;
-  line-height: 128rpx;
-  font-size: 28rpx;
 }

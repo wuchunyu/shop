@@ -37,13 +37,13 @@
     </view>
   </view>
   <view class="desc-content">
-    <view class="desc-content__title" wx:if="{{details.desc.length > 0}}">
+    <view class="flex desc-content__title text_center" wx:if="{{details.desc.length > 0}}">
       <t-image t-class="img" src="{{recLeftImg}}" />
       <span class="desc-content__title--text">详情介绍</span>
       <t-image t-class="img" src="{{recRightImg}}" />
     </view>
     <view wx:if="{{details.desc.length > 0}}" wx:for="{{details.desc}}" wx:key="index">
-      <t-image t-class="desc-content__img" src="{{item}}" mode="widthFix" />
+      <t-image t-class="desc-content__img width_max" src="{{item}}" mode="widthFix" />
     </view>
   </view>
   <view class="fixed goods-bottom-operation">

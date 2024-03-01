@@ -198,7 +198,6 @@
 .dialog--service-status .cancel {
   color: #333333;
   font-size: 30rpx;
-  text-align: center;
   height: 100rpx;
   line-height: 100rpx;
   background-color: white;
@@ -291,8 +290,6 @@
 }
 
 .upload-desc {
-  text-align: center;
-  display: flex;
   flex-direction: column;
   font-size: 24rpx;
   color: #999;

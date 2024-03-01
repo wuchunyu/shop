@@ -22,7 +22,7 @@
         </view>
       </view>
     </view>
-    <view class="single-confirm-btn {{!isStock ? 'disabled' : ''}}" bindtap="specsConfirm">
+    <view class="single-confirm-btn text_center {{!isStock ? 'disabled' : ''}}" bindtap="specsConfirm">
       确定
     </view>
   </view>

@@ -1,7 +1,6 @@
 .c-sidebar-item {
   display: flex;
   justify-content: center;
-  text-align: center;
   background-color: #f5f5f5;
   color: #222427;
   padding: 20rpx 0;

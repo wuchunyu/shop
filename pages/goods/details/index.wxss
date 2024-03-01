@@ -157,21 +157,6 @@ page {
   font-size: 28rpx;
 }
 
-.spu-select .label {
-  margin-right: 30rpx;
-  text-align: center;
-  flex-shrink: 0;
-  color: #999999;
-  font-weight: normal;
-}
-
-.spu-select .content {
-  display: flex;
-  flex: 1;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .spu-select .content .tintColor {
   color: #aaa;
 }
@@ -185,8 +170,6 @@ page {
 .goods_detail-page .desc-content__title {
   font-size: 28rpx;
   line-height: 36rpx;
-  text-align: center;
-  display: flex;
   justify-content: center;
   align-items: center;
   padding: 30rpx 20rpx;
@@ -204,7 +187,6 @@ page {
 }
 
 .goods_detail-page .desc-content__img {
-  width: 100%;
   height: auto;
 }
 

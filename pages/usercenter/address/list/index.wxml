@@ -18,7 +18,7 @@
         <text>新建收货地址</text>
       </view>
     </view>
-    <view class="width_max footer" wx:if="{{addressList.length >= 20}}">最多支持添加20个收货地址</view>
+    <view class="width_max footer text_center" wx:if="{{addressList.length >= 20}}">最多支持添加20个收货地址</view>
   </view>
 </view>
 <t-toast id="t-toast" />

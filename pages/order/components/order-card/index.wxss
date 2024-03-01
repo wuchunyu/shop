@@ -21,23 +21,8 @@
   line-height: 40rpx;
 }
 
-.order-card .header .store-name__logo {
-  margin-right: 16rpx;
-  font-size: 40rpx;
-  width: 48rpx;
-  height: 48rpx;
-}
-
 .order-card .header .order-status {
   font-size: 26rpx;
   line-height: 40rpx;
   color: #fa4126;
-}
-
-.order-card .more-mask {
-  padding: 20rpx 0;
-  text-align: center;
-  background-color: white;
-  color: #fa4126;
-  font-size: 24rpx;
 }
